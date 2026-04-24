@@ -1,0 +1,9 @@
+# JCD Foundation — Netlify config
+# Static site (plain HTML) with a site-wide edge-function password gate.
+
+[build]
+  publish = "."
+
+[[edge_functions]]
+  function = "auth"
+  path = "/*"
