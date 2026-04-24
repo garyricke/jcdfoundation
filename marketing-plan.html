@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD Foundation — Marketing Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:  #0E2A58;
+      --white:         #FFFFFF;
+      --deep-charcoal: #111827;
+      --steel-gray:    #4A5568;
+      --mid-gray:      #9AA3AF;
+      --ice-gray:      #F0F3F7;
+      --border-line:   #D1D8E0;
+      --brass-gold:    #C5963A;
+      --pulse-teal:    #0A9B8C;
+      --safety-orange: #E8600A;
+      --body-text:     #2D3748;
+      --section-alt:   #F7F9FC;
+      --font-primary:  'Montserrat', sans-serif;
+      --font-mono:     'Roboto Mono', monospace;
+      --nav-h:         68px;
+      --section-pad:   88px;
+      --container:     1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-primary); font-size: 16px; line-height: 1.7; color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 40px; }
+
+    /* SECTION LABEL */
+    .section-label { display: inline-flex; flex-direction: column; gap: 8px; margin-bottom: 48px; }
+    .section-label::after { content: ''; display: block; width: 40px; height: 3px; background: var(--equipto-blue); }
+    .section-label .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); }
+    .section-label h2 { font-size: 34px; font-weight: 800; color: var(--equipto-blue); line-height: 1.15; letter-spacing: -0.01em; }
+
+    hr.rule { border: none; border-top: 1px solid var(--border-line); }
+
+    /* ── NAV ── */
+    #nav { position: sticky; top: 0; z-index: 900; height: var(--nav-h); background: var(--equipto-blue); border-bottom: 2px solid rgba(255,255,255,0.07); display: flex; align-items: center; }
+    #nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { height: 40px; width: 40px; object-fit: contain; }
+    .nav-logo-text { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); line-height: 1.3; }
+    .nav-logo-text span { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: rgba(255,255,255,0.5); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); padding: 7px 12px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .nav-links a:hover { color: var(--white); border-bottom-color: var(--white); }
+    .nav-links a.nav-alt { color: rgba(255,255,255,0.35); font-size: 9px; }
+    .nav-links a.nav-alt:hover { color: rgba(255,255,255,0.65); }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background: var(--white); }
+    .nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--deep-charcoal); padding: 20px 40px; z-index: 899; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .nav-mobile.open { display: block; }
+    .nav-mobile a { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-mobile a:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    #hero { background: var(--deep-charcoal); position: relative; overflow: hidden; padding: 80px 0 72px; border-bottom: 3px solid var(--equipto-blue); }
+    #hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 6px 14px; margin-bottom: 24px; }
+    .hero-badge span { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .hero-badge strong { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brass-gold); }
+    .hero-inner h1 { font-size: clamp(32px, 4.5vw, 56px); font-weight: 800; color: var(--white); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 20px; max-width: 760px; }
+    .hero-inner p { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.8; margin-bottom: 48px; }
+    .hero-kpis { display: flex; gap: 2px; flex-wrap: wrap; }
+    .hero-kpi { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); padding: 20px 28px; min-width: 180px; }
+    .hero-kpi-n { font-size: 28px; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 4px; }
+    .hero-kpi-l { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .hero-kpi.accent-gold .hero-kpi-n { color: var(--brass-gold); }
+    .hero-kpi.accent-teal .hero-kpi-n { color: var(--pulse-teal); }
+    .hero-kpi.accent-orange .hero-kpi-n { color: var(--safety-orange); }
+
+    /* ── COMPETITOR SECTION ── */
+    #competitors { padding: var(--section-pad) 0; background: var(--white); }
+    .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .comp-card { background: var(--ice-gray); border-top: 4px solid var(--equipto-blue); display: flex; flex-direction: column; }
+    .comp-card-header { padding: 32px 28px 24px; border-bottom: 1px solid var(--border-line); }
+    .comp-org-type { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 10px; }
+    .comp-card h3 { font-size: 18px; font-weight: 800; color: var(--equipto-blue); line-height: 1.2; margin-bottom: 10px; }
+    .comp-card-location { font-size: 11px; color: var(--mid-gray); font-weight: 500; }
+    .comp-stats { padding: 20px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border-line); }
+    .comp-stat { padding: 10px 0; border-right: 1px solid var(--border-line); padding-right: 16px; margin-right: 16px; }
+    .comp-stat:nth-child(even) { border-right: none; padding-right: 0; margin-right: 0; }
+    .comp-stat-n { font-size: 20px; font-weight: 800; color: var(--equipto-blue); line-height: 1; }
+    .comp-stat-l { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-top: 2px; }
+    .comp-spend-bar-wrap { padding: 20px 28px; border-bottom: 1px solid var(--border-line); }
+    .comp-spend-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 10px; display: flex; justify-content: space-between; }
+    .comp-spend-bar-bg { height: 8px; background: var(--border-line); width: 100%; }
+    .comp-spend-bar-fill { height: 8px; background: var(--equipto-blue); transition: width 1s ease; }
+    .comp-tag-row { padding: 16px 28px; display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--border-line); }
+    .comp-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; background: var(--white); color: var(--steel-gray); border: 1px solid var(--border-line); }
+    .comp-card-footer { padding: 20px 28px; margin-top: auto; }
+    .btn-deep-dive { width: 100%; padding: 12px; background: var(--equipto-blue); color: var(--white); font-family: var(--font-primary); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-deep-dive:hover { background: var(--deep-charcoal); }
+
+    /* ── SPEND COMPARISON ── */
+    #spend { padding: var(--section-pad) 0; background: var(--section-alt); border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line); }
+    .spend-table-wrap { overflow-x: auto; margin-bottom: 48px; }
+    .spend-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+    .spend-table th { background: var(--equipto-blue); color: rgba(255,255,255,0.7); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 14px 20px; text-align: left; }
+    .spend-table th:first-child { color: var(--white); }
+    .spend-table td { padding: 14px 20px; font-size: 13px; border-bottom: 1px solid var(--border-line); background: var(--white); }
+    .spend-table tr:last-child td { background: var(--ice-gray); font-weight: 700; font-size: 13px; color: var(--equipto-blue); }
+    .spend-table td:first-child { font-weight: 700; color: var(--body-text); background: var(--ice-gray); }
+    .spend-table tr:last-child td:first-child { background: var(--equipto-blue); color: var(--white); }
+    .bar-cell { display: flex; align-items: center; gap: 10px; }
+    .bar-inline { height: 6px; background: var(--equipto-blue); opacity: 0.25; flex-shrink: 0; }
+    .bar-inline.dunham { opacity: 0.55; }
+    .bar-inline.cffrv { opacity: 0.8; }
+    .bar-inline.steans { opacity: 1; }
+    .spend-insight { background: var(--equipto-blue); padding: 28px 36px; display: flex; gap: 20px; align-items: flex-start; }
+    .spend-insight-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .spend-insight p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+    .spend-insight strong { color: var(--white); }
+
+    /* ── AI ADVANTAGE ── */
+    #ai-advantage { padding: var(--section-pad) 0; background: var(--white); }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 32px; }
+    .ai-card { padding: 36px 32px; }
+    .ai-card.dark { background: var(--deep-charcoal); }
+    .ai-card.light { background: var(--ice-gray); }
+    .ai-card h4 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .ai-card.dark h4 { color: var(--brass-gold); }
+    .ai-card.light h4 { color: var(--steel-gray); }
+    .ai-card p, .ai-card li { font-size: 14px; line-height: 1.75; }
+    .ai-card.dark p, .ai-card.dark li { color: rgba(255,255,255,0.75); }
+    .ai-card.light p, .ai-card.light li { color: var(--body-text); }
+    .ai-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .ai-card ul li { padding-left: 18px; position: relative; }
+    .ai-card ul li::before { content: '→'; position: absolute; left: 0; font-weight: 700; }
+    .ai-card.dark ul li::before { color: var(--brass-gold); }
+    .ai-card.light ul li::before { color: var(--pulse-teal); }
+    .ai-savings-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .ai-saving { background: var(--equipto-blue); padding: 24px 20px; }
+    .ai-saving-n { font-size: 26px; font-weight: 800; color: var(--brass-gold); line-height: 1; margin-bottom: 4px; }
+    .ai-saving-l { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+    /* ── BUDGET TIERS ── */
+    #budget { padding: var(--section-pad) 0; background: var(--section-alt); border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line); }
+    .tier-tabs { display: flex; gap: 2px; margin-bottom: 32px; }
+    .tier-tab { flex: 1; padding: 16px 20px; background: var(--ice-gray); border: none; font-family: var(--font-primary); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); cursor: pointer; transition: all 0.2s; border-top: 3px solid transparent; text-align: left; }
+    .tier-tab:hover { background: var(--border-line); color: var(--steel-gray); }
+    .tier-tab.active { background: var(--equipto-blue); color: var(--white); border-top-color: var(--brass-gold); }
+    .tier-tab .tier-tab-sub { display: block; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; margin-top: 3px; opacity: 0.6; }
+    .tier-panel { display: none; }
+    .tier-panel.active { display: block; }
+    .tier-header { background: var(--equipto-blue); padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 2px; }
+    .tier-header h3 { font-size: 20px; font-weight: 800; color: var(--white); }
+    .tier-header p { font-size: 13px; color: rgba(255,255,255,0.6); max-width: 500px; line-height: 1.6; }
+    .tier-totals { display: flex; gap: 24px; flex-shrink: 0; text-align: right; }
+    .tier-total-item-n { font-size: 24px; font-weight: 800; color: var(--brass-gold); line-height: 1; }
+    .tier-total-item-l { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    /* accordion */
+    .accordion { border: 1px solid var(--border-line); }
+    .accordion-item { border-bottom: 1px solid var(--border-line); background: var(--white); }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-trigger { width: 100%; background: none; border: none; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-family: var(--font-primary); text-align: left; }
+    .accordion-trigger:hover { background: var(--ice-gray); }
+    .accordion-trigger-left { display: flex; align-items: center; gap: 20px; }
+    .accordion-num { font-family: var(--font-mono); font-size: 11px; color: var(--mid-gray); width: 24px; flex-shrink: 0; }
+    .accordion-title { font-size: 14px; font-weight: 700; color: var(--body-text); }
+    .accordion-trigger-right { display: flex; align-items: center; gap: 24px; }
+    .accordion-range { font-family: var(--font-mono); font-size: 12px; color: var(--equipto-blue); font-weight: 600; white-space: nowrap; }
+    .accordion-chevron { font-size: 12px; color: var(--mid-gray); transition: transform 0.25s; flex-shrink: 0; }
+    .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+    .accordion-body { display: none; padding: 0 28px 24px 72px; border-top: 1px solid var(--border-line); }
+    .accordion-item.open .accordion-body { display: block; padding-top: 20px; }
+    .accordion-body p { font-size: 13px; color: var(--steel-gray); line-height: 1.75; margin-bottom: 12px; }
+    .accordion-body p:last-child { margin-bottom: 0; }
+    .accordion-body strong { color: var(--body-text); }
+    .tco-box { margin-top: 32px; background: var(--deep-charcoal); padding: 32px 36px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .tco-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+    .tco-formula { font-family: var(--font-mono); font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+    .tco-formula strong { color: var(--brass-gold); }
+    .tco-result { text-align: right; }
+    .tco-result-n { font-size: 40px; font-weight: 800; color: var(--brass-gold); line-height: 1; }
+    .tco-result-l { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 6px; }
+
+    /* ── ROADMAP ── */
+    #roadmap { padding: var(--section-pad) 0; background: var(--white); }
+    .roadmap-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-bottom: 32px; }
+    .phase-card { background: var(--ice-gray); border-top: 4px solid var(--equipto-blue); }
+    .phase-card:nth-child(1) { border-top-color: var(--equipto-blue); }
+    .phase-card:nth-child(2) { border-top-color: var(--brass-gold); }
+    .phase-card:nth-child(3) { border-top-color: var(--pulse-teal); }
+    .phase-card:nth-child(4) { border-top-color: var(--safety-orange); }
+    .phase-header { padding: 24px 22px 18px; border-bottom: 1px solid var(--border-line); }
+    .phase-num { font-family: var(--font-mono); font-size: 10px; color: var(--mid-gray); margin-bottom: 6px; }
+    .phase-header h4 { font-size: 15px; font-weight: 800; color: var(--equipto-blue); line-height: 1.2; margin-bottom: 6px; }
+    .phase-months { font-size: 11px; font-weight: 600; color: var(--mid-gray); }
+    .phase-accordion-trigger { width: 100%; background: none; border: none; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: var(--font-primary); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel-gray); }
+    .phase-accordion-trigger:hover { background: var(--border-line); }
+    .phase-chevron { font-size: 10px; color: var(--mid-gray); transition: transform 0.25s; }
+    .phase-card.open .phase-chevron { transform: rotate(180deg); }
+    .phase-body { display: none; padding: 16px 22px 20px; border-top: 1px solid var(--border-line); }
+    .phase-card.open .phase-body { display: block; }
+    .phase-deliverable { display: flex; gap: 10px; margin-bottom: 10px; font-size: 12px; line-height: 1.5; color: var(--body-text); }
+    .phase-deliverable::before { content: '▸'; flex-shrink: 0; margin-top: 1px; }
+    .phase-card:nth-child(1) .phase-deliverable::before { color: var(--equipto-blue); }
+    .phase-card:nth-child(2) .phase-deliverable::before { color: var(--brass-gold); }
+    .phase-card:nth-child(3) .phase-deliverable::before { color: var(--pulse-teal); }
+    .phase-card:nth-child(4) .phase-deliverable::before { color: var(--safety-orange); }
+    .phase-metric { margin-top: 14px; padding: 10px 14px; background: var(--white); border-left: 3px solid var(--equipto-blue); font-size: 11px; color: var(--steel-gray); line-height: 1.5; }
+    .phase-card:nth-child(2) .phase-metric { border-left-color: var(--brass-gold); }
+    .phase-card:nth-child(3) .phase-metric { border-left-color: var(--pulse-teal); }
+    .phase-card:nth-child(4) .phase-metric { border-left-color: var(--safety-orange); }
+
+    /* ── STRATEGIC INSIGHTS ── */
+    #insights { padding: var(--section-pad) 0; background: var(--section-alt); border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line); }
+    .insight-accordion { border: 1px solid var(--border-line); }
+    .insight-item { border-bottom: 1px solid var(--border-line); background: var(--white); }
+    .insight-item:last-child { border-bottom: none; }
+    .insight-trigger { width: 100%; background: none; border: none; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-family: var(--font-primary); text-align: left; }
+    .insight-trigger:hover { background: var(--ice-gray); }
+    .insight-trigger-left { display: flex; align-items: center; gap: 16px; }
+    .insight-icon { font-size: 22px; flex-shrink: 0; }
+    .insight-title { font-size: 16px; font-weight: 700; color: var(--body-text); }
+    .insight-subtitle { font-size: 12px; color: var(--mid-gray); margin-top: 2px; }
+    .insight-chevron { font-size: 12px; color: var(--mid-gray); transition: transform 0.25s; flex-shrink: 0; }
+    .insight-item.open .insight-chevron { transform: rotate(180deg); }
+    .insight-body { display: none; padding: 0 28px 28px 66px; border-top: 1px solid var(--border-line); }
+    .insight-item.open .insight-body { display: block; padding-top: 24px; }
+    .insight-body p { font-size: 14px; color: var(--steel-gray); line-height: 1.8; margin-bottom: 16px; }
+    .insight-body p:last-child { margin-bottom: 0; }
+    .insight-body strong { color: var(--body-text); }
+    .insight-callout { background: var(--ice-gray); border-left: 3px solid var(--equipto-blue); padding: 16px 20px; margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--equipto-blue); line-height: 1.6; }
+
+    /* ── RECOMMENDATIONS ── */
+    #recommendations { padding: var(--section-pad) 0; background: var(--white); }
+    .rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+    .rec-card { background: var(--ice-gray); padding: 36px 32px; border-top: 4px solid var(--equipto-blue); }
+    .rec-card:nth-child(1) { border-top-color: var(--equipto-blue); }
+    .rec-card:nth-child(2) { border-top-color: var(--brass-gold); }
+    .rec-card:nth-child(3) { border-top-color: var(--pulse-teal); }
+    .rec-card:nth-child(4) { border-top-color: var(--safety-orange); }
+    .rec-num { font-family: var(--font-mono); font-size: 32px; font-weight: 500; color: var(--border-line); line-height: 1; margin-bottom: 12px; }
+    .rec-card h4 { font-size: 16px; font-weight: 800; color: var(--equipto-blue); margin-bottom: 12px; }
+    .rec-card p { font-size: 13px; color: var(--steel-gray); line-height: 1.75; }
+    .rec-amount { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; background: var(--equipto-blue); color: var(--white); }
+    .rec-card:nth-child(2) .rec-amount { background: var(--brass-gold); }
+    .rec-card:nth-child(3) .rec-amount { background: var(--pulse-teal); }
+    .rec-card:nth-child(4) .rec-amount { background: var(--safety-orange); }
+
+    /* ── MODAL ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(10,18,32,0.82); z-index: 1000; align-items: flex-end; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--white); width: 100%; max-width: 860px; max-height: 88vh; overflow-y: auto; position: relative; border-top: 4px solid var(--equipto-blue); }
+    .modal-header { background: var(--equipto-blue); padding: 28px 36px; position: sticky; top: 0; z-index: 10; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+    .modal-header h2 { font-size: 22px; font-weight: 800; color: var(--white); line-height: 1.2; }
+    .modal-header p { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+    .modal-close { background: none; border: none; font-size: 22px; color: rgba(255,255,255,0.5); cursor: pointer; flex-shrink: 0; padding: 4px; line-height: 1; }
+    .modal-close:hover { color: var(--white); }
+    .modal-body { padding: 36px; }
+    .modal-section { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border-line); }
+    .modal-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .modal-section h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 16px; }
+    .modal-section p { font-size: 14px; color: var(--body-text); line-height: 1.8; margin-bottom: 12px; }
+    .modal-section p:last-child { margin-bottom: 0; }
+    .modal-section strong { color: var(--equipto-blue); }
+    .modal-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 16px; }
+    .modal-stat { background: var(--ice-gray); padding: 18px 20px; }
+    .modal-stat-n { font-size: 22px; font-weight: 800; color: var(--equipto-blue); line-height: 1; }
+    .modal-stat-l { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); margin-top: 4px; }
+    .modal-channels { display: flex; flex-wrap: wrap; gap: 6px; }
+    .modal-channel { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; background: var(--equipto-blue); color: var(--white); }
+    .modal-learn { background: var(--deep-charcoal); padding: 20px 24px; }
+    .modal-learn-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brass-gold); margin-bottom: 10px; }
+    .modal-learn ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .modal-learn li { font-size: 13px; color: rgba(255,255,255,0.7); padding-left: 16px; position: relative; line-height: 1.5; }
+    .modal-learn li::before { content: '→'; position: absolute; left: 0; color: var(--brass-gold); }
+
+    /* ── FOOTER ── */
+    #footer { background: var(--deep-charcoal); padding: 56px 0 40px; border-top: 3px solid var(--equipto-blue); }
+    .footer-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 28px; }
+    .footer-brand { display: flex; flex-direction: column; gap: 14px; max-width: 320px; }
+    .footer-logo { height: 48px; width: 48px; object-fit: contain; }
+    .footer-brand h2 { font-size: 16px; font-weight: 800; color: var(--white); }
+    .footer-brand p { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.65; }
+    .footer-nav { display: flex; gap: 60px; }
+    .footer-nav-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-nav-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 4px; }
+    .footer-nav a { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-meta { display: flex; align-items: center; justify-content: space-between; }
+    .footer-sub { font-size: 11px; color: rgba(255,255,255,0.2); }
+    .footer-parent { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .footer-parent span { color: var(--brass-gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .comp-grid { grid-template-columns: 1fr 1fr; }
+      .roadmap-timeline { grid-template-columns: 1fr 1fr; }
+      .ai-savings-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      :root { --section-pad: 56px; }
+      .container { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .comp-grid { grid-template-columns: 1fr; }
+      .roadmap-timeline { grid-template-columns: 1fr; }
+      .ai-grid { grid-template-columns: 1fr; }
+      .rec-grid { grid-template-columns: 1fr; }
+      .tier-tabs { flex-direction: column; }
+      .tier-header { flex-direction: column; gap: 16px; }
+      .tier-totals { flex-direction: row; text-align: left; }
+      .modal-stat-row { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: column; }
+      .footer-nav { flex-direction: column; gap: 24px; }
+      .footer-meta { flex-direction: column; gap: 10px; align-items: flex-start; }
+      .hero-kpis { flex-direction: column; }
+      .hero-kpi { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="container">
+    <a href="#hero" class="nav-logo">
+      <img src="assets/jcd-logo-white.svg" alt="JCD Foundation" />
+      <div class="nav-logo-text">
+        JCD Foundation
+        <span>Marketing Plan</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#competitors">Competitive Analysis</a></li>
+      <li><a href="#spend">Spend Benchmark</a></li>
+      <li><a href="#ai-advantage">AI Advantage</a></li>
+      <li><a href="#budget">Budget Tiers</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="brand-guide.html" class="nav-alt">← Brand Guide</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile" aria-hidden="true">
+  <a href="#competitors" onclick="closeMobileNav()">Competitive Analysis</a>
+  <a href="#spend" onclick="closeMobileNav()">Spend Benchmark</a>
+  <a href="#ai-advantage" onclick="closeMobileNav()">AI Advantage</a>
+  <a href="#budget" onclick="closeMobileNav()">Budget Tiers</a>
+  <a href="#roadmap" onclick="closeMobileNav()">Roadmap</a>
+  <a href="#insights" onclick="closeMobileNav()">Insights</a>
+  <a href="brand-guide.html">← Brand Guide</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span>Internal Document</span>
+        <strong>Confidential — FY2026</strong>
+      </div>
+      <h1>Strategic Marketing<br>Framework &amp; Fiscal Plan</h1>
+      <p>
+        A comprehensive analysis of regional philanthropic peers, comparative marketing spend,
+        and a tiered investment recommendation for JCD Foundation's launch — accounting for
+        AI-driven cost reductions unavailable to incumbent competitors.
+      </p>
+      <div class="hero-kpis">
+        <div class="hero-kpi">
+          <div class="hero-kpi-n">3</div>
+          <div class="hero-kpi-l">Peer Organizations Benchmarked</div>
+        </div>
+        <div class="hero-kpi accent-gold">
+          <div class="hero-kpi-n">$26K</div>
+          <div class="hero-kpi-l">Conservative Launch (AI-First)</div>
+        </div>
+        <div class="hero-kpi accent-teal">
+          <div class="hero-kpi-n">$48K</div>
+          <div class="hero-kpi-l">Recommended Launch Budget</div>
+        </div>
+        <div class="hero-kpi accent-orange">
+          <div class="hero-kpi-n">$66K</div>
+          <div class="hero-kpi-l">Potential Annual AI Savings vs. Peers</div>
+        </div>
+        <div class="hero-kpi">
+          <div class="hero-kpi-n">4</div>
+          <div class="hero-kpi-l">Phase Rollout Plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     COMPETITIVE LANDSCAPE
+     ═══════════════════════════════════════════════════ -->
+<section id="competitors">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow">Section 01</span>
+      <h2>Competitive Landscape</h2>
+    </div>
+    <div class="comp-grid">
+
+      <!-- Dunham Foundation -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div class="comp-org-type">Parent Organization / Primary Benchmark</div>
+          <h3>Dunham Foundation</h3>
+          <div class="comp-card-location">Aurora, IL — Est. 1996</div>
+        </div>
+        <div class="comp-stats">
+          <div class="comp-stat">
+            <div class="comp-stat-n">$86.7M</div>
+            <div class="comp-stat-l">Total Assets</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">$8.97M</div>
+            <div class="comp-stat-l">Annual Revenue</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">$3.9M</div>
+            <div class="comp-stat-l">2025 Grants</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">114</div>
+            <div class="comp-stat-l">Grantees (2025)</div>
+          </div>
+        </div>
+        <div class="comp-spend-bar-wrap">
+          <div class="comp-spend-label"><span>Est. Annual Marketing Spend</span><span>$120K–$180K</span></div>
+          <div class="comp-spend-bar-bg"><div class="comp-spend-bar-fill dunham" style="width:45%;"></div></div>
+        </div>
+        <div class="comp-tag-row">
+          <span class="comp-tag">Facebook</span>
+          <span class="comp-tag">LinkedIn</span>
+          <span class="comp-tag">YouTube</span>
+          <span class="comp-tag">Grant Portal</span>
+          <span class="comp-tag">Newsletter</span>
+        </div>
+        <div class="comp-card-footer">
+          <button class="btn-deep-dive" onclick="openModal('dunham')">Deep Dive Analysis →</button>
+        </div>
+      </div>
+
+      <!-- CFFRV -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div class="comp-org-type">Regional Peer / Scale Benchmark</div>
+          <h3>Community Foundation of the Fox River Valley</h3>
+          <div class="comp-card-location">Aurora, IL — Est. 1948</div>
+        </div>
+        <div class="comp-stats">
+          <div class="comp-stat">
+            <div class="comp-stat-n">$148.6M</div>
+            <div class="comp-stat-l">Total Assets</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">$14.99M</div>
+            <div class="comp-stat-l">Annual Revenue</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">600+</div>
+            <div class="comp-stat-l">Charitable Funds</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">97%</div>
+            <div class="comp-stat-l">Charity Navigator</div>
+          </div>
+        </div>
+        <div class="comp-spend-bar-wrap">
+          <div class="comp-spend-label"><span>Est. Annual Marketing Spend</span><span>$180K–$300K</span></div>
+          <div class="comp-spend-bar-bg"><div class="comp-spend-bar-fill cffrv" style="width:65%;"></div></div>
+        </div>
+        <div class="comp-tag-row">
+          <span class="comp-tag">Facebook</span>
+          <span class="comp-tag">Twitter/X</span>
+          <span class="comp-tag">LinkedIn</span>
+          <span class="comp-tag">Instagram</span>
+          <span class="comp-tag">YouTube</span>
+          <span class="comp-tag">Magazine</span>
+        </div>
+        <div class="comp-card-footer">
+          <button class="btn-deep-dive" onclick="openModal('cffrv')">Deep Dive Analysis →</button>
+        </div>
+      </div>
+
+      <!-- Steans -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div class="comp-org-type">Aspirational Model / Systems-Level Benchmark</div>
+          <h3>Steans Family Foundation</h3>
+          <div class="comp-card-location">Chicago, IL — Place-Based</div>
+        </div>
+        <div class="comp-stats">
+          <div class="comp-stat">
+            <div class="comp-stat-n">$294M</div>
+            <div class="comp-stat-l">Total Assets</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">$64.2M</div>
+            <div class="comp-stat-l">Annual Revenue</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">Invite</div>
+            <div class="comp-stat-l">Only Grants</div>
+          </div>
+          <div class="comp-stat">
+            <div class="comp-stat-n">Policy</div>
+            <div class="comp-stat-l">Ecosystem Focus</div>
+          </div>
+        </div>
+        <div class="comp-spend-bar-wrap">
+          <div class="comp-spend-label"><span>Est. Annual Marketing Spend</span><span>$240K–$480K</span></div>
+          <div class="comp-spend-bar-bg"><div class="comp-spend-bar-fill steans" style="width:100%;"></div></div>
+        </div>
+        <div class="comp-tag-row">
+          <span class="comp-tag">Annual Reports</span>
+          <span class="comp-tag">Spotlights</span>
+          <span class="comp-tag">Policy Briefs</span>
+          <span class="comp-tag">Partner PR</span>
+        </div>
+        <div class="comp-card-footer">
+          <button class="btn-deep-dive" onclick="openModal('steans')">Deep Dive Analysis →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ═══════════════════════════════════════════════════
+     SPEND COMPARISON
+     ═══════════════════════════════════════════════════ -->
+<section id="spend">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow">Section 02</span>
+      <h2>Marketing Spend Analysis</h2>
+    </div>
+    <div class="spend-table-wrap">
+      <table class="spend-table">
+        <thead>
+          <tr>
+            <th>Spend Category</th>
+            <th>Dunham Foundation</th>
+            <th>CFFRV</th>
+            <th>Steans Family Foundation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dedicated Marketing Staff</td>
+            <td><div class="bar-cell"><div class="bar-inline dunham" style="width:60px;"></div>None / shared roles</div></td>
+            <td><div class="bar-cell"><div class="bar-inline cffrv" style="width:100px;"></div>VP Mktg @ $101K/yr</div></td>
+            <td><div class="bar-cell"><div class="bar-inline steans" style="width:130px;"></div>Est. $120K–$160K/yr</div></td>
+          </tr>
+          <tr>
+            <td>Agency / Retainer</td>
+            <td><div class="bar-cell"><div class="bar-inline dunham" style="width:70px;"></div>$42K–$90K/yr est.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline cffrv" style="width:90px;"></div>$60K–$120K/yr est.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline steans" style="width:120px;"></div>$100K–$200K/yr est.</div></td>
+          </tr>
+          <tr>
+            <td>Website / Tech Infrastructure</td>
+            <td><div class="bar-cell"><div class="bar-inline dunham" style="width:50px;"></div>$3K–$6K/yr maint.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline cffrv" style="width:80px;"></div>$5K–$10K/yr maint.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline steans" style="width:80px;"></div>$5K–$12K/yr maint.</div></td>
+          </tr>
+          <tr>
+            <td>Grant Management Software</td>
+            <td><div class="bar-cell"><div class="bar-inline dunham" style="width:60px;"></div>GivingData ~$12K/yr</div></td>
+            <td><div class="bar-cell"><div class="bar-inline cffrv" style="width:90px;"></div>Fluxx ~$25K–$50K/yr</div></td>
+            <td><div class="bar-cell"><div class="bar-inline steans" style="width:100px;"></div>Enterprise ~$50K+/yr</div></td>
+          </tr>
+          <tr>
+            <td>Content / Publications</td>
+            <td><div class="bar-cell"><div class="bar-inline dunham" style="width:40px;"></div>$15K–$30K/yr est.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline cffrv" style="width:70px;"></div>Magazine + $40K+ est.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline steans" style="width:90px;"></div>Annual report $50K+ est.</div></td>
+          </tr>
+          <tr>
+            <td>Paid Media / Social Ads</td>
+            <td><div class="bar-cell"><div class="bar-inline dunham" style="width:30px;"></div>$6K–$18K/yr est.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline cffrv" style="width:55px;"></div>$12K–$24K/yr est.</div></td>
+            <td><div class="bar-cell"><div class="bar-inline steans" style="width:40px;"></div>Minimal / targeted</div></td>
+          </tr>
+          <tr>
+            <td><strong>Estimated Annual Total</strong></td>
+            <td><strong>$120K–$180K</strong></td>
+            <td><strong>$180K–$300K</strong></td>
+            <td><strong>$240K–$480K</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="spend-insight">
+      <div class="spend-insight-icon">📊</div>
+      <p>
+        <strong>Key finding:</strong> None of these organizations had access to modern AI tools when they built their marketing infrastructure. Their spend reflects legacy agency dependency — high retainer costs for content, SEO, and social that JCD Foundation can now automate or dramatically reduce. A lean AI-augmented team with a marketing intern can replicate approximately <strong>60–70% of what a $7,500/month agency retainer delivers</strong> at a fraction of the cost.
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ═══════════════════════════════════════════════════
+     AI ADVANTAGE
+     ═══════════════════════════════════════════════════ -->
+<section id="ai-advantage">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow">Section 03</span>
+      <h2>The JCD AI Advantage</h2>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card dark">
+        <h4>What Incumbents Had to Pay For</h4>
+        <ul>
+          <li>Copywriters for website, newsletter &amp; social ($2K–$5K/mo agency)</li>
+          <li>SEO specialists for keyword research &amp; on-page optimization ($1K–$3K/mo)</li>
+          <li>Graphic designers for social content &amp; collateral ($1.5K–$4K/mo)</li>
+          <li>Data analysts for grant impact reporting ($1K–$2K/mo)</li>
+          <li>PR firms for press release distribution ($1K–$3K/mo)</li>
+          <li>Community needs assessment consultants ($20K–$50K one-time)</li>
+        </ul>
+      </div>
+      <div class="ai-card light">
+        <h4>What JCD Can Do With AI + Intern</h4>
+        <ul>
+          <li><strong>AI copy generation</strong> (Claude, ChatGPT) — drafts in minutes, refined by intern</li>
+          <li><strong>AI SEO tools</strong> (Semrush AI, Clearscope) — keyword strategy at $150/mo vs. $2K/mo</li>
+          <li><strong>Canva AI / Adobe Firefly</strong> — on-brand social graphics without a designer</li>
+          <li><strong>AI data summaries</strong> — grant impact narratives auto-generated from GMS exports</li>
+          <li><strong>AI press releases</strong> — structured and distributed via free/low-cost PR tools</li>
+          <li><strong>Survey + analysis tools</strong> (Typeform + AI) — CNA at ~$2K vs. $30K consultant</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ai-savings-row">
+      <div class="ai-saving">
+        <div class="ai-saving-n">~$5K</div>
+        <div class="ai-saving-l">Monthly agency savings vs. peers</div>
+      </div>
+      <div class="ai-saving">
+        <div class="ai-saving-n">$60K+</div>
+        <div class="ai-saving-l">Annual savings potential</div>
+      </div>
+      <div class="ai-saving">
+        <div class="ai-saving-n">$1,800</div>
+        <div class="ai-saving-l">Est. intern cost/mo (20 hrs/wk @ $22/hr)</div>
+      </div>
+      <div class="ai-saving">
+        <div class="ai-saving-n">~$200</div>
+        <div class="ai-saving-l">Monthly AI tool stack (all-in)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ═══════════════════════════════════════════════════
+     BUDGET TIERS
+     ═══════════════════════════════════════════════════ -->
+<section id="budget">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow">Section 04</span>
+      <h2>Investment Tiers</h2>
+    </div>
+
+    <div class="tier-tabs">
+      <button class="tier-tab active" onclick="switchTier('conservative', this)">
+        Conservative
+        <span class="tier-tab-sub">AI-First + Intern Model</span>
+      </button>
+      <button class="tier-tab" onclick="switchTier('recommended', this)">
+        Recommended
+        <span class="tier-tab-sub">Balanced Launch Strategy</span>
+      </button>
+      <button class="tier-tab" onclick="switchTier('fullscale', this)">
+        Full-Scale
+        <span class="tier-tab-sub">Agency-Led / Maximum Impact</span>
+      </button>
+    </div>
+
+    <!-- CONSERVATIVE -->
+    <div class="tier-panel active" id="tier-conservative">
+      <div class="tier-header">
+        <div>
+          <h3>Conservative — AI-First + Intern</h3>
+          <p>Maximizes AI tools and a part-time marketing intern to deliver professional results at the lowest upfront cost. Best for a phased launch where proof-of-concept matters before scaling.</p>
+        </div>
+        <div class="tier-totals">
+          <div>
+            <div class="tier-total-item-n">$26K–$31K</div>
+            <div class="tier-total-item-l">One-Time Launch</div>
+          </div>
+          <div>
+            <div class="tier-total-item-n">$3K–$4.5K</div>
+            <div class="tier-total-item-l">Monthly Ongoing</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-conservative">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">01</span><span class="accordion-title">Brand Identity Development</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$3,000 – $5,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>At this tier, brand identity is developed using AI-assisted design tools (Adobe Firefly, Canva Pro) guided by a freelance art director for final QA. The logo, color system, and core templates are already established via the JCD Brand Guide, dramatically reducing scope.</p>
+            <p><strong>Includes:</strong> Final brand guide PDF export, social media templates (10 formats), email header templates, letterhead/stationery files. A junior freelancer or advanced intern can execute production under 1-2 hours of senior creative direction per week.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">02</span><span class="accordion-title">Website Development</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$10,000 – $15,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>A template-based WordPress or Webflow build using a premium theme ($100–$300) as the foundation, with custom CSS to align with the JCD brand system. An AI page builder (Framer AI, Elementor AI) accelerates layout work by 60–70%.</p>
+            <p><strong>Includes:</strong> 8–12 core pages, mobile-optimized, ADA-compliant, basic contact/application form, Google Analytics integration, SSL. Does not include a fully custom grant portal — Submittable or JotForm ($100/mo) handles applications at this tier.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">03</span><span class="accordion-title">SEO Foundation</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$1,000 – $1,500</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>AI-driven keyword research using Semrush AI ($130/mo) or Ahrefs, executed by intern under a 3-hour setup engagement with an SEO consultant. Focus on high-intent local terms: Fox Valley scholarships, Aurora IL vocational training, manufacturing scholarships Illinois.</p>
+            <p><strong>Ongoing:</strong> Intern manages on-page optimization, internal linking, and monthly blog posts (1–2/mo) generated with AI and human-edited. Ongoing tool cost ~$130–$200/mo.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">04</span><span class="accordion-title">Content Production (Launch)</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$2,000 – $3,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>AI-drafted website copy (Claude/ChatGPT) reviewed and refined by intern and a single senior editor pass. Photography sourced from licensed stock (Unsplash Pro, $144/yr) supplemented by one local photoshoot (~$500 half-day).</p>
+            <p><strong>Deliverables:</strong> Full website copy deck, 6-month social content calendar (AI-generated), launch press release, 2 email templates (welcome series).</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">05</span><span class="accordion-title">Grant Management Software</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$5,000 – $9,900/yr</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>At the conservative tier, <strong>Foundant GLM</strong> (starting ~$9,900/yr) or <strong>Submittable</strong> ($5,000–$8,000/yr) are recommended. Both are mid-market, well-supported platforms designed for foundations of JCD's projected scale.</p>
+            <p>Alternatively, <strong>JotForm Enterprise</strong> ($1,188–$3,996/yr) handles the application workflow at low cost for Year 1 while the foundation calibrates its grant volume, with a planned migration to Foundant in Year 2.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">06</span><span class="accordion-title">Monthly Ongoing (Post-Launch)</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$3,000 – $4,500 / mo</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p><strong>Intern (20 hrs/wk @ $22/hr):</strong> ~$1,800/mo — social scheduling, blog drafts, email newsletters, event support, basic graphic production.</p>
+            <p><strong>AI Tool Stack:</strong> ~$200/mo — Claude Pro ($20), Canva Pro ($15), Semrush ($130), Mailchimp Essentials ($30).</p>
+            <p><strong>Hosting &amp; Security:</strong> ~$150–$300/mo — WP Engine or Cloudflare for performance and SSL.</p>
+            <p><strong>Paid Social (optional):</strong> $500–$1,000/mo — LinkedIn and Meta targeted at Fox Valley high school graduates and their families.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tco-box">
+        <div>
+          <div class="tco-label">3-Year Total Cost of Ownership</div>
+          <div class="tco-formula">
+            TCO = Launch Cost + (Monthly × 36) + (Annual Software × 3)<br>
+            TCO = <strong>$28,500</strong> + (<strong>$3,750</strong> × 36) + (<strong>$9,900</strong> × 3)
+          </div>
+        </div>
+        <div class="tco-result">
+          <div class="tco-result-n">~$193K</div>
+          <div class="tco-result-l">3-Year TCO (Conservative)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECOMMENDED -->
+    <div class="tier-panel" id="tier-recommended">
+      <div class="tier-header">
+        <div>
+          <h3>Recommended — Balanced Launch</h3>
+          <p>Blends AI efficiency with targeted professional services for key deliverables. Custom website with real grant portal integration. Appropriate for a foundation ready to be taken seriously from day one.</p>
+        </div>
+        <div class="tier-totals">
+          <div>
+            <div class="tier-total-item-n">$47K–$57K</div>
+            <div class="tier-total-item-l">One-Time Launch</div>
+          </div>
+          <div>
+            <div class="tier-total-item-n">$5.5K–$8K</div>
+            <div class="tier-total-item-l">Monthly Ongoing</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-recommended">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">01</span><span class="accordion-title">Brand Identity Development</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$5,000 – $8,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>A boutique branding studio (1–2 senior designers) builds out the full brand system on top of the existing logo and brand guide. Focus is on production-ready asset delivery: print templates, presentation decks, event materials, and a comprehensive digital style guide in Figma.</p>
+            <p><strong>Deliverables:</strong> Figma design system, 20+ social templates, print-ready letterhead/envelope/business card, email signature system, PowerPoint/Keynote deck template, brand guide PDF (expanded).</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">02</span><span class="accordion-title">Website Development</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$25,000 – $35,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>A fully custom WordPress or Webflow build with bespoke front-end design aligned to the JCD brand system. Includes a real grant application workflow integrated with Foundant GLM or Submittable, a scholarship portal for applicant tracking, and a video section for the planned interview content.</p>
+            <p><strong>Includes:</strong> 15–25 pages, custom UI components, CRM integration (HubSpot Nonprofit free tier), Google Analytics + Search Console, accessibility audit (WCAG 2.1 AA), performance optimization (Core Web Vitals &gt;90).</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">03</span><span class="accordion-title">SEO &amp; Search Strategy</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$3,000 – $5,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>A 6-month SEO roadmap developed by an SEO consultant (10–15 hours engagement), delivered as a prioritized keyword strategy, technical audit checklist, and content calendar. Ongoing execution is handled by the intern + AI, with quarterly consultant check-ins (~$500/quarter).</p>
+            <p><strong>Target keywords:</strong> Fox Valley scholarships, nursing scholarships Aurora IL, manufacturing training Kane County, trades scholarship Illinois, JCD Foundation.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">04</span><span class="accordion-title">Content Production (Launch)</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$7,000 – $10,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>Hire a local photographer/videographer for a half-day community shoot ($1,500–$2,500) capturing Fox Valley locations, partner schools, and vocational environments. Commission a 90-second brand introduction video ($3,000–$5,000) to replace/supplement existing Dunham Foundation video assets.</p>
+            <p><strong>Also includes:</strong> Full website copywriting by a senior copywriter (AI-assisted, human-finalized), launch announcement campaign copy (press release, email, social), and 12 months of pre-planned social content (AI-generated, reviewed).</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">05</span><span class="accordion-title">Grant Management Software</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$9,900 – $15,000/yr</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p><strong>Foundant GLM</strong> (~$9,900/yr) is the recommended GMS at this tier. It is purpose-built for mid-market private foundations, provides an intuitive applicant portal, and integrates with the GivingData philosophy the Dunham Foundation already uses — easing any future coordination.</p>
+            <p>Setup fee is typically $2,000–$3,500 for data migration, onboarding, and staff training. The platform handles the full grant lifecycle: LOI intake, application review, approval workflow, payment processing, and impact reporting.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">06</span><span class="accordion-title">Monthly Ongoing (Post-Launch)</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$5,500 – $8,000 / mo</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p><strong>Intern (20 hrs/wk @ $22/hr):</strong> ~$1,800/mo — primary content operator.</p>
+            <p><strong>Fractional Content Strategist (5 hrs/mo):</strong> ~$750–$1,500/mo — senior editorial oversight, campaign strategy, quarterly planning. Replaces need for a full agency retainer.</p>
+            <p><strong>AI Tool Stack:</strong> ~$300/mo — expanded from conservative tier, adding Midjourney or Adobe Firefly for original imagery.</p>
+            <p><strong>GMS + CRM:</strong> ~$900–$1,200/mo — Foundant + HubSpot nonprofit.</p>
+            <p><strong>Hosting &amp; Security:</strong> ~$300–$500/mo — premium managed hosting.</p>
+            <p><strong>Paid Media:</strong> $1,000–$2,000/mo — LinkedIn targeted at school counselors and students; Meta for scholarship deadline reminders.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tco-box">
+        <div>
+          <div class="tco-label">3-Year Total Cost of Ownership</div>
+          <div class="tco-formula">
+            TCO = Launch Cost + (Monthly × 36) + (Annual Software × 3)<br>
+            TCO = <strong>$52,000</strong> + (<strong>$6,750</strong> × 36) + (<strong>$12,000</strong> × 3)
+          </div>
+        </div>
+        <div class="tco-result">
+          <div class="tco-result-n">~$325K</div>
+          <div class="tco-result-l">3-Year TCO (Recommended)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULL SCALE -->
+    <div class="tier-panel" id="tier-fullscale">
+      <div class="tier-header">
+        <div>
+          <h3>Full-Scale — Agency-Led</h3>
+          <p>Full agency engagement for all marketing functions. Highest output quality and speed to market, but reflects the same cost structure as incumbent competitors — before AI savings are applied.</p>
+        </div>
+        <div class="tier-totals">
+          <div>
+            <div class="tier-total-item-n">$78K–$93K</div>
+            <div class="tier-total-item-l">One-Time Launch</div>
+          </div>
+          <div>
+            <div class="tier-total-item-n">$9K–$13.6K</div>
+            <div class="tier-total-item-l">Monthly Ongoing</div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion" id="acc-fullscale">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">01</span><span class="accordion-title">Brand Identity Development</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$10,000 – $15,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>Full-service brand studio engagement covering brand strategy, messaging framework, visual identity system, and a complete digital asset library. Includes user research sessions with target audience (Fox Valley students, school counselors, potential donor-partners).</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">02</span><span class="accordion-title">Website Development</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$40,000 – $50,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>Enterprise-grade custom build with full UX research, accessibility certification, custom grant portal, scholarship applicant dashboard, CRM and GMS deep integration, video background sections, and post-launch performance guarantee. Comparable to CFFRV's digital infrastructure investment.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">03</span><span class="accordion-title">SEO, Content &amp; Video</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$15,000 – $20,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>Full content production package: professional copywriting, photography, 2–3 video productions (brand video + 2 sector spotlight videos), 12-month editorial calendar, SEO strategy and 6-month execution retainer. Video interviews with Aurora University, Waubonsee, and Trades Unions representatives.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">04</span><span class="accordion-title">Grant Management Software</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$15,000 – $50,000/yr</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p><strong>Fluxx Grantmaker</strong> ($15,000–$50,000+/yr) is the enterprise option — highly configurable, used by large private foundations. Alternatively, staying with Foundant at $9,900/yr but adding a full CRM suite (Salesforce Nonprofit ~$3,600/yr) achieves similar capability at lower cost.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">05</span><span class="accordion-title">Monthly Agency Retainer</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$5,000 – $8,500 / mo</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p>Integrated agency retainer covering: SEO management, social media management (all channels), monthly content production (4 blog posts, 12 social graphics, 2 emails), paid media management, monthly performance reporting, and quarterly strategy reviews.</p>
+            <p><strong>Note:</strong> This is the incumbent model. With AI tools and an intern, JCD can replicate 60–70% of this output for $2,000–$2,500/mo — a ~$3,500–$6,000/mo ongoing saving.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tco-box">
+        <div>
+          <div class="tco-label">3-Year Total Cost of Ownership</div>
+          <div class="tco-formula">
+            TCO = Launch Cost + (Monthly × 36) + (Annual Software × 3)<br>
+            TCO = <strong>$85,500</strong> + (<strong>$11,300</strong> × 36) + (<strong>$18,000</strong> × 3)
+          </div>
+        </div>
+        <div class="tco-result">
+          <div class="tco-result-n">~$544K</div>
+          <div class="tco-result-l">3-Year TCO (Full-Scale)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ═══════════════════════════════════════════════════
+     ROADMAP
+     ═══════════════════════════════════════════════════ -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow">Section 05</span>
+      <h2>4-Phase Launch Roadmap</h2>
+    </div>
+    <div class="roadmap-timeline">
+
+      <div class="phase-card" id="phase1">
+        <div class="phase-header">
+          <div class="phase-num">Phase 01 / Months 1–3</div>
+          <h4>Brand Foundation &amp; Infrastructure</h4>
+          <div class="phase-months">Establish identity. Build the engine.</div>
+        </div>
+        <button class="phase-accordion-trigger" onclick="togglePhase('phase1')">
+          View Deliverables <span class="phase-chevron">▼</span>
+        </button>
+        <div class="phase-body">
+          <div class="phase-deliverable">Finalize brand system and asset library (templates, social, print)</div>
+          <div class="phase-deliverable">Define JCD Value Proposition and core messaging framework</div>
+          <div class="phase-deliverable">Select and onboard Grant Management Software</div>
+          <div class="phase-deliverable">Begin website architecture and UX planning</div>
+          <div class="phase-deliverable">Hire and onboard marketing intern</div>
+          <div class="phase-deliverable">Set up AI tool stack and intern workflow SOPs</div>
+          <div class="phase-deliverable">Register social media handles on all target platforms</div>
+          <div class="phase-metric">✓ Success metric: Brand guide signed off, GMS contract executed, intern onboarded, website sitemap approved</div>
+        </div>
+      </div>
+
+      <div class="phase-card" id="phase2">
+        <div class="phase-header">
+          <div class="phase-num">Phase 02 / Months 4–6</div>
+          <h4>Digital Build &amp; Systems Integration</h4>
+          <div class="phase-months">Build the hub. Wire the systems.</div>
+        </div>
+        <button class="phase-accordion-trigger" onclick="togglePhase('phase2')">
+          View Deliverables <span class="phase-chevron">▼</span>
+        </button>
+        <div class="phase-body">
+          <div class="phase-deliverable">Website development and content population</div>
+          <div class="phase-deliverable">Grant application portal integration with GMS</div>
+          <div class="phase-deliverable">SEO technical foundation: sitemaps, schema, Core Web Vitals</div>
+          <div class="phase-deliverable">Email automation setup: welcome series, application confirmation</div>
+          <div class="phase-deliverable">Photography and launch video production</div>
+          <div class="phase-deliverable">Analytics and conversion tracking implementation</div>
+          <div class="phase-deliverable">Soft launch and internal stakeholder review</div>
+          <div class="phase-metric">✓ Success metric: Website live (soft launch), grant portal functional, analytics tracking verified, video draft approved</div>
+        </div>
+      </div>
+
+      <div class="phase-card" id="phase3">
+        <div class="phase-header">
+          <div class="phase-num">Phase 03 / Months 7–9</div>
+          <h4>Community Launch &amp; Awareness</h4>
+          <div class="phase-months">Go public. Build relationships.</div>
+        </div>
+        <button class="phase-accordion-trigger" onclick="togglePhase('phase3')">
+          View Deliverables <span class="phase-chevron">▼</span>
+        </button>
+        <div class="phase-body">
+          <div class="phase-deliverable">Official public launch announcement (press, social, email)</div>
+          <div class="phase-deliverable">Outreach to qualifying high school counselors (all 12 schools)</div>
+          <div class="phase-deliverable">Launch digital community needs survey (AI-analyzed)</div>
+          <div class="phase-deliverable">Begin monthly e-newsletter (intern-produced, AI-drafted)</div>
+          <div class="phase-deliverable">Publish first 3 blog posts on vocational career pathways</div>
+          <div class="phase-deliverable">Partner video interviews: Aurora University, Waubonsee, Trades Unions</div>
+          <div class="phase-deliverable">Activate paid social targeting Fox Valley high school students</div>
+          <div class="phase-metric">✓ Success metric: 500+ website sessions/mo, 200+ email subscribers, 5+ school counselor relationships established, first scholarship applications received</div>
+        </div>
+      </div>
+
+      <div class="phase-card" id="phase4">
+        <div class="phase-header">
+          <div class="phase-num">Phase 04 / Months 10–12</div>
+          <h4>Impact &amp; Momentum</h4>
+          <div class="phase-months">Show results. Build the case for Year 2.</div>
+        </div>
+        <button class="phase-accordion-trigger" onclick="togglePhase('phase4')">
+          View Deliverables <span class="phase-chevron">▼</span>
+        </button>
+        <div class="phase-body">
+          <div class="phase-deliverable">Host year-end Challenge Grant for local schools / nonprofits</div>
+          <div class="phase-deliverable">Publish Community Needs Assessment findings report (public)</div>
+          <div class="phase-deliverable">Produce Year 1 Digital Impact Report (AI-assisted data narrative)</div>
+          <div class="phase-deliverable">Host webinar with AU / Waubonsee on vocational career readiness</div>
+          <div class="phase-deliverable">Review and optimize paid media based on 6-month data</div>
+          <div class="phase-deliverable">Plan Year 2 grant cycle calendar and budget</div>
+          <div class="phase-deliverable">Present board with Year 1 marketing ROI and Year 2 proposal</div>
+          <div class="phase-metric">✓ Success metric: Year 1 scholarships awarded, 1,000+ website sessions/mo, Impact Report published, 15+ media mentions, Year 2 budget approved</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ═══════════════════════════════════════════════════
+     STRATEGIC INSIGHTS
+     ═══════════════════════════════════════════════════ -->
+<section id="insights">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow">Section 06</span>
+      <h2>Strategic Insights</h2>
+    </div>
+    <div class="insight-accordion">
+
+      <div class="insight-item" id="insight1">
+        <button class="insight-trigger" onclick="toggleInsight('insight1')">
+          <div class="insight-trigger-left">
+            <span class="insight-icon">⚙</span>
+            <div>
+              <div class="insight-title">STEM vs. Vocational Framing — Both Matter</div>
+              <div class="insight-subtitle">How to position JCD's education identity without alienating either audience</div>
+            </div>
+          </div>
+          <span class="insight-chevron">▼</span>
+        </button>
+        <div class="insight-body">
+          <p>The broader philanthropic market uses "STEM" as a trust signal — donors, institutions, and media respond to it. However, JCD Foundation's actual focus — Manufacturing, Health Sciences, and Building Trades — is more specific and more honest. The solution is <strong>layered messaging</strong>: lead with "STEM and vocational pathways" in external communications and grant language, but within the JCD brand, the three sectors are front and center.</p>
+          <p>This mirrors how the KC Scholars model positions itself: broad enough for institutional credibility ("post-secondary success"), specific enough to be actionable ("welding certification, nursing degree, HVAC apprenticeship"). The brand voice section already captures this — direct, trade-respecting, anti-fluff.</p>
+          <div class="insight-callout">Recommendation: Use "STEM &amp; Skilled Trades" as the headline category in all external/grant materials. Use the three sector names (Advanced Manufacturing, Health Sciences, Building Trades) everywhere within the JCD brand itself.</div>
+        </div>
+      </div>
+
+      <div class="insight-item" id="insight2">
+        <button class="insight-trigger" onclick="toggleInsight('insight2')">
+          <div class="insight-trigger-left">
+            <span class="insight-icon">◈</span>
+            <div>
+              <div class="insight-title">Pedagogy Over Technology — A Differentiated Brand Position</div>
+              <div class="insight-subtitle">Why JCD's "hands-on" ethos is a marketing asset, not a limitation</div>
+            </div>
+          </div>
+          <span class="insight-chevron">▼</span>
+        </button>
+        <div class="insight-body">
+          <p>In 2026, most education-focused foundations are chasing AI and digital literacy as their brand identity. JCD can differentiate by positioning the opposite truth: <strong>technology is the tool, not the point</strong>. A machinist, nurse, or electrician uses technology to serve a human need — the human skill comes first.</p>
+          <p>This is consistent with John Dunham's JIT philosophy (precision over waste) and with the research consensus that "effective teaching methods must drive technology use, not vice versa." It is also deeply aligned with the trades audience, who often distrust the "screen-first" bias of mainstream education marketing.</p>
+          <p>In practice, this means JCD's marketing should lead with people, tools, and outcomes — not software logos or AI buzzwords. Photography should show hands on equipment, not hands on keyboards.</p>
+          <div class="insight-callout">Recommendation: Make "Craft before code" or "Hands before screens" a brand mantra visible in the About section. Use imagery from shop floors, labs, and job sites — not classrooms.</div>
+        </div>
+      </div>
+
+      <div class="insight-item" id="insight3">
+        <button class="insight-trigger" onclick="toggleInsight('insight3')">
+          <div class="insight-trigger-left">
+            <span class="insight-icon">⌖</span>
+            <div>
+              <div class="insight-title">Bridging the Digital Divide in the Dunham Quadrant</div>
+              <div class="insight-subtitle">Using community data as a brand pillar and marketing asset</div>
+            </div>
+          </div>
+          <span class="insight-chevron">▼</span>
+        </button>
+        <div class="insight-body">
+          <p>The 2023 Dunham Community Needs Assessment found that 49.4% of Kane County renters are cost-burdened, and the high school graduation attainment gap between Kane and Kendall counties is nearly 7 percentage points. These are not just statistics — they are the brief for JCD's existence.</p>
+          <p>Following the Dunham model, <strong>publishing JCD's own community needs data</strong> (even via an AI-analyzed survey of Fox Valley vocational access) positions the foundation as a thought leader rather than a passive scholarship check-writer. It creates SEO-valuable public content, earns media coverage, and builds trust with institutional partners (school districts, community colleges, trade unions).</p>
+          <p>The KC Scholars model shows the effect at scale: their transparent data reporting has made them the authoritative voice on Kansas City workforce pipelines. JCD can do the same for the Fox Valley trades pipeline.</p>
+          <div class="insight-callout">Recommendation: Budget for a digital community survey in Phase 3 (AI-analyzed, ~$2K all-in). Publish findings as a public "Fox Valley Vocational Access Report" — the first piece of JCD thought leadership content.</div>
+        </div>
+      </div>
+
+      <div class="insight-item" id="insight4">
+        <button class="insight-trigger" onclick="toggleInsight('insight4')">
+          <div class="insight-trigger-left">
+            <span class="insight-icon">→</span>
+            <div>
+              <div class="insight-title">AI in 2026 Marketing — What It Changes for JCD Specifically</div>
+              <div class="insight-subtitle">Tactical applications that deliver the biggest ROI at JCD's scale</div>
+            </div>
+          </div>
+          <span class="insight-chevron">▼</span>
+        </button>
+        <div class="insight-body">
+          <p>For a lean organization like JCD, AI's highest-value applications are not brand strategy (still requires human judgment) but <strong>production throughput</strong>: the repetitive, time-consuming outputs that agencies charge most for. Specifically:</p>
+          <p><strong>Grant impact reporting:</strong> AI can take raw GMS export data and generate a narrative impact summary in minutes. What previously required a consultant or senior writer can become a monthly intern task. <strong>Newsletter copy:</strong> With a clear content brief and the JCD brand voice guide, AI can produce a first draft newsletter in &lt;5 minutes — reviewed and approved in 15. <strong>SEO content:</strong> AI generates topically-relevant blog posts (e.g., "5 Trade Careers in the Fox Valley with $50K+ Starting Salaries") that rank for local vocational keywords. <strong>Scholarship application follow-up:</strong> AI-drafted personalized email sequences for applicants, winners, and wait-listed students — maintaining the "mentorship-oriented" brand voice at zero marginal cost.</p>
+          <div class="insight-callout">Recommendation: Document a JCD AI Playbook in Month 1 — a simple SOP guide for the intern covering how to use AI for each content type while maintaining the brand voice. This is the highest-leverage $0 investment in the entire plan.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ═══════════════════════════════════════════════════
+     RECOMMENDATIONS
+     ═══════════════════════════════════════════════════ -->
+<section id="recommendations">
+  <div class="container">
+    <div class="section-label">
+      <span class="eyebrow">Section 07</span>
+      <h2>Strategic Recommendations</h2>
+    </div>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="rec-num">01</div>
+        <h4>Invest in Digital Infrastructure First</h4>
+        <p>The website and grant portal are the foundation's primary credibility signal — before any program, scholarship, or event. Underinvesting here costs more in lost trust than it saves. Allocate 50–60% of the launch budget to website and GMS, regardless of tier.</p>
+        <span class="rec-amount">$15K–$50K website + GMS</span>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">02</div>
+        <h4>Hire an AI-Fluent Marketing Intern in Month 1</h4>
+        <p>This is the single highest-leverage hire in the plan. A 20-hr/week intern who is skilled in AI tools (Claude, Canva AI, Semrush) can replace $4,000–$6,000/month in agency retainer costs while building organizational knowledge and continuity. Start before the website launches.</p>
+        <span class="rec-amount">~$1,800/mo vs. $5,000–$7,500/mo agency</span>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">03</div>
+        <h4>Use Community Data as the Primary Content Vehicle</h4>
+        <p>The Dunham Foundation built its brand authority on data — the 2023 CNA is cited in every major publication about Aurora philanthropy. JCD should publish a "Fox Valley Vocational Access Report" in Year 1. This single asset will generate more press, SEO value, and institutional trust than a year of social media posts.</p>
+        <span class="rec-amount">~$2K investment, outsized PR return</span>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">04</div>
+        <h4>Treat Marketing as an Executive Function from Day One</h4>
+        <p>CFFRV's VP of Marketing earns $101K. Dunham's CEO and Program Director both carry communications responsibility. JCD should designate a board or leadership champion for marketing strategy — even without a full-time hire. A fractional CMO engagement ($2,000–$5,000/quarter) provides strategic direction without full-time overhead.</p>
+        <span class="rec-amount">$2K–$5K/quarter fractional CMO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="assets/jcd-logo-white.svg" alt="JCD Foundation" />
+        <h2>JCD Foundation</h2>
+        <p>Internal marketing strategy document. Confidential — not for external distribution. FY2026.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <div class="footer-nav-label">This Document</div>
+          <a href="#competitors">Competitive Analysis</a>
+          <a href="#spend">Spend Benchmark</a>
+          <a href="#ai-advantage">AI Advantage</a>
+          <a href="#budget">Budget Tiers</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#insights">Insights</a>
+          <a href="#recommendations">Recommendations</a>
+        </div>
+        <div class="footer-nav-col">
+          <div class="footer-nav-label">Related</div>
+          <a href="brand-guide.html">Brand Guide</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-meta">
+      <div class="footer-sub">© 2026 JCD Foundation. Internal document — confidential.</div>
+      <div class="footer-parent">An Applied Legacy of <span>the Dunham Foundation</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════
+     MODALS
+     ═══════════════════════════════════════════════════ -->
+
+<!-- Dunham Modal -->
+<div class="modal-overlay" id="modal-dunham" onclick="closeModalOnOverlay(event, 'dunham')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h2>Dunham Foundation — Deep Dive</h2>
+        <p>Parent organization / Primary benchmark — Aurora, IL</p>
+      </div>
+      <button class="modal-close" onclick="closeModal('dunham')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3>Financial Profile</h3>
+        <div class="modal-stat-row">
+          <div class="modal-stat"><div class="modal-stat-n">$86.7M</div><div class="modal-stat-l">Total Assets (2024)</div></div>
+          <div class="modal-stat"><div class="modal-stat-n">$8.97M</div><div class="modal-stat-l">Total Revenue (2024)</div></div>
+          <div class="modal-stat"><div class="modal-stat-n">$3.9M</div><div class="modal-stat-l">2025 Grants Disbursed</div></div>
+        </div>
+        <p>Founded in 1996 as the Dunham Fund, converted to the Dunham Foundation in 2021. First grants awarded in 2007. Over $54 million in cumulative grants through 2022. Revenue has shifted from asset-sale-heavy (76.7% in 2020) to dividend/interest-driven ($2.94M in 2024), reflecting a maturing endowment management strategy.</p>
+        <p>Administrative efficiency is strong: officer compensation and overhead represent less than 10% of total expenses, with &gt;90% directed to mission.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Website &amp; Digital Infrastructure</h3>
+        <p>The Dunham website functions as a <strong>community hub</strong> — not just a foundation portal. It hosts the grant portal (migrated to GivingData in January 2025), Community Calendar, Community Resources directory, and the full 2023 Community Needs Assessment Report as a public document.</p>
+        <p>The GivingData migration was a direct response to grantee feedback about a compressed application window. The new system features real-time in-form commenting with staff and streamlined payment processing — reducing the administrative burden on grantees. This is a key design philosophy JCD should adopt from day one.</p>
+        <p>Video content — specifically the "John's Legacy" founder story — is used strategically to humanize the foundation's history and connect the Dunham industrial narrative to current grantmaking. JCD has an equivalent narrative asset in the JCD/Equipto origin story.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Marketing Channels</h3>
+        <div class="modal-channels">
+          <span class="modal-channel">Facebook</span>
+          <span class="modal-channel">LinkedIn</span>
+          <span class="modal-channel">YouTube</span>
+          <span class="modal-channel">Email Newsletter</span>
+          <span class="modal-channel">GivingData Portal</span>
+          <span class="modal-channel">Press / PR</span>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3>Estimated Marketing Spend</h3>
+        <p>No dedicated marketing role — communications are handled by the President/CEO ($218,834 total comp) and Program Director ($145,804 total comp), meaning a portion of both salaries carries implicit marketing cost. Estimated dedicated marketing-attributed spend: <strong>$120,000–$180,000/year</strong>, including a portion of leadership time, GivingData GMS (~$12K/yr), agency support, and event/GivingTuesday campaigns ($24K challenge grant in 2021).</p>
+      </div>
+      <div class="modal-section">
+        <h3>Key Tactic: GivingTuesday Challenge Grant</h3>
+        <p>In 2021, Dunham committed $24,000 in incentive awards to nonprofits who promoted their GivingTuesday campaigns on social media. This turned 100+ local organizations into brand ambassadors — each one promoting the Dunham brand in exchange for the chance to win matching funds. Extremely high ROI for awareness spend. <strong>JCD should replicate this in Year 1 as a scholarship awareness tactic.</strong></p>
+      </div>
+      <div class="modal-learn">
+        <div class="modal-learn-label">What JCD Should Adopt</div>
+        <ul>
+          <li>Community data as public content — the CNA is their most powerful brand asset</li>
+          <li>Founder video as emotional anchor — "John's Legacy" model maps directly to JCD's origin</li>
+          <li>GivingData / grant portal UX philosophy — frictionless applicant experience</li>
+          <li>Challenge grant model for Year 1 awareness — low cost, high viral reach</li>
+          <li>Newsletter sign-up ("Be In The Know") as primary lead capture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CFFRV Modal -->
+<div class="modal-overlay" id="modal-cffrv" onclick="closeModalOnOverlay(event, 'cffrv')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h2>CFFRV — Deep Dive</h2>
+        <p>Community Foundation of the Fox River Valley — Aurora, IL</p>
+      </div>
+      <button class="modal-close" onclick="closeModal('cffrv')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3>Financial Profile</h3>
+        <div class="modal-stat-row">
+          <div class="modal-stat"><div class="modal-stat-n">$148.6M</div><div class="modal-stat-l">Total Assets (2024)</div></div>
+          <div class="modal-stat"><div class="modal-stat-n">$14.99M</div><div class="modal-stat-l">Total Revenue (2024)</div></div>
+          <div class="modal-stat"><div class="modal-stat-n">600+</div><div class="modal-stat-l">Charitable Funds</div></div>
+        </div>
+        <p>Operating since 1948, CFFRV is a public community foundation — meaning it must actively market to attract donor capital, unlike private foundations like Dunham or JCD. This forces a higher marketing investment and explains why they have a dedicated VP of Marketing &amp; Communications earning $101,000/year.</p>
+        <p>Charity Navigator 4-star rating with a 97% score — the highest trust signal available to a nonprofit. Their marketing investment in transparency and accountability reporting is the direct driver of this score.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Website &amp; Accessibility</h3>
+        <p>CFFRV's website is built for <strong>multi-stakeholder utility</strong>: donors can create and manage funds, grantees apply for grants, and the public accesses community resources — all from the same interface. The site includes an accessibility toolbar (high contrast, adjustable text size, keyboard navigation) and a mobile "Install" prompt — treating the site as a de facto app.</p>
+        <p>The fund management portal ("Find a Fund" / "Create a Fund") is their equivalent of JCD's scholarship portal. For JCD, the lesson is: build the applicant-facing portal with the same care as the public-facing website. The portal IS the product for the target audience.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Marketing Channels</h3>
+        <div class="modal-channels">
+          <span class="modal-channel">Facebook</span>
+          <span class="modal-channel">Twitter/X</span>
+          <span class="modal-channel">LinkedIn</span>
+          <span class="modal-channel">Instagram</span>
+          <span class="modal-channel">YouTube</span>
+          <span class="modal-channel">Connections Magazine</span>
+          <span class="modal-channel">Monthly E-Newsletter</span>
+          <span class="modal-channel">Webinars / Events</span>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3>Estimated Marketing Spend</h3>
+        <p>VP Marketing &amp; Communications: <strong>$101,000/yr</strong>. Agency support for magazine, video, and digital campaigns: estimated <strong>$60,000–$120,000/yr</strong>. Fluxx GMS enterprise tier: <strong>$25,000–$50,000/yr</strong>. Paid media (LinkedIn, Meta, Google Grants): estimated <strong>$12,000–$24,000/yr</strong>. Total estimated: <strong>$180,000–$300,000/year</strong>.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Key Differentiator: Connections Magazine</h3>
+        <p>CFFRV publishes a high-production print and digital magazine, <em>Connections</em>, which positions them as a community storytelling platform — not just a grantmaker. This is an expensive tactic (~$20,000–$40,000/yr for design, print, and distribution) but delivers trust at a scale no social media campaign matches. JCD's equivalent at lower cost would be an annual digital impact report and a quarterly email brief — achievable with AI and an intern at ~5% of CFFRV's magazine budget.</p>
+      </div>
+      <div class="modal-learn">
+        <div class="modal-learn-label">What JCD Should Adopt</div>
+        <ul>
+          <li>Accessibility-first website design — inclusive design is a brand signal, not just compliance</li>
+          <li>Multi-stakeholder portal thinking — the grant application UX is JCD's most-used product</li>
+          <li>Scholarship recipient testimonial content — CFFRV's video histories are highly shareable</li>
+          <li>Annual digital impact report as a Connections Magazine alternative (10% of the cost)</li>
+          <li>Charity Navigator profile submission — free trust signal, high SEO value</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Steans Modal -->
+<div class="modal-overlay" id="modal-steans" onclick="closeModalOnOverlay(event, 'steans')">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h2>Steans Family Foundation — Deep Dive</h2>
+        <p>Chicago, IL — Place-Based Systems Reform</p>
+      </div>
+      <button class="modal-close" onclick="closeModal('steans')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3>Financial Profile</h3>
+        <div class="modal-stat-row">
+          <div class="modal-stat"><div class="modal-stat-n">$294M</div><div class="modal-stat-l">Total Assets (2024)</div></div>
+          <div class="modal-stat"><div class="modal-stat-n">$64.2M</div><div class="modal-stat-l">Total Revenue (2024)</div></div>
+          <div class="modal-stat"><div class="modal-stat-n">Invite</div><div class="modal-stat-l">Only Grants</div></div>
+        </div>
+        <p>Steans is the largest of the three benchmarks and the least comparable in scale — but the most instructive in brand philosophy. By operating invitation-only, Steans has deliberately exited the traditional "marketing funnel" model. Their brand is maintained entirely through partner relationships, policy publications, and annual reporting. They do not need to market to grantees — they select them.</p>
+        <p>This is an aspirational model: JCD's 5-year goal should be to develop a reputation so strong that high schools and vocational programs compete to be designated qualifying institutions.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Brand Strategy: Partner-Centric Communications</h3>
+        <p>Steans builds brand authority by <strong>prominently featuring its partners</strong> — the Carole Robertson Center, Chicago Community Trust, Medicaid Technical Assistance Center — rather than centering the foundation itself. Every publication, spotlight, and annual report is structured around grantee impact, not funder identity.</p>
+        <p>This is counterintuitive but powerful: the more you celebrate your grantees, the more credibility you accumulate as a discerning funder. JCD should build this into its content strategy from Year 1 — scholarship recipient stories, partner school spotlights, employer outcome data.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Marketing Channels</h3>
+        <div class="modal-channels">
+          <span class="modal-channel">Annual Reports</span>
+          <span class="modal-channel">Policy Briefs</span>
+          <span class="modal-channel">Spotlight Features</span>
+          <span class="modal-channel">Partner PR</span>
+          <span class="modal-channel">Invitation-Only Events</span>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3>Estimated Marketing Spend</h3>
+        <p>Steans operates with a high-trust, low-volume communications model. Estimated marketing-attributed spend: <strong>$240,000–$480,000/year</strong> — primarily staff salaries (estimated 2–3 communications/strategy FTEs), annual report production (~$50,000+), policy brief development, and stakeholder event hosting. Minimal paid media spend — their audience does not need to be reached through ads.</p>
+      </div>
+      <div class="modal-section">
+        <h3>Key Tactic: The North Lawndale Catalyst Initiative (NLCI)</h3>
+        <p>Steans created a named, place-based initiative — the NLCI — as a brand anchor. Rather than marketing the foundation abstractly, all communications flow through this initiative: what it's doing, what it's measuring, who it's partnering with. The initiative becomes the brand story. For JCD, "The Dunham Quadrant Scholarship Program" or a named vocational pipeline initiative serves the same function — a narrative vehicle that makes grant activity legible and emotionally compelling.</p>
+      </div>
+      <div class="modal-learn">
+        <div class="modal-learn-label">What JCD Should Adopt</div>
+        <ul>
+          <li>Grantee-centered storytelling — recipient outcomes, not funder announcements</li>
+          <li>Named initiative branding — give the scholarship program a memorable identity beyond "JCD Foundation Scholarship"</li>
+          <li>Policy/data publications as earned media — the Fox Valley Vocational Report is JCD's version</li>
+          <li>Long-term vision toward invitation-only — build exclusivity and selectivity into the brand from Year 1</li>
+          <li>Annual report as the flagship communications piece — invest here over social media at Year 3+</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════ -->
+<script>
+  // Mobile nav
+  const burger = document.getElementById('navBurger');
+  const mobileNav = document.getElementById('navMobile');
+  burger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+    mobileNav.setAttribute('aria-hidden', String(!isOpen));
+  });
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+  }
+  document.addEventListener('click', (e) => {
+    if (!burger.contains(e.target) && !mobileNav.contains(e.target)) closeMobileNav();
+  });
+
+  // Tier tabs
+  function switchTier(id, btn) {
+    document.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tier-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Budget accordions
+  function toggleAccordion(btn) {
+    const item = btn.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    // Close all siblings
+    item.closest('.accordion').querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Phase accordions
+  function togglePhase(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+
+  // Insight accordions
+  function toggleInsight(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.insight-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Modals
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e, id) {
+    if (e.target === document.getElementById('modal-' + id)) closeModal(id);
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

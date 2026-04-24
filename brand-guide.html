@@ -1,0 +1,3191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD Foundation — Brand Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* =====================================================
+       CSS CUSTOM PROPERTIES — JCD FOUNDATION BRAND PALETTE
+       ===================================================== */
+    :root {
+      /* PRIMARY */
+      --equipto-blue:   #0E2A58;
+      --white:          #FFFFFF;
+
+      /* NEUTRALS */
+      --deep-charcoal:  #111827;
+      --steel-gray:     #4A5568;
+      --mid-gray:       #9AA3AF;
+      --ice-gray:       #F0F3F7;
+      --border-line:    #D1D8E0;
+
+      /* SECTOR ACCENTS */
+      --brass-gold:     #C5963A;
+      --pulse-teal:     #0A9B8C;
+      --safety-orange:  #E8600A;
+
+      /* UTILITY */
+      --body-text:      #2D3748;
+      --section-bg-alt: #F7F9FC;
+
+      /* TYPOGRAPHY */
+      --font-primary:   'Montserrat', sans-serif;
+      --font-mono:      'Roboto Mono', monospace;
+
+      /* SPACING */
+      --section-pad:    96px;
+      --container-max:  1200px;
+      --nav-h:          72px;
+    }
+
+    /* =====================================================
+       RESET & BASE
+       ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-primary);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--body-text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Section accent bar under headings */
+    .section-label {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 48px;
+    }
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: var(--equipto-blue);
+    }
+    .section-label h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+    }
+    .section-label h3 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--equipto-blue);
+      line-height: 1.15;
+    }
+
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--border-line);
+      margin: 0;
+    }
+
+    /* =====================================================
+       STICKY NAVIGATION
+       ===================================================== */
+    #nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: var(--equipto-blue);
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+    }
+
+    #nav .container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+    }
+    .nav-logo-text {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .nav-logo-text span {
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      padding: 8px 14px;
+      transition: color 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover {
+      color: var(--white);
+      border-bottom-color: var(--white);
+    }
+
+    /* Mobile nav */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.25s;
+    }
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: var(--deep-charcoal);
+      padding: 24px 40px;
+      z-index: 999;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile a {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--white); }
+
+    /* =====================================================
+       HERO SECTION
+       ===================================================== */
+    #hero {
+      position: relative;
+      min-height: calc(100vh - var(--nav-h));
+      background: var(--equipto-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Blueprint grid overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,   transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px),
+        repeating-linear-gradient(90deg,  transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px);
+      pointer-events: none;
+    }
+
+    /* Crosshair accent */
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border: 1px solid rgba(255,255,255,0.05);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .hero-logo {
+      height: 180px;
+      width: 180px;
+      object-fit: contain;
+      margin-bottom: 36px;
+    }
+
+    .hero-tagline-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero-tagline em {
+      font-style: normal;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      font-size: 0.65em;
+      display: block;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent);
+      margin: 32px auto;
+    }
+
+    .hero-mission {
+      max-width: 560px;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-scroll {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.3);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.2);
+      animation: pulse-line 2s ease-in-out infinite;
+    }
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.1); }
+    }
+
+    /* =====================================================
+       BRAND STORY
+       ===================================================== */
+    #story {
+      padding: var(--section-pad) 0;
+      background: var(--white);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .story-body p {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    .story-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .story-quote {
+      border-left: 3px solid var(--equipto-blue);
+      padding: 24px 32px;
+      background: var(--ice-gray);
+    }
+    .story-quote blockquote {
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--equipto-blue);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .story-quote cite {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--steel-gray);
+      font-style: normal;
+    }
+
+    .story-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .story-stat {
+      background: var(--equipto-blue);
+      padding: 28px 24px;
+      color: var(--white);
+    }
+    .story-stat-n {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .story-stat-l {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .story-stat:nth-child(2) { background: var(--deep-charcoal); }
+
+    /* JIT timeline strip */
+    .jit-strip {
+      background: var(--deep-charcoal);
+      padding: 20px 24px;
+      display: flex;
+      gap: 0;
+    }
+    .jit-item {
+      flex: 1;
+      padding: 0 16px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .jit-item:first-child { padding-left: 0; }
+    .jit-item:last-child { border-right: none; }
+    .jit-item-year {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--brass-gold);
+      margin-bottom: 4px;
+    }
+    .jit-item-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.4;
+    }
+
+    /* =====================================================
+       MISSION & PILLARS
+       ===================================================== */
+    #mission {
+      padding: var(--section-pad) 0;
+      background: var(--section-bg-alt);
+      border-top: 1px solid var(--border-line);
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      padding: 48px 36px;
+      border-top: 4px solid var(--equipto-blue);
+      position: relative;
+    }
+
+    .pillar-icon {
+      font-size: 36px;
+      margin-bottom: 24px;
+      line-height: 1;
+    }
+
+    .pillar-card h4 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--equipto-blue);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .pillar-card p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--steel-gray);
+    }
+
+    .pillar-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 12px;
+    }
+
+    /* =====================================================
+       VISUAL IDENTITY
+       ===================================================== */
+    #identity {
+      padding: var(--section-pad) 0;
+      background: var(--white);
+    }
+
+    /* COLOR PALETTE */
+    .palette-section { margin-bottom: 72px; }
+    .palette-section h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 24px;
+    }
+
+    .palette-row {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+
+    .swatch {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .swatch-color {
+      height: 120px;
+      width: 100%;
+    }
+
+    .swatch-info {
+      padding: 14px 16px;
+      background: var(--ice-gray);
+      border-top: 2px solid transparent;
+    }
+
+    .swatch-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--equipto-blue);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--steel-gray);
+      margin-bottom: 6px;
+    }
+
+    .swatch-use {
+      font-size: 10px;
+      color: var(--mid-gray);
+      line-height: 1.4;
+    }
+
+    /* TYPOGRAPHY SPECIMENS */
+    .type-section { margin-bottom: 72px; }
+    .type-section h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 24px;
+    }
+
+    .type-specimen {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .type-row {
+      display: contents;
+    }
+
+    .type-meta {
+      padding: 20px 24px;
+      background: var(--ice-gray);
+      border-bottom: 1px solid var(--border-line);
+      border-right: 1px solid var(--border-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .type-meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 4px;
+    }
+
+    .type-meta-spec {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--steel-gray);
+      line-height: 1.6;
+    }
+
+    .type-sample {
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      background: var(--white);
+    }
+
+    /* LOGO USAGE */
+    .logo-usage-section h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 24px;
+    }
+
+    .logo-usage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .logo-usage-card {
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .logo-usage-card img {
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+    }
+
+    .logo-usage-card.on-light { background: var(--ice-gray); }
+    .logo-usage-card.on-dark  { background: var(--equipto-blue); }
+    .logo-usage-card.on-charcoal { background: var(--deep-charcoal); }
+
+    .logo-usage-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .on-light .logo-usage-label  { color: var(--steel-gray); }
+    .on-dark .logo-usage-label   { color: rgba(255,255,255,0.5); }
+    .on-charcoal .logo-usage-label { color: rgba(255,255,255,0.5); }
+
+    .logo-rules {
+      margin-top: 2px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .logo-rule {
+      background: var(--ice-gray);
+      padding: 24px 28px;
+    }
+
+    .logo-rule-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 8px;
+    }
+
+    .logo-rule p {
+      font-size: 13px;
+      color: var(--body-text);
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       BRAND VOICE
+       ===================================================== */
+    #voice {
+      padding: var(--section-pad) 0;
+      background: var(--section-bg-alt);
+      border-top: 1px solid var(--border-line);
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .voice-tones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+
+    .tone-card {
+      background: var(--equipto-blue);
+      padding: 36px 32px;
+      color: var(--white);
+    }
+
+    .tone-card:nth-child(2) { background: var(--deep-charcoal); }
+    .tone-card:nth-child(3) { background: var(--steel-gray); }
+
+    .tone-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .tone-name {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .tone-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .voice-examples-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-bottom: 16px;
+    }
+
+    .voice-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .voice-col-header {
+      padding: 16px 28px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .voice-col-header.do {
+      background: var(--equipto-blue);
+      color: rgba(255,255,255,0.6);
+    }
+    .voice-col-header.dont {
+      background: var(--deep-charcoal);
+      color: rgba(255,255,255,0.4);
+    }
+    .voice-col-header.do::before { content: "✓  "; color: #6EE7B7; }
+    .voice-col-header.dont::before { content: "✗  "; color: #FCA5A5; }
+
+    .voice-item {
+      padding: 20px 28px;
+      font-size: 14px;
+      line-height: 1.6;
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .voice-item.do { background: var(--white); color: var(--body-text); }
+    .voice-item.dont {
+      background: var(--ice-gray);
+      color: var(--steel-gray);
+      font-style: italic;
+      text-decoration: line-through;
+      text-decoration-color: var(--mid-gray);
+    }
+
+    /* =====================================================
+       FOCUS AREAS
+       ===================================================== */
+    #focus {
+      padding: var(--section-pad) 0;
+      background: var(--white);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .focus-card {
+      border-top: 4px solid var(--equipto-blue);
+      background: var(--ice-gray);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .focus-card-header {
+      padding: 36px 32px 28px;
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .focus-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .focus-card h4 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .focus-sector-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      color: var(--white);
+    }
+
+    .focus-programs {
+      padding: 28px 32px;
+      list-style: none;
+    }
+
+    .focus-programs li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--body-text);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .focus-programs li:last-child { border-bottom: none; }
+
+    .focus-programs li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      flex-shrink: 0;
+    }
+
+    /* sector color theming */
+    .focus-card.mfg { border-top-color: var(--brass-gold); }
+    .focus-card.mfg .focus-sector-badge { background: var(--brass-gold); }
+    .focus-card.mfg .focus-programs li::before { background: var(--brass-gold); }
+
+    .focus-card.health { border-top-color: var(--pulse-teal); }
+    .focus-card.health .focus-sector-badge { background: var(--pulse-teal); }
+    .focus-card.health .focus-programs li::before { background: var(--pulse-teal); }
+
+    .focus-card.trades { border-top-color: var(--safety-orange); }
+    .focus-card.trades .focus-sector-badge { background: var(--safety-orange); }
+    .focus-card.trades .focus-programs li::before { background: var(--safety-orange); }
+
+    /* =====================================================
+       TARGET AUDIENCE
+       ===================================================== */
+    #audience {
+      padding: var(--section-pad) 0;
+      background: var(--section-bg-alt);
+      border-top: 1px solid var(--border-line);
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .audience-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Map placeholder */
+    .map-panel {
+      background: var(--equipto-blue);
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+    }
+
+    /* Blueprint-style map grid */
+    .map-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,   transparent, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 30px),
+        repeating-linear-gradient(90deg,  transparent, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 30px);
+    }
+
+    /* Routes as lines */
+    .map-routes {
+      position: absolute;
+      inset: 0;
+    }
+
+    .map-routes svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-label {
+      position: relative;
+      z-index: 1;
+    }
+
+    .map-label-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+
+    .map-label-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .map-routes-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .map-route-item {
+      background: rgba(255,255,255,0.08);
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.08em;
+    }
+
+    /* School lists */
+    .school-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .school-group {
+      background: var(--white);
+      border-top: 3px solid var(--equipto-blue);
+    }
+
+    .school-group-header {
+      padding: 16px 24px;
+      background: var(--equipto-blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .school-group-header h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .school-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .school-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .school-list li {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--body-text);
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--border-line);
+      border-right: 1px solid var(--border-line);
+    }
+
+    .school-list li:nth-child(even) { border-right: none; }
+    .school-list li:nth-last-child(-n+2) { border-bottom: none; }
+
+    .audience-note {
+      margin-top: 48px;
+      background: var(--equipto-blue);
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .audience-note-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .audience-note p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+
+    .audience-note strong {
+      color: var(--white);
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+    #footer {
+      background: var(--deep-charcoal);
+      padding: 64px 0 48px;
+      border-top: 3px solid var(--equipto-blue);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 360px;
+    }
+
+    .footer-logo {
+      height: 52px;
+      width: 52px;
+      object-fit: contain;
+    }
+
+    .footer-brand h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-nav-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 4px;
+    }
+
+    .footer-nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--white); }
+
+    .footer-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-parent {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-parent span {
+      color: var(--brass-gold);
+    }
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+    @media (max-width: 960px) {
+      :root { --section-pad: 64px; }
+
+      .container { padding: 0 24px; }
+
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+
+      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .focus-grid { grid-template-columns: 1fr; }
+      .voice-tones { grid-template-columns: 1fr; }
+      .audience-layout { grid-template-columns: 1fr; }
+      .logo-usage-grid { grid-template-columns: 1fr 1fr; }
+      .logo-rules { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+      .map-panel { aspect-ratio: 16/9; }
+
+      .hero-logo { height: 120px; width: 120px; }
+      .hero-tagline { font-size: 28px; }
+      .jit-strip { flex-direction: column; gap: 16px; }
+      .jit-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0 0 16px 0; }
+      .jit-item:last-child { border-bottom: none; }
+
+      .type-specimen { grid-template-columns: 1fr; }
+      .type-meta { border-right: none; border-bottom: 1px solid var(--border-line); }
+      .palette-row { flex-wrap: wrap; }
+      .swatch { min-width: calc(50% - 1px); }
+    }
+
+    @media (max-width: 600px) {
+      .logo-usage-grid { grid-template-columns: 1fr; }
+      .voice-table { grid-template-columns: 1fr; }
+      .story-stat-row { grid-template-columns: 1fr; }
+      .footer-meta { flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
+
+    /* =====================================================
+       LOGO LAB — ROUND 2 EXPLORATION
+       ===================================================== */
+    #logo-lab { background: var(--section-bg-alt); }
+
+    .lab-intro {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-line);
+    }
+    @media (max-width: 820px) { .lab-intro { grid-template-columns: 1fr; gap: 24px; } }
+
+    .lab-intro-copy p {
+      font-size: 17px;
+      color: var(--steel-gray);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .lab-intro-copy p strong { color: var(--equipto-blue); }
+
+    .lab-meta {
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      padding: 24px;
+    }
+    .lab-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border-line);
+      gap: 12px;
+    }
+    .lab-meta-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .lab-meta-row:first-child { padding-top: 0; }
+    .lab-meta-k {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+    }
+    .lab-meta-v {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--equipto-blue);
+      text-align: right;
+    }
+
+    .lab-legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .lab-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--steel-gray);
+    }
+    .lab-chip::before {
+      content: '';
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .lab-chip.nb::before { background: var(--safety-orange); }
+    .lab-chip.oai::before { background: var(--pulse-teal); }
+    .lab-chip strong {
+      color: var(--equipto-blue);
+      font-weight: 700;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 760px) { .concept-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+    .concept {
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .concept:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.08);
+    }
+
+    .concept-img {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: var(--ice-gray);
+    }
+    .concept-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .concept-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(17, 24, 39, 0.88);
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 11px;
+      backdrop-filter: blur(4px);
+    }
+    .concept-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .concept-badge.nb::before { background: var(--safety-orange); }
+    .concept-badge.oai::before { background: var(--pulse-teal); }
+
+    .concept-num {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      background: var(--white);
+      color: var(--equipto-blue);
+      padding: 7px 11px;
+      font-weight: 700;
+    }
+
+    .concept-body {
+      padding: 24px 26px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .concept-dir {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--safety-orange);
+      font-weight: 700;
+    }
+    .concept-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--equipto-blue);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .concept-note {
+      font-size: 14px;
+      color: var(--steel-gray);
+      line-height: 1.6;
+    }
+    .concept-foot {
+      margin-top: 6px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .concept-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel-gray);
+      padding: 4px 8px;
+      background: var(--ice-gray);
+      border-radius: 2px;
+    }
+    .concept-tag.pro { color: var(--pulse-teal); background: rgba(10, 155, 140, 0.08); }
+    .concept-tag.watch { color: var(--safety-orange); background: rgba(232, 96, 10, 0.08); }
+
+    .lab-cta-bar {
+      margin-top: 48px;
+      padding: 32px;
+      background: var(--equipto-blue);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    @media (max-width: 640px) { .lab-cta-bar { grid-template-columns: 1fr; } }
+    .lab-cta-bar h4 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .lab-cta-bar p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      max-width: 640px;
+      line-height: 1.55;
+    }
+    .lab-cta-bar .cta-stamp {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass-gold);
+      padding: 14px 20px;
+      border: 2px solid var(--brass-gold);
+    }
+
+    /* =====================================================
+       WHY CHANGE — diagnostic of current logo
+       ===================================================== */
+    #why-change { background: var(--white); }
+
+    .wc-hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 56px;
+      align-items: stretch;
+      margin-bottom: 56px;
+    }
+    @media (max-width: 900px) { .wc-hero { grid-template-columns: 1fr; gap: 32px; } }
+
+    .wc-current {
+      background: var(--ice-gray);
+      padding: 56px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border: 1px solid var(--border-line);
+    }
+    .wc-current img {
+      max-width: 80%;
+      height: auto;
+    }
+    .wc-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel-gray);
+      text-align: center;
+    }
+    .wc-caption strong { color: var(--equipto-blue); font-weight: 700; }
+
+    .wc-shrink {
+      background: var(--equipto-blue);
+      color: var(--white);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .wc-shrink-head {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brass-gold);
+    }
+    .wc-shrink h4 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .wc-shrink p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.78);
+    }
+    .wc-shrink-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px 0 12px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .wc-shrink-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 8px;
+      background: var(--white);
+      min-height: 110px;
+      justify-content: center;
+    }
+    .wc-shrink-slot img { display: block; height: auto; }
+    .wc-shrink-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel-gray);
+    }
+    .wc-shrink-verdict {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--safety-orange);
+    }
+
+    .diag-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .diag-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .diag-grid { grid-template-columns: 1fr; } }
+
+    .diag {
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      border-left: 3px solid var(--safety-orange);
+      padding: 22px 24px;
+    }
+    .diag-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--safety-orange);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .diag-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--equipto-blue);
+      line-height: 1.2;
+      letter-spacing: -0.005em;
+      margin-bottom: 8px;
+    }
+    .diag-body {
+      font-size: 14px;
+      color: var(--steel-gray);
+      line-height: 1.6;
+    }
+
+    .wc-verdict {
+      margin-top: 48px;
+      padding: 32px 36px;
+      background: var(--equipto-blue);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    @media (max-width: 640px) { .wc-verdict { grid-template-columns: 1fr; } }
+    .wc-verdict-stamp {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass-gold);
+      border: 2px solid var(--brass-gold);
+      padding: 14px 20px;
+      white-space: nowrap;
+    }
+    .wc-verdict p {
+      font-size: 17px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.9);
+    }
+    .wc-verdict p em {
+      font-style: normal;
+      color: var(--brass-gold);
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       STRESS TEST — tiny marks + contexts
+       ===================================================== */
+    .stress-intro {
+      margin-top: 72px;
+      padding-top: 56px;
+      border-top: 1px solid var(--border-line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 820px) { .stress-intro { grid-template-columns: 1fr; gap: 20px; } }
+
+    .stress-intro h3 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--equipto-blue);
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+    }
+    .stress-intro h3 em {
+      font-style: normal;
+      color: var(--safety-orange);
+    }
+    .stress-intro p {
+      font-size: 15px;
+      color: var(--steel-gray);
+      line-height: 1.6;
+    }
+    .stress-legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .verdict-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-line);
+    }
+    .verdict-chip::before {
+      content: '';
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .verdict-chip.survives { color: var(--pulse-teal); }
+    .verdict-chip.survives::before { background: var(--pulse-teal); }
+    .verdict-chip.struggles { color: var(--brass-gold); }
+    .verdict-chip.struggles::before { background: var(--brass-gold); }
+    .verdict-chip.fails { color: var(--safety-orange); }
+    .verdict-chip.fails::before { background: var(--safety-orange); }
+
+    .stress-table {
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      overflow-x: auto;
+    }
+    .stress-head {
+      display: grid;
+      grid-template-columns: 220px 220px 1fr 1fr 1fr 120px;
+      gap: 0;
+      padding: 14px 20px;
+      background: var(--section-bg-alt);
+      border-bottom: 1px solid var(--border-line);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      min-width: 1080px;
+    }
+    .stress-row {
+      display: grid;
+      grid-template-columns: 220px 220px 1fr 1fr 1fr 120px;
+      gap: 0;
+      padding: 20px;
+      border-bottom: 1px solid var(--border-line);
+      align-items: center;
+      min-width: 1080px;
+    }
+    .stress-row:last-child { border-bottom: 0; }
+    .stress-row.baseline {
+      background: #FFF4EC;
+      border-left: 3px solid var(--safety-orange);
+    }
+
+    .sr-dir {
+      padding-right: 20px;
+    }
+    .sr-dir-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--equipto-blue);
+      line-height: 1.2;
+      letter-spacing: -0.005em;
+    }
+    .sr-dir-kind {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel-gray);
+      margin-top: 4px;
+    }
+    .sr-dir-engine {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 3px 8px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--ice-gray);
+      color: var(--steel-gray);
+    }
+    .sr-dir-engine::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+    .sr-dir-engine.nb::before { background: var(--safety-orange); }
+    .sr-dir-engine.oai::before { background: var(--pulse-teal); }
+    .sr-dir-engine.current::before { background: var(--steel-gray); }
+
+    .sr-sizes {
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+      padding-right: 20px;
+    }
+    .sr-size {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .sr-size img {
+      border: 1px solid var(--border-line);
+      background: var(--white);
+      display: block;
+      object-fit: contain;
+    }
+    .sr-size img.bg-ice { background: var(--ice-gray); }
+    .sr-size-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: var(--mid-gray);
+    }
+
+    /* Browser tab mockup */
+    .ctx-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px 6px 8px;
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      border-bottom: 0;
+      border-radius: 6px 6px 0 0;
+      max-width: 220px;
+      min-width: 180px;
+      box-shadow: 0 -2px 0 var(--ice-gray);
+      position: relative;
+    }
+    .ctx-tab::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -1px;
+      height: 1px;
+      background: var(--white);
+    }
+    .ctx-tab img {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      object-fit: contain;
+      background: transparent;
+    }
+    .ctx-tab-title {
+      font-size: 11px;
+      color: var(--deep-charcoal);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    .ctx-tab-x {
+      color: var(--mid-gray);
+      font-size: 14px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .ctx-wrap {
+      padding-right: 16px;
+    }
+
+    /* Mobile nav mockup */
+    .ctx-navbar {
+      background: var(--equipto-blue);
+      border-radius: 4px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 260px;
+    }
+    .ctx-navbar img {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+    }
+    .ctx-navbar-burger {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ctx-navbar-burger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--white);
+    }
+
+    /* App icon mockup (squircle) */
+    .ctx-app {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ctx-squircle {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(17, 24, 39, 0.1);
+      flex-shrink: 0;
+    }
+    .ctx-squircle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ctx-app-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 11px;
+    }
+    .ctx-app-name {
+      font-weight: 700;
+      color: var(--deep-charcoal);
+    }
+    .ctx-app-tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+    }
+
+    .sr-verdict {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .sr-verdict-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border: 1px solid;
+    }
+    .sr-verdict-badge.survives { color: var(--pulse-teal); border-color: var(--pulse-teal); }
+    .sr-verdict-badge.struggles { color: var(--brass-gold); border-color: var(--brass-gold); }
+    .sr-verdict-badge.fails { color: var(--safety-orange); border-color: var(--safety-orange); }
+    .sr-verdict-note {
+      font-size: 11px;
+      color: var(--steel-gray);
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+  <nav id="nav" role="navigation" aria-label="Primary">
+    <div class="container">
+      <a href="#hero" class="nav-logo" aria-label="JCD Foundation home">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation Logo" />
+        <div class="nav-logo-text">
+          JCD Foundation
+          <span>Brand Guide</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#story">Brand Story</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#identity">Identity</a></li>
+        <li><a href="#why-change">Why Change</a></li>
+        <li><a href="#logo-lab">Logo Lab</a></li>
+        <li><a href="#voice">Voice</a></li>
+        <li><a href="#focus">Focus Areas</a></li>
+        <li><a href="#audience">Audience</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile" id="navMobile" aria-hidden="true">
+    <a href="#story"   onclick="closeMobileNav()">Brand Story</a>
+    <a href="#mission" onclick="closeMobileNav()">Mission</a>
+    <a href="#identity" onclick="closeMobileNav()">Identity</a>
+    <a href="#voice"   onclick="closeMobileNav()">Voice</a>
+    <a href="#focus"   onclick="closeMobileNav()">Focus Areas</a>
+    <a href="#audience" onclick="closeMobileNav()">Audience</a>
+  </div>
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-inner">
+      <img class="hero-logo" src="assets/jcd-logo-white.svg" alt="JCD Foundation" />
+      <p class="hero-tagline-label">JCD Foundation</p>
+      <h1 class="hero-tagline">
+        Applied Legacy
+        <em>Precision &nbsp;·&nbsp; Vocation &nbsp;·&nbsp; Community</em>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-mission">
+        Catalyzing individual prosperity through Just-in-Time educational support for
+        high-demand, skilled vocations. Delivering resources exactly when and where
+        a student needs them to succeed — in the Fox Valley, for the Fox Valley.
+      </p>
+      <div class="hero-scroll" aria-hidden="true">Explore</div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       BRAND STORY
+       ===================================================== -->
+  <section id="story" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="story-grid">
+
+        <div class="story-content">
+          <div class="section-label">
+            <h2>Brand Story</h2>
+            <h3 id="story-heading">The Legacy of<br>John C. Dunham</h3>
+          </div>
+
+          <div class="story-body">
+            <p>
+              Born from the industrial precision of Equipto — the Aurora-based world leader
+              in steel shelving and space utilization — JCD Foundation carries the initials
+              and the mission of John C. Dunham himself. Under his leadership, Equipto became
+              a global manufacturing powerhouse, and Dunham applied that same systematic
+              thinking to building a better community.
+            </p>
+            <p>
+              After studying Just-in-Time manufacturing principles in Japan, Dunham understood
+              that the greatest waste is unrealized human potential. He believed skilled trades,
+              health sciences, and manufacturing were not secondary paths — they were the
+              backbone of a thriving community.
+            </p>
+            <p>
+              JCD Foundation is the <strong>Applied Legacy</strong> — the specialized, high-impact
+              expression of that belief. While the broader Dunham Foundation addresses systemic
+              regional capacity, JCD focuses precisely on the individual's path: from Fox Valley
+              classroom to career-ready professional.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-aside">
+          <div class="story-quote">
+            <blockquote>
+              "Make the world a more comfortable, safer place for mankind to live and prosper."
+            </blockquote>
+            <cite>John C. Dunham &nbsp;—&nbsp; Founder, Equipto &amp; Dunham Foundation</cite>
+          </div>
+
+          <div class="story-stat-row">
+            <div class="story-stat">
+              <div class="story-stat-n">1931</div>
+              <div class="story-stat-l">Dunham joins Equipto</div>
+            </div>
+            <div class="story-stat">
+              <div class="story-stat-n">$54M+</div>
+              <div class="story-stat-l">Grants awarded since 2007</div>
+            </div>
+          </div>
+
+          <div class="jit-strip">
+            <div class="jit-item">
+              <div class="jit-item-year">1996</div>
+              <div class="jit-item-text">Dunham Fund founded</div>
+            </div>
+            <div class="jit-item">
+              <div class="jit-item-year">2007</div>
+              <div class="jit-item-text">First grants awarded</div>
+            </div>
+            <div class="jit-item">
+              <div class="jit-item-year">2021</div>
+              <div class="jit-item-text">Becomes Dunham Foundation</div>
+            </div>
+            <div class="jit-item">
+              <div class="jit-item-year">Now</div>
+              <div class="jit-item-text">JCD Applied Legacy</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- =====================================================
+       MISSION & PILLARS
+       ===================================================== -->
+  <section id="mission" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="section-label">
+        <h2>Mission &amp; Core Pillars</h2>
+        <h3 id="mission-heading">The JCD Standard</h3>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">⚙</div>
+          <span class="pillar-tag">Pillar 01</span>
+          <h4>Industrial Precision</h4>
+          <p>
+            We apply the Just-in-Time manufacturing philosophy to education — delivering
+            resources exactly when and where a student needs them. No waste, no delay,
+            no gap between need and support.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">🤝</div>
+          <span class="pillar-tag">Pillar 02</span>
+          <h4>Professional Etiquette</h4>
+          <p>
+            Following John Dunham's personal creed, we model and expect the
+            fundamentals of professional life: promptness, self-presentation,
+            and confidentiality. These are the bedrock of a lasting career.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">◎</div>
+          <span class="pillar-tag">Pillar 03</span>
+          <h4>Wise Gifting</h4>
+          <p>
+            Our scholarships are not passive charity — they are strategic investments
+            in the human infrastructure of the Fox Valley. Every grant is a calculated
+            deployment of capital toward permanent, measurable change.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- =====================================================
+       VISUAL IDENTITY
+       ===================================================== -->
+  <section id="identity" aria-labelledby="identity-heading">
+    <div class="container">
+      <div class="section-label">
+        <h2>Visual Identity</h2>
+        <h3 id="identity-heading">Color, Type &amp; Logo</h3>
+      </div>
+
+      <!-- COLOR PALETTE -->
+      <div class="palette-section">
+        <h4>Color Palette</h4>
+
+        <!-- Primary -->
+        <div class="palette-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0E2A58;"></div>
+            <div class="swatch-info" style="border-top-color:#0E2A58;">
+              <div class="swatch-name">Equipto Blue</div>
+              <div class="swatch-hex">#0E2A58</div>
+              <div class="swatch-use">Primary brand color. Logo, nav, headings, primary CTAs.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FFFFFF; border: 1px solid #D1D8E0;"></div>
+            <div class="swatch-info" style="border-top-color:#D1D8E0;">
+              <div class="swatch-name">White</div>
+              <div class="swatch-hex">#FFFFFF</div>
+              <div class="swatch-use">Primary background. Logo on dark. Reversed text on navy.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Neutrals -->
+        <div class="palette-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#111827;"></div>
+            <div class="swatch-info" style="border-top-color:#111827;">
+              <div class="swatch-name">Deep Charcoal</div>
+              <div class="swatch-hex">#111827</div>
+              <div class="swatch-use">Footer, dark section backgrounds, high-contrast text blocks.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#4A5568;"></div>
+            <div class="swatch-info" style="border-top-color:#4A5568;">
+              <div class="swatch-name">Steel Gray</div>
+              <div class="swatch-hex">#4A5568</div>
+              <div class="swatch-use">Secondary text, subheadings, icons, dividers.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#9AA3AF;"></div>
+            <div class="swatch-info" style="border-top-color:#9AA3AF;">
+              <div class="swatch-name">Mid Gray</div>
+              <div class="swatch-hex">#9AA3AF</div>
+              <div class="swatch-use">Labels, captions, muted metadata, placeholder text.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#F0F3F7; border: 1px solid #D1D8E0;"></div>
+            <div class="swatch-info" style="border-top-color:#D1D8E0;">
+              <div class="swatch-name">Ice Gray</div>
+              <div class="swatch-hex">#F0F3F7</div>
+              <div class="swatch-use">Alternate section backgrounds, card surfaces, input fields.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sector Accents -->
+        <div class="palette-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#C5963A;"></div>
+            <div class="swatch-info" style="border-top-color:#C5963A;">
+              <div class="swatch-name">Brass Gold</div>
+              <div class="swatch-hex">#C5963A</div>
+              <div class="swatch-use">Advanced Manufacturing sector. Industrial warmth, precision.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0A9B8C;"></div>
+            <div class="swatch-info" style="border-top-color:#0A9B8C;">
+              <div class="swatch-name">Pulse Teal</div>
+              <div class="swatch-hex">#0A9B8C</div>
+              <div class="swatch-use">Health Sciences sector. Clinical trust, forward motion.</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#E8600A;"></div>
+            <div class="swatch-info" style="border-top-color:#E8600A;">
+              <div class="swatch-name">Safety Orange</div>
+              <div class="swatch-hex">#E8600A</div>
+              <div class="swatch-use">Building Trades sector. Action, energy, hands-on work.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TYPOGRAPHY -->
+      <div class="type-section">
+        <h4>Typography — Montserrat</h4>
+
+        <div class="type-specimen" role="table" aria-label="Typography scale">
+          <div class="type-row" role="row">
+            <div class="type-meta" role="cell">
+              <div class="type-meta-label">Heading 1</div>
+              <div class="type-meta-spec">56px / 800<br>Weight: ExtraBold<br>Use: Hero headline</div>
+            </div>
+            <div class="type-sample" role="cell" style="font-size:56px; font-weight:800; color:var(--equipto-blue); line-height:1.05; letter-spacing:-0.02em;">
+              Fox Valley
+            </div>
+          </div>
+
+          <div class="type-row" role="row">
+            <div class="type-meta" role="cell">
+              <div class="type-meta-label">Heading 2</div>
+              <div class="type-meta-spec">36px / 800<br>Weight: ExtraBold<br>Use: Section title</div>
+            </div>
+            <div class="type-sample" role="cell" style="font-size:36px; font-weight:800; color:var(--equipto-blue); line-height:1.1; letter-spacing:-0.01em;">
+              Precision Starts Here
+            </div>
+          </div>
+
+          <div class="type-row" role="row">
+            <div class="type-meta" role="cell">
+              <div class="type-meta-label">Heading 3</div>
+              <div class="type-meta-spec">24px / 700<br>Weight: Bold<br>Use: Card title</div>
+            </div>
+            <div class="type-sample" role="cell" style="font-size:24px; font-weight:700; color:var(--body-text); line-height:1.2;">
+              Advanced Manufacturing
+            </div>
+          </div>
+
+          <div class="type-row" role="row">
+            <div class="type-meta" role="cell">
+              <div class="type-meta-label">Body</div>
+              <div class="type-meta-spec">16px / 400<br>Weight: Regular<br>Use: Paragraph text</div>
+            </div>
+            <div class="type-sample" role="cell" style="font-size:16px; font-weight:400; color:var(--body-text); line-height:1.8; max-width:560px;">
+              JCD Foundation delivers scholarships exactly when students need them — no bureaucratic delay, no guesswork. Just measurable investment in the region's next generation of skilled workers.
+            </div>
+          </div>
+
+          <div class="type-row" role="row">
+            <div class="type-meta" role="cell">
+              <div class="type-meta-label">Caption / Label</div>
+              <div class="type-meta-spec">11px / 700<br>Weight: Bold<br>Letter-spacing: 0.15em<br>Use: Tags, metadata</div>
+            </div>
+            <div class="type-sample" role="cell" style="font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid-gray);">
+              Health Sciences &nbsp;·&nbsp; Aurora, IL &nbsp;·&nbsp; Est. 1931
+            </div>
+          </div>
+
+          <div class="type-row" role="row">
+            <div class="type-meta" role="cell">
+              <div class="type-meta-label">Mono / Code</div>
+              <div class="type-meta-spec">Roboto Mono<br>12px / 400<br>Use: Hex codes, IDs</div>
+            </div>
+            <div class="type-sample" role="cell" style="font-family:var(--font-mono); font-size:12px; color:var(--steel-gray);">
+              #0E2A58 &nbsp;&nbsp;IL-38 × IL-47 &nbsp;&nbsp;FY2026-Q2
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGO USAGE -->
+      <div class="logo-usage-section">
+        <h4>Logo Usage</h4>
+
+        <div class="logo-usage-grid">
+          <div class="logo-usage-card on-light">
+            <img src="assets/jcd-logo-dark.svg" alt="JCD Foundation logo on light background" />
+            <div class="logo-usage-label">On Light Background</div>
+          </div>
+          <div class="logo-usage-card on-dark">
+            <img src="assets/jcd-logo-white.svg" alt="JCD Foundation logo on Equipto Blue background" />
+            <div class="logo-usage-label">On Equipto Blue</div>
+          </div>
+          <div class="logo-usage-card on-charcoal">
+            <img src="assets/jcd-logo-white.svg" alt="JCD Foundation logo on charcoal background" />
+            <div class="logo-usage-label">On Deep Charcoal</div>
+          </div>
+        </div>
+
+        <div class="logo-rules">
+          <div class="logo-rule">
+            <div class="logo-rule-label">Minimum Size</div>
+            <p>Never reproduce the logo below <strong>40px height</strong> in digital applications or <strong>0.5 inches</strong> in print. Below this threshold, fine detail in the mark is lost.</p>
+          </div>
+          <div class="logo-rule">
+            <div class="logo-rule-label">Clear Space</div>
+            <p>Maintain a minimum clear space equal to the height of the "J" letterform on all four sides of the logo. No text, graphics, or other logos may intrude on this zone.</p>
+          </div>
+          <div class="logo-rule">
+            <div class="logo-rule-label">Approved Backgrounds</div>
+            <p>Use on White (#FFFFFF), Ice Gray (#F0F3F7), Equipto Blue (#0E2A58), and Deep Charcoal (#111827) only. Never place on a photographic background without an opaque overlay.</p>
+          </div>
+          <div class="logo-rule">
+            <div class="logo-rule-label">Prohibited Modifications</div>
+            <p>Do not rotate, stretch, recolor, add drop shadows, apply gradients, or alter the proportions of the logo in any way. Use only the approved files.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- =====================================================
+       WHY CHANGE — diagnostic of the current mark
+       ===================================================== -->
+  <section id="why-change" aria-labelledby="why-change-heading">
+    <div class="container">
+      <div class="section-label">
+        <h2>The Case for a New Mark</h2>
+        <h3 id="why-change-heading">Why Change What We Have</h3>
+      </div>
+
+      <div class="wc-hero">
+        <div class="wc-current">
+          <img src="assets/JCD Offical logo.jpg" alt="The current JCD Foundation logo — italic chrome wordmark with blue swoosh" />
+          <div class="wc-caption"><strong>Current mark</strong> · "JCD" wordmark + swoosh · c. 2023</div>
+        </div>
+
+        <div class="wc-shrink">
+          <div>
+            <div class="wc-shrink-head">Stress test · actual pixel sizes</div>
+            <h4>Here's what happens when it shrinks.</h4>
+            <p>The chrome gradient flattens to a gray blur. The swoosh ribbon turns into a smudge. The italic letters lose their silver-to-white contrast. By 24px, the mark is unreadable.</p>
+          </div>
+          <div class="wc-shrink-row">
+            <div class="wc-shrink-slot">
+              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 16px" width="30" style="height: 16px;" />
+              <span class="wc-shrink-label">16 px</span>
+            </div>
+            <div class="wc-shrink-slot">
+              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 24px" width="46" style="height: 24px;" />
+              <span class="wc-shrink-label">24 px</span>
+            </div>
+            <div class="wc-shrink-slot">
+              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 40px" width="76" style="height: 40px;" />
+              <span class="wc-shrink-label">40 px</span>
+            </div>
+            <div class="wc-shrink-slot">
+              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 64px" width="122" style="height: 64px;" />
+              <span class="wc-shrink-label">64 px</span>
+            </div>
+          </div>
+          <div class="wc-shrink-verdict">Verdict · Requires redesign for small-size use</div>
+        </div>
+      </div>
+
+      <div class="diag-grid">
+        <article class="diag">
+          <div class="diag-num">Observation 01</div>
+          <div class="diag-title">The style dates us.</div>
+          <p class="diag-body">Chrome gradient + italic + swoosh-ribbon is the visual vocabulary of 1998–2008 — used widely for auto-detailing shops, small-league sports teams, and mid-market corporate. It reads "established small business," which is not the message for a foundation investing in the <em>next</em> generation of tradespeople.</p>
+        </article>
+
+        <article class="diag">
+          <div class="diag-num">Observation 02</div>
+          <div class="diag-title">The chrome can't survive production.</div>
+          <p class="diag-body">The silver-to-white gradient that gives the current mark its lift disappears the moment it hits single-color print, embroidery, laser etching, or small-scale screen. The "flat" SVG we trace from it loses the shine and leaves a heavy, cramped silhouette.</p>
+        </article>
+
+        <article class="diag">
+          <div class="diag-num">Observation 03</div>
+          <div class="diag-title">There's no icon-only version.</div>
+          <p class="diag-body">Every modern brand needs a reduced mark for favicons, app icons, social avatars, and small-scale signage. The current logo is a wordmark-only lockup at a wide aspect ratio (1782 × 934) — it simply cannot compress into a square without becoming illegible.</p>
+        </article>
+
+        <article class="diag">
+          <div class="diag-num">Observation 04</div>
+          <div class="diag-title">It doesn't signal craft.</div>
+          <p class="diag-body">JCD funds welders, nurses, carpenters, electricians — people who make things with their hands. The current mark signals "corporate swoosh," not "craft." There's no visual connection to tools, work, trades, or the people we serve.</p>
+        </article>
+
+        <article class="diag">
+          <div class="diag-num">Observation 05</div>
+          <div class="diag-title">It fights the brand voice.</div>
+          <p class="diag-body">Our defined tone is editorial-poster × streetwear × Portra documentary — honest, gritty, confident, a little rough around the edges. The chrome-and-swoosh is the opposite: polished, corporate, trying a little too hard. Every touchpoint we build feels at war with the logo sitting on top of it.</p>
+        </article>
+
+        <article class="diag">
+          <div class="diag-num">Observation 06</div>
+          <div class="diag-title">Equity is still low — so the cost is low.</div>
+          <p class="diag-body">JCD is a new foundation. Scholarship count is still small, external recognition of the mark is minimal, print runs are limited. The moment to reset is <em>now</em>, before the current mark lives on thousands of banners, transcripts, and grad photos and becomes harder to replace.</p>
+        </article>
+      </div>
+
+      <div class="wc-verdict">
+        <div class="wc-verdict-stamp">Opportunity · Not problem</div>
+        <p>The logo we have is <em>a 2004 logo</em>. We're building a 2026 foundation for the next generation of skilled-trades talent. The eight concepts in the Logo Lab below are an honest attempt to meet this moment — <em>the work, the people, the craft</em> — with a mark that earns its place on a welder's apron, a nurse's name badge, and a 16-pixel browser tab.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- =====================================================
+       LOGO LAB — ROUND 2 EXPLORATION
+       ===================================================== -->
+  <section id="logo-lab" aria-labelledby="logo-lab-heading">
+    <div class="container">
+      <div class="section-label">
+        <h2>Logo Lab · Round 2</h2>
+        <h3 id="logo-lab-heading">Eight Directions, Two Engines</h3>
+      </div>
+
+      <div class="lab-intro">
+        <div class="lab-intro-copy">
+          <p><strong>This is exploration, not decision.</strong> The current stencil monogram + quadrant seal pair in §Identity is the standing direction — these concepts are a round-two widening to pressure-test it before we vectorize anything.</p>
+          <p>We ran the same six directional briefs through two image engines: <strong>Nano Banana</strong> (Gemini 3 Pro Image) and <strong>OpenAI Image</strong> (gpt-image). Each has a different accent — NB tends documentary and in-context, OpenAI tends cleaner and more graphic. Both views are useful.</p>
+          <p>Read each card's <em>tradeoff</em> note before picking favorites. A logo that photographs well on a leather apron may not shrink to 24px on a nav bar. Our job is to find the one that does both.</p>
+        </div>
+
+        <aside class="lab-meta">
+          <div class="lab-meta-row"><span class="lab-meta-k">Round</span><span class="lab-meta-v">02 · Exploration</span></div>
+          <div class="lab-meta-row"><span class="lab-meta-k">Concepts</span><span class="lab-meta-v">8 total</span></div>
+          <div class="lab-meta-row"><span class="lab-meta-k">Directions</span><span class="lab-meta-v">6 themes</span></div>
+          <div class="lab-meta-row"><span class="lab-meta-k">Engines</span><span class="lab-meta-v">NB · gpt-image</span></div>
+          <div class="lab-meta-row"><span class="lab-meta-k">Vectorized</span><span class="lab-meta-v">None yet</span></div>
+          <div class="lab-meta-row"><span class="lab-meta-k">Status</span><span class="lab-meta-v" style="color: var(--safety-orange);">Under review</span></div>
+        </aside>
+      </div>
+
+      <div class="lab-legend">
+        <span class="lab-chip nb"><strong>NB</strong> Nano Banana · Gemini 3 Pro Image</span>
+        <span class="lab-chip oai"><strong>OAI</strong> OpenAI · gpt-image</span>
+      </div>
+
+      <div class="concept-grid">
+
+        <!-- ============ CONCEPT 01 — NB · Stencil on concrete ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/generated-2026-04-24T20-54-08-618Z-6y1y6h.png" alt="JCD stenciled in safety orange on a weathered concrete wall" />
+            <span class="concept-badge nb">Nano Banana</span>
+            <span class="concept-num">01 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 1 · Stencil Monogram</div>
+            <div class="concept-name">Shop-Wall Stencil</div>
+            <p class="concept-note">Hand-applied through a real cardboard stencil, safety-orange spray on weathered concrete. The cardboard stencil still on the ground is a bonus storytelling detail — it says "we made this, on purpose, with our hands." Pairs with the standing monogram direction.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Stencil</span>
+              <span class="concept-tag">In-Context</span>
+              <span class="concept-tag pro">Auth. texture</span>
+              <span class="concept-tag watch">Not a logo file</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============ CONCEPT 02 — OAI · Quadrant seal ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/oai-logo-quadrant-seal.png" alt="JCD quadrant seal logo with four sector icons" />
+            <span class="concept-badge oai">OpenAI Image</span>
+            <span class="concept-num">02 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 2 · Quadrant Seal</div>
+            <div class="concept-name">Four-Sector Medallion</div>
+            <p class="concept-note">Flat graphic build of the standing seal direction. The four pie slices carry trade, health, safety, and craft icons; a navy medallion locks the JCD wordmark dead-center. Clean enough to sit on a favicon, rich enough to embroider on a cap.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Seal</span>
+              <span class="concept-tag">Flat vector</span>
+              <span class="concept-tag pro">Scales down</span>
+              <span class="concept-tag watch">Detail-dense at 24px</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============ CONCEPT 03 — NB · Tool-forged wordmark ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/generated-2026-04-24T20-54-47-826Z-pv8hqp.png" alt="JCD wordmark built from tools — hammer, C-clamp, wrench" />
+            <span class="concept-badge nb">Nano Banana</span>
+            <span class="concept-num">03 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 3 · Tool-Forged Wordmark</div>
+            <div class="concept-name">Hammer / Clamp / Wrench</div>
+            <p class="concept-note">J is a claw hammer, C is a C-clamp, D is an adjustable wrench. Reads as letterforms first, tools second — which is exactly the brief. Navy + brass gets the editorial heft; the wordmark has a playful confidence the current stencil doesn't.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Tool-forged</span>
+              <span class="concept-tag">Flat illustration</span>
+              <span class="concept-tag pro">Memorable</span>
+              <span class="concept-tag watch">Harder to vectorize</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============ CONCEPT 04 — OAI · Dataplate ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/oai-logo-dataplate.png" alt="Industrial aluminum dataplate stamped with JCD Foundation" />
+            <span class="concept-badge oai">OpenAI Image</span>
+            <span class="concept-num">04 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 4 · Industrial Dataplate</div>
+            <div class="concept-name">Riveted Nameplate</div>
+            <p class="concept-note">Brushed aluminum, four rivets, stamped serial-number typography. Doubles as a visual identity and a "manufacturer's stamp" story — every scholarship grad gets a real one. The artifact is the logo; the logo is the artifact.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Dataplate</span>
+              <span class="concept-tag">Product story</span>
+              <span class="concept-tag pro">Tangible hook</span>
+              <span class="concept-tag watch">Photograph-only</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============ CONCEPT 05 — NB · Chop-stamp on apron ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/generated-2026-04-24T20-55-32-690Z-l87o31.png" alt="JCD chop-stamp seal on a waxed canvas welder's apron" />
+            <span class="concept-badge nb">Nano Banana</span>
+            <span class="concept-num">05 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 5 · Chop-Stamp</div>
+            <div class="concept-name">Maker's Mark on Leather</div>
+            <p class="concept-note">Single-ink pressed-leather chop stamp: JCD lockup inside, circular "EST. 2026 · FOX VALLEY · BUILD WHAT'S NEXT" outside. The imperfect pressure — some letters bolder than others — is the point. Streetwear-adjacent, craft-first. Strongest candidate for merch.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Chop-stamp</span>
+              <span class="concept-tag">On swag</span>
+              <span class="concept-tag pro">Craft signal</span>
+              <span class="concept-tag watch">Needs a flat version too</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============ CONCEPT 06 — NB · Shield patch ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/generated-2026-04-24T20-56-14-643Z-8j39wn.png" alt="JCD heritage shield patch embroidered on a canvas work jacket" />
+            <span class="concept-badge nb">Nano Banana</span>
+            <span class="concept-num">06 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 6 · Heritage Shield</div>
+            <div class="concept-name">Chenille Patch on Canvas</div>
+            <p class="concept-note">Three-panel heraldic shield (mfg / health / trades) with banner lockups above and below. Union-worker lineage without feeling costume-y. Embroidered stitch treatment reads loud from ten feet. Best as a secondary mark, not a primary.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Shield</span>
+              <span class="concept-tag">Embroidery</span>
+              <span class="concept-tag pro">Heritage cue</span>
+              <span class="concept-tag watch">Reads "varsity"</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============ CONCEPT 07 — OAI · Tee with tool wordmark ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/oai-logo-tee-tools.png" alt="Cream t-shirt screen-printed with JCD tool-forged wordmark" />
+            <span class="concept-badge oai">OpenAI Image</span>
+            <span class="concept-num">07 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 3 · Tool-Forged · On Swag</div>
+            <div class="concept-name">Screen-Print Tee</div>
+            <p class="concept-note">Same tool-forged wordmark as #03, here applied as two-color screen print on a cream crewneck. Validates the mark at larger scale on fabric — the letterforms hold up, the tools stay legible. Answers the "can this live on a tee?" question without ambiguity.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Tool-forged</span>
+              <span class="concept-tag">On swag</span>
+              <span class="concept-tag pro">Wearable</span>
+              <span class="concept-tag watch">Busy at small sizes</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ============ CONCEPT 08 — OAI · I-beam stencil ============ -->
+        <article class="concept">
+          <div class="concept-img">
+            <img src="generated_imgs/oai-logo-ibeam-stencil.png" alt="JCD stenciled in safety orange on a rusted steel I-beam" />
+            <span class="concept-badge oai">OpenAI Image</span>
+            <span class="concept-num">08 / 08</span>
+          </div>
+          <div class="concept-body">
+            <div class="concept-dir">Direction 1 · Stencil · On Steel</div>
+            <div class="concept-name">I-Beam Application</div>
+            <p class="concept-note">Stencil direction again, this time translated onto rusted structural steel inside a shop. The stencil language holds on any industrial surface — wall, beam, shipping container, dumpster. This is why Direction 1 keeps its shortlist spot: it travels.</p>
+            <div class="concept-foot">
+              <span class="concept-tag">Stencil</span>
+              <span class="concept-tag">On steel</span>
+              <span class="concept-tag pro">Surface-agnostic</span>
+              <span class="concept-tag watch">Same mark, new skin</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- =====================================================
+           STRESS TEST — tiny marks + real contexts
+           ===================================================== -->
+      <div class="stress-intro">
+        <div>
+          <h3>Small-Size <em>Stress Test.</em></h3>
+          <p>A logo only earns its place if it survives 16 pixels. For each direction we built a purpose-designed <em>favicon companion mark</em> — a simplified lockup optimized for scale — and rendered it at actual pixel sizes in the places it would actually live: browser tabs, mobile nav bars, app icons. The current mark is shown at the top as the baseline to beat.</p>
+        </div>
+        <div class="stress-legend">
+          <span class="verdict-chip survives">Survives</span>
+          <span class="verdict-chip struggles">Struggles</span>
+          <span class="verdict-chip fails">Fails</span>
+        </div>
+      </div>
+
+      <div class="stress-table">
+        <div class="stress-head">
+          <span>Direction</span>
+          <span>Pixel sizes</span>
+          <span>Browser tab</span>
+          <span>Mobile nav</span>
+          <span>App icon</span>
+          <span>Verdict</span>
+        </div>
+
+        <!-- ========== BASELINE ========== -->
+        <div class="stress-row baseline">
+          <div class="sr-dir">
+            <div class="sr-dir-name">Current Mark</div>
+            <div class="sr-dir-kind">Italic + Swoosh · baseline</div>
+            <span class="sr-dir-engine current">Existing</span>
+          </div>
+          <div class="sr-sizes">
+            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="30" height="16" style="height: 16px;" alt="" /><span class="sr-size-label">16</span></div>
+            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="46" height="24" style="height: 24px;" alt="" /><span class="sr-size-label">24</span></div>
+            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="76" height="40" style="height: 40px;" alt="" /><span class="sr-size-label">40</span></div>
+            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="122" height="64" style="height: 64px;" alt="" /><span class="sr-size-label">64</span></div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-tab">
+              <img src="assets/jcd-logo-dark.svg" alt="" />
+              <span class="ctx-tab-title">JCD Foundation</span>
+              <span class="ctx-tab-x">×</span>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-navbar">
+              <img src="assets/jcd-logo-white.svg" alt="" />
+              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-app">
+              <div class="ctx-squircle"><img src="assets/JCD Offical logo.jpg" alt="" /></div>
+              <div class="ctx-app-meta">
+                <span class="ctx-app-name">JCD</span>
+                <span class="ctx-app-tag">Current</span>
+              </div>
+            </div>
+          </div>
+          <div class="sr-verdict">
+            <span class="sr-verdict-badge fails">Fails</span>
+            <span class="sr-verdict-note">Unreadable at tab size. Swoosh dominates.</span>
+          </div>
+        </div>
+
+        <!-- ========== DIRECTION 1 · Stencil ========== -->
+        <div class="stress-row">
+          <div class="sr-dir">
+            <div class="sr-dir-name">Stencil Monogram</div>
+            <div class="sr-dir-kind">Direction 01</div>
+            <span class="sr-dir-engine oai">OAI</span>
+          </div>
+          <div class="sr-sizes">
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="16" height="16" alt="" class="bg-ice" /><span class="sr-size-label">16</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="24" height="24" alt="" class="bg-ice" /><span class="sr-size-label">24</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="40" height="40" alt="" class="bg-ice" /><span class="sr-size-label">40</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="64" height="64" alt="" class="bg-ice" /><span class="sr-size-label">64</span></div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-tab">
+              <img src="generated_imgs/oai-favicon-stencil.png" alt="" />
+              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
+              <span class="ctx-tab-x">×</span>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-navbar">
+              <img src="generated_imgs/oai-favicon-stencil.png" alt="" style="height: 28px;" />
+              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-app">
+              <div class="ctx-squircle"><img src="generated_imgs/oai-favicon-stencil.png" alt="" /></div>
+              <div class="ctx-app-meta">
+                <span class="ctx-app-name">JCD</span>
+                <span class="ctx-app-tag">Apply</span>
+              </div>
+            </div>
+          </div>
+          <div class="sr-verdict">
+            <span class="sr-verdict-badge survives">Survives</span>
+            <span class="sr-verdict-note">Stencil bridges hold down to 16px. Loudest at any size.</span>
+          </div>
+        </div>
+
+        <!-- ========== DIRECTION 2 · Quadrant Seal ========== -->
+        <div class="stress-row">
+          <div class="sr-dir">
+            <div class="sr-dir-name">Quadrant Seal</div>
+            <div class="sr-dir-kind">Direction 02</div>
+            <span class="sr-dir-engine oai">OAI</span>
+          </div>
+          <div class="sr-sizes">
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="16" height="16" alt="" /><span class="sr-size-label">16</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="24" height="24" alt="" /><span class="sr-size-label">24</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="40" height="40" alt="" /><span class="sr-size-label">40</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="64" height="64" alt="" /><span class="sr-size-label">64</span></div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-tab">
+              <img src="generated_imgs/oai-favicon-quadrant.png" alt="" />
+              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
+              <span class="ctx-tab-x">×</span>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-navbar">
+              <img src="generated_imgs/oai-favicon-quadrant.png" alt="" style="height: 30px; background: transparent;" />
+              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-app">
+              <div class="ctx-squircle"><img src="generated_imgs/oai-favicon-quadrant.png" alt="" /></div>
+              <div class="ctx-app-meta">
+                <span class="ctx-app-name">JCD</span>
+                <span class="ctx-app-tag">Apply</span>
+              </div>
+            </div>
+          </div>
+          <div class="sr-verdict">
+            <span class="sr-verdict-badge survives">Survives</span>
+            <span class="sr-verdict-note">Color-block quadrants read as blob of color at 16px; still distinct.</span>
+          </div>
+        </div>
+
+        <!-- ========== DIRECTION 3 · Tool-Forged ========== -->
+        <div class="stress-row">
+          <div class="sr-dir">
+            <div class="sr-dir-name">Tool-Forged Wordmark</div>
+            <div class="sr-dir-kind">Direction 03</div>
+            <span class="sr-dir-engine nb">NB</span>
+          </div>
+          <div class="sr-sizes">
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="24" height="16" alt="" class="bg-ice" /><span class="sr-size-label">16</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="36" height="24" alt="" class="bg-ice" /><span class="sr-size-label">24</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="60" height="40" alt="" class="bg-ice" /><span class="sr-size-label">40</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="96" height="64" alt="" class="bg-ice" /><span class="sr-size-label">64</span></div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-tab">
+              <img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" alt="" />
+              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
+              <span class="ctx-tab-x">×</span>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-navbar">
+              <img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" alt="" style="height: 26px; background: rgba(255,255,255,0.95); padding: 3px 6px;" />
+              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-app">
+              <div class="ctx-squircle"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" alt="" /></div>
+              <div class="ctx-app-meta">
+                <span class="ctx-app-name">JCD</span>
+                <span class="ctx-app-tag">Apply</span>
+              </div>
+            </div>
+          </div>
+          <div class="sr-verdict">
+            <span class="sr-verdict-badge struggles">Struggles</span>
+            <span class="sr-verdict-note">Tool accents lose detail by 24px, but letterforms still legible.</span>
+          </div>
+        </div>
+
+        <!-- ========== DIRECTION 4 · Dataplate ========== -->
+        <div class="stress-row">
+          <div class="sr-dir">
+            <div class="sr-dir-name">Dataplate</div>
+            <div class="sr-dir-kind">Direction 04</div>
+            <span class="sr-dir-engine oai">OAI</span>
+          </div>
+          <div class="sr-sizes">
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="21" height="16" alt="" /><span class="sr-size-label">16</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="32" height="24" alt="" /><span class="sr-size-label">24</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="53" height="40" alt="" /><span class="sr-size-label">40</span></div>
+            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="85" height="64" alt="" /><span class="sr-size-label">64</span></div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-tab">
+              <img src="generated_imgs/oai-favicon-dataplate.png" alt="" />
+              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
+              <span class="ctx-tab-x">×</span>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-navbar">
+              <img src="generated_imgs/oai-favicon-dataplate.png" alt="" style="height: 24px;" />
+              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-app">
+              <div class="ctx-squircle"><img src="generated_imgs/oai-favicon-dataplate.png" alt="" /></div>
+              <div class="ctx-app-meta">
+                <span class="ctx-app-name">JCD</span>
+                <span class="ctx-app-tag">Apply</span>
+              </div>
+            </div>
+          </div>
+          <div class="sr-verdict">
+            <span class="sr-verdict-badge struggles">Struggles</span>
+            <span class="sr-verdict-note">"FOUNDATION" goes illegible at 24px. JCD-only version would survive.</span>
+          </div>
+        </div>
+
+        <!-- ========== DIRECTION 5 · Chop-Stamp ========== -->
+        <div class="stress-row">
+          <div class="sr-dir">
+            <div class="sr-dir-name">Chop-Stamp</div>
+            <div class="sr-dir-kind">Direction 05</div>
+            <span class="sr-dir-engine nb">NB</span>
+          </div>
+          <div class="sr-sizes">
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="16" height="16" alt="" /><span class="sr-size-label">16</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="24" height="24" alt="" /><span class="sr-size-label">24</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="40" height="40" alt="" /><span class="sr-size-label">40</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="64" height="64" alt="" /><span class="sr-size-label">64</span></div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-tab">
+              <img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" alt="" />
+              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
+              <span class="ctx-tab-x">×</span>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-navbar">
+              <img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" alt="" style="height: 30px; background: transparent;" />
+              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-app">
+              <div class="ctx-squircle"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" alt="" /></div>
+              <div class="ctx-app-meta">
+                <span class="ctx-app-name">JCD</span>
+                <span class="ctx-app-tag">Apply</span>
+              </div>
+            </div>
+          </div>
+          <div class="sr-verdict">
+            <span class="sr-verdict-badge survives">Survives</span>
+            <span class="sr-verdict-note">Outer text blurs under 32px; center JCD stays crisp. Strongest app-icon candidate.</span>
+          </div>
+        </div>
+
+        <!-- ========== DIRECTION 6 · Heritage Shield ========== -->
+        <div class="stress-row">
+          <div class="sr-dir">
+            <div class="sr-dir-name">Heritage Shield</div>
+            <div class="sr-dir-kind">Direction 06</div>
+            <span class="sr-dir-engine nb">NB</span>
+          </div>
+          <div class="sr-sizes">
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="16" height="16" alt="" /><span class="sr-size-label">16</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="24" height="24" alt="" /><span class="sr-size-label">24</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="40" height="40" alt="" /><span class="sr-size-label">40</span></div>
+            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="64" height="64" alt="" /><span class="sr-size-label">64</span></div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-tab">
+              <img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" alt="" />
+              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
+              <span class="ctx-tab-x">×</span>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-navbar">
+              <img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" alt="" style="height: 30px; background: transparent;" />
+              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="ctx-wrap">
+            <div class="ctx-app">
+              <div class="ctx-squircle"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" alt="" /></div>
+              <div class="ctx-app-meta">
+                <span class="ctx-app-name">JCD</span>
+                <span class="ctx-app-tag">Apply</span>
+              </div>
+            </div>
+          </div>
+          <div class="sr-verdict">
+            <span class="sr-verdict-badge struggles">Struggles</span>
+            <span class="sr-verdict-note">Three-stripe color band holds; JCD letters crunch at 16px.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="font-size: 14px; color: var(--steel-gray); margin-top: 16px; line-height: 1.55;"><strong style="color: var(--equipto-blue);">Reading the results.</strong> The stencil (#01), chop-stamp (#05), and quadrant seal (#02) are the three directions that held together at true 16-pixel display — which means they're the only three that can carry a full multi-channel identity today without a separate icon system. Tool-forged (#03), dataplate (#04), and heritage shield (#06) are viable <em>with</em> a paired simplified favicon variant, which is a normal and acceptable path for many strong brands.</p>
+
+      <div class="lab-cta-bar">
+        <div>
+          <h4>Next step: narrow to two, then vectorize.</h4>
+          <p>Mark your favorites (direction + engine), and we'll commission proper SVG artwork for the final two. Budget roughly a week per vectorization round. Typography specimen + color lockup variants included.</p>
+        </div>
+        <div class="cta-stamp">Round 3 → vector</div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- =====================================================
+       BRAND VOICE
+       ===================================================== -->
+  <section id="voice" aria-labelledby="voice-heading">
+    <div class="container">
+      <div class="section-label">
+        <h2>Brand Voice</h2>
+        <h3 id="voice-heading">How We Speak</h3>
+      </div>
+
+      <div class="voice-tones">
+        <div class="tone-card">
+          <div class="tone-icon" aria-hidden="true">→</div>
+          <div class="tone-name">Direct &amp; Efficient</div>
+          <div class="tone-desc">
+            Avoid philanthropic fluff. Every sentence earns its place.
+            We speak clearly, act purposefully, and deliver exactly
+            what was promised — on time, every time.
+          </div>
+        </div>
+        <div class="tone-card">
+          <div class="tone-icon" aria-hidden="true">◈</div>
+          <div class="tone-name">Mentorship-Oriented</div>
+          <div class="tone-desc">
+            We write like a master craftsman guiding an apprentice —
+            with authority and genuine investment. We have earned our
+            knowledge and share it without condescension.
+          </div>
+        </div>
+        <div class="tone-card">
+          <div class="tone-icon" aria-hidden="true">⌖</div>
+          <div class="tone-name">Grounded in Place</div>
+          <div class="tone-desc">
+            Aurora. Fox Valley. The Dunham Quadrant. We are deeply
+            local by design. Our language reflects the landscape,
+            the people, and the industries of this specific community.
+          </div>
+        </div>
+      </div>
+
+      <div class="voice-examples-label">Writing Examples — Do vs. Don't</div>
+
+      <div class="voice-table">
+        <div class="voice-col-header do">Write This</div>
+        <div class="voice-col-header dont">Not This</div>
+
+        <div class="voice-item do">
+          "Apply by March 1. Get your scholarship decision within 30 days."
+        </div>
+        <div class="voice-item dont">
+          "We are delighted to invite you to embark upon an exciting journey toward your educational aspirations."
+        </div>
+
+        <div class="voice-item do">
+          "Machine tool technicians in Kane County earn $28–$42/hr. We fund the credential that gets you there."
+        </div>
+        <div class="voice-item dont">
+          "We empower disadvantaged youth by providing transformative opportunities for holistic growth."
+        </div>
+
+        <div class="voice-item do">
+          "John Dunham ran a tight shop. So do we."
+        </div>
+        <div class="voice-item dont">
+          "Our visionary leadership leverages synergistic partnerships to catalyze community impact."
+        </div>
+
+        <div class="voice-item do">
+          "You trained hard to get here. Your scholarship should arrive ready, not late."
+        </div>
+        <div class="voice-item dont">
+          "We are committed to supporting your unique pathway through a holistic, student-centered approach."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- =====================================================
+       FOCUS AREAS
+       ===================================================== -->
+  <section id="focus" aria-labelledby="focus-heading">
+    <div class="container">
+      <div class="section-label">
+        <h2>Focus Areas</h2>
+        <h3 id="focus-heading">Three High-Impact Sectors</h3>
+      </div>
+
+      <div class="focus-grid">
+
+        <!-- Advanced Manufacturing -->
+        <div class="focus-card mfg">
+          <div class="focus-card-header">
+            <div class="focus-icon" aria-hidden="true">⚙</div>
+            <h4>Advanced Manufacturing</h4>
+            <span class="focus-sector-badge">Sector 01</span>
+          </div>
+          <ul class="focus-programs" aria-label="Advanced Manufacturing programs">
+            <li>Machine Tool Technology</li>
+            <li>Manufacturing Technology</li>
+            <li>Welding Technology</li>
+            <li>Industrial Maintenance</li>
+            <li>Logistical Innovation</li>
+          </ul>
+        </div>
+
+        <!-- Health Sciences -->
+        <div class="focus-card health">
+          <div class="focus-card-header">
+            <div class="focus-icon" aria-hidden="true">＋</div>
+            <h4>Health Sciences</h4>
+            <span class="focus-sector-badge">Sector 02</span>
+          </div>
+          <ul class="focus-programs" aria-label="Health Sciences programs">
+            <li>Diagnostic Medical Imaging</li>
+            <li>Magnetic Resonance Imaging (MRI)</li>
+            <li>Medical Assistant</li>
+            <li>Nursing</li>
+            <li>Radiation Therapy &amp; Care</li>
+            <li>Surgical Technology</li>
+          </ul>
+        </div>
+
+        <!-- Building Trades -->
+        <div class="focus-card trades">
+          <div class="focus-card-header">
+            <div class="focus-icon" aria-hidden="true">◫</div>
+            <h4>Building Trades &amp; Skilled Vocations</h4>
+            <span class="focus-sector-badge">Sector 03</span>
+          </div>
+          <ul class="focus-programs" aria-label="Building Trades programs">
+            <li>Electrical</li>
+            <li>Plumbing &amp; Pipefitting</li>
+            <li>HVAC &amp; Mechanical</li>
+            <li>Carpentry &amp; Construction</li>
+            <li>Union Apprenticeships</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- =====================================================
+       TARGET AUDIENCE
+       ===================================================== -->
+  <section id="audience" aria-labelledby="audience-heading">
+    <div class="container">
+      <div class="section-label">
+        <h2>Target Audience</h2>
+        <h3 id="audience-heading">The Dunham Quadrant</h3>
+      </div>
+
+      <div class="audience-layout">
+
+        <!-- Map Panel -->
+        <div class="map-panel" role="img" aria-label="Geographic service area map: the Dunham Quadrant bounded by Illinois Routes 38, 34, 59, and 47">
+
+          <!-- Schematic route lines (blueprint-style SVG overlay) -->
+          <div class="map-routes" aria-hidden="true">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <!-- Bounding box routes -->
+              <line x1="0"   y1="60"  x2="400" y2="60"  stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="8,6"/>
+              <line x1="0"   y1="340" x2="400" y2="340" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="8,6"/>
+              <line x1="60"  y1="0"   x2="60"  y2="400" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="8,6"/>
+              <line x1="340" y1="0"   x2="340" y2="400" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="8,6"/>
+
+              <!-- Center crosshair -->
+              <line x1="200" y1="0" x2="200" y2="400" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <line x1="0" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+
+              <!-- Aurora marker -->
+              <circle cx="200" cy="200" r="8" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <circle cx="200" cy="200" r="2" fill="rgba(255,255,255,0.7)"/>
+
+              <!-- Route labels -->
+              <text x="200" y="48" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="500">IL-38</text>
+              <text x="200" y="360" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="500">IL-34</text>
+              <text x="48" y="205" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="500" transform="rotate(-90, 48, 205)">IL-47</text>
+              <text x="352" y="205" text-anchor="middle" font-family="Roboto Mono, monospace" font-size="10" fill="rgba(255,255,255,0.5)" font-weight="500" transform="rotate(90, 352, 205)">IL-59</text>
+
+              <!-- Aurora label -->
+              <text x="214" y="196" font-family="Montserrat, sans-serif" font-size="9" fill="rgba(255,255,255,0.6)" font-weight="700" letter-spacing="1">AURORA</text>
+            </svg>
+          </div>
+
+          <div class="map-label">
+            <div class="map-label-title">Geographic Boundary</div>
+            <div class="map-label-name">Dunham Quadrant</div>
+            <div class="map-routes-list">
+              <div class="map-route-item">N: IL Route 38</div>
+              <div class="map-route-item">S: IL Route 34</div>
+              <div class="map-route-item">W: IL Route 47</div>
+              <div class="map-route-item">E: IL Route 59</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- School Lists -->
+        <div class="school-panel">
+          <div class="school-group">
+            <div class="school-group-header">
+              <h4>Public High Schools</h4>
+              <span class="school-count">08 Districts</span>
+            </div>
+            <ul class="school-list" aria-label="Qualifying public high schools">
+              <li>East Aurora</li>
+              <li>West Aurora</li>
+              <li>Oswego East</li>
+              <li>Waubonsie Valley</li>
+              <li>Metea Valley</li>
+              <li>Kaneland</li>
+              <li>Batavia</li>
+              <li>Geneva</li>
+            </ul>
+          </div>
+
+          <div class="school-group" style="border-top-color: var(--brass-gold);">
+            <div class="school-group-header" style="background: var(--deep-charcoal);">
+              <h4>Private Academies</h4>
+              <span class="school-count">04 Schools</span>
+            </div>
+            <ul class="school-list" aria-label="Qualifying private academies">
+              <li>Marmion Academy</li>
+              <li>Rosary High School</li>
+              <li>Aurora Central Catholic</li>
+              <li>Aurora Christian</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="audience-note" role="note">
+        <div class="audience-note-icon" aria-hidden="true">📍</div>
+        <p>
+          <strong>Place-based by design.</strong> JCD Foundation is fiercely local. By maintaining a
+          defined geographic boundary, we ensure density of investment — not a diluted national approach.
+          Every dollar stays in the Dunham Quadrant, building the community John Dunham called home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img class="footer-logo" src="assets/jcd-logo-white.svg" alt="JCD Foundation" />
+          <h2>JCD Foundation</h2>
+          <p>
+            Catalyzing individual prosperity through precision education support
+            for high-demand, skilled vocations in the Fox Valley.
+          </p>
+          <p style="font-size:12px; color:rgba(255,255,255,0.3); font-style:italic;">
+            This document is the official brand reference for JCD Foundation.
+            All visual and verbal identity standards are defined herein.
+          </p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-nav-label">Sections</div>
+          <a href="#story">Brand Story</a>
+          <a href="#mission">Mission &amp; Pillars</a>
+          <a href="#identity">Visual Identity</a>
+          <a href="#voice">Brand Voice</a>
+          <a href="#focus">Focus Areas</a>
+          <a href="#audience">Target Audience</a>
+        </nav>
+      </div>
+
+      <div class="footer-meta">
+        <div class="footer-sub">© 2026 JCD Foundation. All rights reserved.</div>
+        <div class="footer-parent">An Applied Legacy of <span>the Dunham Foundation</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       JAVASCRIPT — Mobile Nav Only
+       ===================================================== -->
+  <script>
+    const burger = document.getElementById('navBurger');
+    const mobile = document.getElementById('navMobile');
+
+    burger.addEventListener('click', () => {
+      const isOpen = mobile.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      mobile.setAttribute('aria-hidden', String(!isOpen));
+    });
+
+    function closeMobileNav() {
+      mobile.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      mobile.setAttribute('aria-hidden', 'true');
+    }
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!burger.contains(e.target) && !mobile.contains(e.target)) {
+        closeMobileNav();
+      }
+    });
+  </script>
+
+</body>
+</html>
