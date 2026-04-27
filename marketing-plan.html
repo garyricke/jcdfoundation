@@ -124,8 +124,16 @@
     .jcd-preview-label .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass-gold); display: block; margin-bottom: 8px; }
     .jcd-preview-label h4 { font-size: 18px; font-weight: 800; color: var(--white); }
     .jcd-preview-label p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
-    .jcd-preview-img { width: 100%; display: block; }
-    .jcd-preview-img img { width: 100%; display: block; }
+    .jcd-carousel { position: relative; }
+    .jcd-carousel-slide { display: none; }
+    .jcd-carousel-slide.active { display: block; }
+    .jcd-carousel-slide img { width: 100%; display: block; }
+    .jcd-carousel-controls { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 20px 0 24px; }
+    .jcd-carousel-btn { background: none; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); width: 36px; height: 36px; cursor: pointer; font-size: 14px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+    .jcd-carousel-btn:hover { background: rgba(255,255,255,0.08); color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .jcd-carousel-dots { display: flex; gap: 8px; }
+    .jcd-carousel-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.2); cursor: pointer; transition: background 0.2s; }
+    .jcd-carousel-dot.active { background: var(--brass-gold); }
     .spend-insight { background: var(--equipto-blue); padding: 28px 36px; display: flex; gap: 20px; align-items: flex-start; }
     .spend-insight-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
     .spend-insight p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; }
@@ -549,8 +557,25 @@
         <h4>Built different. By design.</h4>
         <p>Custom HTML/CSS/JS — no CMS, no agency, no compromises on brand.</p>
       </div>
-      <div class="jcd-preview-img">
-        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_1400/jcd/comp-jcd-proposed.png" alt="JCD Foundation proposed website" loading="lazy" />
+      <div class="jcd-carousel" id="jcdCarousel">
+        <div class="jcd-carousel-slide active">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_1400/jcd/comp-jcd-proposed.png" alt="JCD Foundation — Homepage" loading="lazy" />
+        </div>
+        <div class="jcd-carousel-slide">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_1400/jcd/comp-jcd-app1.png" alt="JCD Foundation — Application" loading="lazy" />
+        </div>
+        <div class="jcd-carousel-slide">
+          <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_1400/jcd/comp-jcd-app2.png" alt="JCD Foundation — Application detail" loading="lazy" />
+        </div>
+      </div>
+      <div class="jcd-carousel-controls">
+        <button class="jcd-carousel-btn" onclick="jcdCarouselMove(-1)">&#8592;</button>
+        <div class="jcd-carousel-dots">
+          <div class="jcd-carousel-dot active" onclick="jcdCarouselGo(0)"></div>
+          <div class="jcd-carousel-dot" onclick="jcdCarouselGo(1)"></div>
+          <div class="jcd-carousel-dot" onclick="jcdCarouselGo(2)"></div>
+        </div>
+        <button class="jcd-carousel-btn" onclick="jcdCarouselMove(1)">&#8594;</button>
       </div>
     </div>
 
@@ -1349,6 +1374,19 @@
       });
     }
   });
+
+  // JCD site carousel
+  let jcdIdx = 0;
+  function jcdCarouselGo(n) {
+    const slides = document.querySelectorAll('.jcd-carousel-slide');
+    const dots = document.querySelectorAll('.jcd-carousel-dot');
+    slides[jcdIdx].classList.remove('active');
+    dots[jcdIdx].classList.remove('active');
+    jcdIdx = (n + slides.length) % slides.length;
+    slides[jcdIdx].classList.add('active');
+    dots[jcdIdx].classList.add('active');
+  }
+  function jcdCarouselMove(dir) { jcdCarouselGo(jcdIdx + dir); }
 </script>
 
 </body>
