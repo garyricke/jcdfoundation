@@ -82,7 +82,7 @@
     #competitors { padding: var(--section-pad) 0; background: var(--white); }
     .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
     .comp-card { background: var(--ice-gray); border-top: 4px solid var(--equipto-blue); display: flex; flex-direction: column; }
-    .comp-thumb { width: 100%; height: 160px; overflow: hidden; }
+    .comp-thumb { width: 100%; height: 220px; overflow: hidden; }
     .comp-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: grayscale(20%); transition: filter 0.3s; }
     .comp-card:hover .comp-thumb img { filter: grayscale(0%); }
     .comp-card-header { padding: 32px 28px 24px; border-bottom: 1px solid var(--border-line); }
@@ -119,6 +119,13 @@
     .bar-inline.dunham { opacity: 0.55; }
     .bar-inline.cffrv { opacity: 0.8; }
     .bar-inline.steans { opacity: 1; }
+    .jcd-preview { margin-top: 2px; background: var(--deep-charcoal); padding: 40px 0 0; }
+    .jcd-preview-label { padding: 0 40px 24px; }
+    .jcd-preview-label .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass-gold); display: block; margin-bottom: 8px; }
+    .jcd-preview-label h4 { font-size: 18px; font-weight: 800; color: var(--white); }
+    .jcd-preview-label p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+    .jcd-preview-img { width: 100%; display: block; }
+    .jcd-preview-img img { width: 100%; display: block; object-fit: cover; object-position: top; max-height: 520px; }
     .spend-insight { background: var(--equipto-blue); padding: 28px 36px; display: flex; gap: 20px; align-items: flex-start; }
     .spend-insight-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
     .spend-insight p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; }
@@ -535,6 +542,18 @@
       </div>
 
     </div>
+
+    <div class="jcd-preview">
+      <div class="jcd-preview-label">
+        <span class="eyebrow">JCD Foundation — Proposed Digital Presence</span>
+        <h4>Built different. By design.</h4>
+        <p>Custom HTML/CSS/JS — no CMS, no agency, no compromises on brand.</p>
+      </div>
+      <div class="jcd-preview-img">
+        <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_1400/jcd/comp-jcd-proposed.png" alt="JCD Foundation proposed website" loading="lazy" />
+      </div>
+    </div>
+
   </div>
 </section>
 
