@@ -143,15 +143,8 @@
     .ai-saving-n { font-size: 26px; font-weight: 800; color: var(--brass-gold); line-height: 1; margin-bottom: 4px; }
     .ai-saving-l { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
 
-    /* ── BUDGET TIERS ── */
+    /* ── LAUNCH BUDGET ── */
     #budget { padding: var(--section-pad) 0; background: var(--section-alt); border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line); }
-    .tier-tabs { display: flex; gap: 2px; margin-bottom: 32px; }
-    .tier-tab { flex: 1; padding: 16px 20px; background: var(--ice-gray); border: none; font-family: var(--font-primary); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); cursor: pointer; transition: all 0.2s; border-top: 3px solid transparent; text-align: left; }
-    .tier-tab:hover { background: var(--border-line); color: var(--steel-gray); }
-    .tier-tab.active { background: var(--equipto-blue); color: var(--white); border-top-color: var(--brass-gold); }
-    .tier-tab .tier-tab-sub { display: block; font-size: 9px; font-weight: 500; letter-spacing: 0.1em; margin-top: 3px; opacity: 0.6; }
-    .tier-panel { display: none; }
-    .tier-panel.active { display: block; }
     .tier-header { background: var(--equipto-blue); padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 2px; }
     .tier-header h3 { font-size: 20px; font-weight: 800; color: var(--white); }
     .tier-header p { font-size: 13px; color: rgba(255,255,255,0.6); max-width: 500px; line-height: 1.6; }
@@ -176,13 +169,6 @@
     .accordion-body p { font-size: 13px; color: var(--steel-gray); line-height: 1.75; margin-bottom: 12px; }
     .accordion-body p:last-child { margin-bottom: 0; }
     .accordion-body strong { color: var(--body-text); }
-    .tco-box { margin-top: 32px; background: var(--deep-charcoal); padding: 32px 36px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
-    .tco-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-    .tco-formula { font-family: var(--font-mono); font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.8; }
-    .tco-formula strong { color: var(--brass-gold); }
-    .tco-result { text-align: right; }
-    .tco-result-n { font-size: 40px; font-weight: 800; color: var(--brass-gold); line-height: 1; }
-    .tco-result-l { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 6px; }
 
     /* ── ROADMAP ── */
     #roadmap { padding: var(--section-pad) 0; background: var(--white); }
@@ -309,7 +295,6 @@
       .roadmap-timeline { grid-template-columns: 1fr; }
       .ai-grid { grid-template-columns: 1fr; }
       .rec-grid { grid-template-columns: 1fr; }
-      .tier-tabs { flex-direction: column; }
       .tier-header { flex-direction: column; gap: 16px; }
       .tier-totals { flex-direction: row; text-align: left; }
       .modal-stat-row { grid-template-columns: 1fr 1fr; }
@@ -339,7 +324,7 @@
       <li><a href="#competitors">Competitive Analysis</a></li>
       <li><a href="#spend">Spend Benchmark</a></li>
       <li><a href="#ai-advantage">AI Advantage</a></li>
-      <li><a href="#budget">Budget Tiers</a></li>
+      <li><a href="#budget">Launch Budget</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#insights">Insights</a></li>
       <li><a href="brand-guide.html" class="nav-alt">← Brand Guide</a></li>
@@ -353,7 +338,7 @@
   <a href="#competitors" onclick="closeMobileNav()">Competitive Analysis</a>
   <a href="#spend" onclick="closeMobileNav()">Spend Benchmark</a>
   <a href="#ai-advantage" onclick="closeMobileNav()">AI Advantage</a>
-  <a href="#budget" onclick="closeMobileNav()">Budget Tiers</a>
+  <a href="#budget" onclick="closeMobileNav()">Launch Budget</a>
   <a href="#roadmap" onclick="closeMobileNav()">Roadmap</a>
   <a href="#insights" onclick="closeMobileNav()">Insights</a>
   <a href="brand-guide.html">← Brand Guide</a>
@@ -642,7 +627,7 @@
         <h4>What JCD Can Do With AI + Intern</h4>
         <ul>
           <li><strong>AI copy generation</strong> (Claude, ChatGPT) — drafts in minutes, refined by intern</li>
-          <li><strong>AI SEO tools</strong> (Semrush AI, Clearscope) — keyword strategy at $150/mo vs. $2K/mo</li>
+          <li><strong>Claude SEO / AEO</strong> — keyword research, on-page structure, and answer-engine optimization at $0 tool cost vs. $150–$300/mo for Semrush/Clearscope</li>
           <li><strong>Canva AI / Adobe Firefly</strong> — on-brand social graphics without a designer</li>
           <li><strong>AI data summaries</strong> — grant impact narratives auto-generated from GMS exports</li>
           <li><strong>AI press releases</strong> — structured and distributed via free/low-cost PR tools</li>
@@ -680,38 +665,23 @@
   <div class="container">
     <div class="section-label">
       <span class="eyebrow">Section 04</span>
-      <h2>Investment Tiers</h2>
+      <h2>Launch Investment</h2>
     </div>
 
-    <div class="tier-tabs">
-      <button class="tier-tab active" onclick="switchTier('conservative', this)">
-        Conservative
-        <span class="tier-tab-sub">AI-First + Intern Model</span>
-      </button>
-      <button class="tier-tab" onclick="switchTier('recommended', this)">
-        Recommended
-        <span class="tier-tab-sub">Balanced Launch Strategy</span>
-      </button>
-      <button class="tier-tab" onclick="switchTier('fullscale', this)">
-        Full-Scale
-        <span class="tier-tab-sub">Agency-Led / Maximum Impact</span>
-      </button>
-    </div>
-
-    <!-- CONSERVATIVE -->
+    <!-- LAUNCH PLAN -->
     <div class="tier-panel active" id="tier-conservative">
       <div class="tier-header">
         <div>
-          <h3>Conservative — AI-First + Intern</h3>
-          <p>Maximizes AI tools and a part-time marketing intern to deliver professional results at the lowest upfront cost. Best for a phased launch where proof-of-concept matters before scaling.</p>
+          <h3>AI-First + Intern Launch</h3>
+          <p>Maximizes AI tools and a part-time marketing intern to deliver professional-grade output at startup cost. Designed as a phased launch — prove the model in Year 1, scale in Year 2 once volume warrants.</p>
         </div>
         <div class="tier-totals">
           <div>
-            <div class="tier-total-item-n">$26K–$31K</div>
+            <div class="tier-total-item-n">$15K–$25K</div>
             <div class="tier-total-item-l">One-Time Launch</div>
           </div>
           <div>
-            <div class="tier-total-item-n">$3K–$4.5K</div>
+            <div class="tier-total-item-n">$325 – $1,075</div>
             <div class="tier-total-item-l">Monthly Ongoing</div>
           </div>
         </div>
@@ -720,259 +690,101 @@
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <div class="accordion-trigger-left"><span class="accordion-num">01</span><span class="accordion-title">Brand Identity Development</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$3,000 – $5,000</span><span class="accordion-chevron">▼</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$1,000</span><span class="accordion-chevron">▼</span></div>
           </button>
           <div class="accordion-body">
-            <p>At this tier, brand identity is developed using AI-assisted design tools (Adobe Firefly, Canva Pro) guided by a freelance art director for final QA. The logo, color system, and core templates are already established via the JCD Brand Guide, dramatically reducing scope.</p>
-            <p><strong>Includes:</strong> Final brand guide PDF export, social media templates (10 formats), email header templates, letterhead/stationery files. A junior freelancer or advanced intern can execute production under 1-2 hours of senior creative direction per week.</p>
+            <p>Logo, color system, and typography are established — the foundational work is done via the JCD Brand Guide. This budget covers final production assets: social media templates (10 formats), email header templates, letterhead/stationery files, and a brand guide PDF export for partner and vendor use.</p>
+            <p>Production executed by an intern + Canva Pro under 1–2 hours of senior creative direction. No brand studio engagement required.</p>
           </div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <div class="accordion-trigger-left"><span class="accordion-num">02</span><span class="accordion-title">Website Development</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$10,000 – $15,000</span><span class="accordion-chevron">▼</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$7,500 – $12,000</span><span class="accordion-chevron">▼</span></div>
           </button>
           <div class="accordion-body">
-            <p>A template-based WordPress or Webflow build using a premium theme ($100–$300) as the foundation, with custom CSS to align with the JCD brand system. An AI page builder (Framer AI, Elementor AI) accelerates layout work by 60–70%.</p>
-            <p><strong>Includes:</strong> 8–12 core pages, mobile-optimized, ADA-compliant, basic contact/application form, Google Analytics integration, SSL. Does not include a fully custom grant portal — Submittable or JotForm ($100/mo) handles applications at this tier.</p>
+            <p>The JCD site is built and maintained as custom <strong>HTML/CSS/JS with Claude Code</strong> — no CMS, no plugin management, no theme license, no developer contract. Pages are version-controlled in git and auto-deployed to hosting on push. This budget reflects the design and development work already completed and the full buildout of remaining pages, sections, and application workflow.</p>
+            <p><strong>Assets already delivered:</strong> <code>index.html</code> (main site with hero, application intro, sector grid), <code>apply-full.html</code> (full branded scholarship application, posts to Airtable), <code>brand-guide.html</code> (internal brand reference). Ongoing hosting: ~$25/mo, in monthly line.</p>
+            <p><strong>Ongoing maintenance:</strong> Updates, new pages, and design changes handled by the founder + Claude Code — no retainer, no ticket queue. A structural advantage over CMS-dependent competitors who require developer involvement for any non-trivial site change.</p>
           </div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">03</span><span class="accordion-title">SEO Foundation</span></div>
+            <div class="accordion-trigger-left"><span class="accordion-num">03</span><span class="accordion-title">Content Production</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$3,000 – $6,000</span><span class="accordion-chevron">▼</span></div>
+          </button>
+          <div class="accordion-body">
+            <p><strong>Video — Interviews + Short-Form:</strong> Local videographer for a 1-day shoot ($1,500–$3,000) covering 3–4 subject interviews — students, school partners, program graduates. Raw interviews cut into short-form vertical content (60–90 sec) for Instagram, TikTok, and YouTube Shorts, edited by intern using AI-assisted tools (CapCut, Adobe Express).</p>
+            <p><strong>Drone Footage (B-Roll):</strong> Half-day licensed drone operator ($500–$1,500) capturing Fox Valley locations, partner school campuses, and vocational environments. Drone b-roll used in the brand video, hero background, and social reels.</p>
+            <p><strong>Photography:</strong> Real on-location stills captured during the video shoot day. AI tools (Adobe Firefly, Canva) used for color grading, background cleanup, and on-brand augmentation. No stock photography dependency.</p>
+            <p><strong>Written Content:</strong> Website copy and launch materials drafted with Claude, refined by intern, final senior editorial pass. AI-generated 6-month social content calendar, launch press release, and initial email templates.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <div class="accordion-trigger-left"><span class="accordion-num">04</span><span class="accordion-title">Email Campaigns</span></div>
             <div class="accordion-trigger-right"><span class="accordion-range">$1,000 – $1,500</span><span class="accordion-chevron">▼</span></div>
           </button>
           <div class="accordion-body">
-            <p>AI-driven keyword research using Semrush AI ($130/mo) or Ahrefs, executed by intern under a 3-hour setup engagement with an SEO consultant. Focus on high-intent local terms: Fox Valley scholarships, Aurora IL vocational training, manufacturing scholarships Illinois.</p>
-            <p><strong>Ongoing:</strong> Intern manages on-page optimization, internal linking, and monthly blog posts (1–2/mo) generated with AI and human-edited. Ongoing tool cost ~$130–$200/mo.</p>
+            <p>Email managed through <strong>Email Octopus</strong> — free up to 2,500 subscribers and 10,000 emails/month, with a clean API and Zapier/Make integration for Airtable automation triggers.</p>
+            <p><strong>Setup and design (~$1,000–$1,500):</strong> Branded master email template designed to JCD brand standards; 4–6 individual sequence templates (applicant confirmation, status updates, winner announcement, partner outreach, donor welcome); platform setup; Airtable automation wiring; list segmentation structure.</p>
+            <p><strong>Ongoing:</strong> Monthly newsletter and deadline-reminder campaigns managed by intern. Email Octopus scales to ~$8–$20/mo when the list exceeds 2,500 contacts.</p>
           </div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">04</span><span class="accordion-title">Content Production (Launch)</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$2,000 – $3,000</span><span class="accordion-chevron">▼</span></div>
+            <div class="accordion-trigger-left"><span class="accordion-num">05</span><span class="accordion-title">Social Media Campaign</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$500 – $1,500</span><span class="accordion-chevron">▼</span></div>
           </button>
           <div class="accordion-body">
-            <p>AI-drafted website copy (Claude/ChatGPT) reviewed and refined by intern and a single senior editor pass. Photography sourced from licensed stock (Unsplash Pro, $144/yr) supplemented by one local photoshoot (~$500 half-day).</p>
-            <p><strong>Deliverables:</strong> Full website copy deck, 6-month social content calendar (AI-generated), launch press release, 2 email templates (welcome series).</p>
+            <p><strong>Launch campaign:</strong> Coordinated multi-platform launch (Instagram, Facebook, LinkedIn, TikTok) timed to the scholarship cycle opening. Creative sourced from the video/photo shoot — short-form interview clips, drone b-roll reels, and branded static graphics. Intern executes scheduling with AI-generated caption variants.</p>
+            <p><strong>Paid boost (~$500–$1,000 optional):</strong> Meta and LinkedIn targeted at Fox Valley high school graduates, school counselors, and vocational program advisors. Geo-targeted to Kane, DuPage, and Will counties.</p>
+            <p><strong>Ongoing:</strong> 12-month content calendar pre-planned at launch. Short-form video and reels are the primary organic growth channel; ongoing paid social budget is in the monthly line.</p>
           </div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">05</span><span class="accordion-title">Grant Management Software</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$5,000 – $9,900/yr</span><span class="accordion-chevron">▼</span></div>
+            <div class="accordion-trigger-left"><span class="accordion-num">06</span><span class="accordion-title">SEO / AEO Strategy</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$500 – $1,000</span><span class="accordion-chevron">▼</span></div>
           </button>
           <div class="accordion-body">
-            <p>At the conservative tier, <strong>Foundant GLM</strong> (starting ~$9,900/yr) or <strong>Submittable</strong> ($5,000–$8,000/yr) are recommended. Both are mid-market, well-supported platforms designed for foundations of JCD's projected scale.</p>
-            <p>Alternatively, <strong>JotForm Enterprise</strong> ($1,188–$3,996/yr) handles the application workflow at low cost for Year 1 while the foundation calibrates its grant volume, with a planned migration to Foundant in Year 2.</p>
+            <p>SEO and Answer Engine Optimization (AEO) strategy developed and executed with <strong>Claude</strong> — no paid keyword tools. Claude analyzes target queries, identifies content gaps, and suggests on-page structure (headings, schema markup, FAQ sections). AEO-optimized copy surfaces in AI-generated answers (ChatGPT, Perplexity, Google AI Overviews) — increasingly where high school students begin their scholarship search.</p>
+            <p><strong>One-time setup:</strong> 2–3 hour strategy session with a freelance SEO consultant to validate the Claude-generated keyword map and technical audit checklist (~$500–$1,000). Ongoing execution is intern + Claude at no additional tool cost.</p>
+            <p><strong>Target queries:</strong> Fox Valley scholarships, trade school scholarships Illinois, nursing scholarships Aurora IL, Kane County vocational training, JCD Foundation.</p>
+            <p><strong>Ongoing:</strong> 1–2 blog posts/mo AI-drafted and human-edited; quarterly AEO refresh — Claude audits AI search results for JCD's key terms and identifies answer gaps to close.</p>
           </div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">06</span><span class="accordion-title">Monthly Ongoing (Post-Launch)</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$3,000 – $4,500 / mo</span><span class="accordion-chevron">▼</span></div>
+            <div class="accordion-trigger-left"><span class="accordion-num">07</span><span class="accordion-title">Grant Management Software</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$600 – $1,800/yr</span><span class="accordion-chevron">▼</span></div>
           </button>
           <div class="accordion-body">
-            <p><strong>Intern (20 hrs/wk @ $22/hr):</strong> ~$1,800/mo — social scheduling, blog drafts, email newsletters, event support, basic graphic production.</p>
-            <p><strong>AI Tool Stack:</strong> ~$200/mo — Claude Pro ($20), Canva Pro ($15), Semrush ($130), Mailchimp Essentials ($30).</p>
-            <p><strong>Hosting &amp; Security:</strong> ~$150–$300/mo — WP Engine or Cloudflare for performance and SSL.</p>
-            <p><strong>Paid Social (optional):</strong> $500–$1,000/mo — LinkedIn and Meta targeted at Fox Valley high school graduates and their families.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tco-box">
-        <div>
-          <div class="tco-label">3-Year Total Cost of Ownership</div>
-          <div class="tco-formula">
-            TCO = Launch Cost + (Monthly × 36) + (Annual Software × 3)<br>
-            TCO = <strong>$28,500</strong> + (<strong>$3,750</strong> × 36) + (<strong>$9,900</strong> × 3)
-          </div>
-        </div>
-        <div class="tco-result">
-          <div class="tco-result-n">~$193K</div>
-          <div class="tco-result-l">3-Year TCO (Conservative)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RECOMMENDED -->
-    <div class="tier-panel" id="tier-recommended">
-      <div class="tier-header">
-        <div>
-          <h3>Recommended — Balanced Launch</h3>
-          <p>Blends AI efficiency with targeted professional services for key deliverables. Custom website with real grant portal integration. Appropriate for a foundation ready to be taken seriously from day one.</p>
-        </div>
-        <div class="tier-totals">
-          <div>
-            <div class="tier-total-item-n">$47K–$57K</div>
-            <div class="tier-total-item-l">One-Time Launch</div>
-          </div>
-          <div>
-            <div class="tier-total-item-n">$5.5K–$8K</div>
-            <div class="tier-total-item-l">Monthly Ongoing</div>
-          </div>
-        </div>
-      </div>
-      <div class="accordion" id="acc-recommended">
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">01</span><span class="accordion-title">Brand Identity Development</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$5,000 – $8,000</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p>A boutique branding studio (1–2 senior designers) builds out the full brand system on top of the existing logo and brand guide. Focus is on production-ready asset delivery: print templates, presentation decks, event materials, and a comprehensive digital style guide in Figma.</p>
-            <p><strong>Deliverables:</strong> Figma design system, 20+ social templates, print-ready letterhead/envelope/business card, email signature system, PowerPoint/Keynote deck template, brand guide PDF (expanded).</p>
+            <p>Year 1, JCD's branded long-form application (<code>apply-full.html</code>) posts directly into <strong>Airtable</strong> (~$60–$80/mo for 3–4 seats) — Airtable becomes the system of record for the full grant lifecycle. An optional automation layer (Make.com or Zapier, ~$30/mo) handles status emails, reviewer notifications, and missing-document reminders.</p>
+            <p>The Airtable workflow covers intake, eligibility flagging, document collection, reviewer scoring, decision letters, and disbursement tracking — the same lifecycle a packaged GMS provides, at roughly 10% of the cost. The trade-off is ~5–8 hours of one-time automation setup; the upside is that applicants never leave the JCD-branded experience for a third-party vendor portal.</p>
+            <p><strong>Year-2 upgrade trigger:</strong> revisit <strong>Foundant GLM</strong> (~$9,900/yr) when volume exceeds ~50 applications per cycle, a paid grant officer joins staff, or compliance reporting (multi-year renewals, audit cadence) outgrows Airtable's native dashboards.</p>
           </div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">02</span><span class="accordion-title">Website Development</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$25,000 – $35,000</span><span class="accordion-chevron">▼</span></div>
+            <div class="accordion-trigger-left"><span class="accordion-num">08</span><span class="accordion-title">Monthly Ongoing (Post-Launch)</span></div>
+            <div class="accordion-trigger-right"><span class="accordion-range">$325 – $1,075 / mo</span><span class="accordion-chevron">▼</span></div>
           </button>
           <div class="accordion-body">
-            <p>A fully custom WordPress or Webflow build with bespoke front-end design aligned to the JCD brand system. Includes a real grant application workflow integrated with Foundant GLM or Submittable, a scholarship portal for applicant tracking, and a video section for the planned interview content.</p>
-            <p><strong>Includes:</strong> 15–25 pages, custom UI components, CRM integration (HubSpot Nonprofit free tier), Google Analytics + Search Console, accessibility audit (WCAG 2.1 AA), performance optimization (Core Web Vitals &gt;90).</p>
+            <p><strong>Intern (10 hrs/mo @ $25/hr):</strong> ~$250/mo — social scheduling, email newsletters, light graphic production.</p>
+            <p><strong>AI Tool Stack:</strong> ~$50/mo — Claude Pro ($20), Canva Pro ($15), Email Octopus (free / ~$8 once list scales).</p>
+            <p><strong>Hosting:</strong> ~$25/mo — web hosting.</p>
+            <p><strong>Senior Oversight (optional, high range):</strong> +$750/mo — founder-level strategic oversight, Claude Code site maintenance, campaign direction, and grant cycle management.</p>
           </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">03</span><span class="accordion-title">SEO &amp; Search Strategy</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$3,000 – $5,000</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p>A 6-month SEO roadmap developed by an SEO consultant (10–15 hours engagement), delivered as a prioritized keyword strategy, technical audit checklist, and content calendar. Ongoing execution is handled by the intern + AI, with quarterly consultant check-ins (~$500/quarter).</p>
-            <p><strong>Target keywords:</strong> Fox Valley scholarships, nursing scholarships Aurora IL, manufacturing training Kane County, trades scholarship Illinois, JCD Foundation.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">04</span><span class="accordion-title">Content Production (Launch)</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$7,000 – $10,000</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p>Hire a local photographer/videographer for a half-day community shoot ($1,500–$2,500) capturing Fox Valley locations, partner schools, and vocational environments. Commission a 90-second brand introduction video ($3,000–$5,000) to replace/supplement existing Dunham Foundation video assets.</p>
-            <p><strong>Also includes:</strong> Full website copywriting by a senior copywriter (AI-assisted, human-finalized), launch announcement campaign copy (press release, email, social), and 12 months of pre-planned social content (AI-generated, reviewed).</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">05</span><span class="accordion-title">Grant Management Software</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$9,900 – $15,000/yr</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p><strong>Foundant GLM</strong> (~$9,900/yr) is the recommended GMS at this tier. It is purpose-built for mid-market private foundations, provides an intuitive applicant portal, and integrates with the GivingData philosophy the Dunham Foundation already uses — easing any future coordination.</p>
-            <p>Setup fee is typically $2,000–$3,500 for data migration, onboarding, and staff training. The platform handles the full grant lifecycle: LOI intake, application review, approval workflow, payment processing, and impact reporting.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">06</span><span class="accordion-title">Monthly Ongoing (Post-Launch)</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$5,500 – $8,000 / mo</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p><strong>Intern (20 hrs/wk @ $22/hr):</strong> ~$1,800/mo — primary content operator.</p>
-            <p><strong>Fractional Content Strategist (5 hrs/mo):</strong> ~$750–$1,500/mo — senior editorial oversight, campaign strategy, quarterly planning. Replaces need for a full agency retainer.</p>
-            <p><strong>AI Tool Stack:</strong> ~$300/mo — expanded from conservative tier, adding Midjourney or Adobe Firefly for original imagery.</p>
-            <p><strong>GMS + CRM:</strong> ~$900–$1,200/mo — Foundant + HubSpot nonprofit.</p>
-            <p><strong>Hosting &amp; Security:</strong> ~$300–$500/mo — premium managed hosting.</p>
-            <p><strong>Paid Media:</strong> $1,000–$2,000/mo — LinkedIn targeted at school counselors and students; Meta for scholarship deadline reminders.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tco-box">
-        <div>
-          <div class="tco-label">3-Year Total Cost of Ownership</div>
-          <div class="tco-formula">
-            TCO = Launch Cost + (Monthly × 36) + (Annual Software × 3)<br>
-            TCO = <strong>$52,000</strong> + (<strong>$6,750</strong> × 36) + (<strong>$12,000</strong> × 3)
-          </div>
-        </div>
-        <div class="tco-result">
-          <div class="tco-result-n">~$325K</div>
-          <div class="tco-result-l">3-Year TCO (Recommended)</div>
         </div>
       </div>
     </div>
 
-    <!-- FULL SCALE -->
-    <div class="tier-panel" id="tier-fullscale">
-      <div class="tier-header">
-        <div>
-          <h3>Full-Scale — Agency-Led</h3>
-          <p>Full agency engagement for all marketing functions. Highest output quality and speed to market, but reflects the same cost structure as incumbent competitors — before AI savings are applied.</p>
-        </div>
-        <div class="tier-totals">
-          <div>
-            <div class="tier-total-item-n">$78K–$93K</div>
-            <div class="tier-total-item-l">One-Time Launch</div>
-          </div>
-          <div>
-            <div class="tier-total-item-n">$9K–$13.6K</div>
-            <div class="tier-total-item-l">Monthly Ongoing</div>
-          </div>
-        </div>
-      </div>
-      <div class="accordion" id="acc-fullscale">
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">01</span><span class="accordion-title">Brand Identity Development</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$10,000 – $15,000</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p>Full-service brand studio engagement covering brand strategy, messaging framework, visual identity system, and a complete digital asset library. Includes user research sessions with target audience (Fox Valley students, school counselors, potential donor-partners).</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">02</span><span class="accordion-title">Website Development</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$40,000 – $50,000</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p>Enterprise-grade custom build with full UX research, accessibility certification, custom grant portal, scholarship applicant dashboard, CRM and GMS deep integration, video background sections, and post-launch performance guarantee. Comparable to CFFRV's digital infrastructure investment.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">03</span><span class="accordion-title">SEO, Content &amp; Video</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$15,000 – $20,000</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p>Full content production package: professional copywriting, photography, 2–3 video productions (brand video + 2 sector spotlight videos), 12-month editorial calendar, SEO strategy and 6-month execution retainer. Video interviews with Aurora University, Waubonsee, and Trades Unions representatives.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">04</span><span class="accordion-title">Grant Management Software</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$15,000 – $50,000/yr</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p><strong>Fluxx Grantmaker</strong> ($15,000–$50,000+/yr) is the enterprise option — highly configurable, used by large private foundations. Alternatively, staying with Foundant at $9,900/yr but adding a full CRM suite (Salesforce Nonprofit ~$3,600/yr) achieves similar capability at lower cost.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left"><span class="accordion-num">05</span><span class="accordion-title">Monthly Agency Retainer</span></div>
-            <div class="accordion-trigger-right"><span class="accordion-range">$5,000 – $8,500 / mo</span><span class="accordion-chevron">▼</span></div>
-          </button>
-          <div class="accordion-body">
-            <p>Integrated agency retainer covering: SEO management, social media management (all channels), monthly content production (4 blog posts, 12 social graphics, 2 emails), paid media management, monthly performance reporting, and quarterly strategy reviews.</p>
-            <p><strong>Note:</strong> This is the incumbent model. With AI tools and an intern, JCD can replicate 60–70% of this output for $2,000–$2,500/mo — a ~$3,500–$6,000/mo ongoing saving.</p>
-          </div>
-        </div>
-      </div>
-      <div class="tco-box">
-        <div>
-          <div class="tco-label">3-Year Total Cost of Ownership</div>
-          <div class="tco-formula">
-            TCO = Launch Cost + (Monthly × 36) + (Annual Software × 3)<br>
-            TCO = <strong>$85,500</strong> + (<strong>$11,300</strong> × 36) + (<strong>$18,000</strong> × 3)
-          </div>
-        </div>
-        <div class="tco-result">
-          <div class="tco-result-n">~$544K</div>
-          <div class="tco-result-l">3-Year TCO (Full-Scale)</div>
-        </div>
-      </div>
+    <div class="spend-insight" style="margin-top: 32px;">
+      <div class="spend-insight-icon">🗂</div>
+      <p>
+        <strong>Year-1 grant management: Airtable, not Foundant.</strong> JCD's branded long-form application (<code>apply-full.html</code>) doubles as the front door of the grant management system. Submissions post directly into a structured Airtable backend — five linked tables (Applicants → Documents → Reviewers → Decisions → Disbursements) — that handles the same lifecycle a packaged GMS provides: eligibility screening, reviewer scoring, decision letters, payment tracking, and 990 Schedule I reporting. <strong>Cost: ~$1,000–$1,800/yr</strong> (Airtable + Make.com + HubSpot free tier) vs. <strong>$9,900–$25,000+/yr</strong> for Foundant or Fluxx. The trade-off is ~5–8 hours of one-time automation setup; the upside is that applicants never leave the JCD-branded experience for a generic vendor portal. Revisit a packaged GMS in Year 2+ when application volume exceeds ~50/cycle, a paid grant officer joins staff, or compliance complexity (multi-year renewals, audit-grade reporting) outgrows Airtable's native dashboards.
+      </p>
     </div>
 
   </div>
@@ -987,13 +799,13 @@
   <div class="container">
     <div class="section-label">
       <span class="eyebrow">Section 05</span>
-      <h2>4-Phase Launch Roadmap</h2>
+      <h2>Launch Roadmap: May – November 2026</h2>
     </div>
     <div class="roadmap-timeline">
 
       <div class="phase-card" id="phase1">
         <div class="phase-header">
-          <div class="phase-num">Phase 01 / Months 1–3</div>
+          <div class="phase-num">Phase 01 / May 2026</div>
           <h4>Brand Foundation &amp; Infrastructure</h4>
           <div class="phase-months">Establish identity. Build the engine.</div>
         </div>
@@ -1014,7 +826,7 @@
 
       <div class="phase-card" id="phase2">
         <div class="phase-header">
-          <div class="phase-num">Phase 02 / Months 4–6</div>
+          <div class="phase-num">Phase 02 / June – July 2026</div>
           <h4>Digital Build &amp; Systems Integration</h4>
           <div class="phase-months">Build the hub. Wire the systems.</div>
         </div>
@@ -1035,7 +847,7 @@
 
       <div class="phase-card" id="phase3">
         <div class="phase-header">
-          <div class="phase-num">Phase 03 / Months 7–9</div>
+          <div class="phase-num">Phase 03 / August – September 2026</div>
           <h4>Community Launch &amp; Awareness</h4>
           <div class="phase-months">Go public. Build relationships.</div>
         </div>
@@ -1056,7 +868,7 @@
 
       <div class="phase-card" id="phase4">
         <div class="phase-header">
-          <div class="phase-num">Phase 04 / Months 10–12</div>
+          <div class="phase-num">Phase 04 / October – November 2026</div>
           <h4>Impact &amp; Momentum</h4>
           <div class="phase-months">Show results. Build the case for Year 2.</div>
         </div>
@@ -1185,13 +997,13 @@
       <div class="rec-card">
         <div class="rec-num">01</div>
         <h4>Invest in Digital Infrastructure First</h4>
-        <p>The website and grant portal are the foundation's primary credibility signal — before any program, scholarship, or event. Underinvesting here costs more in lost trust than it saves. Allocate 50–60% of the launch budget to website and GMS, regardless of tier.</p>
+        <p>The website and grant portal are the foundation's primary credibility signal — before any program, scholarship, or event. Underinvesting here costs more in lost trust than it saves. Allocate 50–60% of the launch budget to website and GMS.</p>
         <span class="rec-amount">$15K–$50K website + GMS</span>
       </div>
       <div class="rec-card">
         <div class="rec-num">02</div>
         <h4>Hire an AI-Fluent Marketing Intern in Month 1</h4>
-        <p>This is the single highest-leverage hire in the plan. A 20-hr/week intern who is skilled in AI tools (Claude, Canva AI, Semrush) can replace $4,000–$6,000/month in agency retainer costs while building organizational knowledge and continuity. Start before the website launches.</p>
+        <p>This is the single highest-leverage hire in the plan. A 20-hr/week intern who is skilled in AI tools (Claude, Canva AI, Email Octopus) can replace $4,000–$6,000/month in agency retainer costs while building organizational knowledge and continuity. Start before the website launches.</p>
         <span class="rec-amount">~$1,800/mo vs. $5,000–$7,500/mo agency</span>
       </div>
       <div class="rec-card">
@@ -1227,7 +1039,7 @@
           <a href="#competitors">Competitive Analysis</a>
           <a href="#spend">Spend Benchmark</a>
           <a href="#ai-advantage">AI Advantage</a>
-          <a href="#budget">Budget Tiers</a>
+          <a href="#budget">Launch Budget</a>
           <a href="#roadmap">Roadmap</a>
           <a href="#insights">Insights</a>
           <a href="#recommendations">Recommendations</a>
@@ -1448,14 +1260,6 @@
   document.addEventListener('click', (e) => {
     if (!burger.contains(e.target) && !mobileNav.contains(e.target)) closeMobileNav();
   });
-
-  // Tier tabs
-  function switchTier(id, btn) {
-    document.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('tier-' + id).classList.add('active');
-    btn.classList.add('active');
-  }
 
   // Budget accordions
   function toggleAccordion(btn) {
