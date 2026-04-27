@@ -82,6 +82,9 @@
     #competitors { padding: var(--section-pad) 0; background: var(--white); }
     .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
     .comp-card { background: var(--ice-gray); border-top: 4px solid var(--equipto-blue); display: flex; flex-direction: column; }
+    .comp-thumb { width: 100%; height: 160px; overflow: hidden; }
+    .comp-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; filter: grayscale(20%); transition: filter 0.3s; }
+    .comp-card:hover .comp-thumb img { filter: grayscale(0%); }
     .comp-card-header { padding: 32px 28px 24px; border-bottom: 1px solid var(--border-line); }
     .comp-org-type { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 10px; }
     .comp-card h3 { font-size: 18px; font-weight: 800; color: var(--equipto-blue); line-height: 1.2; margin-bottom: 10px; }
@@ -407,6 +410,7 @@
 
       <!-- Dunham Foundation -->
       <div class="comp-card">
+        <div class="comp-thumb"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_600/jcd/comp-dunham.png" alt="Dunham Foundation website" loading="lazy" /></div>
         <div class="comp-card-header">
           <div class="comp-org-type">Parent Organization / Primary Benchmark</div>
           <h3>Dunham Foundation</h3>
@@ -448,6 +452,7 @@
 
       <!-- CFFRV -->
       <div class="comp-card">
+        <div class="comp-thumb"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_600/jcd/comp-cffrv.png" alt="Community Foundation of the Fox River Valley website" loading="lazy" /></div>
         <div class="comp-card-header">
           <div class="comp-org-type">Regional Peer / Scale Benchmark</div>
           <h3>Community Foundation of the Fox River Valley</h3>
@@ -490,6 +495,7 @@
 
       <!-- Steans -->
       <div class="comp-card">
+        <div class="comp-thumb"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto,f_auto,w_600/jcd/comp-steans.png" alt="Steans Family Foundation website" loading="lazy" /></div>
         <div class="comp-card-header">
           <div class="comp-org-type">Aspirational Model / Systems-Level Benchmark</div>
           <h3>Steans Family Foundation</h3>
