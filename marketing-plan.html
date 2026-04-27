@@ -126,8 +126,9 @@
     .jcd-preview-label p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 4px; }
     .jcd-carousel { position: relative; }
     .jcd-carousel-slide { display: none; }
-    .jcd-carousel-slide.active { display: block; }
+    .jcd-carousel-slide.active { display: block; animation: jcdFadeIn 0.5s ease; }
     .jcd-carousel-slide img { width: 100%; display: block; }
+    @keyframes jcdFadeIn { from { opacity: 0; } to { opacity: 1; } }
     .jcd-carousel-controls { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 20px 0 24px; }
     .jcd-carousel-btn { background: none; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); width: 36px; height: 36px; cursor: pointer; font-size: 14px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
     .jcd-carousel-btn:hover { background: rgba(255,255,255,0.08); color: var(--white); border-color: rgba(255,255,255,0.5); }
@@ -569,13 +570,13 @@
         </div>
       </div>
       <div class="jcd-carousel-controls">
-        <button class="jcd-carousel-btn" onclick="jcdCarouselMove(-1)">&#8592;</button>
+        <button class="jcd-carousel-btn" onclick="jcdCarouselMove(-1, true)">&#8592;</button>
         <div class="jcd-carousel-dots">
-          <div class="jcd-carousel-dot active" onclick="jcdCarouselGo(0)"></div>
-          <div class="jcd-carousel-dot" onclick="jcdCarouselGo(1)"></div>
-          <div class="jcd-carousel-dot" onclick="jcdCarouselGo(2)"></div>
+          <div class="jcd-carousel-dot active" onclick="jcdCarouselGo(0, true)"></div>
+          <div class="jcd-carousel-dot" onclick="jcdCarouselGo(1, true)"></div>
+          <div class="jcd-carousel-dot" onclick="jcdCarouselGo(2, true)"></div>
         </div>
-        <button class="jcd-carousel-btn" onclick="jcdCarouselMove(1)">&#8594;</button>
+        <button class="jcd-carousel-btn" onclick="jcdCarouselMove(1, true)">&#8594;</button>
       </div>
     </div>
 
@@ -1377,7 +1378,9 @@
 
   // JCD site carousel
   let jcdIdx = 0;
-  function jcdCarouselGo(n) {
+  let jcdTimer = setInterval(() => jcdCarouselGo(jcdIdx + 1, false), 4500);
+
+  function jcdCarouselGo(n, fromUser) {
     const slides = document.querySelectorAll('.jcd-carousel-slide');
     const dots = document.querySelectorAll('.jcd-carousel-dot');
     slides[jcdIdx].classList.remove('active');
@@ -1385,8 +1388,9 @@
     jcdIdx = (n + slides.length) % slides.length;
     slides[jcdIdx].classList.add('active');
     dots[jcdIdx].classList.add('active');
+    if (fromUser && jcdTimer) { clearInterval(jcdTimer); jcdTimer = null; }
   }
-  function jcdCarouselMove(dir) { jcdCarouselGo(jcdIdx + dir); }
+  function jcdCarouselMove(dir, fromUser) { jcdCarouselGo(jcdIdx + dir, fromUser); }
 </script>
 
 </body>
