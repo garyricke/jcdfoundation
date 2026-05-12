@@ -1,0 +1,565 @@
+JCD Foundation — May 6, 2026 Meeting · Whisper-Timestamped Transcript
+Source audio: 21:15 total · 554 Whisper segments
+Generated via OpenAI Whisper-1 (verbose_json, segment granularity)
+
+Note: Whisper timing is accurate. Proper-noun spelling has known errors —
+  e.g., "Dunlop" should be Dunham, "back to share" should be Becky Sherrick,
+  "Taglia" might be Tagli, "West Copley" is Rush Copley, "facet" is FAFSA.
+  Cross-check the Descript transcript (jcd-foundation-may-6-2026-meeting.md) for names.
+
+──────────────────────────────────────────────────────────────────────
+
+[00:00]  We need to have the legal name, the full name, we need a home address, the zip code is very
+[00:17]  important.
+[00:19]  To collect all this information from the applicants, yes.
+[00:21]  It's making a big database is what we need.
+[00:24]  I don't want to, we need the sex, I don't want to ask ethnicity, that's not germane.
+[00:32]  We don't even want to ask if they're a citizen or not, don't even want that question.
+[00:36]  Because we're going to give it to anybody, makes no difference, but we need a high school
+[00:40]  transcript.
+[00:41]  Yes.
+[00:42]  And let's say that, we'll be out in the bushes at the high schools, probably November, December,
+[00:51]  because the grant window will probably be somewhere like, you can submit it sometime
+[00:59]  in December.
+[01:00]  When's the semester over?
+[01:01]  Fall semester.
+[01:02]  Mid-December, right?
+[01:03]  Is it mid-December?
+[01:04]  Yes, usually it's mid-December.
+[01:05]  So the window will open up immediately after that, because we're going to need a copy of
+[01:09]  their transcript.
+[01:10]  Gotcha.
+[01:11]  Through their first semester of senior year.
+[01:15]  And then the window will close probably around March 1.
+[01:19]  So we give them about two months, two and a half months, to fill this out.
+[01:24]  We want to keep it simple.
+[01:26]  We need a facet.
+[01:27]  You know what that is?
+[01:28]  Yep.
+[01:29]  Help God, a facet.
+[01:30]  I know it.
+[01:31]  No, no, but this is why I made the application, because I want to build the very friendliest
+[01:39]  applications you possibly can.
+[01:42]  So hopefully the facet can be something they can attach, the transcript is something they
+[01:47]  can attach.
+[01:49]  We don't want an essay, but we want to know what their career objective is, and how they
+[01:55]  want to phrase that.
+[01:56]  Like you said, I don't want to hear about a pet dog, I don't want to hear about coal,
+[02:01]  something that is over-the-top, because they'll deal with coal and all that bullshit.
+[02:05]  Remember that.
+[02:07]  We're down to nerdy basics.
+[02:09]  What do you want to do for a career?
+[02:11]  What do you want to investigate?
+[02:13]  And so that's how we'll narrow it down into these buckets, because the great application
+[02:18]  will have a multitude of buckets, and it will give them the opportunity to import.
+[02:23]  I want radiology technology, being a radiologist, not a doctor, a radiologist, a technologist,
+[02:32]  a dental hygienist, under health sciences, and I'll give you all the different disciplines,
+[02:36]  advanced manufacturing the same way, all the different disciplines, and the trades.
+[02:42]  Some trades we're going to leave out.
+[02:44]  We're not interested in laborers, painters, we're interested in, we're the higher tech,
+[02:49]  HVAC, electricians, operating engineers, we've got them all figured out, but I've got a buddy
+[02:56]  that's head of a cocktail of different trades, and so he's going to guide us on that.
+[03:01]  So anyway, that great application, we want to create, we'll do that, we've got time to
+[03:06]  do that.
+[03:07]  We can do that in June, July, it doesn't make any difference.
+[03:11]  It's going to be the hardest thing we do.
+[03:13]  Oh, it is.
+[03:14]  Right?
+[03:15]  Which is why I wanted to kind of, just kind of start to feel it out, because you saw the
+[03:18]  video that they could do, and we've got to figure out how to put that together, but...
+[03:22]  The video would be great.
+[03:23]  Wouldn't that be amazing?
+[03:24]  You see the little cards that they could play with?
+[03:27]  Yes, that's really cool.
+[03:29]  So you basically, the main application is, it's a big Excel spreadsheet, where I want,
+[03:36]  how many students want to know, where did they come from?
+[03:41]  How many are female, how many are male?
+[03:43]  Because we want to have, it's equitable distribution, ethnicity, we're not going to do that game.
+[03:52]  We're just going to let it roll.
+[03:53]  Yeah.
+[03:54]  Yeah, but we are very interested in how many come out of Batavia High School, how many
+[03:58]  come out of West Aurora High School, all the different schools.
+[04:01]  And one factor I forgot is homeschool, they're eligible.
+[04:04]  Oh, yeah.
+[04:05]  Yeah.
+[04:06]  A lot of people are doing that now.
+[04:08]  Yep.
+[04:09]  And that's the great app.
+[04:10]  The website, we just want to, I view it as, it's an enticement.
+[04:16]  You're hanging the bait out there for them to bite, and want to fill out the app.
+[04:21]  Because what we'd love to have is, the first school round is, let's say, we're going to
+[04:26]  give out at all 50 to 75 scholarships, I'd love to have 300 apply.
+[04:31]  Okay.
+[04:32]  Yes.
+[04:33]  And if we get 300 to apply, and we can only fund 50 to 75 or 100, whatever it is, and
+[04:39]  depending on where they're going to go to school, we're going to give away $400 to $500
+[04:45]  a year in scholarships.
+[04:46]  And a lot of them, right now, if they go to community college, they're going to be able
+[04:50]  to give $200.
+[04:51]  If a lot of them want to go the nursing route, or go to UIC, or University of Chicago, that's
+[04:59]  a different story.
+[05:00]  Yeah.
+[05:01]  Yeah.
+[05:03]  We can't pay them.
+[05:06]  It was, as you know, I think it was on the website.
+[05:10]  Now, if they're on trades, they go into a learnership program, my guy's going to probably
+[05:16]  tell me, the learnership program, Bob, the employer pays the wage.
+[05:19]  I said, fine.
+[05:20]  What does the person have to bring?
+[05:21]  Oh, he's got to bring tools.
+[05:22]  All right, then we'll buy the tools.
+[05:23]  Yeah.
+[05:24]  They have to have good work boots.
+[05:26]  Okay, we'll buy the work boots.
+[05:29]  We just want to eliminate barriers.
+[05:31]  Yeah.
+[05:32]  If somebody wants to be an operating engineer, a big dozer, what does he need when it comes
+[05:38]  to work?
+[05:39]  He may not have this, even though Conti or somebody is going to pay him to do the work
+[05:45]  as an apprentice.
+[05:47]  But we can't pay checks to individuals.
+[05:49]  We have to write it to institutions.
+[05:51]  Yes.
+[05:52]  So we would be letting checks to employers, for them to buy this stuff for the people.
+[05:58]  Gotcha.
+[05:59]  Or to you, either way.
+[06:00]  Okay.
+[06:02]  It's not going to be exclusive to just union jobs.
+[06:04]  If it's a non-union shop, that guy can go there, too, because the union trades are very
+[06:10]  restrictive.
+[06:11]  It's very hard to get into.
+[06:13]  Yeah.
+[06:14]  Yeah.
+[06:15]  That's interesting.
+[06:16]  Because I work with a lot of...
+[06:18]  So I work with this Contractors Networks group.
+[06:20]  They're all non...
+[06:21]  You know those guys?
+[06:22]  No.
+[06:23]  Okay.
+[06:24]  They're all non-union.
+[06:25]  They're all non-union.
+[06:26]  Sure.
+[06:27]  Yeah.
+[06:28]  But they're all higher, but they're all commercial.
+[06:29]  Commercial non-union.
+[06:30]  Yes.
+[06:31]  It's difficult to get together with them.
+[06:32]  Yeah.
+[06:33]  Right.
+[06:34]  Because we want to network with them.
+[06:36]  Yes.
+[06:37]  It's not just going to be unions, because the electricians, they may take 20 apprentice
+[06:43]  a year.
+[06:44]  20?
+[06:45]  We need 200.
+[06:46]  Yeah.
+[06:47]  For this area.
+[06:48]  What's 20 going to do?
+[06:49]  Your group...
+[06:50]  Yes.
+[06:51]  ...may say, we'll take 50.
+[06:52]  Yeah.
+[06:53]  One of them in particular, Taglia Electric in Elgin, they started their own school.
+[06:58]  They got certified to...
+[06:59]  Oh, did they really?
+[07:01]  ...in four years.
+[07:02]  So they're doing the training?
+[07:03]  They're doing the training.
+[07:04]  They got some guy who was a professor at DePaul.
+[07:07]  He decided to be an electrician, and he ended up starting up this whole, and got certified
+[07:12]  through the state of Illinois to certify journeymen, and I interviewed all their kids in there
+[07:17]  to help them build up that program.
+[07:20]  That's what we're doing.
+[07:21]  Yes.
+[07:22]  Yes.
+[07:23]  Yes, yes, yes.
+[07:24]  Oh, that's cool.
+[07:25]  So anyway, that's what I want to do.
+[07:26]  Okay.
+[07:27]  So I'm going to split it, right?
+[07:28]  Basically, these are the investments we're going to be making, like brand identity, what,
+[07:35]  you're guessing a thousand bucks?
+[07:36]  Yes.
+[07:37]  It's just a community.
+[07:38]  Can you build that out?
+[07:39]  The website, if I go to the high end, this is a range?
+[07:42]  This is a range.
+[07:43]  Okay, so if I add those two together, that's 18 grand, and then we got all these other
+[07:48]  things.
+[07:49]  Okay.
+[07:50]  Basically, what we do is develop a contractual revenue stream for you, and you're a source
+[07:58]  from us.
+[08:00]  It's like a retainer.
+[08:02]  We retain your services, and you do one social media, whatever we do, email, blast, whatever,
+[08:10]  a month.
+[08:11]  If we do things on Facebook, whatever, or the kids go looking for the same thing.
+[08:16]  Yeah, that's the thing, yeah.
+[08:18]  That's the other part where, ideally, Jack starts to take over.
+[08:23]  Yeah.
+[08:24]  I don't know what your job is going to be, but wait, you're a junior.
+[08:27]  Yeah.
+[08:28]  So you got a slow year, so you got time.
+[08:30]  Yeah.
+[08:31]  So he's not committed to employment elsewhere, so that's good, because yes, that's perfect.
+[08:35]  Okay.
+[08:36]  Because actually, he's one of the best that I've seen, and the videos that he's been creating.
+[08:41]  Oh, cool.
+[08:42]  Seriously, he's got a certain talent.
+[08:44]  So that's the deal, is that we get this thing going, and then I get him running this thing,
+[08:49]  because that's the model I want to use with these AI tools, so that would be perfect to-
+[08:54]  So what could be-
+[08:56]  Yeah, like a final contract that we'll see the way through.
+[09:00]  It's our remuneration.
+[09:01]  Yeah.
+[09:02]  Put something down.
+[09:03]  Put something down.
+[09:04]  I'll put a payment schedule on it together, and then part of that will be me paying him,
+[09:09]  and so we'll fan out with you, and then, so we have any timeframes?
+[09:14]  I've got it pretty much as small as I'm able to get information, and so I think if we had
+[09:26]  something to look at by mid-June, late-June, the website's up and running, out to the public.
+[09:36]  Probably not out to the public yet, but that's what's right.
+[09:39]  That's right, you've got to get your M01C3.
+[09:43]  I haven't got that yet.
+[09:44]  So we're developing all this, so that we drop it as soon as we get it.
+[09:50]  Right, so it's ready by then to go whenever you're ready, and I think in between that
+[09:56]  time, what we want to fast-track, if we can, is interviewing some kids.
+[10:02]  Sure.
+[10:03]  While they're still in school.
+[10:06]  While they're still in school, interviewing some people at Waubonsie that teach these
+[10:12]  things.
+[10:13]  The Board of Universities has got a nursing program.
+[10:16]  You know, having some professors, or whatever you want to call them, talk them on the aspects
+[10:23]  in this trade.
+[10:24]  Yes.
+[10:25]  This is the kind of lighting that you can be looking to get, and I can get us in the
+[10:29]  West Copley Hospital down the road.
+[10:31]  Yes.
+[10:32]  I know the guy that's in there.
+[10:33]  Yes.
+[10:34]  We could go in there and just interview people, like the head of radiology, occupational therapy,
+[10:41]  whatever it is.
+[10:43]  Yes.
+[10:44]  So we want to do that, and get any of the young folks.
+[10:48]  Catch them before they're out of school.
+[10:50]  That's exactly right.
+[10:51]  So I'll get you the estimate of the proposal together within the next couple of days, but
+[10:56]  also just start getting us some appointments booked, because I want to go immediately and
+[11:01]  hit these places.
+[11:02]  We'll go and start doing some interviews.
+[11:04]  Now here's, I don't know how much I've shown you this, but I've shown Jack, I think, and
+[11:09]  that is turning a conversation into content.
+[11:12]  Have I shown you any of that?
+[11:13]  No, you haven't, but we talked about it briefly.
+[11:14]  Let me show you one of these, because it'll help you think about this.
+[11:24]  Here's a widget.
+[11:25]  I can dictate things.
+[11:26]  Yeah, not only that.
+[11:27]  Not only that, but any of these interviews that we do.
+[11:30]  Okay.
+[11:31]  Let me just get my Wi-Fi set up here.
+[11:38]  Right, the McDonald's Wi-Fi is correct.
+[11:39]  I wanted to get my personal hots back.
+[11:45]  We're not going to meet here again.
+[11:47]  No.
+[11:48]  Why?
+[11:49]  It's better.
+[11:50]  Flutter is good, actually.
+[11:52]  All right, come on.
+[11:53]  We're on here.
+[11:55]  Let's just see if it works.
+[11:57]  Oh, there we go.
+[11:58]  Good.
+[12:09]  You can see this right over here.
+[12:18]  So this is a podcast.
+[12:20]  This is a conversation, a 25-minute conversation, and it built all of this.
+[12:26]  Chapters.
+[12:29]  You can listen to it.
+[12:31]  It found all the chapters and built all that.
+[12:33]  It built all of these little drop-downs.
+[12:39]  Look at these tabs it built just from the conversation.
+[12:48]  Little quizzes.
+[12:50]  Reveal answer.
+[12:53]  Little pop-ups.
+[12:54]  Let me show you one more.
+[12:55]  So this is from a conversation.
+[12:59]  It doesn't take me any time.
+[13:01]  This is five minutes.
+[13:09]  Yeah, this is another podcast.
+[13:11]  She started for the Fetal Therapy Nurse Network.
+[13:13]  These are nurses that finish the same thing.
+[13:15]  So they sent me their pictures, and then AI made them look like this.
+[13:19]  Really?
+[13:20]  Yeah, they're completely different.
+[13:22]  They don't look any different, but it made them look professionally shot.
+[13:25]  It made little cards for them.
+[13:27]  It did all this.
+[13:30]  It just broke up their conversation.
+[13:32]  So you can listen to these little chapters.
+[13:34]  So the point is, look at this timeline it builds.
+[13:38]  Again, this is just a conversation.
+[13:41]  And then these are people that they talked about.
+[13:43]  And same thing, it just rebuilt their images so they all look like they're at the same photo shoot together.
+[13:49]  Yeah.
+[13:50]  So the point is that anything you give can turn into this, or any interview person.
+[13:56]  If we want to have a page that just completely explains this company, this position, this job,
+[14:03]  we can build like, it's just like ticking pages for pages.
+[14:06]  So yeah, so any of these people that you're like, anybody.
+[14:09]  Okay.
+[14:10]  And it could just be head on to a voice memo.
+[14:14]  Okay.
+[14:18]  If you've got connections with that one organization.
+[14:21]  Yeah, I'll work on those guys.
+[14:23]  I'll work on local unions for trades.
+[14:28]  Then health sciences, I've got some pretty good connections.
+[14:32]  Advanced manufacturing, I'm not as much.
+[14:35]  So I've got to do some work on that.
+[14:38]  Valley Industrial Association, which is a non-profit organization that advocates for local manufacturers.
+[14:47]  I can get us into there.
+[14:49]  We can walk in there.
+[14:51]  But that is, it's a gap.
+[14:54]  If you go to most manufacturing environments, you're not going to find too many professional ladies
+[15:00]  who are dressed in nines in a manufacturing environment.
+[15:04]  So I've got to somehow figure out if she can keep me some years to talk to somebody else.
+[15:10]  Nothing against the lady, I know her.
+[15:14]  It wouldn't be what the kids are looking for.
+[15:16]  Dave wants to be a welder.
+[15:18]  It ain't going to get him.
+[15:20]  Well, he wants that from somebody that's a welder.
+[15:23]  Although he said he wants to be a pipe fader.
+[15:25]  That's a good trade.
+[15:27]  I almost forgot.
+[15:28]  I do have a really good friend.
+[15:29]  He's the vice president of the school board.
+[15:33]  But he sells pipe on NIMCO.
+[15:38]  But I was telling him about all this stuff.
+[15:40]  He goes, let me know if you need any help with any of that.
+[15:42]  Yeah, he teaches a lot of kids on the high tech plumbing.
+[15:45]  Oh, okay.
+[15:46]  So he does all these little trainings for these young folks to do that.
+[15:50]  So I think he would be a cool guy.
+[15:52]  Yeah, that would be a good one.
+[15:54]  We just want to whet the kids' appetites.
+[15:57]  They end up going somewhere to get their training, get their certifications,
+[16:03]  and then they're rooted in it.
+[16:06]  We just want to whet their appetite and get the pipe at least applied.
+[16:12]  Yes.
+[16:13]  That's the whole mission.
+[16:14]  Just apply.
+[16:15]  Yeah.
+[16:16]  Get your hat in.
+[16:17]  Yeah.
+[16:18]  Yes.
+[16:19]  Okay.
+[16:20]  So anyway, get that to me.
+[16:21]  Okay.
+[16:22]  We pay everything with ACH.
+[16:23]  Yeah, perfect.
+[16:24]  So you just give me the information for that.
+[16:26]  Boom.
+[16:27]  And zip it out.
+[16:28]  Perfect.
+[16:29]  Yep.
+[16:30]  Good.
+[16:31]  Yeah.
+[16:32]  All right.
+[16:33]  In the next couple of days, I'll get you that.
+[16:34]  Okay.
+[16:35]  And then I'm going to get it started.
+[16:36]  And I'm going to start collecting some hand tapes and get some points.
+[16:39]  Yes.
+[16:40]  Just get that started and we can start meeting them.
+[16:42]  Okay.
+[16:43]  And then whatever you guys want down in the brand old days,
+[16:45]  we just want it to be something that is sort of
+[16:50]  Timeless.
+[16:51]  Timeless.
+[16:52]  Simple.
+[16:53]  Simple, cutting edge.
+[16:55]  With the kids though, right?
+[16:56]  It can.
+[16:57]  It can.
+[16:58]  We just can't identify what they want to pursue because that
+[17:03]  might fund where we get styles.
+[17:05]  It's going to change over time.
+[17:06]  It could change.
+[17:07]  Yeah.
+[17:08]  It may not.
+[17:10]  And I think the only other thing is I was never able to get access to that
+[17:13]  video.
+[17:14]  Yes.
+[17:15]  Because it was locked up.
+[17:16]  Remember?
+[17:17]  So I was just going to record it and look at it,
+[17:19]  but we probably want to dig into that story a bit more, right?
+[17:21]  John's legacy.
+[17:22]  Yes.
+[17:23]  It's boring as hell.
+[17:24]  So I like that.
+[17:25]  I want to do something with that.
+[17:26]  I want to.
+[17:27]  I like that.
+[17:28]  You know,
+[17:29]  who the narrator is,
+[17:30]  who was the weatherman at WGN?
+[17:31]  Okay.
+[17:32]  We spent a bundle of money on this stupid video.
+[17:34]  And nobody looks at it.
+[17:35]  It's a half an hour long.
+[17:36]  But it's on the Dunlop Foundation website.
+[17:38]  Yeah.
+[17:39]  No,
+[17:40]  I tried to download it cause I wanted to analyze it a little bit.
+[17:42]  I wanted to analyze it into the,
+[17:43]  into the site.
+[17:44]  Yeah.
+[17:45]  I won't let you download it.
+[17:46]  It's locked up in the website.
+[17:47]  I know.
+[17:48]  I won't let you download it.
+[17:49]  It's locked up in the site.
+[17:50]  I don't care.
+[17:51]  I don't care.
+[17:52]  I'm going to download it.
+[17:53]  I'm going to download it.
+[17:54]  All right.
+[17:55]  So that's what we're going to do.
+[17:56]  We're going to get the video.
+[17:57]  I'm going to put it in the site.
+[17:58]  Okay.
+[18:00]  Yeah.
+[18:01]  I won't let you download it.
+[18:02]  It's locked up in some kind of a weird way.
+[18:03]  Let me get it.
+[18:04]  I'll get it.
+[18:05]  Yeah, if you can,
+[18:06]  because I feel like we want to ground in it, right?
+[18:07]  There's a lot of good information here.
+[18:09]  But it's mostly people that knew John.
+[18:12]  Yeah.
+[18:13]  Because John has been deceased 15 years or more.
+[18:16]  But there's some good historical perspective.
+[18:19]  Yeah.
+[18:20]  You put in there,
+[18:21]  he started on the shop floor.
+[18:22]  His dad owned the company.
+[18:23]  And then he's,
+[18:24]  when his dad,
+[18:25]  he's a high school kid.
+[18:28]  Then when he went to work there full time after college,
+[18:31]  his dad says,
+[18:32]  you're going to be on a percentage position.
+[18:33]  Get to work.
+[18:34]  Start selling.
+[18:35]  If you're any good,
+[18:36]  you're going to make a living.
+[18:37]  You're not going to make a living.
+[18:38]  So he didn't get any.
+[18:41]  And he was a late set.
+[18:42]  Okay.
+[18:43]  All right.
+[18:44]  All right.
+[18:45]  All right.
+[18:46]  Travel on the train.
+[18:47]  All country.
+[18:48]  Okay.
+[18:49]  Selling his stuff.
+[18:50]  So I was worse.
+[18:51]  And so basically,
+[18:52]  that's what I was getting.
+[18:53]  So the video is just basically people sharing those stories.
+[18:55]  Yes.
+[18:56]  And I'd like to see if we can retell it.
+[18:58]  Yeah.
+[18:59]  You know what I mean?
+[19:00]  Yeah.
+[19:01]  So we want to get access to that.
+[19:02]  Or maybe several.
+[19:03]  Yeah.
+[19:04]  Several segments.
+[19:05]  But right.
+[19:06]  You're not,
+[19:07]  it's not a slog to watch.
+[19:08]  It was,
+[19:09]  this is a slog.
+[19:10]  But it's important to understand where he comes from and all behind it.
+[19:13]  So we'll take on that challenge of retelling it.
+[19:17]  I think that.
+[19:18]  Cool.
+[19:19]  And then maybe after we see it,
+[19:20]  we'll see if there's maybe some other newer interface.
+[19:23]  Yeah.
+[19:24]  That could be.
+[19:25]  Keep in the back of your head.
+[19:26]  If there's.
+[19:27]  I tell you,
+[19:28]  one of the best people is.
+[19:29]  The president.
+[19:30]  John was a huge supporter of education.
+[19:36]  He's got numerous buildings on a cliff is named after.
+[19:39]  He had.
+[19:40]  Gee,
+[19:41]  what kind of books and scholarships a year.
+[19:44]  But his interest was at that time,
+[19:47]  people going into business.
+[19:50]  So they had.
+[19:51]  How's the business was named after.
+[19:54]  But her,
+[19:55]  you know,
+[19:56]  she is very clear.
+[19:57]  So when they get it,
+[19:59]  her name was back to share.
+[20:01]  The rest of them are hanging there.
+[20:03]  How do you lie?
+[20:04]  All right.
+[20:05]  I'll take it.
+[20:06]  I'll take a deep dive.
+[20:07]  No one does a pretty good job.
+[20:08]  Okay.
+[20:09]  They're reading it.
+[20:10]  And it's pretty good.
+[20:11]  Yeah.
+[20:12]  So if we.
+[20:13]  Yeah.
+[20:14]  So we might be doing some interviews right at Aurora.
+[20:15]  Oh,
+[20:16]  yeah.
+[20:17]  Be back there.
+[20:18]  They've got a great notion.
+[20:19]  Yes.
+[20:20]  Cause I don't know if he told you,
+[20:21]  I told you that.
+[20:22]  So I do a lot of 360 video.
+[20:23]  Which you played with.
+[20:24]  But I got this first person view drone.
+[20:26]  Oh,
+[20:27]  yeah.
+[20:28]  That is like a fighter jet.
+[20:29]  It flies.
+[20:30]  It could go a hundred miles an hour.
+[20:31]  Not that I would do that,
+[20:32]  but I'm trying to find good opportunities to,
+[20:35]  to use it in spaces.
+[20:36]  I was at Olson flying it yesterday.
+[20:38]  Yeah.
+[20:39]  I like the video you had of Jeff on a roof with someone.
+[20:42]  Don't push law.
+[20:43]  Yeah.
+[20:44]  So yeah.
+[20:45]  So I actually hired somebody to do that one.
+[20:47]  So now I got this and I want to teach these kids how to fly
+[20:50]  these drones.
+[20:51]  Just because you saw what kind of an impact that is.
+[20:54]  So if we're over at Aurora and we can get some shots like that,
+[20:58]  and then come down to meet a student,
+[21:00]  that's what I want to be doing.
+[21:01]  This summer is,
+[21:02]  is out there.
+[21:03]  So just to keep that in mind.
+[21:04]  Okay.
+[21:05]  Sounds good.
+[21:06]  All right.
+[21:07]  Anything else,
+[21:08]  Jeff,
+[21:09]  what do you think you guys work on the logo?
+[21:13]  Because we definitely.
