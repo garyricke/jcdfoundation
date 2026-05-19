@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD Foundation — Outreach Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:#0E2A58; --white:#FFF; --deep-charcoal:#111827;
+      --steel-gray:#4A5568; --mid-gray:#9AA3AF; --ice-gray:#F0F3F7;
+      --border-line:#D1D8E0; --brass-gold:#C5963A; --pulse-teal:#0A9B8C;
+      --safety-orange:#E8600A; --body-text:#2D3748; --section-bg-alt:#F7F9FC;
+      --font-primary:'Montserrat',sans-serif; --font-mono:'Roboto Mono',monospace;
+      --font-display:'Archivo Black',sans-serif; --font-hand:'Caveat',cursive;
+      --nav-h:72px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-primary); font-size: 16px; line-height: 1.7;
+      color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    /* NAV */
+    #nav { position: sticky; top:0; z-index:1000; height: var(--nav-h);
+      background: var(--equipto-blue); border-bottom: 2px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; }
+    #nav .container { width:100%; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { display:flex; align-items:center; gap:14px; }
+    .nav-logo img { height:44px; width:44px; object-fit:contain; }
+    .nav-logo-text { font-size:13px; font-weight:700; letter-spacing:0.12em;
+      text-transform:uppercase; color: var(--white); line-height:1.3; }
+    .nav-logo-text span { display:block; font-size:10px; font-weight:500;
+      letter-spacing:0.18em; color: rgba(255,255,255,0.55); }
+    .nav-links { display:flex; align-items:center; gap:4px; list-style:none; }
+    .nav-links a { font-size:11px; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; color: rgba(255,255,255,0.65); padding:8px 14px;
+      transition:color 0.2s; border-bottom:2px solid transparent; }
+    .nav-links a:hover { color: var(--white); border-bottom-color: var(--white); }
+    @media (max-width: 900px) { .nav-links { display:none; } }
+
+    /* HERO */
+    #hero { background: var(--equipto-blue); color: var(--white); padding: 88px 0 96px;
+      position: relative; overflow: hidden; }
+    #hero::before { content:''; position:absolute; inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px);
+      pointer-events:none; }
+    .hero-grid { display:grid; grid-template-columns: 1.4fr 1fr; gap:64px; align-items:end; position:relative; z-index:1; }
+    .hero-eyebrow { font-size:11px; font-weight:700; letter-spacing:0.3em;
+      text-transform:uppercase; color: var(--brass-gold); margin-bottom: 20px; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.95; letter-spacing:-0.02em; margin-bottom: 24px; }
+    .hero h1 em { font-style:normal; color: var(--brass-gold); }
+    .hero-sub { font-size:18px; line-height:1.7; color: rgba(255,255,255,0.72); max-width: 540px; }
+    .hero-meta { display:flex; flex-direction:column; gap:14px; }
+    .hero-meta-row { display:flex; justify-content:space-between; padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.14); font-size:12px; }
+    .hero-meta-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+    .hero-meta-row span:first-child { color: rgba(255,255,255,0.5);
+      font-family: var(--font-mono); letter-spacing:0.08em; text-transform:uppercase; }
+    .hero-meta-row span:last-child { color: var(--white); font-weight:600; letter-spacing:0.05em; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns:1fr; gap:40px; } }
+
+    /* SECTIONS */
+    section.block { padding: 96px 0; border-top: 1px solid var(--border-line); }
+    section.block.alt { background: var(--section-bg-alt); }
+    .section-label { display:inline-flex; flex-direction:column; gap:10px; margin-bottom:48px; }
+    .section-label::after { content:''; display:block; width:40px; height:3px; background: var(--equipto-blue); }
+    .section-label h2 { font-size:11px; font-weight:700; letter-spacing:0.2em;
+      text-transform:uppercase; color: var(--mid-gray); }
+    .section-label h3 { font-size:36px; font-weight:800; color: var(--equipto-blue); line-height:1.15; }
+
+    /* LOGO LOCKUPS */
+    .lockup-row { display:grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .lockup-box { padding: 64px 40px; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; min-height:320px; gap: 24px; }
+    .lockup-box.light { background: var(--white); border: 1px solid var(--border-line); }
+    .lockup-box.dark { background: var(--equipto-blue); }
+    .lockup-box img { height: 120px; width:auto; }
+    .lockup-cap { font-family: var(--font-mono); font-size:10px;
+      letter-spacing:0.18em; text-transform:uppercase; }
+    .lockup-box.light .lockup-cap { color: var(--mid-gray); }
+    .lockup-box.dark .lockup-cap { color: rgba(255,255,255,0.55); }
+    .lockup-cap b { color: var(--equipto-blue); font-weight:700; }
+    .lockup-box.dark .lockup-cap b { color: var(--brass-gold); }
+
+    /* Clear space + min size */
+    .specs { display:grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; }
+    .spec-card { background: var(--white); border:1px solid var(--border-line); padding: 32px; }
+    .spec-card h4 { font-family: var(--font-display); font-size:18px;
+      color: var(--equipto-blue); margin-bottom: 14px; letter-spacing:-0.01em; }
+    .spec-card p { font-size:13px; line-height:1.7; color: var(--steel-gray); margin-bottom: 16px; }
+    .spec-card .demo { background: var(--ice-gray); padding: 32px; display:flex;
+      align-items:center; justify-content:center; position:relative; min-height: 180px; }
+    .clear-frame { position:relative; padding: 28px; border: 1px dashed var(--brass-gold); }
+    .clear-frame::before, .clear-frame::after { content:'X'; position:absolute;
+      font-family: var(--font-mono); font-size:10px; color: var(--brass-gold); }
+    .clear-frame::before { top: 4px; left: 4px; }
+    .clear-frame::after { bottom: 4px; right: 4px; }
+    .clear-frame img { height: 80px; }
+    .min-size-row { display:flex; gap: 32px; align-items:flex-end; justify-content:center; }
+    .min-size-row .ms { display:flex; flex-direction:column; align-items:center; gap:8px; }
+    .min-size-row img { height: 24px; }
+    .min-size-row .ms.large img { height: 48px; }
+    .min-size-row .label { font-family: var(--font-mono); font-size:10px; color: var(--mid-gray); }
+
+    /* Asset cards (cards/letterhead/leave-behind/pocket) */
+    .asset-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .asset-card { background: var(--white); border:1px solid var(--border-line);
+      display:flex; flex-direction:column; }
+    .asset-preview { background: var(--ice-gray); padding: 40px; display:flex;
+      align-items:center; justify-content:center; min-height: 320px; position:relative; }
+    .asset-preview::after { content:''; position:absolute; inset:0; pointer-events:none;
+      background-image: linear-gradient(135deg, transparent 49.5%, rgba(14,42,88,0.04) 49.5%, rgba(14,42,88,0.04) 50.5%, transparent 50.5%);
+      background-size: 24px 24px; }
+    .asset-body { padding: 28px 32px 32px; display:flex; flex-direction:column; gap:14px; flex:1; }
+    .asset-tag { font-size:10px; font-weight:700; letter-spacing:0.18em;
+      text-transform:uppercase; color: var(--brass-gold); }
+    .asset-body h4 { font-family: var(--font-display); font-size:22px;
+      color: var(--equipto-blue); letter-spacing:-0.01em; }
+    .asset-body p { font-size:13px; line-height:1.7; color: var(--steel-gray); }
+    .asset-specs { display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; }
+    .asset-specs span { font-family: var(--font-mono); font-size:10px;
+      color: var(--steel-gray); background: var(--ice-gray); padding:4px 8px; }
+    .asset-actions { display:flex; gap:10px; padding: 16px 32px 28px; border-top: 1px solid var(--border-line); }
+    .btn { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700;
+      letter-spacing:0.12em; text-transform:uppercase; padding: 12px 18px;
+      text-decoration:none; border:1px solid transparent; transition: all 0.2s; cursor:pointer; }
+    .btn-primary { background: var(--equipto-blue); color: var(--white); border-color: var(--equipto-blue); }
+    .btn-primary:hover { background: var(--deep-charcoal); border-color: var(--deep-charcoal); }
+    .btn-ghost { background: transparent; color: var(--equipto-blue); border-color: var(--equipto-blue); }
+    .btn-ghost:hover { background: var(--equipto-blue); color: var(--white); }
+
+    /* Inline card mockup (Bob's card) */
+    .mini-card {
+      width: 280px; height: 160px; background: var(--white);
+      box-shadow: 0 4px 24px rgba(14,42,88,0.14), 4px 4px 0 var(--deep-charcoal);
+      position: relative; padding: 16px 18px; display:flex; flex-direction:column;
+      justify-content: space-between; transform: rotate(-1.5deg);
+    }
+    .mini-card.back { background: var(--equipto-blue); color: var(--white); }
+    .mini-card-logo { height: 28px; width: auto; }
+    .mini-card-name { font-family: var(--font-display); font-size: 14px;
+      color: var(--equipto-blue); letter-spacing:-0.01em; }
+    .mini-card-role { font-size:9px; font-weight:600; letter-spacing:0.15em;
+      text-transform:uppercase; color: var(--steel-gray); margin-top: 2px; }
+    .mini-card-meta { font-family: var(--font-mono); font-size:8px;
+      color: var(--steel-gray); line-height:1.5; }
+    .mini-card-tagline { font-family: var(--font-display); font-size:22px;
+      line-height:0.95; letter-spacing:-0.02em; }
+    .mini-card-tagline em { font-style:normal; color: var(--brass-gold); }
+    .mini-card .bar { position:absolute; left:0; top:0; bottom:0; width:6px; background: var(--brass-gold); }
+
+    /* Mini letterhead */
+    .mini-sheet {
+      width: 220px; height: 286px; background: var(--white);
+      box-shadow: 0 6px 28px rgba(14,42,88,0.16); position:relative;
+      transform: rotate(1deg);
+    }
+    .mini-sheet .head { background: var(--equipto-blue); height: 38px; padding: 8px 12px;
+      display:flex; align-items:center; gap: 8px; }
+    .mini-sheet .head img { height: 22px; }
+    .mini-sheet .head .h-text { color: var(--white); font-size: 7px; font-weight:700;
+      letter-spacing:0.16em; text-transform:uppercase; }
+    .mini-sheet .body { padding: 18px 14px; }
+    .mini-sheet .body .line { height: 4px; background: var(--ice-gray); margin-bottom: 6px; }
+    .mini-sheet .body .line.short { width: 60%; }
+    .mini-sheet .body .line.mid { width: 85%; }
+    .mini-sheet .foot { position:absolute; bottom:0; left:0; right:0; padding: 10px 12px;
+      border-top: 2px solid var(--equipto-blue); font-size:7px;
+      color: var(--steel-gray); font-family: var(--font-mono); letter-spacing:0.06em; }
+
+    /* Mini leave-behind */
+    .mini-leave { width: 220px; height: 286px; background: var(--white);
+      box-shadow: 0 6px 28px rgba(14,42,88,0.16); position:relative;
+      transform: rotate(-1deg); display:flex; flex-direction:column; }
+    .mini-leave .lh-hero { background: var(--equipto-blue); color: var(--white);
+      padding: 16px 14px; flex:0 0 38%; display:flex; flex-direction:column;
+      justify-content:space-between; }
+    .mini-leave .lh-hero img { height: 22px; }
+    .mini-leave .lh-tag { font-family: var(--font-display); font-size:16px;
+      line-height: 0.95; letter-spacing:-0.02em; }
+    .mini-leave .lh-tag em { font-style:normal; color: var(--brass-gold); }
+    .mini-leave .lh-body { flex:1; padding: 12px 14px; display:grid;
+      grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+    .mini-leave .chip { padding: 6px; }
+    .mini-leave .chip.m { background: var(--brass-gold); }
+    .mini-leave .chip.h { background: var(--pulse-teal); }
+    .mini-leave .chip.t { background: var(--safety-orange); }
+    .mini-leave .chip-l { font-size:6px; font-weight:700; color: var(--white);
+      letter-spacing:0.12em; text-transform:uppercase; }
+    .mini-leave .lh-foot { padding: 8px 14px; border-top: 1px solid var(--border-line);
+      font-family: var(--font-mono); font-size:7px; color: var(--equipto-blue); }
+
+    /* Mini pocket card */
+    .mini-pocket { width: 240px; height: 140px; background: var(--deep-charcoal);
+      color: var(--white); padding: 14px 16px; position:relative;
+      box-shadow: 0 4px 22px rgba(0,0,0,0.25); transform: rotate(2deg);
+      display:flex; flex-direction:column; justify-content:space-between; }
+    .mini-pocket .pk-l { font-family: var(--font-mono); font-size:8px;
+      letter-spacing:0.18em; text-transform:uppercase; color: var(--brass-gold); }
+    .mini-pocket .pk-q { font-family: var(--font-display); font-size:13px;
+      line-height:1.15; letter-spacing:-0.01em; color: var(--white); }
+    .mini-pocket .pk-num { font-family: var(--font-mono); font-size:9px;
+      color: rgba(255,255,255,0.5); }
+
+    /* Email signature copy block */
+    .sig-block { display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items:flex-start; }
+    .sig-preview { background: var(--white); border: 1px solid var(--border-line); padding: 32px; }
+    .sig-html { font-family: 'Helvetica Neue', Arial, sans-serif; color: #2D3748;
+      font-size: 13px; line-height: 1.5; }
+    .sig-html .nm { font-weight:700; color: #0E2A58; font-size:15px; }
+    .sig-html .ti { color: #4A5568; font-size:12px; }
+    .sig-html .rule { width: 32px; height: 2px; background: #C5963A; margin: 10px 0; }
+    .sig-html .meta { font-size:11px; color: #4A5568; }
+    .sig-html .meta a { color: #0E2A58; }
+    .sig-code { background: var(--deep-charcoal); color: rgba(255,255,255,0.85);
+      padding: 24px; font-family: var(--font-mono); font-size: 11px; line-height:1.55;
+      overflow-x: auto; max-height: 420px; overflow-y: auto; white-space: pre; }
+    .sig-code .tag { color: #6FB3D2; }
+    .sig-code .attr { color: #C5963A; }
+    .sig-code .str { color: #B8E0A4; }
+    .copy-btn { margin-top: 12px; }
+    .copy-status { font-size:11px; font-family: var(--font-mono); color: var(--pulse-teal);
+      letter-spacing:0.08em; text-transform:uppercase; opacity: 0; transition: opacity 0.3s; }
+    .copy-status.show { opacity: 1; }
+    @media (max-width: 900px) { .sig-block, .lockup-row, .asset-grid, .specs { grid-template-columns:1fr; } }
+
+    /* Cheatsheet — colors + type */
+    .cheat { display:grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-bottom: 64px; }
+    .cheat h4 { font-size:11px; font-weight:700; letter-spacing:0.2em;
+      text-transform:uppercase; color: var(--mid-gray); margin-bottom: 18px; }
+    .palette-strip { display:grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .pal { display:flex; flex-direction:column; }
+    .pal .chip { height: 88px; }
+    .pal .info { padding: 10px 12px; background: var(--ice-gray); }
+    .pal .info .nm { font-size:11px; font-weight:700; color: var(--equipto-blue); margin-bottom: 2px; }
+    .pal .info .hx { font-family: var(--font-mono); font-size:10px; color: var(--steel-gray); }
+    .type-list { display:flex; flex-direction:column; gap: 16px; }
+    .type-list .item { display:grid; grid-template-columns: 110px 1fr; gap: 18px;
+      align-items:baseline; border-bottom: 1px solid var(--border-line); padding-bottom: 14px; }
+    .type-list .role { font-family: var(--font-mono); font-size:10px;
+      color: var(--mid-gray); letter-spacing:0.12em; text-transform:uppercase; }
+    .type-list .spec { font-family: var(--font-mono); font-size:11px; color: var(--steel-gray); }
+    .type-list .spec b { color: var(--equipto-blue); font-weight:600; }
+
+    /* Manifest table */
+    table.manifest { width:100%; border-collapse:collapse; font-size:13px; }
+    table.manifest th, table.manifest td { text-align:left; padding: 14px 18px;
+      border-bottom: 1px solid var(--border-line); }
+    table.manifest th { font-size:10px; letter-spacing:0.15em; text-transform:uppercase;
+      color: var(--mid-gray); font-weight:700; }
+    table.manifest tr:hover td { background: var(--ice-gray); }
+    table.manifest td.f { font-family: var(--font-mono); font-size:11px; color: var(--equipto-blue); }
+    table.manifest td.s { color: var(--steel-gray); font-family: var(--font-mono); font-size:11px; }
+    table.manifest .pill { display:inline-block; font-family: var(--font-mono); font-size:10px;
+      padding: 3px 8px; background: var(--ice-gray); color: var(--steel-gray); }
+
+    /* Scribble note */
+    .scribble { font-family: var(--font-hand); font-size:22px; color: var(--brass-gold);
+      transform: rotate(-1.5deg); display:inline-block; line-height:1.1; }
+
+    /* Tk callout */
+    .tk-banner { background: var(--brass-gold); color: var(--deep-charcoal);
+      padding: 14px 24px; font-size:12px; font-weight:600;
+      letter-spacing:0.08em; display:flex; align-items:center; gap: 14px; margin-bottom: 32px; }
+    .tk-banner b { font-family: var(--font-mono); letter-spacing:0.18em; text-transform:uppercase; }
+
+    /* FOOTER */
+    footer#footer { background: var(--deep-charcoal); color: var(--white); padding: 64px 0 32px;
+      border-top: 4px solid var(--equipto-blue); position:relative; }
+    footer .footer-inner { display:grid; grid-template-columns: 1.6fr 1fr; gap: 64px; margin-bottom: 48px; }
+    footer .footer-brand img { height: 56px; margin-bottom: 20px; }
+    footer .footer-brand h2 { font-family: var(--font-display); font-size: 22px;
+      letter-spacing:-0.01em; margin-bottom: 12px; }
+    footer .footer-brand p { font-size:13px; color: rgba(255,255,255,0.55); line-height:1.7; max-width: 460px; }
+    footer .footer-nav { display:flex; flex-direction:column; gap:8px; }
+    footer .footer-nav-label { font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+      color: var(--brass-gold); margin-bottom: 10px; }
+    footer .footer-nav a { font-size:12px; color: rgba(255,255,255,0.65); padding: 4px 0; }
+    footer .footer-nav a:hover { color: var(--white); }
+    footer .footer-meta { display:flex; justify-content:space-between; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12); font-size:11px; color: rgba(255,255,255,0.4); }
+    footer .footer-meta .footer-parent span { color: var(--brass-gold); }
+
+    /* Admin FAB (mirrors brand-guide pattern) */
+    .admin-fab-wrap { position: absolute; right: 24px; bottom: 20px; z-index: 50; }
+    .admin-fab { width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.55); font-family: "Archivo Black", sans-serif;
+      font-size:18px; line-height:1; padding:0; cursor:pointer; display:grid; place-items:center;
+      transition: all 180ms ease; }
+    .admin-fab:hover, .admin-fab[aria-expanded="true"] {
+      background: var(--brass-gold); border-color: var(--brass-gold);
+      color: var(--deep-charcoal); transform: translateY(-1px); }
+    .admin-menu { position: absolute; right: 0; bottom: 52px; min-width: 240px;
+      background: #0B1322; border:1px solid rgba(255,255,255,0.14); padding: 4px 0 8px;
+      box-shadow: 0 24px 40px rgba(0,0,0,0.45); font-family: var(--font-mono); }
+    .admin-menu-label { font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+      color: var(--brass-gold); padding: 10px 16px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 4px; }
+    .admin-menu a { display:flex; align-items:center; gap:12px; padding: 10px 16px;
+      color: rgba(255,255,255,0.78); font-size:12px; letter-spacing:0.04em; }
+    .admin-menu a:hover { background: rgba(197,150,58,0.12); color: var(--brass-gold); }
+    .admin-menu a[aria-current="page"] { color: var(--brass-gold); background: rgba(197,150,58,0.08); }
+
+    @media print { #nav, footer { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Primary">
+  <div class="container">
+    <a href="index.html" class="nav-logo" aria-label="JCD Foundation home">
+      <img src="assets/jcd-logo-white.svg" alt="" />
+      <div class="nav-logo-text">JCD Foundation<span>Outreach Kit</span></div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#lockups">Logo</a></li>
+      <li><a href="#cheat">Colors &amp; Type</a></li>
+      <li><a href="#cards">Cards</a></li>
+      <li><a href="#letterhead">Letterhead</a></li>
+      <li><a href="#leave">Leave-behind</a></li>
+      <li><a href="#pocket">Pocket card</a></li>
+      <li><a href="#signature">Email sig</a></li>
+      <li><a href="#manifest">Downloads</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Outreach Kit · Round 01 · Refined existing mark</div>
+        <h1>Walk in.<br/>Hand off.<br/><em>Walk out with a "yes."</em></h1>
+        <p class="hero-sub">
+          A complete print + digital package for the interview push.
+          Built around the cleaned-up JCD mark you already know, so we can start
+          booking rooms at Rush Copley, Nimco, Tagli, AU, and Waubonsee
+          this week — before the new logo concepts are finalized.
+        </p>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-row"><span>Round</span><span>01 · Refined existing</span></div>
+        <div class="hero-meta-row"><span>Pieces</span><span>6 print + digital</span></div>
+        <div class="hero-meta-row"><span>Audience</span><span>Interview prospects</span></div>
+        <div class="hero-meta-row"><span>Phase</span><span>Pre-501(c)(3) outreach</span></div>
+        <div class="hero-meta-row"><span>Landing URL</span><span>jcdfoundation.org/meet</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO LOCKUPS -->
+<section id="lockups" class="block">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 01 · Logo</h2>
+      <h3>The mark, on light and dark</h3>
+    </div>
+
+    <div class="lockup-row">
+      <div class="lockup-box light">
+        <img src="assets/jcd-logo-dark.svg" alt="JCD Foundation logo, navy on white" />
+        <div class="lockup-cap"><b>jcd-logo-dark.svg</b> · use on white / ice-gray</div>
+      </div>
+      <div class="lockup-box dark">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation logo, white on navy" />
+        <div class="lockup-cap"><b>jcd-logo-white.svg</b> · use on navy / charcoal</div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <div class="spec-card">
+        <h4>Clear space</h4>
+        <p>Keep an "X" of breathing room equal to the height of the mark's tallest letterform
+          on all four sides. Nothing — no rule, photo, copy, or competing logo — enters this zone.</p>
+        <div class="demo">
+          <div class="clear-frame">
+            <img src="assets/jcd-logo-dark.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="spec-card">
+        <h4>Minimum size</h4>
+        <p>For business cards and footers, the mark holds down to ~24px / 0.25" tall.
+          Below that, use the wordmark only or substitute the upcoming small-size stencil monogram.</p>
+        <div class="demo">
+          <div class="min-size-row">
+            <div class="ms"><img src="assets/jcd-logo-dark.svg" alt="" /><div class="label">24px · floor</div></div>
+            <div class="ms large"><img src="assets/jcd-logo-dark.svg" alt="" /><div class="label">48px · safe</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section id="cheat" class="block alt">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 02 · Cheat sheet</h2>
+      <h3>Colors &amp; type — what the printer needs</h3>
+    </div>
+
+    <div class="cheat">
+      <div>
+        <h4>Color palette</h4>
+        <div class="palette-strip">
+          <div class="pal"><div class="chip" style="background:var(--equipto-blue)"></div>
+            <div class="info"><div class="nm">Equipto Blue</div><div class="hx">#0E2A58</div></div></div>
+          <div class="pal"><div class="chip" style="background:var(--brass-gold)"></div>
+            <div class="info"><div class="nm">Brass Gold</div><div class="hx">#C5963A</div></div></div>
+          <div class="pal"><div class="chip" style="background:var(--pulse-teal)"></div>
+            <div class="info"><div class="nm">Pulse Teal</div><div class="hx">#0A9B8C</div></div></div>
+          <div class="pal"><div class="chip" style="background:var(--safety-orange)"></div>
+            <div class="info"><div class="nm">Safety Orange</div><div class="hx">#E8600A</div></div></div>
+        </div>
+        <p style="font-family:var(--font-mono); font-size:11px; color:var(--steel-gray); margin-top:18px; line-height:1.7;">
+          CMYK conversions for offset: <b>Equipto</b> C100/M85/Y28/K30 ·
+          <b>Brass</b> C20/M40/Y90/K10 · <b>Teal</b> C85/M15/Y50/K0 · <b>Orange</b> C0/M70/Y95/K0.
+          Confirm with proof before press. [TK — verify with printer]
+        </p>
+      </div>
+      <div>
+        <h4>Typography</h4>
+        <div class="type-list">
+          <div class="item"><div class="role">Display</div>
+            <div class="spec"><b style="font-family:var(--font-display); font-size:18px; font-weight:400;">Archivo Black</b> · headlines, taglines · 24–96px</div></div>
+          <div class="item"><div class="role">Body</div>
+            <div class="spec"><b style="font-weight:700;">Montserrat</b> · 400/600/700/800 · body, UI, labels</div></div>
+          <div class="item"><div class="role">Mono</div>
+            <div class="spec"><b style="font-family:var(--font-mono); font-weight:500;">Roboto Mono</b> · IDs, dates, codes</div></div>
+          <div class="item"><div class="role">Hand</div>
+            <div class="spec"><b style="font-family:var(--font-hand); font-size:22px;">Caveat</b> · annotation, scribbles</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS CARDS -->
+<section id="cards" class="block">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 03 · Business cards</h2>
+      <h3>Two formats — personal + handoff</h3>
+    </div>
+
+    <div class="tk-banner">
+      <b>[TK]</b>
+      Bob's direct phone &amp; email need to drop in before printing. Mailing address for handoff card also [TK].
+    </div>
+
+    <div class="asset-grid">
+      <!-- BOB'S CARD -->
+      <div class="asset-card">
+        <div class="asset-preview">
+          <div class="mini-card">
+            <div class="bar"></div>
+            <img src="assets/jcd-logo-dark.svg" alt="" class="mini-card-logo" style="margin-left:8px;" />
+            <div style="margin-left:8px;">
+              <div class="mini-card-name">Bob Vaughan</div>
+              <div class="mini-card-role">Founder</div>
+            </div>
+            <div class="mini-card-meta" style="margin-left:8px;">
+              [TK] · 555.555.5555<br/>bob@jcdfoundation.org · jcdfoundation.org
+            </div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">Personal · Bob Vaughan</div>
+          <h4>Bob's card</h4>
+          <p>For interviews with school counselors, contractor's network group, Valley
+            Industrial Association, Tagli, Nimco, Rush Copley, AU — the founder card.
+            Brass-gold bar denotes Bob as JCD's principal voice.</p>
+          <div class="asset-specs">
+            <span>3.5 × 2 in</span><span>CMYK</span><span>Front + back</span><span>250 qty starter</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="print/cards.html#bob" target="_blank" rel="noopener">Open print sheet ↗</a>
+          <a class="btn btn-ghost" href="print/cards.html#bob" target="_blank" rel="noopener">Preview full size</a>
+        </div>
+      </div>
+
+      <!-- GENERIC CARD -->
+      <div class="asset-card">
+        <div class="asset-preview">
+          <div class="mini-card back">
+            <img src="assets/jcd-logo-white.svg" alt="" class="mini-card-logo" />
+            <div class="mini-card-tagline">Earn<br/>as you <em>learn.</em></div>
+            <div style="display:flex; gap:4px;">
+              <span style="background:var(--brass-gold); height:6px; flex:1;"></span>
+              <span style="background:var(--pulse-teal); height:6px; flex:1;"></span>
+              <span style="background:var(--safety-orange); height:6px; flex:1;"></span>
+            </div>
+            <div class="mini-card-meta" style="color:rgba(255,255,255,0.7);">jcdfoundation.org/meet</div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">Generic · JCD handoff</div>
+          <h4>Stranger card</h4>
+          <p>The card you leave on the counter at the front desk, slip into a folder, or hand
+            to a student. No name on it — just JCD's promise and the URL to learn more.
+            Pairs with the QR code on the back.</p>
+          <div class="asset-specs">
+            <span>3.5 × 2 in</span><span>CMYK</span><span>Front + back</span><span>500 qty starter</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="print/cards.html#generic" target="_blank" rel="noopener">Open print sheet ↗</a>
+          <a class="btn btn-ghost" href="print/cards.html#generic" target="_blank" rel="noopener">Preview full size</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 32px; font-family: var(--font-hand); font-size: 22px; color: var(--brass-gold); transform: rotate(-1deg); display:inline-block;">
+      Print 250 + 500 to start — order more once we know which interviews land →
+    </p>
+  </div>
+</section>
+
+<!-- LETTERHEAD -->
+<section id="letterhead" class="block alt">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 04 · Letterhead</h2>
+      <h3>For intent-to-interview &amp; thank-you notes</h3>
+    </div>
+
+    <div class="asset-grid">
+      <div class="asset-card">
+        <div class="asset-preview">
+          <div class="mini-sheet">
+            <div class="head">
+              <img src="assets/jcd-logo-white.svg" alt="" />
+              <div class="h-text">JCD Foundation</div>
+            </div>
+            <div class="body">
+              <div class="line mid"></div>
+              <div class="line short"></div>
+              <div class="line"></div>
+              <div class="line mid"></div>
+              <div class="line"></div>
+              <div class="line short"></div>
+            </div>
+            <div class="foot">jcdfoundation.org · [TK address] · 555.555.5555</div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">Print · Letter (8.5 × 11 in)</div>
+          <h4>JCD letterhead</h4>
+          <p>Print-shop ready or Word/Pages compatible.
+            Navy header bar, foundation lockup, brass accent rule above the footer.
+            Use for formal interview asks, follow-up notes, and grant award letters once 501(c)(3) lands.</p>
+          <div class="asset-specs">
+            <span>8.5 × 11 in</span><span>Margins safe-for-print</span><span>Editable body area</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="print/letterhead.html" target="_blank" rel="noopener">Open print sheet ↗</a>
+          <a class="btn btn-ghost" href="print/letterhead.html" target="_blank" rel="noopener">Preview full size</a>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-preview" style="padding: 56px;">
+          <div style="text-align:center; max-width: 340px;">
+            <div style="font-family: var(--font-display); font-size: 56px; color: var(--equipto-blue); line-height: 0.95; margin-bottom: 20px;">Aa</div>
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--steel-gray); letter-spacing:0.08em; text-transform:uppercase; margin-bottom: 18px;">Letter body — Montserrat 11pt</div>
+            <p style="font-size: 13px; color: var(--steel-gray); line-height: 1.7;">Dear [Name],<br/><br/>
+              On behalf of JCD Foundation, I'd like to invite you for a brief conversation —
+              roughly 30 minutes — about the careers your students are walking into …</p>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">Template · Letter body</div>
+          <h4>Outreach letter (boilerplate)</h4>
+          <p>Drop into the letterhead body. Three short paragraphs: who JCD is,
+            why we want to talk, what the interview looks like. Editable in plain text —
+            no formatting tricks needed.</p>
+          <div class="asset-specs">
+            <span>Plain text</span><span>250 words</span><span>Used inside letterhead</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="print/letterhead.html#letter-body" target="_blank" rel="noopener">View boilerplate ↗</a>
+          <button class="btn btn-ghost" data-copy="letter-boilerplate">Copy text</button>
+        </div>
+      </div>
+    </div>
+
+    <pre id="letter-boilerplate" hidden>Dear [Name],
+
+On behalf of JCD Foundation — a vocational scholarship initiative for students in the Fox Valley — I'd like to invite you for a brief conversation. We're talking with educators, employers, and apprenticeship leads across Advanced Manufacturing, Health Sciences, and the Building Trades to make sure the foundation we're building actually fits the careers our students are walking into.
+
+The ask is small: roughly 30 minutes, in person or by phone, your call. You set the agenda. We mostly listen. The transcript becomes raw material for the public site we'll launch once our 501(c)(3) determination lands.
+
+You can learn more at jcdfoundation.org/meet — or just reply to this letter and we'll find a time that works.
+
+Thank you for the work you do for our kids.
+
+Bob Vaughan
+Founder, JCD Foundation
+An Applied Legacy of the Dunham Foundation</pre>
+  </div>
+</section>
+
+<!-- LEAVE-BEHIND -->
+<section id="leave" class="block">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 05 · Leave-behind</h2>
+      <h3>One page, two sides, hand it &amp; go</h3>
+    </div>
+
+    <div class="asset-grid">
+      <div class="asset-card">
+        <div class="asset-preview">
+          <div class="mini-leave">
+            <div class="lh-hero">
+              <img src="assets/jcd-logo-white.svg" alt="" />
+              <div class="lh-tag">Earn<br/>as you <em>learn.</em></div>
+            </div>
+            <div class="lh-body">
+              <div class="chip m"><div class="chip-l">MFG</div></div>
+              <div class="chip h"><div class="chip-l">HEALTH</div></div>
+              <div class="chip t"><div class="chip-l">TRADES</div></div>
+              <div style="grid-column: 1 / -1; padding: 8px 0;">
+                <div style="font-size:7px; color:var(--steel-gray); line-height:1.5;">
+                  Fox Valley vocational scholarships — 12 qualifying high schools
+                  in the Dunham Quadrant. $200–$500/yr typical. Disbursed to schools
+                  &amp; employers, never to individuals.
+                </div>
+              </div>
+            </div>
+            <div class="lh-foot">jcdfoundation.org/meet</div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">Print · Letter, double-sided</div>
+          <h4>Leave-behind one-pager</h4>
+          <p>Front: who we are, who's eligible, what we fund. Back: how the interview works
+            and how to apply. Designed to live on a counselor's desk for a week without getting tossed.</p>
+          <div class="asset-specs">
+            <span>8.5 × 11 in</span><span>Front + back</span><span>Printer-safe margins</span><span>Big URL on back</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="print/leave-behind.html" target="_blank" rel="noopener">Open print sheet ↗</a>
+          <a class="btn btn-ghost" href="print/leave-behind.html" target="_blank" rel="noopener">Preview full size</a>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-preview" style="background: var(--equipto-blue); padding: 48px;">
+          <div style="text-align:center; color: var(--white);">
+            <div style="font-family: var(--font-display); font-size: 64px; line-height: 0.95; margin-bottom: 18px;">300+</div>
+            <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-gold); margin-bottom: 24px;">Applications goal · Round 1</div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6;">
+              50–75 awards funded.<br/>
+              $200–$500/yr typical.<br/>
+              12 qualifying schools.
+            </div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">Reference · The numbers</div>
+          <h4>Numbers we cite in interviews</h4>
+          <p>Use these on the back of the leave-behind, in talking points, and in
+            the Q-and-A. Bob's stated figures from the May 6 mandate —
+            <em>$200–$500/yr typical, higher tiers for 4-year nursing</em>. Don't drift
+            from these without checking with Bob.</p>
+          <div class="asset-specs">
+            <span>Source: May 6 audio</span><span>Locked figures</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-ghost" href="marketing-plan.html#approved" target="_blank" rel="noopener">See full Section 01 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POCKET CARD -->
+<section id="pocket" class="block alt">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 06 · Pocket interview card</h2>
+      <h3>The questions we always ask</h3>
+    </div>
+
+    <div class="asset-grid">
+      <div class="asset-card">
+        <div class="asset-preview">
+          <div class="mini-pocket">
+            <div class="pk-l">JCD · Interview prompts</div>
+            <div class="pk-q">"What does a student need on day one of the job that we could put in their hands?"</div>
+            <div class="pk-num">01 · 03</div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">Print · Wallet size</div>
+          <h4>Pocket prompt card</h4>
+          <p>Three questions Bob, Gary, and Jack always ask. Slides into a shirt pocket
+            during interviews. Reverse side carries the JCD URL + one-line mission so the
+            interviewee can keep it.</p>
+          <div class="asset-specs">
+            <span>3.5 × 2 in</span><span>Front + back</span><span>Charcoal stock</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="print/pocket-card.html" target="_blank" rel="noopener">Open print sheet ↗</a>
+          <a class="btn btn-ghost" href="print/pocket-card.html" target="_blank" rel="noopener">Preview full size</a>
+        </div>
+      </div>
+
+      <div class="asset-card" style="background: var(--deep-charcoal); color: var(--white); border-color: var(--deep-charcoal);">
+        <div class="asset-body" style="padding: 32px;">
+          <div class="asset-tag" style="color: var(--brass-gold);">The three prompts</div>
+          <h4 style="color: var(--white);">01 · 02 · 03</h4>
+          <div style="display:flex; flex-direction:column; gap: 24px; margin-top: 18px;">
+            <div>
+              <div style="font-family: var(--font-mono); font-size:10px; color: var(--brass-gold); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:6px;">01 · Career</div>
+              <div style="font-family: var(--font-display); font-size: 17px; line-height: 1.25; color: var(--white);">"What does a student need on day one of the job that we could put in their hands?"</div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size:10px; color: var(--brass-gold); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:6px;">02 · Pipeline</div>
+              <div style="font-family: var(--font-display); font-size: 17px; line-height: 1.25; color: var(--white);">"Where do the kids you'd hire come from — and what's standing in their way?"</div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-mono); font-size:10px; color: var(--brass-gold); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:6px;">03 · Money</div>
+              <div style="font-family: var(--font-display); font-size: 17px; line-height: 1.25; color: var(--white);">"If we wrote a $500 check tomorrow for one student, what's the most useful thing we'd buy with it?"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL SIGNATURE -->
+<section id="signature" class="block">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 07 · Email signature</h2>
+      <h3>Drop into Gmail, Outlook, Apple Mail</h3>
+    </div>
+
+    <div class="sig-block">
+      <div class="sig-preview">
+        <div class="sig-html" id="sig-rendered">
+          <div class="nm">Bob Vaughan</div>
+          <div class="ti">Founder · JCD Foundation</div>
+          <div class="rule"></div>
+          <div class="meta">
+            555.555.5555 [TK] · <a href="mailto:bob@jcdfoundation.org">bob@jcdfoundation.org</a><br/>
+            <a href="https://jcdfoundation.org">jcdfoundation.org</a> · An Applied Legacy of the Dunham Foundation
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sig-code" id="sig-source"><span class="tag">&lt;table</span> <span class="attr">cellpadding=</span><span class="str">"0"</span> <span class="attr">cellspacing=</span><span class="str">"0"</span> <span class="attr">style=</span><span class="str">"font-family:Helvetica,Arial,sans-serif;color:#2D3748;font-size:13px;line-height:1.5"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;tr&gt;&lt;td&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"font-weight:700;color:#0E2A58;font-size:15px"</span><span class="tag">&gt;</span>Bob Vaughan<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"color:#4A5568;font-size:12px"</span><span class="tag">&gt;</span>Founder · JCD Foundation<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"width:32px;height:2px;background:#C5963A;margin:10px 0"</span><span class="tag">&gt;&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"font-size:11px;color:#4A5568"</span><span class="tag">&gt;</span>
+      555.555.5555 ·
+      <span class="tag">&lt;a</span> <span class="attr">href=</span><span class="str">"mailto:bob@jcdfoundation.org"</span> <span class="attr">style=</span><span class="str">"color:#0E2A58"</span><span class="tag">&gt;</span>bob@jcdfoundation.org<span class="tag">&lt;/a&gt;&lt;br&gt;</span>
+      <span class="tag">&lt;a</span> <span class="attr">href=</span><span class="str">"https://jcdfoundation.org"</span> <span class="attr">style=</span><span class="str">"color:#0E2A58"</span><span class="tag">&gt;</span>jcdfoundation.org<span class="tag">&lt;/a&gt;</span> ·
+      An Applied Legacy of the Dunham Foundation
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span></div>
+        <button class="btn btn-primary copy-btn" data-copy="sig-source-plain">Copy HTML</button>
+        <span class="copy-status" id="copy-status">Copied to clipboard</span>
+        <p style="font-size:12px; color: var(--steel-gray); margin-top: 16px; line-height:1.6;">
+          Inline-styled HTML — survives Outlook, Gmail, Apple Mail without breaking.
+          Logo is intentionally text-only (no remote image) so it never gets stripped.
+        </p>
+      </div>
+    </div>
+
+    <pre id="sig-source-plain" hidden>&lt;table cellpadding="0" cellspacing="0" style="font-family:Helvetica,Arial,sans-serif;color:#2D3748;font-size:13px;line-height:1.5"&gt;
+  &lt;tr&gt;&lt;td&gt;
+    &lt;div style="font-weight:700;color:#0E2A58;font-size:15px"&gt;Bob Vaughan&lt;/div&gt;
+    &lt;div style="color:#4A5568;font-size:12px"&gt;Founder · JCD Foundation&lt;/div&gt;
+    &lt;div style="width:32px;height:2px;background:#C5963A;margin:10px 0"&gt;&lt;/div&gt;
+    &lt;div style="font-size:11px;color:#4A5568"&gt;
+      555.555.5555 ·
+      &lt;a href="mailto:bob@jcdfoundation.org" style="color:#0E2A58"&gt;bob@jcdfoundation.org&lt;/a&gt;&lt;br&gt;
+      &lt;a href="https://jcdfoundation.org" style="color:#0E2A58"&gt;jcdfoundation.org&lt;/a&gt; ·
+      An Applied Legacy of the Dunham Foundation
+    &lt;/div&gt;
+  &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</pre>
+  </div>
+</section>
+
+<!-- DOWNLOAD MANIFEST -->
+<section id="manifest" class="block alt">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 08 · Manifest</h2>
+      <h3>Every asset, every use</h3>
+    </div>
+
+    <div style="background: var(--white); border: 1px solid var(--border-line); overflow:hidden;">
+      <table class="manifest">
+        <thead>
+          <tr><th>Asset</th><th>File</th><th>Size</th><th>Use</th><th>Open</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Logo · dark</b></td>
+            <td class="f">assets/jcd-logo-dark.svg</td>
+            <td class="s">SVG · vector</td>
+            <td>White / light backgrounds</td>
+            <td><a class="pill" href="assets/jcd-logo-dark.svg" target="_blank">SVG ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Logo · white</b></td>
+            <td class="f">assets/jcd-logo-white.svg</td>
+            <td class="s">SVG · vector</td>
+            <td>Navy / dark backgrounds</td>
+            <td><a class="pill" href="assets/jcd-logo-white.svg" target="_blank">SVG ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Business cards</b></td>
+            <td class="f">print/cards.html</td>
+            <td class="s">3.5 × 2 in · 4 pages</td>
+            <td>Bob + Generic, front + back</td>
+            <td><a class="pill" href="print/cards.html" target="_blank">Print ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Letterhead</b></td>
+            <td class="f">print/letterhead.html</td>
+            <td class="s">8.5 × 11 in</td>
+            <td>Outreach &amp; thank-you letters</td>
+            <td><a class="pill" href="print/letterhead.html" target="_blank">Print ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Leave-behind</b></td>
+            <td class="f">print/leave-behind.html</td>
+            <td class="s">8.5 × 11 in · 2 pages</td>
+            <td>Counter handoff, front + back</td>
+            <td><a class="pill" href="print/leave-behind.html" target="_blank">Print ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Pocket prompt card</b></td>
+            <td class="f">print/pocket-card.html</td>
+            <td class="s">3.5 × 2 in · 2 pages</td>
+            <td>Interview prompts (in pocket)</td>
+            <td><a class="pill" href="print/pocket-card.html" target="_blank">Print ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Email signature</b></td>
+            <td class="f">brand-kit.html#signature</td>
+            <td class="s">HTML snippet</td>
+            <td>Gmail / Outlook / Apple Mail</td>
+            <td><a class="pill" href="#signature">Copy ↑</a></td>
+          </tr>
+          <tr>
+            <td><b>Prospect landing</b></td>
+            <td class="f">meet.html</td>
+            <td class="s">Web · responsive</td>
+            <td>QR + card URL destination</td>
+            <td><a class="pill" href="meet.html" target="_blank">Open ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Zoom background</b></td>
+            <td class="f" style="opacity:0.5;">assets/jcd-zoom-bg.png</td>
+            <td class="s">1920 × 1080 · [TK]</td>
+            <td>Virtual interview backdrop</td>
+            <td><span class="pill" style="opacity:0.5;">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top: 24px; font-size: 12px; color: var(--steel-gray); line-height:1.7;">
+      <b>How to use print sheets:</b> Open the link in a new tab, then File → Print (or ⌘P).
+      Choose <em>Save as PDF</em> as the destination, paper size <em>matches preview</em>,
+      margins <em>None</em>. Hand the PDF to any local print shop or upload to Vistaprint /
+      Moo / GotPrint.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation" />
+        <h2>JCD Foundation</h2>
+        <p>Outreach Kit · Round 01. Built around the cleaned-up existing mark to unblock
+          the interview push while new logo concepts vector up.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-nav-label">Kit sections</div>
+        <a href="#lockups">Logo</a>
+        <a href="#cards">Business cards</a>
+        <a href="#letterhead">Letterhead</a>
+        <a href="#leave">Leave-behind</a>
+        <a href="#pocket">Pocket card</a>
+        <a href="#signature">Email signature</a>
+        <a href="#manifest">Download manifest</a>
+      </nav>
+    </div>
+    <div class="footer-meta">
+      <div>© 2026 JCD Foundation · Outreach Kit</div>
+      <div class="footer-parent">An Applied Legacy of <span>the Dunham Foundation</span></div>
+    </div>
+  </div>
+
+  <!-- ADMIN FAB -->
+  <div class="admin-fab-wrap" data-admin-fab>
+    <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+    <div class="admin-menu" role="menu" hidden>
+      <div class="admin-menu-label">Admin</div>
+      <a href="index.html" role="menuitem">Public site</a>
+      <a href="brand-guide.html" role="menuitem">Brand guide</a>
+      <a href="brand-kit.html" role="menuitem">Outreach kit</a>
+      <a href="meet.html" role="menuitem">Prospect landing</a>
+      <a href="marketing-plan.html" role="menuitem">Marketing plan</a>
+      <a href="apply-full.html" role="menuitem">Full application</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Admin FAB
+  (function () {
+    var wrap = document.querySelector('[data-admin-fab]');
+    if (!wrap) return;
+    if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+    var btn = wrap.querySelector('.admin-fab');
+    var menu = wrap.querySelector('.admin-menu');
+    function close() { menu.hidden = true; btn.setAttribute('aria-expanded','false'); }
+    function open() { menu.hidden = false; btn.setAttribute('aria-expanded','true'); }
+    btn.addEventListener('click', function (e) { e.stopPropagation(); menu.hidden ? open() : close(); });
+    document.addEventListener('click', function (e) { if (!menu.hidden && !wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    menu.querySelectorAll('a').forEach(function (a) {
+      if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+    });
+  })();
+
+  // Copy buttons
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = document.getElementById(btn.getAttribute('data-copy'));
+      if (!src) return;
+      var text = src.textContent.trim();
+      navigator.clipboard.writeText(text).then(function () {
+        var status = document.getElementById('copy-status');
+        if (status) {
+          status.classList.add('show');
+          setTimeout(function () { status.classList.remove('show'); }, 2000);
+        } else {
+          var orig = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          setTimeout(function () { btn.textContent = orig; }, 2000);
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

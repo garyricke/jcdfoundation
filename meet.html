@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD Foundation — Let's Meet</title>
+  <meta name="description" content="A short note from JCD Foundation about why we're asking for 30 minutes of your time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:#0E2A58; --white:#FFF; --deep-charcoal:#111827;
+      --steel-gray:#4A5568; --mid-gray:#9AA3AF; --ice-gray:#F0F3F7;
+      --border-line:#D1D8E0; --brass-gold:#C5963A; --pulse-teal:#0A9B8C;
+      --safety-orange:#E8600A; --body-text:#2D3748;
+      --font-primary:'Montserrat',sans-serif; --font-mono:'Roboto Mono',monospace;
+      --font-display:'Archivo Black',sans-serif; --font-hand:'Caveat',cursive;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-primary); font-size: 16px; line-height: 1.7;
+      color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+
+    /* MINI NAV — intentionally quiet */
+    #nav { background: var(--equipto-blue); padding: 18px 0; }
+    #nav .container { display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { height: 38px; }
+    .nav-logo-text { color: var(--white); font-size:11px; font-weight:700;
+      letter-spacing:0.18em; text-transform:uppercase; }
+    .nav-logo-text span { display:block; font-size:9px; font-weight:500;
+      letter-spacing:0.22em; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .nav-right { font-family: var(--font-mono); font-size:11px;
+      color: rgba(255,255,255,0.55); letter-spacing:0.12em; text-transform:uppercase; }
+
+    /* HERO */
+    #hero { background: var(--equipto-blue); color: var(--white);
+      padding: 80px 0 88px; position: relative; overflow: hidden; }
+    #hero::before { content:''; position:absolute; inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px);
+      pointer-events:none; }
+    .hero-inner { position:relative; z-index:1; }
+    .hero-greeting { font-family: var(--font-hand); font-size: 36px;
+      color: var(--brass-gold); margin-bottom: 12px; transform: rotate(-1deg);
+      display:inline-block; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(44px, 8vw, 96px);
+      line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 28px; }
+    .hero h1 em { font-style: normal; color: var(--brass-gold); }
+    .hero-lede { font-size: 19px; line-height: 1.7; color: rgba(255,255,255,0.82);
+      max-width: 640px; margin-bottom: 32px; }
+    .hero-meta { display:flex; gap: 32px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.16); font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); flex-wrap: wrap; }
+    .hero-meta b { color: var(--white); font-weight:600; }
+
+    /* GENERIC BLOCK */
+    section.block { padding: 80px 0; }
+    section.block.tint { background: var(--ice-gray); }
+    section.block.dark { background: var(--deep-charcoal); color: var(--white); }
+    .sec-eyebrow { font-family: var(--font-mono); font-size:11px; letter-spacing:0.2em;
+      text-transform:uppercase; color: var(--brass-gold); margin-bottom: 14px; }
+    section.block h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 28px;
+      color: var(--equipto-blue); }
+    section.block.dark h2 { color: var(--white); }
+    section.block p { font-size: 17px; line-height: 1.8; margin-bottom: 18px; }
+    section.block p:last-child { margin-bottom: 0; }
+    section.block.dark p { color: rgba(255,255,255,0.78); }
+
+    /* WHY US — three sectors */
+    .sector-row { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 24px; }
+    .sec-card { background: var(--white); padding: 32px 28px; border-top: 4px solid var(--equipto-blue);
+      display:flex; flex-direction:column; gap: 12px; }
+    .sec-card.m { border-top-color: var(--brass-gold); }
+    .sec-card.h { border-top-color: var(--pulse-teal); }
+    .sec-card.t { border-top-color: var(--safety-orange); }
+    .sec-tag { font-family: var(--font-mono); font-size:10px; letter-spacing:0.18em;
+      text-transform:uppercase; color: var(--mid-gray); }
+    .sec-card h3 { font-family: var(--font-display); font-size: 22px; line-height: 1.05;
+      letter-spacing: -0.01em; color: var(--equipto-blue); }
+    .sec-card .roles { font-size: 13px; line-height: 1.6; color: var(--steel-gray); }
+    @media (max-width: 720px) { .sector-row { grid-template-columns: 1fr; } }
+
+    /* QUADRANT MAP — schools */
+    .quad-grid { display:grid; grid-template-columns: 2fr 3fr; gap: 48px; align-items: start; }
+    .quad-map { background: var(--equipto-blue); aspect-ratio: 1 / 1; position:relative;
+      display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+    .quad-quad { border: 1px solid rgba(255,255,255,0.12); display:flex;
+      align-items:center; justify-content:center;
+      font-family: var(--font-mono); font-size:11px; color: rgba(255,255,255,0.4);
+      letter-spacing:0.1em; text-transform:uppercase; position:relative; }
+    .quad-quad b { color: var(--brass-gold); font-weight: 700;
+      font-family: var(--font-display); font-size:14px; letter-spacing:0; }
+    .quad-quad small { display:block; font-size:9px; letter-spacing:0.18em; }
+    .quad-center { position:absolute; top:50%; left:50%; transform: translate(-50%, -50%);
+      background: var(--brass-gold); padding: 8px 14px;
+      font-family: var(--font-display); font-size:13px; letter-spacing:0.04em; color: var(--deep-charcoal); }
+    .schools-list { display:flex; flex-direction:column; gap: 4px; font-family: var(--font-mono); font-size: 13px; }
+    .school { display:flex; justify-content:space-between; align-items:baseline;
+      padding: 10px 14px; background: var(--white); border-bottom: 1px solid var(--border-line); }
+    .school:first-child { border-top: 1px solid var(--border-line); }
+    .school .nm { color: var(--equipto-blue); font-weight: 600; font-family: var(--font-primary); font-size: 14px; }
+    .school .typ { font-size:10px; color: var(--mid-gray); letter-spacing: 0.1em;
+      text-transform:uppercase; }
+    @media (max-width: 800px) { .quad-grid { grid-template-columns: 1fr; } .quad-map { max-width: 320px; } }
+
+    /* INTERVIEW STEPS */
+    .steps { display:grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 32px; }
+    .step { background: var(--deep-charcoal); padding: 28px 24px; position: relative;
+      display:flex; flex-direction:column; gap: 14px; }
+    .step:nth-child(odd) { background: #0B1322; }
+    .step .num { font-family: var(--font-display); font-size: 44px; color: var(--brass-gold);
+      line-height: 0.9; }
+    .step .lbl { font-family: var(--font-mono); font-size:10px; letter-spacing: 0.18em;
+      text-transform:uppercase; color: rgba(255,255,255,0.5); }
+    .step h4 { font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.3; }
+    .step p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 0; }
+    @media (max-width: 800px) { .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+    /* CTA */
+    #cta { background: var(--white); padding: 96px 0; text-align: center; border-top: 4px solid var(--brass-gold); }
+    #cta .sec-eyebrow { color: var(--brass-gold); }
+    #cta h2 { font-family: var(--font-display); font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--equipto-blue); margin-bottom: 16px; }
+    #cta h2 em { font-style: normal; color: var(--brass-gold); }
+    .cta-sub { font-size: 17px; color: var(--steel-gray); max-width: 540px;
+      margin: 0 auto 40px; line-height: 1.7; }
+    .cta-actions { display:flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { font-family: var(--font-primary); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 20px 32px;
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 2px solid var(--equipto-blue); transition: all 0.2s; cursor:pointer; }
+    .cta-primary { background: var(--equipto-blue); color: var(--white); }
+    .cta-primary:hover { background: var(--deep-charcoal); border-color: var(--deep-charcoal); }
+    .cta-ghost { background: transparent; color: var(--equipto-blue); }
+    .cta-ghost:hover { background: var(--equipto-blue); color: var(--white); }
+
+    /* PRE-501 NOTE */
+    .pre501 { background: var(--ice-gray); padding: 36px 0; border-top: 1px solid var(--border-line); }
+    .pre501 .container { display:flex; gap: 24px; align-items: flex-start; }
+    .pre501 .tag {
+      font-family: var(--font-mono); font-size:10px; letter-spacing:0.2em;
+      text-transform:uppercase; color: var(--brass-gold); font-weight: 700;
+      padding: 6px 10px; background: var(--white); flex-shrink: 0;
+    }
+    .pre501 p { font-size:13px; color: var(--steel-gray); line-height: 1.7; }
+
+    /* FOOTER */
+    footer { background: var(--deep-charcoal); color: var(--white); padding: 48px 0 32px;
+      border-top: 4px solid var(--equipto-blue); position: relative; }
+    footer .footer-inner { display:flex; justify-content:space-between; align-items:flex-start;
+      gap: 40px; flex-wrap: wrap; }
+    footer img { height: 40px; margin-bottom: 14px; }
+    footer .ftext { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 520px; }
+    footer .fmeta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    footer .fmeta b { color: var(--brass-gold); }
+    footer .fbot { margin-top: 32px; padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between;
+      font-size: 11px; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 12px; }
+
+    /* Admin FAB */
+    .admin-fab-wrap { position: absolute; right: 24px; bottom: 20px; z-index: 50; }
+    .admin-fab { width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.55); font-family: "Archivo Black", sans-serif;
+      font-size:18px; cursor:pointer; display:grid; place-items:center;
+      transition: all 180ms ease; }
+    .admin-fab:hover, .admin-fab[aria-expanded="true"] {
+      background: var(--brass-gold); border-color: var(--brass-gold);
+      color: var(--deep-charcoal); }
+    .admin-menu { position: absolute; right: 0; bottom: 52px; min-width: 220px;
+      background: #0B1322; border:1px solid rgba(255,255,255,0.14); padding: 4px 0 8px;
+      font-family: var(--font-mono); box-shadow: 0 24px 40px rgba(0,0,0,0.45); }
+    .admin-menu-label { font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+      color: var(--brass-gold); padding: 10px 16px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 4px; }
+    .admin-menu a { display:flex; padding: 10px 16px; color: rgba(255,255,255,0.78);
+      font-size:12px; letter-spacing:0.04em; }
+    .admin-menu a:hover { background: rgba(197,150,58,0.12); color: var(--brass-gold); }
+    .admin-menu a[aria-current="page"] { color: var(--brass-gold); background: rgba(197,150,58,0.08); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <a class="nav-logo" href="index.html" aria-label="JCD Foundation home">
+      <img src="assets/jcd-logo-white.svg" alt="" />
+      <div class="nav-logo-text">JCD Foundation<span>Fox Valley vocational scholarships</span></div>
+    </a>
+    <div class="nav-right">/ meet</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container hero-inner">
+    <div class="hero-greeting">Hi. Thanks for opening this.</div>
+    <h1>You got<br/>our card.<br/><em>Here's the ask.</em></h1>
+    <p class="hero-lede">
+      JCD Foundation is a vocational scholarship initiative for students in the
+      Fox Valley. We're building it from scratch this year. Before we lock anything
+      in, we're talking with the people who actually do the work — counselors,
+      educators, hiring managers, apprenticeship leads — and asking them what
+      students walking out of high school really need.
+    </p>
+    <p class="hero-lede" style="font-size:17px; color: rgba(255,255,255,0.7);">
+      That's why we're reaching out to you. <b style="color: var(--white);">30 minutes. You set the agenda. We mostly listen.</b>
+    </p>
+    <div class="hero-meta">
+      <div><b>Round 1</b> · 300+ applications goal</div>
+      <div><b>Awards</b> · 50–75 funded</div>
+      <div><b>$200–$500/yr</b> typical [TK]</div>
+      <div><b>12 schools</b> · Dunham Quadrant</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE FUND -->
+<section class="block">
+  <div class="container">
+    <div class="sec-eyebrow">Who we fund · Three sectors</div>
+    <h2>The careers our scholarships go into.</h2>
+    <p>We don't fund essay-writing or four-year liberal arts. We fund <b>skilled vocations
+      the Fox Valley actually hires for</b> — and where a small check at the right moment
+      removes a real obstacle.</p>
+
+    <div class="sector-row">
+      <div class="sec-card m">
+        <div class="sec-tag">01 · Advanced Manufacturing</div>
+        <h3>Build the things the region runs on.</h3>
+        <div class="roles">Machinists · CNC · welders · industrial tech.<br/>
+          Specific roles refined with Valley Industrial Association.</div>
+      </div>
+      <div class="sec-card h">
+        <div class="sec-tag">02 · Health Sciences</div>
+        <h3>The clinicians your community needs.</h3>
+        <div class="roles">Radiology tech · dental hygiene · RN.<br/>
+          Higher-tier awards available for 4-year nursing at UIC / U of Chicago.</div>
+      </div>
+      <div class="sec-card t">
+        <div class="sec-tag">03 · Building Trades</div>
+        <h3>The trades that build the buildings.</h3>
+        <div class="roles">Electrician · HVAC · pipefitter · operating engineer.<br/>
+          Apprenticeship-track. Tools, boots, books — not tuition.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE QUADRANT -->
+<section class="block tint">
+  <div class="container">
+    <div class="sec-eyebrow">The geography · 12 qualifying high schools</div>
+    <h2>The Dunham Quadrant.</h2>
+    <p style="margin-bottom: 36px; max-width: 680px;">
+      JCD funds students from the high schools bounded by Illinois Routes 38, 34, 59, and 47.
+      A loose square around Aurora — the area John C. Dunham called home.
+    </p>
+
+    <div class="quad-grid">
+      <div class="quad-map" aria-hidden="true">
+        <div class="quad-quad"><div><b>NW</b><small>Rt 38</small></div></div>
+        <div class="quad-quad"><div><b>NE</b><small>Rt 59</small></div></div>
+        <div class="quad-quad"><div><b>SW</b><small>Rt 47</small></div></div>
+        <div class="quad-quad"><div><b>SE</b><small>Rt 34</small></div></div>
+        <div class="quad-center">AURORA</div>
+      </div>
+      <div class="schools-list">
+        <div class="school"><span class="nm">East Aurora HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">West Aurora HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">Oswego East HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">Waubonsie Valley HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">Metea Valley HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">Kaneland HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">Batavia HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">Geneva HS</span><span class="typ">Public</span></div>
+        <div class="school"><span class="nm">Marmion Academy</span><span class="typ">Private</span></div>
+        <div class="school"><span class="nm">Rosary HS</span><span class="typ">Private</span></div>
+        <div class="school"><span class="nm">Aurora Central Catholic</span><span class="typ">Private</span></div>
+        <div class="school"><span class="nm">Aurora Christian</span><span class="typ">Private</span></div>
+        <div class="school" style="background:transparent; border-bottom:none;"><span class="nm" style="font-size:12px; color:var(--steel-gray);">Homeschooled in the Quadrant — eligible.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT AN INTERVIEW LOOKS LIKE -->
+<section class="block dark">
+  <div class="container">
+    <div class="sec-eyebrow">What an interview looks like · 4 steps</div>
+    <h2>30 minutes. You set the agenda.</h2>
+    <p style="max-width: 680px;">No pitch deck, no donor ask, no follow-up sales sequence.
+      We record the conversation (with your OK), turn the transcript into raw material for
+      the public site we'll launch once our 501(c)(3) is approved, and send you a copy of
+      anything we publish before it goes live.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="lbl">Step 01</div>
+        <div class="num">01</div>
+        <h4>Pick a time</h4>
+        <p>Email us back or grab a slot on the calendar link. 30 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="lbl">Step 02</div>
+        <div class="num">02</div>
+        <h4>We show up</h4>
+        <p>In person, by phone, or Zoom. Your call. Voice memo OK if that's easier.</p>
+      </div>
+      <div class="step">
+        <div class="lbl">Step 03</div>
+        <div class="num">03</div>
+        <h4>You talk</h4>
+        <p>About students, your field, what works, what doesn't. We mostly listen.</p>
+      </div>
+      <div class="step">
+        <div class="lbl">Step 04</div>
+        <div class="num">04</div>
+        <h4>You review</h4>
+        <p>Anything we publish from your interview goes through you before it goes live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="sec-eyebrow">Lock in a time</div>
+    <h2>Ready when<br/><em>you are.</em></h2>
+    <p class="cta-sub">
+      Reply to the email Bob sent, or pick a slot on the calendar.
+      If you'd rather just talk, his number's on the card.
+    </p>
+    <div class="cta-actions">
+      <a class="cta-btn cta-primary" href="mailto:bob@jcdfoundation.org?subject=JCD%20interview%20—%20I'd%20like%20to%20talk">Reply by email</a>
+      <a class="cta-btn cta-ghost" href="#" onclick="alert('Calendly link to drop here once Bob picks slots. [TK]'); return false;">Open the calendar [TK]</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRE-501(c)(3) NOTE -->
+<div class="pre501">
+  <div class="container">
+    <div class="tag">Disclosure</div>
+    <p>
+      JCD Foundation is pre-501(c)(3) as of <b>May 2026</b>. We're talking with people now
+      so the public site, the application process, and the first round of awards
+      are shaped by real conversations — not by what we assume from a desk. The
+      public launch fires the day our IRS determination letter lands. First grant
+      cycle window: <b>Dec 1, 2026 → Mar 1, 2027</b>. [TK]
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation" />
+        <div class="ftext">
+          JCD Foundation · Catalyzing individual prosperity through precision
+          education support for high-demand, skilled vocations in the Fox Valley.
+        </div>
+      </div>
+      <div class="fmeta">
+        <div>An Applied Legacy of<br/><b>the Dunham Foundation</b></div>
+      </div>
+    </div>
+    <div class="fbot">
+      <div>© 2026 JCD Foundation</div>
+      <div>jcdfoundation.org / meet</div>
+    </div>
+  </div>
+
+  <div class="admin-fab-wrap" data-admin-fab>
+    <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+    <div class="admin-menu" role="menu" hidden>
+      <div class="admin-menu-label">Admin</div>
+      <a href="index.html" role="menuitem">Public site</a>
+      <a href="brand-guide.html" role="menuitem">Brand guide</a>
+      <a href="brand-kit.html" role="menuitem">Outreach kit</a>
+      <a href="meet.html" role="menuitem">Prospect landing</a>
+      <a href="marketing-plan.html" role="menuitem">Marketing plan</a>
+      <a href="apply-full.html" role="menuitem">Full application</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var wrap = document.querySelector('[data-admin-fab]');
+    if (!wrap) return;
+    if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+    var btn = wrap.querySelector('.admin-fab');
+    var menu = wrap.querySelector('.admin-menu');
+    function close() { menu.hidden = true; btn.setAttribute('aria-expanded','false'); }
+    function open() { menu.hidden = false; btn.setAttribute('aria-expanded','true'); }
+    btn.addEventListener('click', function (e) { e.stopPropagation(); menu.hidden ? open() : close(); });
+    document.addEventListener('click', function (e) { if (!menu.hidden && !wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    menu.querySelectorAll('a').forEach(function (a) {
+      if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+    });
+  })();
+</script>
+</body>
+</html>

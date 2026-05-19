@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD · Business Cards (print sheet)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:#0E2A58; --white:#FFF; --deep-charcoal:#111827;
+      --steel-gray:#4A5568; --mid-gray:#9AA3AF; --ice-gray:#F0F3F7;
+      --brass-gold:#C5963A; --pulse-teal:#0A9B8C; --safety-orange:#E8600A;
+      --font-primary:'Montserrat',sans-serif; --font-mono:'Roboto Mono',monospace;
+      --font-display:'Archivo Black',sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: var(--font-primary); background: #2a2f3a; padding: 32px; color: #fff; }
+    .toolbar { max-width: 760px; margin: 0 auto 40px; display:flex; justify-content:space-between; align-items:center; gap: 16px; flex-wrap: wrap; }
+    .toolbar h1 { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; }
+    .toolbar .meta { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; }
+    .actions { display:flex; gap: 12px; }
+    .btn { font-family: var(--font-primary); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 12px 18px;
+      cursor:pointer; border:1px solid #fff; background: #fff; color: var(--equipto-blue); }
+    .btn.ghost { background: transparent; color: #fff; }
+    .sheet-wrap { display:flex; flex-direction:column; gap: 28px; align-items:center; max-width: 760px; margin: 0 auto; }
+    .card-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+
+    /* ===== CARD: 3.5" x 2" exact ===== */
+    .card {
+      width: 3.5in; height: 2in;
+      background: var(--white); color: var(--equipto-blue);
+      position: relative; overflow: hidden;
+      box-shadow: 0 4px 22px rgba(0,0,0,0.45);
+    }
+    /* BOB · FRONT */
+    .card.bob-front { padding: 0.22in 0.26in 0.22in 0.36in; }
+    .card.bob-front .gold-bar { position:absolute; left:0; top:0; bottom:0; width: 0.1in; background: var(--brass-gold); }
+    .card.bob-front .grid { display:grid; grid-template-rows: auto 1fr auto; height:100%; }
+    .card.bob-front .topline { display:flex; align-items:center; gap: 8pt; }
+    .card.bob-front .topline img { height: 0.34in; width: auto; }
+    .card.bob-front .topline .fmark { font-family: var(--font-display); font-size: 8pt;
+      letter-spacing: 0.06em; color: var(--equipto-blue); line-height: 1; }
+    .card.bob-front .topline .fmark span { display:block; font-family: var(--font-mono);
+      font-size: 6pt; letter-spacing: 0.18em; color: var(--mid-gray); margin-top: 2pt; }
+    .card.bob-front .name { font-family: var(--font-display); font-size: 17pt;
+      letter-spacing: -0.01em; color: var(--equipto-blue); line-height: 1; }
+    .card.bob-front .role { font-family: var(--font-primary); font-size: 7pt; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel-gray);
+      margin-top: 4pt; }
+    .card.bob-front .gold-rule { width: 18pt; height: 1.5pt; background: var(--brass-gold);
+      margin: 6pt 0 0; }
+    .card.bob-front .contact { font-family: var(--font-mono); font-size: 6.5pt;
+      line-height: 1.55; color: var(--steel-gray); }
+    .card.bob-front .contact b { color: var(--equipto-blue); font-weight: 500; }
+
+    /* BOB · BACK */
+    .card.bob-back { background: var(--equipto-blue); color: var(--white);
+      padding: 0.24in 0.28in; display:flex; flex-direction:column; justify-content:space-between; }
+    .card.bob-back::before { content:''; position:absolute; inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px),
+        repeating-linear-gradient(90deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px);
+      pointer-events:none; }
+    .card.bob-back .row { display:flex; justify-content:space-between; align-items:center; position:relative; z-index:1; }
+    .card.bob-back img { height: 0.36in; width:auto; }
+    .card.bob-back .url { font-family: var(--font-mono); font-size: 7pt;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-gold); }
+    .card.bob-back .tagline { font-family: var(--font-display); font-size: 22pt;
+      line-height: 0.92; letter-spacing: -0.02em; color: var(--white); position:relative; z-index:1; }
+    .card.bob-back .tagline em { font-style: normal; color: var(--brass-gold); }
+    .card.bob-back .sectors { display:flex; gap: 4pt; position:relative; z-index:1; }
+    .card.bob-back .sector { flex:1; padding: 4pt 6pt; font-family: var(--font-mono);
+      font-size: 6.5pt; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--white); text-align: center; }
+    .card.bob-back .sector.m { background: var(--brass-gold); color: var(--deep-charcoal); }
+    .card.bob-back .sector.h { background: var(--pulse-teal); }
+    .card.bob-back .sector.t { background: var(--safety-orange); }
+
+    /* GENERIC · FRONT */
+    .card.gen-front { background: var(--white); display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap: 0.1in; padding: 0.22in 0.28in; text-align: center; }
+    .card.gen-front .gen-logo { height: 0.6in; width: auto; }
+    .card.gen-front .gen-name { font-family: var(--font-display); font-size: 10pt;
+      letter-spacing: 0.05em; color: var(--equipto-blue); margin-top: 4pt; }
+    .card.gen-front .gen-sub { font-family: var(--font-primary); font-size: 7pt;
+      font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--steel-gray); }
+    .card.gen-front .gen-rule { width: 20pt; height: 1.5pt; background: var(--brass-gold); margin: 2pt 0; }
+    .card.gen-front .gen-url { font-family: var(--font-mono); font-size: 8pt;
+      color: var(--equipto-blue); letter-spacing: 0.08em; font-weight: 500; margin-top: 2pt; }
+
+    /* GENERIC · BACK */
+    .card.gen-back { background: var(--equipto-blue); color: var(--white);
+      padding: 0.22in 0.26in; display:grid;
+      grid-template-columns: 1fr 0.85in; gap: 0.14in; align-items: stretch; }
+    .card.gen-back::before { content:''; position:absolute; inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px),
+        repeating-linear-gradient(90deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px);
+      pointer-events:none; }
+    .card.gen-back .gb-text { display:flex; flex-direction:column; justify-content:space-between; position:relative; z-index:1; }
+    .card.gen-back .gb-text img { height: 0.32in; width:auto; }
+    .card.gen-back .gb-tag { font-family: var(--font-display); font-size: 13pt;
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--white); }
+    .card.gen-back .gb-tag em { font-style: normal; color: var(--brass-gold); }
+    .card.gen-back .gb-meta { font-family: var(--font-mono); font-size: 6pt;
+      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .card.gen-back .qr-wrap { display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap: 4pt; position:relative; z-index:1; }
+    .card.gen-back .qr {
+      width: 0.85in; height: 0.85in; background: var(--white); padding: 4pt;
+      display:grid; grid-template-columns: repeat(11, 1fr); grid-template-rows: repeat(11, 1fr);
+      gap: 1px;
+    }
+    .card.gen-back .qr i { background: var(--equipto-blue); display:block; }
+    .card.gen-back .qr i.o { background: transparent; }
+    .card.gen-back .qr-label { font-family: var(--font-mono); font-size: 5.5pt;
+      color: rgba(255,255,255,0.7); letter-spacing: 0.14em; text-transform: uppercase; }
+
+    @media screen {
+      .card { outline: 1px dashed rgba(197,150,58,0.4); outline-offset: 6px; }
+    }
+
+    @page { size: 3.5in 2in; margin: 0; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .toolbar, .card-label, .actions { display: none !important; }
+      .sheet-wrap { gap: 0; max-width: none; }
+      .card { box-shadow: none !important; outline: none !important; page-break-after: always; }
+      .card:last-child { page-break-after: auto; }
+    }
+
+    /* anchor offsets */
+    #bob, #generic { scroll-margin-top: 80px; display: contents; }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>
+    <h1>JCD Business Cards</h1>
+    <div class="meta">4 cards · 3.5 × 2 in · ⌘P → Save as PDF · margins: None</div>
+  </div>
+  <div class="actions">
+    <a class="btn ghost" href="../brand-kit.html">← Back to kit</a>
+    <button class="btn" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="sheet-wrap">
+
+  <div id="bob">
+    <div class="card-label">01 · Bob Vaughan · Front</div>
+    <div class="card bob-front">
+      <div class="gold-bar"></div>
+      <div class="grid">
+        <div class="topline">
+          <img src="../assets/jcd-logo-dark.svg" alt="" />
+          <div class="fmark">JCD<span>Foundation</span></div>
+        </div>
+        <div>
+          <div style="margin-top: 6pt;">
+            <div class="name">Bob Vaughan</div>
+            <div class="role">Founder</div>
+            <div class="gold-rule"></div>
+          </div>
+        </div>
+        <div class="contact">
+          <b>555.555.5555</b> [TK]<br/>
+          bob@jcdfoundation.org<br/>
+          jcdfoundation.org · An Applied Legacy of the Dunham Foundation
+        </div>
+      </div>
+    </div>
+
+    <div class="card-label">02 · Bob Vaughan · Back</div>
+    <div class="card bob-back">
+      <div class="row">
+        <img src="../assets/jcd-logo-white.svg" alt="" />
+        <div class="url">jcdfoundation.org/meet</div>
+      </div>
+      <div class="tagline">Earn<br/>as you <em>learn.</em></div>
+      <div class="sectors">
+        <div class="sector m">MFG</div>
+        <div class="sector h">HEALTH</div>
+        <div class="sector t">TRADES</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="generic">
+    <div class="card-label">03 · Generic Handoff · Front</div>
+    <div class="card gen-front">
+      <img class="gen-logo" src="../assets/jcd-logo-dark.svg" alt="" />
+      <div>
+        <div class="gen-name">JCD FOUNDATION</div>
+        <div class="gen-sub">Fox Valley vocational scholarships</div>
+      </div>
+      <div class="gen-rule"></div>
+      <div class="gen-url">jcdfoundation.org/meet</div>
+    </div>
+
+    <div class="card-label">04 · Generic Handoff · Back</div>
+    <div class="card gen-back">
+      <div class="gb-text">
+        <img src="../assets/jcd-logo-white.svg" alt="" />
+        <div class="gb-tag">Earn<br/>as you <em>learn.</em></div>
+        <div class="gb-meta">12 schools · 3 sectors<br/>Apply Dec 1 → Mar 1, 2027 [TK]</div>
+      </div>
+      <div class="qr-wrap">
+        <div class="qr" aria-hidden="true">
+          <!-- Stylized QR-ish placeholder. Replace with real QR pointing to jcdfoundation.org/meet before printing. -->
+          <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i>
+          <i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i>
+          <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i>
+          <i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="qr-label">[TK] Scan</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

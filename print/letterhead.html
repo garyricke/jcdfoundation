@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD · Letterhead (print sheet)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:#0E2A58; --white:#FFF; --deep-charcoal:#111827;
+      --steel-gray:#4A5568; --mid-gray:#9AA3AF; --ice-gray:#F0F3F7;
+      --brass-gold:#C5963A;
+      --font-primary:'Montserrat',sans-serif; --font-mono:'Roboto Mono',monospace;
+      --font-display:'Archivo Black',sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: var(--font-primary); background: #2a2f3a; padding: 32px; color:#fff; }
+    .toolbar { max-width: 8.5in; margin: 0 auto 40px; display:flex; justify-content:space-between; align-items:center; gap: 16px; flex-wrap: wrap; }
+    .toolbar h1 { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; }
+    .toolbar .meta { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; }
+    .actions { display:flex; gap: 12px; }
+    .btn { font-family: var(--font-primary); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 12px 18px;
+      cursor:pointer; border:1px solid #fff; background: #fff; color: var(--equipto-blue); }
+    .btn.ghost { background: transparent; color: #fff; }
+
+    /* PAGE */
+    .sheet {
+      width: 8.5in; height: 11in;
+      background: var(--white); color: var(--deep-charcoal);
+      margin: 0 auto;
+      box-shadow: 0 8px 36px rgba(0,0,0,0.45);
+      position: relative;
+      display: grid; grid-template-rows: 1.1in 1fr 0.85in;
+    }
+
+    /* HEADER */
+    .lh-head { background: var(--equipto-blue); color: var(--white);
+      padding: 0 0.6in; display:flex; align-items:center; justify-content: space-between; }
+    .lh-head .lh-mark { display:flex; align-items:center; gap: 14pt; }
+    .lh-head .lh-mark img { height: 0.6in; }
+    .lh-head .lh-mark .wm { font-family: var(--font-display); font-size: 16pt;
+      letter-spacing: 0.02em; line-height: 1; }
+    .lh-head .lh-mark .wm span { display:block; font-family: var(--font-mono);
+      font-size: 8pt; font-weight: 400; letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.6); margin-top: 4pt; }
+    .lh-head .lh-contact { text-align: right; font-family: var(--font-mono);
+      font-size: 7.5pt; line-height: 1.7; color: rgba(255,255,255,0.78);
+      letter-spacing: 0.06em; }
+    .lh-head .lh-contact b { color: var(--brass-gold); font-weight: 500; }
+
+    /* BODY */
+    .lh-body { padding: 0.6in 0.75in; font-family: var(--font-primary);
+      font-size: 11pt; line-height: 1.65; color: var(--deep-charcoal); }
+    .lh-body .date { font-family: var(--font-mono); font-size: 9pt;
+      color: var(--mid-gray); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.5in; }
+    .lh-body .salute { margin-bottom: 14pt; }
+    .lh-body p { margin-bottom: 12pt; }
+    .lh-body .signoff { margin-top: 28pt; }
+    .lh-body .signature { font-family: 'Caveat', cursive; font-size: 22pt;
+      color: var(--equipto-blue); line-height: 1; margin: 8pt 0; }
+    .lh-body .signed-name { font-weight: 700; font-size: 10pt; }
+    .lh-body .signed-title { font-size: 9pt; color: var(--steel-gray); margin-top: 2pt; }
+
+    /* FOOTER */
+    .lh-foot { padding: 0 0.6in; border-top: 2pt solid var(--equipto-blue);
+      display:flex; align-items:center; justify-content: space-between; }
+    .lh-foot::before { content:''; position:absolute; left: 0.6in; right: 0.6in;
+      top: -2pt; height: 2pt; background: linear-gradient(to right, var(--equipto-blue) 0, var(--equipto-blue) 18pt, var(--brass-gold) 18pt, var(--brass-gold) 60pt, var(--equipto-blue) 60pt); }
+    .lh-foot .ftag { font-family: var(--font-display); font-size: 9pt;
+      letter-spacing: 0.04em; color: var(--equipto-blue); line-height: 1.3; }
+    .lh-foot .ftag em { font-style: normal; color: var(--brass-gold); }
+    .lh-foot .fmeta { font-family: var(--font-mono); font-size: 7pt;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-gray); text-align: right; }
+    .lh-foot .fmeta b { color: var(--equipto-blue); font-weight: 500; }
+
+    @media screen {
+      .sheet { outline: 1px dashed rgba(197,150,58,0.25); outline-offset: 8px; }
+    }
+
+    @page { size: 8.5in 11in; margin: 0; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .toolbar, .actions { display: none !important; }
+      .sheet { box-shadow: none !important; outline: none !important; margin: 0; }
+    }
+
+    #letter-body { scroll-margin-top: 60px; }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>
+    <h1>JCD Letterhead</h1>
+    <div class="meta">8.5 × 11 in · ⌘P → Save as PDF · margins: None</div>
+  </div>
+  <div class="actions">
+    <a class="btn ghost" href="../brand-kit.html">← Back to kit</a>
+    <button class="btn" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="sheet" id="letter-body">
+  <!-- HEADER -->
+  <div class="lh-head">
+    <div class="lh-mark">
+      <img src="../assets/jcd-logo-white.svg" alt="" />
+      <div class="wm">JCD Foundation<span>Applied Legacy · Dunham</span></div>
+    </div>
+    <div class="lh-contact">
+      <b>jcdfoundation.org</b><br/>
+      bob@jcdfoundation.org<br/>
+      555.555.5555 [TK]<br/>
+      Aurora, IL [TK address]
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="lh-body">
+    <div class="date">May 18, 2026</div>
+
+    <div class="salute">Dear [Name],</div>
+
+    <p>On behalf of JCD Foundation — a vocational scholarship initiative for students
+       in the Fox Valley — I'd like to invite you for a brief conversation. We're talking
+       with educators, employers, and apprenticeship leads across Advanced Manufacturing,
+       Health Sciences, and the Building Trades to make sure the foundation we're building
+       actually fits the careers our students are walking into.</p>
+
+    <p>The ask is small: roughly thirty minutes, in person or by phone, your call.
+       You set the agenda. We mostly listen. The transcript becomes raw material for the
+       public site we'll launch once our 501(c)(3) determination lands.</p>
+
+    <p>You can learn more at <b>jcdfoundation.org/meet</b> — or just reply to this letter
+       and we'll find a time that works.</p>
+
+    <p>Thank you for the work you do for our kids.</p>
+
+    <div class="signoff">
+      <div class="signature">Bob Vaughan</div>
+      <div class="signed-name">Bob Vaughan</div>
+      <div class="signed-title">Founder · JCD Foundation</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="lh-foot" style="position: relative;">
+    <div class="ftag">Earn as you <em>learn.</em></div>
+    <div class="fmeta">An Applied Legacy of<br/><b>the Dunham Foundation</b></div>
+  </div>
+</div>
+
+</body>
+</html>

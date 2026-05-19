@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD · Leave-behind (print sheet)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:#0E2A58; --white:#FFF; --deep-charcoal:#111827;
+      --steel-gray:#4A5568; --mid-gray:#9AA3AF; --ice-gray:#F0F3F7; --border-line:#D1D8E0;
+      --brass-gold:#C5963A; --pulse-teal:#0A9B8C; --safety-orange:#E8600A;
+      --font-primary:'Montserrat',sans-serif; --font-mono:'Roboto Mono',monospace;
+      --font-display:'Archivo Black',sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: var(--font-primary); background: #2a2f3a; padding: 32px; color:#fff; }
+    .toolbar { max-width: 8.5in; margin: 0 auto 40px; display:flex; justify-content:space-between; align-items:center; gap: 16px; flex-wrap: wrap; }
+    .toolbar h1 { font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em; }
+    .toolbar .meta { font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; }
+    .actions { display:flex; gap: 12px; }
+    .btn { font-family: var(--font-primary); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 12px 18px;
+      cursor:pointer; border:1px solid #fff; background: #fff; color: var(--equipto-blue); }
+    .btn.ghost { background: transparent; color: #fff; }
+
+    .sheet-stack { max-width: 8.5in; margin: 0 auto; display: flex; flex-direction: column; gap: 36px; }
+    .page-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+
+    .sheet { width: 8.5in; height: 11in; background: var(--white); color: var(--deep-charcoal);
+      box-shadow: 0 8px 36px rgba(0,0,0,0.45); position: relative; overflow: hidden; }
+
+    /* ===== PAGE 1 (FRONT) ===== */
+    .p1 { display: grid; grid-template-rows: 3.4in 1fr 0.8in; }
+    .p1 .hero { background: var(--equipto-blue); color: var(--white);
+      padding: 0.55in 0.7in; position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 0.4in; align-items: end; }
+    .p1 .hero::before { content:''; position:absolute; inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(255,255,255,0.04) 23px, rgba(255,255,255,0.04) 24px),
+        repeating-linear-gradient(90deg, transparent, transparent 23px, rgba(255,255,255,0.04) 23px, rgba(255,255,255,0.04) 24px);
+      pointer-events:none; }
+    .p1 .hero .h-left { position: relative; z-index: 1; }
+    .p1 .hero img { height: 0.55in; margin-bottom: 18pt; }
+    .p1 .hero h1 { font-family: var(--font-display); font-size: 56pt;
+      line-height: 0.92; letter-spacing: -0.02em; margin-bottom: 14pt; }
+    .p1 .hero h1 em { font-style: normal; color: var(--brass-gold); }
+    .p1 .hero .sub { font-size: 10pt; color: rgba(255,255,255,0.72);
+      letter-spacing: 0.06em; font-weight: 500; max-width: 3.2in; line-height: 1.6; }
+    .p1 .hero .h-right { position: relative; z-index: 1; display:flex; flex-direction:column; gap: 4pt; align-items: flex-end; text-align: right; }
+    .p1 .hero .h-stat { padding: 10pt 14pt; background: rgba(255,255,255,0.06);
+      border-left: 2pt solid var(--brass-gold); }
+    .p1 .hero .h-stat .n { font-family: var(--font-display); font-size: 26pt;
+      color: var(--brass-gold); line-height: 0.95; }
+    .p1 .hero .h-stat .l { font-family: var(--font-mono); font-size: 7pt;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.65);
+      margin-top: 4pt; }
+
+    .p1 .mid { padding: 0.45in 0.7in 0.3in; display: grid;
+      grid-template-columns: 1.2fr 1fr; gap: 0.5in; }
+    .p1 .mid h2 { font-family: var(--font-display); font-size: 16pt;
+      color: var(--equipto-blue); margin-bottom: 10pt; letter-spacing: -0.01em; }
+    .p1 .mid p { font-size: 10.5pt; line-height: 1.65; color: var(--deep-charcoal); margin-bottom: 8pt; }
+    .p1 .mid p b { color: var(--equipto-blue); }
+
+    .p1 .schools-block { padding: 0 0.7in; }
+    .p1 .schools-block .lab { font-family: var(--font-mono); font-size: 8pt;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-gray);
+      margin-bottom: 8pt; }
+    .p1 .schools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4pt; }
+    .p1 .schools-grid .sch { font-family: var(--font-mono); font-size: 8pt;
+      padding: 6pt 8pt; background: var(--ice-gray); color: var(--equipto-blue);
+      letter-spacing: 0.04em; font-weight: 600; }
+    .p1 .schools-grid .sch.priv { border-left: 2pt solid var(--brass-gold); }
+
+    .p1 .foot { background: var(--deep-charcoal); color: var(--white);
+      padding: 0 0.7in; display:flex; align-items:center; justify-content: space-between; }
+    .p1 .foot .fl { font-family: var(--font-display); font-size: 13pt;
+      letter-spacing: 0.02em; line-height: 1; }
+    .p1 .foot .fl em { font-style: normal; color: var(--brass-gold); }
+    .p1 .foot .fr { font-family: var(--font-mono); font-size: 8pt;
+      letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-align: right; }
+    .p1 .foot .fr b { color: var(--brass-gold); }
+
+    /* ===== PAGE 2 (BACK) ===== */
+    .p2 { display: grid; grid-template-rows: 0.9in 1fr 1.6in; }
+    .p2 .head { background: var(--equipto-blue); color: var(--white);
+      padding: 0 0.7in; display:flex; align-items: center; justify-content: space-between; }
+    .p2 .head .left { display:flex; align-items:center; gap: 12pt; }
+    .p2 .head img { height: 0.42in; }
+    .p2 .head .lab { font-family: var(--font-mono); font-size: 8pt;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--brass-gold); }
+    .p2 .head .right { font-family: var(--font-mono); font-size: 8pt;
+      letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+    .p2 .body { padding: 0.5in 0.7in; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 0.5in; align-content: start; }
+    .p2 .body h2 { font-family: var(--font-display); font-size: 22pt;
+      line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--equipto-blue); grid-column: 1 / -1; margin-bottom: 6pt; }
+    .p2 .body h2 em { font-style: normal; color: var(--brass-gold); }
+    .p2 .body .lede { grid-column: 1 / -1; font-size: 11pt;
+      line-height: 1.7; color: var(--steel-gray); margin-bottom: 14pt; max-width: 6in; }
+
+    .step { display:flex; gap: 14pt; align-items: flex-start;
+      padding-top: 14pt; border-top: 1pt solid var(--border-line); }
+    .step .num { font-family: var(--font-display); font-size: 32pt;
+      color: var(--brass-gold); line-height: 0.85; flex-shrink: 0; }
+    .step .text h3 { font-family: var(--font-primary); font-size: 11pt;
+      font-weight: 700; color: var(--equipto-blue); margin-bottom: 3pt; letter-spacing: -0.01em; }
+    .step .text p { font-size: 9.5pt; line-height: 1.55; color: var(--steel-gray); }
+
+    /* Sectors strip */
+    .sectors-strip { grid-column: 1 / -1; display:grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2pt; margin-top: 18pt; }
+    .sec { padding: 14pt 14pt 16pt; }
+    .sec.m { background: var(--brass-gold); color: var(--deep-charcoal); }
+    .sec.h { background: var(--pulse-teal); color: var(--white); }
+    .sec.t { background: var(--safety-orange); color: var(--white); }
+    .sec .lab { font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.2em;
+      text-transform: uppercase; margin-bottom: 4pt; opacity: 0.85; }
+    .sec .name { font-family: var(--font-display); font-size: 13pt;
+      line-height: 1; letter-spacing: -0.01em; }
+
+    .p2 .cta { background: var(--equipto-blue); color: var(--white);
+      padding: 0 0.7in; display:grid; grid-template-columns: 1.4fr 1fr;
+      align-items: center; gap: 0.4in; position: relative; }
+    .p2 .cta::before { content:''; position:absolute; left:0; top:0; bottom:0; width: 0.18in; background: var(--brass-gold); }
+    .p2 .cta .ctext { }
+    .p2 .cta .ctag { font-family: var(--font-mono); font-size: 8pt;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass-gold); margin-bottom: 6pt; }
+    .p2 .cta .curl { font-family: var(--font-display); font-size: 28pt;
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--white); }
+    .p2 .cta .csub { font-family: var(--font-primary); font-size: 9pt;
+      color: rgba(255,255,255,0.7); margin-top: 6pt; line-height: 1.6; }
+    .p2 .cta .qr { width: 1.2in; height: 1.2in; background: var(--white); padding: 4pt;
+      display:grid; grid-template-columns: repeat(11, 1fr); grid-template-rows: repeat(11, 1fr);
+      gap: 1px; }
+    .p2 .cta .qr i { background: var(--equipto-blue); }
+    .p2 .cta .qr i.o { background: transparent; }
+
+    @media screen {
+      .sheet { outline: 1px dashed rgba(197,150,58,0.2); outline-offset: 8px; }
+    }
+    @page { size: 8.5in 11in; margin: 0; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .toolbar, .actions, .page-label { display: none !important; }
+      .sheet-stack { gap: 0; max-width: none; }
+      .sheet { box-shadow: none !important; outline: none !important; page-break-after: always; }
+      .sheet:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>
+    <h1>JCD Leave-behind</h1>
+    <div class="meta">2 pages · 8.5 × 11 in · Print double-sided · ⌘P → Save as PDF · margins: None</div>
+  </div>
+  <div class="actions">
+    <a class="btn ghost" href="../brand-kit.html">← Back to kit</a>
+    <button class="btn" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="sheet-stack">
+
+  <!-- ===== PAGE 1 (FRONT) ===== -->
+  <div>
+    <div class="page-label">Front · Who we are, who's eligible</div>
+    <div class="sheet p1">
+      <div class="hero">
+        <div class="h-left">
+          <img src="../assets/jcd-logo-white.svg" alt="" />
+          <h1>Earn<br/>as you<br/><em>learn.</em></h1>
+          <div class="sub">Fox Valley vocational scholarships for Advanced Manufacturing,
+            Health Sciences, and the Building Trades. Funded by the JCD Foundation —
+            an Applied Legacy of the Dunham Foundation.</div>
+        </div>
+        <div class="h-right">
+          <div class="h-stat"><div class="n">300+</div><div class="l">Applications goal</div></div>
+          <div class="h-stat"><div class="n">75</div><div class="l">Awards · round 1</div></div>
+          <div class="h-stat"><div class="n">12</div><div class="l">Qualifying schools</div></div>
+        </div>
+      </div>
+
+      <div class="mid">
+        <div>
+          <h2>What we fund</h2>
+          <p>Tools, books, boots, certification fees, semester transcripts, deposits at
+             community college, apprenticeship startup costs — <b>$200 to $500 a year, typical.</b>
+             Higher tiers for 4-year nursing at UIC or the University of Chicago.</p>
+          <p>We disburse to <b>schools and employers, never to individuals.</b> If a kid
+             needs a $400 set of hand tools to start her apprenticeship Monday, the check
+             goes to the shop on Friday.</p>
+        </div>
+        <div>
+          <h2>Who's eligible</h2>
+          <p>Any senior at one of the twelve qualifying high schools below — or homeschooled
+             in the same area — pursuing a career in advanced manufacturing, health sciences,
+             or the building trades.</p>
+          <p>No essay. No ethnicity question. No citizenship question. Required:
+             legal name, address, ZIP, transcript, FAFSA, and a career objective. [TK]</p>
+        </div>
+      </div>
+
+      <div class="schools-block">
+        <div class="lab">Dunham Quadrant · 12 qualifying high schools</div>
+        <div class="schools-grid">
+          <div class="sch">East Aurora</div>
+          <div class="sch">West Aurora</div>
+          <div class="sch">Oswego East</div>
+          <div class="sch">Waubonsie Valley</div>
+          <div class="sch">Metea Valley</div>
+          <div class="sch">Kaneland</div>
+          <div class="sch">Batavia</div>
+          <div class="sch">Geneva</div>
+          <div class="sch priv">Marmion</div>
+          <div class="sch priv">Rosary</div>
+          <div class="sch priv">Aurora Central Catholic</div>
+          <div class="sch priv">Aurora Christian</div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="fl">An Applied Legacy of <em>the Dunham Foundation.</em></div>
+        <div class="fr">Page 1 / 2 · <b>Continued →</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PAGE 2 (BACK) ===== -->
+  <div>
+    <div class="page-label">Back · How it works, how to start</div>
+    <div class="sheet p2">
+      <div class="head">
+        <div class="left">
+          <img src="../assets/jcd-logo-white.svg" alt="" />
+          <div class="lab">How an interview / application works</div>
+        </div>
+        <div class="right">Round 1 · Dec 1, 2026 → Mar 1, 2027 [TK]</div>
+      </div>
+
+      <div class="body">
+        <h2>30 minutes.<br/>You set the <em>agenda.</em></h2>
+        <div class="lede">
+          We're talking with educators, employers, and apprenticeship leads
+          this spring and summer — before our 501(c)(3) determination lands —
+          so the foundation we're building fits the careers our students are
+          actually walking into.
+        </div>
+
+        <div class="step">
+          <div class="num">01</div>
+          <div class="text">
+            <h3>Pick a time</h3>
+            <p>Reply to the email, call the number on the card, or grab a slot on the calendar.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <div class="text">
+            <h3>We show up</h3>
+            <p>In person, by phone, or Zoom. Your call. A voice memo works too.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <div class="text">
+            <h3>You talk</h3>
+            <p>About students, the field, what works, what doesn't. We mostly listen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <div class="text">
+            <h3>You review</h3>
+            <p>Anything we publish from the conversation goes through you first.</p>
+          </div>
+        </div>
+
+        <div class="sectors-strip">
+          <div class="sec m"><div class="lab">01</div><div class="name">Advanced Manufacturing</div></div>
+          <div class="sec h"><div class="lab">02</div><div class="name">Health Sciences</div></div>
+          <div class="sec t"><div class="lab">03</div><div class="name">Building Trades</div></div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <div class="ctext">
+          <div class="ctag">Learn more · Lock in a time</div>
+          <div class="curl">jcdfoundation.org/meet</div>
+          <div class="csub">Reply to the email Bob sent, or scan the code →
+            Bob Vaughan · Founder · bob@jcdfoundation.org · 555.555.5555 [TK]</div>
+        </div>
+        <div class="qr" aria-hidden="true">
+          <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i>
+          <i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i>
+          <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i>
+          <i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
+          <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
