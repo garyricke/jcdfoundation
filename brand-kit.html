@@ -110,10 +110,44 @@
     .min-size-row .ms.large img { height: 48px; }
     .min-size-row .label { font-family: var(--font-mono); font-size:10px; color: var(--mid-gray); }
 
+    /* FOUNDATIONS · brand-guide pointer card */
+    .foundations-card { display:grid; grid-template-columns: 1.6fr 1fr;
+      gap: 64px; align-items: center; padding: 56px 64px;
+      background: var(--ice-gray); border-left: 4px solid var(--equipto-blue); }
+    .foundations-eyebrow { font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 16px; }
+    .foundations-h { font-family: var(--font-display); font-size: 32px;
+      color: var(--equipto-blue); line-height: 1.05; letter-spacing: -0.02em; }
+    .foundations-h em { font-style: normal; color: var(--brass-gold); }
+    .foundations-sub { font-size: 14px; line-height: 1.7; color: var(--steel-gray); margin-top: 18px; max-width: 540px; }
+    .foundations-right { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+    .foundations-meta { display: flex; flex-direction: column; gap: 4px;
+      font-family: var(--font-mono); font-size: 11px; color: var(--mid-gray);
+      letter-spacing: 0.06em; }
+    .foundations-meta span:first-child { color: var(--equipto-blue); font-weight: 500; }
+    @media (max-width: 800px) {
+      .foundations-card { grid-template-columns: 1fr; gap: 32px; padding: 40px; }
+    }
+
     /* Asset cards (cards/letterhead/leave-behind/pocket) */
     .asset-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     .asset-card { background: var(--white); border:1px solid var(--border-line);
       display:flex; flex-direction:column; }
+
+    /* Wide single-card variant (used by Leave-behind) */
+    .asset-card-wide { display: grid;
+      grid-template-columns: 1fr 1.2fr; grid-template-rows: 1fr auto;
+      background: var(--white); border: 1px solid var(--border-line); }
+    .asset-card-wide .asset-preview { grid-row: 1 / 3; min-height: 420px; }
+    .asset-card-wide .asset-body { padding: 36px 36px 24px; display:flex;
+      flex-direction:column; gap: 14px; }
+    .asset-card-wide .asset-actions { grid-column: 2; padding: 16px 36px 28px;
+      border-top: 1px solid var(--border-line); }
+    @media (max-width: 800px) {
+      .asset-card-wide { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+      .asset-card-wide .asset-preview { grid-row: auto; }
+      .asset-card-wide .asset-actions { grid-column: 1; }
+    }
     .asset-preview { background: var(--ice-gray); padding: 40px; display:flex;
       align-items:center; justify-content:center; min-height: 320px; position:relative; }
     .asset-preview::after { content:''; position:absolute; inset:0; pointer-events:none;
@@ -156,6 +190,99 @@
       line-height:0.95; letter-spacing:-0.02em; }
     .mini-card-tagline em { font-style:normal; color: var(--brass-gold); }
     .mini-card .bar { position:absolute; left:0; top:0; bottom:0; width:6px; background: var(--brass-gold); }
+
+    /* Card pair preview — front + back side by side */
+    .card-pair { display: flex; gap: 28px; align-items: flex-start; justify-content: center;
+      flex-wrap: wrap; padding: 8px; }
+    .card-pair-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .card-pair-stage { width: 224px; height: 128px; display: flex;
+      align-items: center; justify-content: center; }
+    .card-pair-stage .mini-card {
+      width: 224px; height: 128px; padding: 12px 14px 13px;
+      box-shadow: 0 3px 18px rgba(14,42,88,0.16), 3px 3px 0 var(--deep-charcoal);
+      transform: rotate(-2deg);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .card-pair-item:nth-child(2) .mini-card { transform: rotate(2deg); }
+    .card-pair-label { font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); }
+
+    /* BOB FRONT mini */
+    .mini-bob-front { background: var(--white); color: var(--equipto-blue); padding-left: 22px !important; }
+    .mini-bob-front .bf-top { display:flex; align-items:center; gap: 6px; }
+    .mini-bob-front .bf-top img { height: 18px; width: auto; }
+    .mini-bob-front .bf-mark { font-family: var(--font-display); font-size: 6px;
+      color: var(--equipto-blue); line-height: 1; letter-spacing: 0.04em; }
+    .mini-bob-front .bf-mark span { display:block; font-family: var(--font-mono);
+      font-size: 4.5px; color: var(--mid-gray); letter-spacing: 0.18em; margin-top: 1px; }
+    .mini-bob-front .bf-name { font-family: var(--font-display); font-size: 13px;
+      color: var(--equipto-blue); letter-spacing: -0.01em; line-height: 1; }
+    .mini-bob-front .bf-role { font-size: 6.5px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel-gray); margin-top: 2px; }
+    .mini-bob-front .bf-rule { width: 14px; height: 1.5px; background: var(--brass-gold); margin-top: 5px; }
+    .mini-bob-front .bf-meta { font-family: var(--font-mono); font-size: 6px;
+      color: var(--steel-gray); line-height: 1.5; }
+
+    /* BOB BACK mini */
+    .mini-bob-back { background: var(--equipto-blue); color: var(--white); position: relative; overflow: hidden; }
+    .mini-bob-back::before { content:''; position:absolute; inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 7px, rgba(255,255,255,0.04) 7px, rgba(255,255,255,0.04) 8px),
+        repeating-linear-gradient(90deg, transparent, transparent 7px, rgba(255,255,255,0.04) 7px, rgba(255,255,255,0.04) 8px);
+      pointer-events:none; }
+    .mini-bob-back > * { position: relative; z-index: 1; }
+    .mini-bob-back .bb-row { display:flex; justify-content:space-between; align-items:center; }
+    .mini-bob-back .bb-row img { height: 18px; width: auto; }
+    .mini-bob-back .bb-url { font-family: var(--font-mono); font-size: 5.5px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-gold); }
+    .mini-bob-back .bb-tagline { font-family: var(--font-display); font-size: 17px;
+      line-height: 0.92; letter-spacing: -0.02em; color: var(--white); }
+    .mini-bob-back .bb-tagline em { font-style: normal; color: var(--brass-gold); }
+    .mini-bob-back .bb-sectors { display: flex; gap: 3px; }
+    .mini-bob-back .bb-sectors span { flex: 1; padding: 3px; text-align: center;
+      font-family: var(--font-mono); font-size: 5.5px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+    .mini-bob-back .bb-sectors .m { background: var(--brass-gold); color: var(--deep-charcoal); }
+    .mini-bob-back .bb-sectors .h { background: var(--pulse-teal); }
+    .mini-bob-back .bb-sectors .t { background: var(--safety-orange); }
+
+    /* GENERIC FRONT mini */
+    .mini-gen-front { background: var(--white); color: var(--equipto-blue);
+      align-items: center; justify-content: center; gap: 4px; text-align: center; }
+    .mini-gen-front .gf-logo { height: 38px; width: auto; }
+    .mini-gen-front .gf-name { font-family: var(--font-display); font-size: 8px;
+      letter-spacing: 0.06em; color: var(--equipto-blue); margin-top: 2px; }
+    .mini-gen-front .gf-sub { font-size: 5.5px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel-gray); }
+    .mini-gen-front .gf-rule { width: 16px; height: 1.5px; background: var(--brass-gold); margin: 2px 0; }
+    .mini-gen-front .gf-url { font-family: var(--font-mono); font-size: 6.5px;
+      color: var(--equipto-blue); letter-spacing: 0.06em; font-weight: 500; }
+
+    /* GENERIC BACK mini */
+    .mini-gen-back { background: var(--equipto-blue); color: var(--white);
+      display: grid !important; grid-template-columns: 1fr 54px; gap: 10px;
+      align-items: stretch; position: relative; overflow: hidden; }
+    .mini-gen-back::before { content:''; position:absolute; inset:0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 7px, rgba(255,255,255,0.04) 7px, rgba(255,255,255,0.04) 8px),
+        repeating-linear-gradient(90deg, transparent, transparent 7px, rgba(255,255,255,0.04) 7px, rgba(255,255,255,0.04) 8px);
+      pointer-events:none; }
+    .mini-gen-back > * { position: relative; z-index: 1; }
+    .mini-gen-back .gb-text { display: flex; flex-direction: column; justify-content: space-between; }
+    .mini-gen-back .gb-text img { height: 16px; width: auto; }
+    .mini-gen-back .gb-tag { font-family: var(--font-display); font-size: 11px;
+      line-height: 0.95; letter-spacing: -0.02em; }
+    .mini-gen-back .gb-tag em { font-style: normal; color: var(--brass-gold); }
+    .mini-gen-back .gb-meta { font-family: var(--font-mono); font-size: 5px;
+      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); line-height: 1.4; }
+    .mini-gen-back .gb-qr { background: var(--white); color: var(--equipto-blue);
+      display: grid; place-items: center; font-family: var(--font-mono);
+      font-size: 9px; font-weight: 700; letter-spacing: 0.15em;
+      align-self: center; height: 54px;
+      background-image:
+        repeating-conic-gradient(var(--equipto-blue) 0 25%, transparent 0 50%);
+      background-size: 8px 8px; background-position: center;
+      color: var(--equipto-blue); text-shadow: 0 0 4px rgba(255,255,255,0.9); }
 
     /* Mini letterhead */
     .mini-sheet {
@@ -209,6 +336,99 @@
       line-height:1.15; letter-spacing:-0.01em; color: var(--white); }
     .mini-pocket .pk-num { font-family: var(--font-mono); font-size:9px;
       color: rgba(255,255,255,0.5); }
+
+    /* Mini browser mockup — for meet.html preview */
+    .mini-browser {
+      width: 320px; height: 400px; background: var(--white);
+      box-shadow: 0 8px 32px rgba(14,42,88,0.18);
+      border: 1px solid var(--border-line);
+      overflow: hidden; display: flex; flex-direction: column;
+      transform: rotate(-0.8deg);
+    }
+    .mini-browser .mb-chrome { background: #ECEEF3; padding: 8px 10px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--border-line); flex-shrink: 0; }
+    .mini-browser .mb-dots { display: flex; gap: 4px; }
+    .mini-browser .mb-dots span { width: 8px; height: 8px; border-radius: 50%; background: #C4C9D2; }
+    .mini-browser .mb-url { font-family: var(--font-mono); font-size: 9px;
+      color: var(--steel-gray); background: var(--white); padding: 4px 10px;
+      border-radius: 10px; flex: 1; margin-left: 8px;
+      border: 1px solid var(--border-line); text-align: center; }
+    .mini-browser .mb-nav { background: var(--equipto-blue); color: var(--white);
+      padding: 10px 14px; display: flex; justify-content: space-between;
+      align-items: center; flex-shrink: 0; }
+    .mini-browser .mb-nav-logo { display: flex; align-items: center; gap: 6px; }
+    .mini-browser .mb-nav-logo img { height: 16px; width: auto; }
+    .mini-browser .mb-nav-logo b { font-family: var(--font-display); font-size: 7px;
+      letter-spacing: 0.12em; font-weight: 400; }
+    .mini-browser .mb-nav-right { font-family: var(--font-mono); font-size: 7px;
+      letter-spacing: 0.14em; color: rgba(255,255,255,0.55); }
+    .mini-browser .mb-hero { background: var(--equipto-blue); color: var(--white);
+      padding: 16px 16px 14px; flex: 1; display: flex; flex-direction: column;
+      gap: 8px; position: relative; overflow: hidden; }
+    .mini-browser .mb-hero::before { content:''; position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px),
+        repeating-linear-gradient(90deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px);
+      pointer-events: none; }
+    .mini-browser .mb-hero > * { position: relative; z-index: 1; }
+    .mini-browser .mb-greet { font-family: var(--font-hand); font-size: 14px;
+      color: var(--brass-gold); display: inline-block;
+      transform: rotate(-1.5deg); align-self: flex-start; }
+    .mini-browser .mb-h1 { font-family: var(--font-display); font-size: 24px;
+      line-height: 0.92; letter-spacing: -0.02em; color: var(--white); }
+    .mini-browser .mb-h1 em { font-style: normal; color: var(--brass-gold); }
+    .mini-browser .mb-sub { font-size: 8px; color: rgba(255,255,255,0.7);
+      line-height: 1.55; max-width: 240px; margin-top: 4px; }
+    .mini-browser .mb-stats { display: flex; gap: 10px; margin-top: auto;
+      padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.18); }
+    .mini-browser .mb-stats span { font-family: var(--font-mono); font-size: 7px;
+      letter-spacing: 0.1em; color: rgba(255,255,255,0.55); text-transform: uppercase; }
+    .mini-browser .mb-stats b { color: var(--brass-gold); font-family: var(--font-display);
+      font-weight: 400; margin-right: 3px; }
+
+    /* Production section — printer + Orbis + cost estimates */
+    .prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+    .prod-card { background: var(--white); border: 1px solid var(--border-line);
+      padding: 36px 36px 32px; display: flex; flex-direction: column; gap: 16px;
+      position: relative; border-top: 4px solid var(--equipto-blue); }
+    .prod-card:nth-child(2) { border-top-color: var(--brass-gold); }
+    .prod-step { position: absolute; top: 24px; right: 32px;
+      font-family: var(--font-display); font-size: 44px; line-height: 0.9;
+      color: var(--ice-gray); letter-spacing: -0.02em; }
+    .prod-tag { font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass-gold); }
+    .prod-h { font-family: var(--font-display); font-size: 24px;
+      color: var(--equipto-blue); line-height: 1.05; letter-spacing: -0.02em; }
+    .prod-h em { font-style: normal; color: var(--brass-gold); }
+    .prod-p { font-size: 14px; line-height: 1.7; color: var(--steel-gray); }
+    .prod-meta { display: flex; flex-direction: column; gap: 1px; margin-top: 8px;
+      background: var(--border-line); }
+    .prod-meta-row { display: grid; grid-template-columns: 100px 1fr; gap: 0;
+      background: var(--white); padding: 10px 0; }
+    .prod-meta-row .lab { font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-gray); }
+    .prod-meta-row .val { font-size: 12px; color: var(--equipto-blue); font-weight: 500; line-height: 1.55; }
+
+    .prod-banner { background: var(--deep-charcoal); color: var(--white);
+      padding: 40px 40px 40px 88px; display: flex; gap: 32px; align-items: center;
+      position: relative; border-left: 4px solid var(--brass-gold); }
+    .prod-banner-step { position: absolute; left: 28px; top: 32px;
+      font-family: var(--font-display); font-size: 56px; line-height: 0.9;
+      color: var(--brass-gold); letter-spacing: -0.02em; }
+    .prod-banner-text { flex: 1; }
+    .prod-banner-tag { font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass-gold); margin-bottom: 12px; }
+    .prod-banner-h { font-family: var(--font-display); font-size: 26px;
+      line-height: 1.05; letter-spacing: -0.02em; color: var(--white); margin-bottom: 14px; }
+    .prod-banner-h em { font-style: normal; color: var(--brass-gold); }
+    .prod-banner-p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.72); max-width: 800px; }
+
+    @media (max-width: 800px) {
+      .prod-grid { grid-template-columns: 1fr; }
+      .prod-banner { padding: 32px 28px 32px 28px; flex-direction: column; align-items: flex-start; }
+      .prod-banner-step { position: static; }
+    }
 
     /* Email signature copy block */
     .sig-block { display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items:flex-start; }
@@ -322,14 +542,15 @@
       <div class="nav-logo-text">JCD Foundation<span>Outreach Kit</span></div>
     </a>
     <ul class="nav-links" role="list">
-      <li><a href="#lockups">Logo</a></li>
-      <li><a href="#cheat">Colors &amp; Type</a></li>
       <li><a href="#cards">Cards</a></li>
-      <li><a href="#letterhead">Letterhead</a></li>
       <li><a href="#leave">Leave-behind</a></li>
+      <li><a href="#letterhead">Letterhead</a></li>
       <li><a href="#pocket">Pocket card</a></li>
       <li><a href="#signature">Email sig</a></li>
+      <li><a href="#meet">Meet page</a></li>
       <li><a href="#manifest">Downloads</a></li>
+      <li><a href="#production">Production</a></li>
+      <li><a href="brand-guide.html">Brand guide ↗</a></li>
     </ul>
   </div>
 </nav>
@@ -359,89 +580,25 @@
   </div>
 </section>
 
-<!-- LOGO LOCKUPS -->
-<section id="lockups" class="block">
+<!-- FOUNDATIONS · brand-guide pointer -->
+<section id="foundations" class="block">
   <div class="container">
-    <div class="section-label">
-      <h2>Section 01 · Logo</h2>
-      <h3>The mark, on light and dark</h3>
-    </div>
-
-    <div class="lockup-row">
-      <div class="lockup-box light">
-        <img src="assets/jcd-logo-dark.svg" alt="JCD Foundation logo, navy on white" />
-        <div class="lockup-cap"><b>jcd-logo-dark.svg</b> · use on white / ice-gray</div>
-      </div>
-      <div class="lockup-box dark">
-        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation logo, white on navy" />
-        <div class="lockup-cap"><b>jcd-logo-white.svg</b> · use on navy / charcoal</div>
-      </div>
-    </div>
-
-    <div class="specs">
-      <div class="spec-card">
-        <h4>Clear space</h4>
-        <p>Keep an "X" of breathing room equal to the height of the mark's tallest letterform
-          on all four sides. Nothing — no rule, photo, copy, or competing logo — enters this zone.</p>
-        <div class="demo">
-          <div class="clear-frame">
-            <img src="assets/jcd-logo-dark.svg" alt="" />
-          </div>
-        </div>
-      </div>
-      <div class="spec-card">
-        <h4>Minimum size</h4>
-        <p>For business cards and footers, the mark holds down to ~24px / 0.25" tall.
-          Below that, use the wordmark only or substitute the upcoming small-size stencil monogram.</p>
-        <div class="demo">
-          <div class="min-size-row">
-            <div class="ms"><img src="assets/jcd-logo-dark.svg" alt="" /><div class="label">24px · floor</div></div>
-            <div class="ms large"><img src="assets/jcd-logo-dark.svg" alt="" /><div class="label">48px · safe</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CHEAT SHEET -->
-<section id="cheat" class="block alt">
-  <div class="container">
-    <div class="section-label">
-      <h2>Section 02 · Cheat sheet</h2>
-      <h3>Colors &amp; type — what the printer needs</h3>
-    </div>
-
-    <div class="cheat">
-      <div>
-        <h4>Color palette</h4>
-        <div class="palette-strip">
-          <div class="pal"><div class="chip" style="background:var(--equipto-blue)"></div>
-            <div class="info"><div class="nm">Equipto Blue</div><div class="hx">#0E2A58</div></div></div>
-          <div class="pal"><div class="chip" style="background:var(--brass-gold)"></div>
-            <div class="info"><div class="nm">Brass Gold</div><div class="hx">#C5963A</div></div></div>
-          <div class="pal"><div class="chip" style="background:var(--pulse-teal)"></div>
-            <div class="info"><div class="nm">Pulse Teal</div><div class="hx">#0A9B8C</div></div></div>
-          <div class="pal"><div class="chip" style="background:var(--safety-orange)"></div>
-            <div class="info"><div class="nm">Safety Orange</div><div class="hx">#E8600A</div></div></div>
-        </div>
-        <p style="font-family:var(--font-mono); font-size:11px; color:var(--steel-gray); margin-top:18px; line-height:1.7;">
-          CMYK conversions for offset: <b>Equipto</b> C100/M85/Y28/K30 ·
-          <b>Brass</b> C20/M40/Y90/K10 · <b>Teal</b> C85/M15/Y50/K0 · <b>Orange</b> C0/M70/Y95/K0.
-          Confirm with proof before press. [TK — verify with printer]
+    <div class="foundations-card">
+      <div class="foundations-left">
+        <div class="foundations-eyebrow">Logo, color, type · single source of truth</div>
+        <h3 class="foundations-h">Foundations live in the <em>Brand Guide.</em></h3>
+        <p class="foundations-sub">
+          To keep one canonical place for the mark, palette, typography, voice, and
+          usage rules, this kit doesn't restate them. Everything below is built
+          on top of that system — open the guide for hex codes, clear-space rules,
+          font stack, and tone notes.
         </p>
       </div>
-      <div>
-        <h4>Typography</h4>
-        <div class="type-list">
-          <div class="item"><div class="role">Display</div>
-            <div class="spec"><b style="font-family:var(--font-display); font-size:18px; font-weight:400;">Archivo Black</b> · headlines, taglines · 24–96px</div></div>
-          <div class="item"><div class="role">Body</div>
-            <div class="spec"><b style="font-weight:700;">Montserrat</b> · 400/600/700/800 · body, UI, labels</div></div>
-          <div class="item"><div class="role">Mono</div>
-            <div class="spec"><b style="font-family:var(--font-mono); font-weight:500;">Roboto Mono</b> · IDs, dates, codes</div></div>
-          <div class="item"><div class="role">Hand</div>
-            <div class="spec"><b style="font-family:var(--font-hand); font-size:22px;">Caveat</b> · annotation, scribbles</div></div>
+      <div class="foundations-right">
+        <a class="btn btn-primary" href="brand-guide.html" target="_blank" rel="noopener">Open the Brand Guide ↗</a>
+        <div class="foundations-meta">
+          <span>brand-guide.html</span>
+          <span>Logo · Color · Type · Voice</span>
         </div>
       </div>
     </div>
@@ -452,7 +609,7 @@
 <section id="cards" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 03 · Business cards</h2>
+      <h2>Section 01 · Business cards</h2>
       <h3>Two formats — personal + handoff</h3>
     </div>
 
@@ -465,15 +622,45 @@
       <!-- BOB'S CARD -->
       <div class="asset-card">
         <div class="asset-preview">
-          <div class="mini-card">
-            <div class="bar"></div>
-            <img src="assets/jcd-logo-dark.svg" alt="" class="mini-card-logo" style="margin-left:8px;" />
-            <div style="margin-left:8px;">
-              <div class="mini-card-name">Bob Vaughan</div>
-              <div class="mini-card-role">Founder</div>
+          <div class="card-pair">
+            <!-- FRONT -->
+            <div class="card-pair-item">
+              <div class="card-pair-stage">
+                <div class="mini-card mini-bob-front">
+                  <div class="bar"></div>
+                  <div class="bf-top">
+                    <img src="assets/jcd-logo-dark.svg" alt="" />
+                    <div class="bf-mark">JCD<span>Foundation</span></div>
+                  </div>
+                  <div class="bf-name-block">
+                    <div class="bf-name">Bob Vaughan</div>
+                    <div class="bf-role">Founder</div>
+                    <div class="bf-rule"></div>
+                  </div>
+                  <div class="bf-meta">
+                    [TK] · 555.555.5555<br/>bob@jcdfoundation.org
+                  </div>
+                </div>
+              </div>
+              <div class="card-pair-label">Front</div>
             </div>
-            <div class="mini-card-meta" style="margin-left:8px;">
-              [TK] · 555.555.5555<br/>bob@jcdfoundation.org · jcdfoundation.org
+            <!-- BACK -->
+            <div class="card-pair-item">
+              <div class="card-pair-stage">
+                <div class="mini-card mini-bob-back">
+                  <div class="bb-row">
+                    <img src="assets/jcd-logo-white.svg" alt="" />
+                    <div class="bb-url">jcdfoundation.org/meet</div>
+                  </div>
+                  <div class="bb-tagline">Earn<br/>as you <em>learn.</em></div>
+                  <div class="bb-sectors">
+                    <span class="m">MFG</span>
+                    <span class="h">HEALTH</span>
+                    <span class="t">TRADES</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-pair-label">Back</div>
             </div>
           </div>
         </div>
@@ -488,23 +675,41 @@
           </div>
         </div>
         <div class="asset-actions">
-          <a class="btn btn-primary" href="print/cards.html#bob" target="_blank" rel="noopener">Open print sheet ↗</a>
-          <a class="btn btn-ghost" href="print/cards.html#bob" target="_blank" rel="noopener">Preview full size</a>
+          <a class="btn btn-primary" href="print/card-bob.html" target="_blank" rel="noopener">Print sheet ↗</a>
         </div>
       </div>
 
       <!-- GENERIC CARD -->
       <div class="asset-card">
         <div class="asset-preview">
-          <div class="mini-card back">
-            <img src="assets/jcd-logo-white.svg" alt="" class="mini-card-logo" />
-            <div class="mini-card-tagline">Earn<br/>as you <em>learn.</em></div>
-            <div style="display:flex; gap:4px;">
-              <span style="background:var(--brass-gold); height:6px; flex:1;"></span>
-              <span style="background:var(--pulse-teal); height:6px; flex:1;"></span>
-              <span style="background:var(--safety-orange); height:6px; flex:1;"></span>
+          <div class="card-pair">
+            <!-- FRONT -->
+            <div class="card-pair-item">
+              <div class="card-pair-stage">
+                <div class="mini-card mini-gen-front">
+                  <img src="assets/jcd-logo-dark.svg" alt="" class="gf-logo" />
+                  <div class="gf-name">JCD FOUNDATION</div>
+                  <div class="gf-sub">Fox Valley vocational scholarships</div>
+                  <div class="gf-rule"></div>
+                  <div class="gf-url">jcdfoundation.org/meet</div>
+                </div>
+              </div>
+              <div class="card-pair-label">Front</div>
             </div>
-            <div class="mini-card-meta" style="color:rgba(255,255,255,0.7);">jcdfoundation.org/meet</div>
+            <!-- BACK -->
+            <div class="card-pair-item">
+              <div class="card-pair-stage">
+                <div class="mini-card mini-gen-back">
+                  <div class="gb-text">
+                    <img src="assets/jcd-logo-white.svg" alt="" />
+                    <div class="gb-tag">Earn<br/>as you <em>learn.</em></div>
+                    <div class="gb-meta">12 schools · 3 sectors</div>
+                  </div>
+                  <div class="gb-qr" aria-hidden="true">QR</div>
+                </div>
+              </div>
+              <div class="card-pair-label">Back</div>
+            </div>
           </div>
         </div>
         <div class="asset-body">
@@ -518,8 +723,7 @@
           </div>
         </div>
         <div class="asset-actions">
-          <a class="btn btn-primary" href="print/cards.html#generic" target="_blank" rel="noopener">Open print sheet ↗</a>
-          <a class="btn btn-ghost" href="print/cards.html#generic" target="_blank" rel="noopener">Preview full size</a>
+          <a class="btn btn-primary" href="print/card-generic.html" target="_blank" rel="noopener">Print sheet ↗</a>
         </div>
       </div>
     </div>
@@ -530,11 +734,61 @@
   </div>
 </section>
 
-<!-- LETTERHEAD -->
-<section id="letterhead" class="block alt">
+<!-- LEAVE-BEHIND -->
+<section id="leave" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 04 · Letterhead</h2>
+      <h2>Section 02 · Leave-behind</h2>
+      <h3>One page, two sides, hand it &amp; go</h3>
+    </div>
+
+    <div class="asset-card asset-card-wide">
+      <div class="asset-preview">
+        <div class="mini-leave">
+          <div class="lh-hero">
+            <img src="assets/jcd-logo-white.svg" alt="" />
+            <div class="lh-tag">Earn<br/>as you <em>learn.</em></div>
+          </div>
+          <div class="lh-body">
+            <div class="chip m"><div class="chip-l">MFG</div></div>
+            <div class="chip h"><div class="chip-l">HEALTH</div></div>
+            <div class="chip t"><div class="chip-l">TRADES</div></div>
+            <div style="grid-column: 1 / -1; padding: 8px 0;">
+              <div style="font-size:7px; color:var(--steel-gray); line-height:1.5;">
+                Fox Valley vocational scholarships — 12 qualifying high schools
+                in the Dunham Quadrant. $200–$500/yr typical. Disbursed to schools
+                &amp; employers, never to individuals.
+              </div>
+            </div>
+          </div>
+          <div class="lh-foot">jcdfoundation.org/meet</div>
+        </div>
+      </div>
+      <div class="asset-body">
+        <div class="asset-tag">Print · Letter, double-sided</div>
+        <h4>Leave-behind one-pager</h4>
+        <p>Front: who we are, who's eligible, what we fund — anchored by the three
+          documentary sector portraits (Manufacturing, Health, Trades).
+          Back: how the interview works, the four-step flow, and a big URL +
+          QR code so the prospect can find their way back to us.</p>
+        <p>Designed to live on a counselor's desk for a week without getting tossed —
+          editorial spread, not a flyer.</p>
+        <div class="asset-specs">
+          <span>8.5 × 11 in</span><span>Front + back</span><span>0.4 in print-safe margin</span><span>3 sector photos</span><span>Big URL on back</span>
+        </div>
+      </div>
+      <div class="asset-actions">
+        <a class="btn btn-primary" href="print/leave-behind.html" target="_blank" rel="noopener">Print sheet ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTERHEAD -->
+<section id="letterhead" class="block">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 03 · Letterhead</h2>
       <h3>For intent-to-interview &amp; thank-you notes</h3>
     </div>
 
@@ -568,8 +822,7 @@
           </div>
         </div>
         <div class="asset-actions">
-          <a class="btn btn-primary" href="print/letterhead.html" target="_blank" rel="noopener">Open print sheet ↗</a>
-          <a class="btn btn-ghost" href="print/letterhead.html" target="_blank" rel="noopener">Preview full size</a>
+          <a class="btn btn-primary" href="print/letterhead.html" target="_blank" rel="noopener">Print sheet ↗</a>
         </div>
       </div>
 
@@ -616,88 +869,11 @@ An Applied Legacy of the Dunham Foundation</pre>
   </div>
 </section>
 
-<!-- LEAVE-BEHIND -->
-<section id="leave" class="block">
-  <div class="container">
-    <div class="section-label">
-      <h2>Section 05 · Leave-behind</h2>
-      <h3>One page, two sides, hand it &amp; go</h3>
-    </div>
-
-    <div class="asset-grid">
-      <div class="asset-card">
-        <div class="asset-preview">
-          <div class="mini-leave">
-            <div class="lh-hero">
-              <img src="assets/jcd-logo-white.svg" alt="" />
-              <div class="lh-tag">Earn<br/>as you <em>learn.</em></div>
-            </div>
-            <div class="lh-body">
-              <div class="chip m"><div class="chip-l">MFG</div></div>
-              <div class="chip h"><div class="chip-l">HEALTH</div></div>
-              <div class="chip t"><div class="chip-l">TRADES</div></div>
-              <div style="grid-column: 1 / -1; padding: 8px 0;">
-                <div style="font-size:7px; color:var(--steel-gray); line-height:1.5;">
-                  Fox Valley vocational scholarships — 12 qualifying high schools
-                  in the Dunham Quadrant. $200–$500/yr typical. Disbursed to schools
-                  &amp; employers, never to individuals.
-                </div>
-              </div>
-            </div>
-            <div class="lh-foot">jcdfoundation.org/meet</div>
-          </div>
-        </div>
-        <div class="asset-body">
-          <div class="asset-tag">Print · Letter, double-sided</div>
-          <h4>Leave-behind one-pager</h4>
-          <p>Front: who we are, who's eligible, what we fund. Back: how the interview works
-            and how to apply. Designed to live on a counselor's desk for a week without getting tossed.</p>
-          <div class="asset-specs">
-            <span>8.5 × 11 in</span><span>Front + back</span><span>Printer-safe margins</span><span>Big URL on back</span>
-          </div>
-        </div>
-        <div class="asset-actions">
-          <a class="btn btn-primary" href="print/leave-behind.html" target="_blank" rel="noopener">Open print sheet ↗</a>
-          <a class="btn btn-ghost" href="print/leave-behind.html" target="_blank" rel="noopener">Preview full size</a>
-        </div>
-      </div>
-
-      <div class="asset-card">
-        <div class="asset-preview" style="background: var(--equipto-blue); padding: 48px;">
-          <div style="text-align:center; color: var(--white);">
-            <div style="font-family: var(--font-display); font-size: 64px; line-height: 0.95; margin-bottom: 18px;">300+</div>
-            <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-gold); margin-bottom: 24px;">Applications goal · Round 1</div>
-            <div style="font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6;">
-              50–75 awards funded.<br/>
-              $200–$500/yr typical.<br/>
-              12 qualifying schools.
-            </div>
-          </div>
-        </div>
-        <div class="asset-body">
-          <div class="asset-tag">Reference · The numbers</div>
-          <h4>Numbers we cite in interviews</h4>
-          <p>Use these on the back of the leave-behind, in talking points, and in
-            the Q-and-A. Bob's stated figures from the May 6 mandate —
-            <em>$200–$500/yr typical, higher tiers for 4-year nursing</em>. Don't drift
-            from these without checking with Bob.</p>
-          <div class="asset-specs">
-            <span>Source: May 6 audio</span><span>Locked figures</span>
-          </div>
-        </div>
-        <div class="asset-actions">
-          <a class="btn btn-ghost" href="marketing-plan.html#approved" target="_blank" rel="noopener">See full Section 01 ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- POCKET CARD -->
 <section id="pocket" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 06 · Pocket interview card</h2>
+      <h2>Section 04 · Pocket interview card</h2>
       <h3>The questions we always ask</h3>
     </div>
 
@@ -721,8 +897,7 @@ An Applied Legacy of the Dunham Foundation</pre>
           </div>
         </div>
         <div class="asset-actions">
-          <a class="btn btn-primary" href="print/pocket-card.html" target="_blank" rel="noopener">Open print sheet ↗</a>
-          <a class="btn btn-ghost" href="print/pocket-card.html" target="_blank" rel="noopener">Preview full size</a>
+          <a class="btn btn-primary" href="print/pocket-card.html" target="_blank" rel="noopener">Print sheet ↗</a>
         </div>
       </div>
 
@@ -754,7 +929,7 @@ An Applied Legacy of the Dunham Foundation</pre>
 <section id="signature" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 07 · Email signature</h2>
+      <h2>Section 05 · Email signature</h2>
       <h3>Drop into Gmail, Outlook, Apple Mail</h3>
     </div>
 
@@ -809,11 +984,70 @@ An Applied Legacy of the Dunham Foundation</pre>
   </div>
 </section>
 
-<!-- DOWNLOAD MANIFEST -->
-<section id="manifest" class="block alt">
+<!-- PROSPECT LANDING -->
+<section id="meet" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 08 · Manifest</h2>
+      <h2>Section 06 · Prospect landing</h2>
+      <h3>Where the card &amp; QR send people</h3>
+    </div>
+
+    <div class="asset-card asset-card-wide">
+      <div class="asset-preview">
+        <div class="mini-browser">
+          <div class="mb-chrome">
+            <div class="mb-dots"><span></span><span></span><span></span></div>
+            <div class="mb-url">jcdfoundation.org/meet</div>
+          </div>
+          <div class="mb-nav">
+            <div class="mb-nav-logo">
+              <img src="assets/jcd-logo-white.svg" alt="" />
+              <b>JCD Foundation</b>
+            </div>
+            <div class="mb-nav-right">/ meet</div>
+          </div>
+          <div class="mb-hero">
+            <div class="mb-greet">Hi. Thanks for opening this.</div>
+            <div class="mb-h1">You got<br/>our card.<br/><em>Here's the ask.</em></div>
+            <div class="mb-sub">JCD Foundation is a vocational scholarship initiative
+              for students in the Fox Valley. 30 minutes. You set the agenda. We mostly listen.</div>
+            <div class="mb-stats">
+              <span><b>300+</b> apps</span>
+              <span><b>75</b> awards</span>
+              <span><b>12</b> schools</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="asset-body">
+        <div class="asset-tag">Web · jcdfoundation.org/meet</div>
+        <h4>The /meet landing page</h4>
+        <p>The destination behind every business card, leave-behind URL, and QR code
+          in this kit. Quiet, non-fundraising voice. A 30-second read that answers
+          <em>"Who are you? Why are you reaching out? What's the ask?"</em> then routes
+          to a reply email or calendar link.</p>
+        <p>Built to make a stranger comfortable saying yes to a 30-minute interview —
+          not to convert donors. Bob's email, the four-step interview flow, the three
+          sectors, and the Dunham Quadrant map all live here.</p>
+        <div class="asset-specs">
+          <span>jcdfoundation.org/meet</span>
+          <span>Responsive · mobile-first</span>
+          <span>No login / no gate</span>
+          <span>Pre-501(c)(3) disclosure</span>
+        </div>
+      </div>
+      <div class="asset-actions">
+        <a class="btn btn-primary" href="meet.html" target="_blank" rel="noopener">Open landing page ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD MANIFEST -->
+<section id="manifest" class="block">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 07 · Manifest</h2>
       <h3>Every asset, every use</h3>
     </div>
 
@@ -838,11 +1072,18 @@ An Applied Legacy of the Dunham Foundation</pre>
             <td><a class="pill" href="assets/jcd-logo-white.svg" target="_blank">SVG ↗</a></td>
           </tr>
           <tr>
-            <td><b>Business cards</b></td>
-            <td class="f">print/cards.html</td>
-            <td class="s">3.5 × 2 in · 4 pages</td>
-            <td>Bob + Generic, front + back</td>
-            <td><a class="pill" href="print/cards.html" target="_blank">Print ↗</a></td>
+            <td><b>Bob's card</b></td>
+            <td class="f">print/card-bob.html</td>
+            <td class="s">3.5 × 2 in · 2 pages</td>
+            <td>Bob Vaughan, front + back</td>
+            <td><a class="pill" href="print/card-bob.html" target="_blank">Print ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Generic handoff card</b></td>
+            <td class="f">print/card-generic.html</td>
+            <td class="s">3.5 × 2 in · 2 pages</td>
+            <td>JCD handoff, front + back</td>
+            <td><a class="pill" href="print/card-generic.html" target="_blank">Print ↗</a></td>
           </tr>
           <tr>
             <td><b>Letterhead</b></td>
@@ -893,9 +1134,67 @@ An Applied Legacy of the Dunham Foundation</pre>
     <p style="margin-top: 24px; font-size: 12px; color: var(--steel-gray); line-height:1.7;">
       <b>How to use print sheets:</b> Open the link in a new tab, then File → Print (or ⌘P).
       Choose <em>Save as PDF</em> as the destination, paper size <em>matches preview</em>,
-      margins <em>None</em>. Hand the PDF to any local print shop or upload to Vistaprint /
-      Moo / GotPrint.
+      margins <em>None</em>. See Section 08 for the recommended printer and how Orbis
+      handles the run.
     </p>
+  </div>
+</section>
+
+<!-- PRODUCTION -->
+<section id="production" class="block alt">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 08 · Production</h2>
+      <h3>From kit to ink on paper</h3>
+    </div>
+
+    <div class="prod-grid">
+      <!-- 01 · PRINTER -->
+      <div class="prod-card">
+        <div class="prod-step">01</div>
+        <div class="prod-tag">Recommended printer</div>
+        <h4 class="prod-h">The UPS Store · <em>Geneva, IL</em></h4>
+        <p class="prod-p">JCD Foundation's mailing address is already a box at this store —
+          so it's the natural production partner. Local, walk-in, reliable short-run
+          quality for everything in this kit: business cards, letterhead, double-sided
+          leave-behinds, pocket cards. CMYK PDFs run out of the box, with small starter
+          quantities available before we commit to bigger orders.</p>
+        <div class="prod-meta">
+          <div class="prod-meta-row"><span class="lab">Relationship</span><span class="val">JCD Foundation mailbox · already on file</span></div>
+          <div class="prod-meta-row"><span class="lab">Best for</span><span class="val">Cards · letterhead · leave-behinds · pocket cards</span></div>
+          <div class="prod-meta-row"><span class="lab">Turnaround</span><span class="val">Typically 2–4 business days on short runs</span></div>
+        </div>
+      </div>
+
+      <!-- 02 · ORBIS MANAGES -->
+      <div class="prod-card">
+        <div class="prod-step">02</div>
+        <div class="prod-tag">Orbis manages the runs</div>
+        <h4 class="prod-h">We coordinate, <em>you approve.</em></h4>
+        <p class="prod-p">Once Bob approves the kit, Orbis handles the production
+          loop end-to-end: prepping print-ready PDFs from these sheets, walking the
+          files to the UPS Store, reviewing proofs, picking up the finished cards
+          and letterhead, and getting them to Bob and Jack for outreach.</p>
+        <div class="prod-meta">
+          <div class="prod-meta-row"><span class="lab">Included</span><span class="val">File prep · proof review · pickup · delivery</span></div>
+          <div class="prod-meta-row"><span class="lab">Scope</span><span class="val">Phase 1 brand identity + refresh runs in Phase 3 retainer</span></div>
+          <div class="prod-meta-row"><span class="lab">Approval</span><span class="val">Bob signs off on every proof before press</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 · COST ESTIMATES BANNER -->
+    <div class="prod-banner">
+      <div class="prod-banner-step">03</div>
+      <div class="prod-banner-text">
+        <div class="prod-banner-tag">Cost estimates</div>
+        <h4 class="prod-banner-h">Hard numbers come once the kit is <em>finalized and approved.</em></h4>
+        <p class="prod-banner-p">After Bob signs off on the brand kit, we get firm quotes
+          from the UPS Store on unit cost per piece and recommended starter quantities
+          (250 of Bob's cards, 500 generic handoffs, 100 leave-behinds, letterhead pack,
+          pocket cards).</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -911,13 +1210,15 @@ An Applied Legacy of the Dunham Foundation</pre>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <div class="footer-nav-label">Kit sections</div>
-        <a href="#lockups">Logo</a>
         <a href="#cards">Business cards</a>
-        <a href="#letterhead">Letterhead</a>
         <a href="#leave">Leave-behind</a>
+        <a href="#letterhead">Letterhead</a>
         <a href="#pocket">Pocket card</a>
         <a href="#signature">Email signature</a>
+        <a href="#meet">Prospect landing</a>
         <a href="#manifest">Download manifest</a>
+        <a href="#production">Production · printer + Orbis</a>
+        <a href="brand-guide.html">Brand guide ↗</a>
       </nav>
     </div>
     <div class="footer-meta">
