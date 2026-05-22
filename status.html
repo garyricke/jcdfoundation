@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JCD Foundation — Project Status</title>
+  <meta name="description" content="Where the JCD Foundation project stands: active work this week, payment schedule, interview sprint, build log, and the grant cycle ahead." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:   #0E2A58;
+      --steel-blue:     #3B5F8A;
+      --sky-blue:       #7AA3CC;
+      --ice-blue:       #E8EEF6;
+      --white:          #FFFFFF;
+      --deep-charcoal:  #111827;
+      --steel-gray:     #4A5568;
+      --mid-gray:       #9AA3AF;
+      --ice-gray:       #F0F3F7;
+      --paper-gray:     #F7F9FC;
+      --border-line:    #D1D8E0;
+      --brass-gold:     #C5963A;
+      --pulse-teal:     #0A9B8C;
+      --safety-orange:  #E8600A;
+      --body-text:      #2D3748;
+      --font-primary:   'Montserrat', sans-serif;
+      --font-display:   'Archivo Black', sans-serif;
+      --font-hand:      'Caveat', cursive;
+      --font-mono:      'Roboto Mono', monospace;
+      --nav-h:          72px;
+      --container-max:  1280px;
+    }
+
+    /* category colors */
+    .cat-build    { --cat: var(--sky-blue); --cat-fg: #FFFFFF; }
+    .cat-meeting  { --cat: var(--brass-gold); --cat-fg: var(--deep-charcoal); }
+    .cat-payment  { --cat: var(--safety-orange); --cat-fg: #FFFFFF; }
+    .cat-milestone{ --cat: var(--pulse-teal); --cat-fg: #FFFFFF; }
+    .cat-interview{ --cat: var(--steel-blue); --cat-fg: #FFFFFF; }
+    .cat-grant    { --cat: var(--equipto-blue); --cat-fg: #FFFFFF; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary);
+      font-size: 16px; line-height: 1.7;
+      color: var(--body-text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; }
+
+    /* ---------- NAV ---------- */
+    #nav {
+      position: sticky; top: 0; z-index: 1000;
+      height: var(--nav-h); background: var(--equipto-blue);
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center;
+    }
+    #nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+    .nav-logo-text {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white); line-height: 1.3;
+    }
+    .nav-logo-text span {
+      display: block; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em; color: rgba(255,255,255,0.55);
+    }
+    .nav-right {
+      font-family: var(--font-mono); font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .nav-right .live-dot {
+      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--pulse-teal); margin-right: 8px;
+      box-shadow: 0 0 0 0 rgba(10,155,140,0.5);
+      animation: livepulse 2s infinite;
+      vertical-align: middle;
+    }
+    @keyframes livepulse {
+      0% { box-shadow: 0 0 0 0 rgba(10,155,140,0.45); }
+      70% { box-shadow: 0 0 0 8px rgba(10,155,140,0); }
+      100% { box-shadow: 0 0 0 0 rgba(10,155,140,0); }
+    }
+
+    /* ---------- HERO ---------- */
+    #hero {
+      background: var(--equipto-blue);
+      color: var(--white);
+      padding: 88px 0 100px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.4); }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 112px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .hero h1 .alt {
+      color: var(--brass-gold);
+      font-family: var(--font-hand);
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .hero-sub {
+      font-size: 19px; line-height: 1.55;
+      max-width: 720px; color: rgba(255,255,255,0.85);
+      margin-bottom: 44px;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 32px;
+    }
+    .hero-stat { padding-right: 20px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+    }
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.4vw, 30px);
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat-note {
+      font-size: 12px; color: rgba(255,255,255,0.6);
+      margin-top: 8px;
+    }
+
+    /* ---------- ACTIVE NOW ---------- */
+    .active-section { padding: 80px 0; background: var(--paper-gray); }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--steel-blue); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--equipto-blue); }
+    .section-h {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1;
+      color: var(--equipto-blue);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .section-lead {
+      font-size: 17px; line-height: 1.6;
+      color: var(--steel-gray);
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+    .active-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .active-card {
+      background: var(--white);
+      border: 1px solid var(--border-line);
+      border-left: 4px solid var(--cat, var(--equipto-blue));
+      padding: 24px 24px 26px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .active-card .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cat);
+      font-weight: 700;
+    }
+    .active-card .chip::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cat);
+    }
+    .active-card h3 {
+      font-size: 18px; font-weight: 800; line-height: 1.3;
+      color: var(--equipto-blue);
+    }
+    .active-card p {
+      font-size: 14px; line-height: 1.6;
+      color: var(--body-text);
+    }
+    .active-card .date {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-top: 4px;
+    }
+
+    /* ---------- FILTER CHIPS ---------- */
+    .filter-bar {
+      position: sticky; top: var(--nav-h); z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-line);
+      padding: 18px 0;
+    }
+    .filter-bar .container { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .filter-label {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--mid-gray);
+      margin-right: 4px;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid var(--border-line);
+      background: var(--white);
+      color: var(--steel-gray);
+      cursor: pointer;
+      transition: all 160ms ease;
+    }
+    .filter-chip::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cat, var(--mid-gray));
+    }
+    .filter-chip.all::before { display: none; }
+    .filter-chip:hover { border-color: var(--equipto-blue); color: var(--equipto-blue); }
+    .filter-chip.active {
+      background: var(--equipto-blue);
+      border-color: var(--equipto-blue);
+      color: var(--white);
+    }
+    .filter-chip.active.cat-build,
+    .filter-chip.active.cat-meeting,
+    .filter-chip.active.cat-payment,
+    .filter-chip.active.cat-milestone,
+    .filter-chip.active.cat-interview,
+    .filter-chip.active.cat-grant { background: var(--cat); border-color: var(--cat); color: var(--cat-fg); }
+
+    /* ---------- TIMELINE ---------- */
+    .timeline-section { padding: 70px 0 100px; background: var(--white); }
+    .timeline-block { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+    .timeline-group-h {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--equipto-blue);
+      letter-spacing: -0.005em;
+      margin: 56px 0 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--equipto-blue);
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+    .timeline-group-h:first-of-type { margin-top: 16px; }
+    .timeline-group-h .count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      font-weight: 500;
+    }
+    .now-marker {
+      position: relative;
+      margin: 40px 0;
+      padding: 16px 22px;
+      background: var(--equipto-blue);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .now-marker-label {
+      font-family: var(--font-display);
+      font-size: 16px; letter-spacing: 0.04em;
+    }
+    .now-marker-date {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 24px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-line);
+      align-items: start;
+      transition: opacity 160ms ease;
+    }
+    .timeline-item.hidden { display: none; }
+    .timeline-item .date {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--steel-gray);
+      padding-top: 2px;
+    }
+    .timeline-item .date .year { color: var(--mid-gray); }
+    .timeline-item .dot-col {
+      display: flex; justify-content: center;
+      padding-top: 8px;
+      position: relative;
+    }
+    .timeline-item .dot-col::before {
+      content: ''; position: absolute;
+      left: 50%; top: 0; bottom: -19px;
+      width: 1px; background: var(--border-line);
+      transform: translateX(-0.5px);
+    }
+    .timeline-item:last-child .dot-col::before { bottom: 0; }
+    .timeline-item .dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--cat, var(--mid-gray));
+      box-shadow: 0 0 0 3px var(--white);
+      position: relative; z-index: 1;
+      flex-shrink: 0;
+    }
+    .timeline-item.future .dot {
+      background: var(--white);
+      border: 2px solid var(--cat, var(--mid-gray));
+    }
+    .timeline-item .body {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .timeline-item .item-head {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .timeline-item .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 700;
+      padding: 3px 8px;
+      background: var(--cat);
+      color: var(--cat-fg);
+    }
+    .timeline-item h4 {
+      font-size: 15px; font-weight: 700; line-height: 1.35;
+      color: var(--equipto-blue);
+    }
+    .timeline-item.future h4 { color: var(--steel-gray); }
+    .timeline-item p {
+      font-size: 13.5px; line-height: 1.6;
+      color: var(--body-text);
+      margin: 0;
+    }
+    .timeline-item.future p { color: var(--mid-gray); }
+    .status-tag {
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 2px 6px;
+      border: 1px solid var(--border-line);
+      color: var(--mid-gray);
+      margin-left: auto;
+    }
+    .status-tag.done {
+      color: var(--pulse-teal);
+      border-color: rgba(10,155,140,0.3);
+    }
+    .status-tag.due {
+      color: var(--safety-orange);
+      border-color: rgba(232,96,10,0.3);
+    }
+    .status-tag.tbd {
+      color: var(--steel-gray);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--deep-charcoal);
+      color: rgba(255,255,255,0.55);
+      padding: 48px 0;
+      border-top: 4px solid var(--equipto-blue);
+      font-size: 13px;
+      position: relative;
+    }
+    footer .container {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .hero-stat { border-right: none; padding-right: 0; }
+      .active-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 100px 18px 1fr; gap: 12px; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 24px; }
+      #hero { padding: 56px 0 64px; }
+      .active-section, .timeline-section { padding: 56px 0; }
+      .filter-bar { padding: 12px 0; }
+      .filter-label { display: none; }
+      .timeline-item { grid-template-columns: 86px 14px 1fr; }
+      .timeline-item .date { font-size: 11px; }
+      .status-tag { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="JCD Foundation home">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation Logo" />
+        <div class="nav-logo-text">
+          JCD Foundation
+          <span>Project Status</span>
+        </div>
+      </a>
+      <div class="nav-right"><span class="live-dot"></span>Live · Phase 1 · Foundation</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Status board · everything by date</div>
+      <h1>Where the project <span class="alt">stands.</span></h1>
+      <p class="hero-sub">
+        A live record of everything happening on the JCD Foundation build —
+        approvals, payments, interviews, site work, and the grant cycle ahead.
+        Each item is tagged by category and dated. Use the filter chips below
+        to narrow the view, or scroll the timeline to follow the project from
+        kickoff through the first grant disbursement in March 2027.
+      </p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-label">Today</div>
+          <div class="hero-stat-value">May 22</div>
+          <div class="hero-stat-note">2026 · Friday</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Phase</div>
+          <div class="hero-stat-value">01 / Foundation</div>
+          <div class="hero-stat-note">Pre-501(c)(3) work</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Next invoice</div>
+          <div class="hero-stat-value">M2 · $6,000</div>
+          <div class="hero-stat-note">Due June 30 (or milestone)</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Grant window</div>
+          <div class="hero-stat-value">Dec 1, 2026</div>
+          <div class="hero-stat-note">193 days out</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVE NOW -->
+  <section class="active-section">
+    <div class="container">
+      <div class="section-eyebrow">Active this week · May 18 – 24</div>
+      <h2 class="section-h">In flight right now.</h2>
+      <p class="section-lead">
+        The three threads currently pulling the most attention — what gets
+        time and dollars over the next several days.
+      </p>
+      <div class="active-grid">
+        <div class="active-card cat-build">
+          <span class="chip">Build</span>
+          <h3>Logo round 2 review</h3>
+          <p>8 letter-forward marks delivered with competitive landscape. Waiting on Bob to pick two to advance to round 3 (small-size stress test + hand-built SVG).</p>
+          <div class="date">Delivered May 22 · awaiting picks</div>
+        </div>
+        <div class="active-card cat-interview">
+          <span class="chip">Interview</span>
+          <h3>Student interview sprint</h3>
+          <p>First interviews booked the week of May 19 while seniors are still in school. Sprint completes before graduation, targeting 5–8 captured interviews to shape site copy + visual direction.</p>
+          <div class="date">May 19 – mid June</div>
+        </div>
+        <div class="active-card cat-milestone">
+          <span class="chip">Milestone</span>
+          <h3>Brand sign-off</h3>
+          <p>Brand identity, palette, type stack, and logo direction need Bob's sign-off as part of the M2 milestone trigger. Logo round 2 + Outreach Kit + Letterhead are all on the table.</p>
+          <div class="date">Target: mid June</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER CHIPS -->
+  <div class="filter-bar">
+    <div class="container">
+      <span class="filter-label">Filter</span>
+      <button class="filter-chip all active" data-cat="all">All</button>
+      <button class="filter-chip cat-build" data-cat="build">Build</button>
+      <button class="filter-chip cat-meeting" data-cat="meeting">Meeting</button>
+      <button class="filter-chip cat-payment" data-cat="payment">Payment</button>
+      <button class="filter-chip cat-milestone" data-cat="milestone">Milestone</button>
+      <button class="filter-chip cat-interview" data-cat="interview">Interview</button>
+      <button class="filter-chip cat-grant" data-cat="grant">Grant cycle</button>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="timeline-block">
+
+      <!-- ============== UPCOMING ============== -->
+      <h3 class="timeline-group-h">Upcoming <span class="count">future</span></h3>
+
+      <div class="timeline-item future cat-grant" data-cat="grant">
+        <div class="date">Mar 01 <span class="year">2027</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Grant cycle</span>
+            <span class="status-tag tbd">Future</span>
+          </div>
+          <h4>Grant window closes</h4>
+          <p>Applications stop. Reviewer scoring begins. Disbursements go to institutions or employers (never to individuals).</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-grant" data-cat="grant">
+        <div class="date">Dec 01 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Grant cycle</span>
+            <span class="status-tag tbd">Future</span>
+          </div>
+          <h4>Grant window opens</h4>
+          <p>First-ever JCD application window goes live. Target: 300+ applications received, 50–75 awards funded at $200–$500/yr typical.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-milestone" data-cat="milestone">
+        <div class="date">Nov – Dec <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Milestone</span>
+            <span class="status-tag tbd">Future</span>
+          </div>
+          <h4>HS counselor visit sweep</h4>
+          <p>In-person visits to all 12 qualifying high schools to brief counselors before the grant window opens.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-payment" data-cat="payment">
+        <div class="date">TBD <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Payment</span>
+            <span class="status-tag tbd">501(c)(3)-gated</span>
+          </div>
+          <h4>M4 · Phase 2 activation push · $2K–$5K</h4>
+          <p>Fires the day the IRS determination letter lands. Covers email launch + social channels going live + AEO content + optional paid boost.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-milestone" data-cat="milestone">
+        <div class="date">TBD <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Milestone</span>
+            <span class="status-tag tbd">501(c)(3)-gated</span>
+          </div>
+          <h4>Public site flips live</h4>
+          <p>Password gate comes off. Site goes public. Outreach to schools, partners, and donors activates. Pending IRS determination letter.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-payment" data-cat="payment">
+        <div class="date">Jul 31 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Payment</span>
+            <span class="status-tag due">Hybrid trigger</span>
+          </div>
+          <h4>M3 · $6,000</h4>
+          <p>Milestone trigger: site staged + grant app functional end-to-end + SEO/AEO foundation deployed. OR calendar trigger: July 31, whichever fires first.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-build" data-cat="build">
+        <div class="date">Jun – Jul <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag tbd">In sequence</span>
+          </div>
+          <h4>Site staging + grant app + SEO/AEO</h4>
+          <p>Site fully staged with interview-driven copy. Grant application functional end-to-end in Airtable. SEO/AEO foundation deployed. Drone B-roll filmed. Dunham legacy retell produced.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-interview" data-cat="interview">
+        <div class="date">Mid Jun – Jul <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Interview</span>
+            <span class="status-tag tbd">In sequence</span>
+          </div>
+          <h4>Professor + partner interview sprint</h4>
+          <p>Interviews at Aurora University, College of DuPage, Waubonsee, Rush Copley, Nimco, Tagli Electric, Valley Industrial Association.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-payment" data-cat="payment">
+        <div class="date">Jun 30 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Payment</span>
+            <span class="status-tag due">Hybrid trigger</span>
+          </div>
+          <h4>M2 · $6,000</h4>
+          <p>Milestone trigger: student interview sprint complete + brand signed off + interview signal applied to site direction. OR calendar trigger: June 30, whichever fires first.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item future cat-interview" data-cat="interview">
+        <div class="date">Late May – Mid Jun <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Interview</span>
+            <span class="status-tag due">Active window</span>
+          </div>
+          <h4>Student interview sprint completes</h4>
+          <p>5–8 captured interviews before graduation. Site copy + visual direction shaped by interview signal.</p>
+        </div>
+      </div>
+
+      <!-- ============== NOW MARKER ============== -->
+      <div class="now-marker">
+        <span class="now-marker-label">Today · You are here</span>
+        <span class="now-marker-date">Friday · May 22, 2026</span>
+      </div>
+
+      <!-- ============== PAST ============== -->
+      <h3 class="timeline-group-h">Done <span class="count">past</span></h3>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 22 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Status page + redesigned admin menu</h4>
+          <p>This page. Plus a unified admin menu across every internal page, with icons, subtitles, and a semi-opaque A button in the footer.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 22 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Logo concepts · round 2</h4>
+          <p>8 letter-forward marks in shades of blue, with competitive landscape (Mike Rowe Works, Horatio Alger, ABC, SkillsUSA, Coleman, Dunham). Awaiting Bob's two picks.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 19 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Brand kit · restructure + print rebuild</h4>
+          <p>Reorganized the brand-kit page and rebuilt the leave-behind print sheets for the outreach kit.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 18 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Letterhead uses Bob's real signature SVG</h4>
+          <p>Replaced typeset signature with traced SVG of Bob's actual signature on JCD letterhead.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 18 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Outreach kit · brand-kit.html + /meet + 4 print sheets</h4>
+          <p>Full round-1 outreach kit delivered for printing at the UPS Store in Geneva.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-payment" data-cat="payment">
+        <div class="date">May 12 – 15 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Payment</span>
+            <span class="status-tag done">Cleared</span>
+          </div>
+          <h4>M1 · $6,000</h4>
+          <p>Contract signed + ACH terms confirmed + interview kickoff. First invoice of the 33/33/34 Foundation split.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-milestone" data-cat="milestone">
+        <div class="date">May 12 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Milestone</span>
+            <span class="status-tag done">Locked</span>
+          </div>
+          <h4>Payment schedule locked · 33/33/34 with hybrid triggers</h4>
+          <p>$18K Foundation phase split 33/33/34 monthly across May/June/July. Net 15/30/45 late options at standard 18% APR. Sign Contract & Activate First Invoice button live on marketing plan.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 12 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Approved Path Forward · meeting player · contract flow</h4>
+          <p>Marketing plan Section 01 became "Approved Path Forward · May 6 Mandate." Audio player with chapter markers added. Contract modal + Netlify Forms submission wired.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-meeting" data-cat="meeting">
+        <div class="date">May 06 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Meeting</span>
+            <span class="status-tag done">Approved</span>
+          </div>
+          <h4>Bob's approval · $18K Foundation budget</h4>
+          <p>Bob approved the AI-first launch with one structural condition: no marketing spend until the 501(c)(3) lands. Foundation work ($18K) proceeds immediately; Activation push ($2K–$5K) fires at IRS determination. Retainer cadence TBD post-launch.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">Apr 27 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Marketing plan · final structure</h4>
+          <p>Overhauled to Airtable GMS, single launch tier ($15K–$25K), Claude Code build, May–Nov 2026 roadmap. Competitive landscape with thumbnails. Carousel of JCD site preview. Schedule-a-meeting CTA. Hero KPIs updated.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">Apr 24 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Branded JCD password gate</h4>
+          <p>Replaced HTTP Basic Auth with a branded unlock page. Password "goodkids" covers /* until the 501(c)(3) lands and the site flips public.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">Apr 24 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Initial commit · JCD site + brand guide + concept work</h4>
+          <p>Project repo initialized on GitHub. Brand guide, landing page, application flow, and initial concept rounds all in place.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-meta">© 2026 JCD Foundation · Project Status</div>
+      <div class="footer-meta">An Applied Legacy of the Dunham Foundation</div>
+    </div>
+  
+    <!-- ========== ADMIN FAB ========== -->
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="meet.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Prospect Landing</span>
+            <span class="admin-sub">Meeting page</span>
+          </span>
+        </a>
+
+        <a href="apply-full.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Full Application</span>
+            <span class="admin-sub">Long-form apply</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: absolute; right: 24px; bottom: 24px; z-index: 50; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+  </footer>
+
+  <script>
+    // Filter chip interaction
+    (function () {
+      var chips = document.querySelectorAll('.filter-chip');
+      var items = document.querySelectorAll('.timeline-item');
+      var groupHeaders = document.querySelectorAll('.timeline-group-h');
+      var nowMarker = document.querySelector('.now-marker');
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) { c.classList.remove('active'); });
+          chip.classList.add('active');
+          var cat = chip.getAttribute('data-cat');
+          items.forEach(function (item) {
+            if (cat === 'all') {
+              item.classList.remove('hidden');
+            } else {
+              var match = item.getAttribute('data-cat') === cat;
+              item.classList.toggle('hidden', !match);
+            }
+          });
+          // Update group counts
+          groupHeaders.forEach(function (h) {
+            var nextItems = [];
+            var cur = h.nextElementSibling;
+            while (cur && !cur.classList.contains('timeline-group-h') && cur !== nowMarker) {
+              if (cur.classList.contains('timeline-item')) {
+                nextItems.push(cur);
+              }
+              cur = cur.nextElementSibling;
+            }
+            var visible = nextItems.filter(function (i) { return !i.classList.contains('hidden'); });
+            var count = h.querySelector('.count');
+            if (count) count.textContent = visible.length + (cat === 'all' ? ' total' : ' shown');
+            h.style.display = visible.length === 0 && cat !== 'all' ? 'none' : '';
+          });
+        });
+      });
+
+      // Initialize counts
+      var allChip = document.querySelector('.filter-chip.all');
+      if (allChip) allChip.click();
+    })();
+  </script>
+
+</body>
+</html>
