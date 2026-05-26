@@ -8,3 +8,15 @@
 [[edge_functions]]
   function = "gate"
   path = "/*"
+
+# /meet was the original printed URL; the meet content now lives at the root.
+# These redirects keep any already-distributed cards/letters working.
+[[redirects]]
+  from = "/meet"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/meet.html"
+  to = "/"
+  status = 301
