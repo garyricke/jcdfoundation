@@ -339,6 +339,72 @@
     .mini-pocket .pk-num { font-family: var(--font-mono); font-size:9px;
       color: rgba(255,255,255,0.5); }
 
+    /* Mini email mockup — for EmailOctopus outreach templates */
+    .mini-email {
+      width: 240px; background: var(--white);
+      box-shadow: 0 6px 26px rgba(14,42,88,0.18);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .mini-email.tilt-l { transform: rotate(-1deg); }
+    .mini-email.tilt-r { transform: rotate(1deg); }
+    .mini-email .me-bar { background: var(--equipto-blue); padding: 7px 12px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mini-email .me-bar img { height: 14px; width: auto; }
+    .mini-email .me-tag { font-family: var(--font-mono); font-size: 5.5px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); }
+    .mini-email .me-hero { background: var(--equipto-blue); color: var(--white);
+      padding: 18px 14px 22px; position: relative; overflow: hidden; }
+    .mini-email .me-hero::before { content: ''; position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px),
+        repeating-linear-gradient(90deg, transparent, transparent 11px, rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px);
+      pointer-events: none; }
+    .mini-email .me-hero > * { position: relative; z-index: 1; }
+    .mini-email .me-greet { font-family: var(--font-hand); font-size: 13px;
+      color: var(--brass-gold); display: inline-block;
+      transform: rotate(-1.5deg); margin-bottom: 4px; }
+    .mini-email .me-h { font-family: var(--font-display); font-size: 18px;
+      line-height: 0.95; letter-spacing: -0.02em; color: var(--white); }
+    .mini-email .me-h em { font-style: normal; color: var(--brass-gold); }
+    .mini-email .me-sub { font-size: 7.5px; line-height: 1.5;
+      color: rgba(255,255,255,0.72); margin-top: 8px; max-width: 190px; }
+    .mini-email .me-body { padding: 12px 14px; flex: 1;
+      display: flex; flex-direction: column; gap: 5px; }
+    .mini-email .me-line { height: 3.5px; background: var(--ice-gray); border-radius: 1.5px; }
+    .mini-email .me-line.short { width: 55%; }
+    .mini-email .me-line.mid { width: 80%; }
+    .mini-email .me-chips { display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px; margin-top: 6px; }
+    .mini-email .me-chips span { padding: 5px 4px; text-align: center;
+      font-family: var(--font-mono); font-size: 5px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); }
+    .mini-email .me-chips .m { background: var(--brass-gold); color: var(--deep-charcoal); }
+    .mini-email .me-chips .h { background: var(--pulse-teal); }
+    .mini-email .me-chips .t { background: var(--safety-orange); }
+    .mini-email .me-q { background: var(--ice-gray); padding: 6px 8px 7px;
+      border-left: 2px solid var(--brass-gold); }
+    .mini-email .me-q.q2 { border-left-color: var(--pulse-teal); }
+    .mini-email .me-q.q3 { border-left-color: var(--safety-orange); }
+    .mini-email .me-q .me-q-lab { font-family: var(--font-mono); font-size: 5px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-gold);
+      margin-bottom: 1px; }
+    .mini-email .me-q.q2 .me-q-lab { color: var(--pulse-teal); }
+    .mini-email .me-q.q3 .me-q-lab { color: var(--safety-orange); }
+    .mini-email .me-q .me-q-t { font-family: var(--font-display); font-size: 7.5px;
+      line-height: 1.2; letter-spacing: -0.01em; color: var(--equipto-blue); }
+    .mini-email .me-cta { background: var(--equipto-blue); color: var(--white);
+      padding: 8px 12px; text-align: center; margin: 10px 14px 12px;
+      font-family: var(--font-primary); font-size: 6.5px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; }
+    .mini-email .me-foot { background: var(--deep-charcoal);
+      color: rgba(255,255,255,0.5); padding: 6px 12px; text-align: center;
+      font-family: var(--font-mono); font-size: 5px;
+      letter-spacing: 0.14em; text-transform: uppercase; }
+    .mini-email .me-foot b { color: var(--brass-gold); font-weight: 700; }
+
     /* Mini browser mockup — for index.html landing preview */
     .mini-browser {
       width: 320px; height: 400px; background: var(--white);
@@ -529,6 +595,7 @@
       <li><a href="#letterhead">Letterhead</a></li>
       <li><a href="#pocket">Pocket card</a></li>
       <li><a href="#signature">Email sig</a></li>
+      <li><a href="#email-outreach">Outreach emails</a></li>
       <li><a href="#meet">Landing page</a></li>
       <li><a href="#manifest">Downloads</a></li>
       <li><a href="#production">Production</a></li>
@@ -965,11 +1032,135 @@ An Applied Legacy of the Dunham Foundation</pre>
   </div>
 </section>
 
-<!-- PROSPECT LANDING -->
-<section id="meet" class="block alt">
+<!-- EMAIL OUTREACH -->
+<section id="email-outreach" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 06 · Prospect landing</h2>
+      <h2>Section 06 · Email outreach</h2>
+      <h3>Two templates · two audiences</h3>
+    </div>
+
+    <div class="tk-banner">
+      <b>[TK]</b>
+      Logo + signature load from GitHub raw URLs (public repo, no upload needed).
+      Sector photos load from Cloudinary as before. For higher-volume sends later,
+      consider re-pointing logo/signature to Cloudinary for CDN + auto-format.
+      Bob's phone still [TK].
+    </div>
+
+    <div class="asset-grid">
+      <!-- COUNSELORS -->
+      <div class="asset-card">
+        <div class="asset-preview">
+          <div class="mini-email tilt-l">
+            <div class="me-bar">
+              <img src="assets/jcd-logo-white.svg" alt="" />
+              <span class="me-tag">Counselor outreach</span>
+            </div>
+            <div class="me-hero">
+              <div class="me-greet">Hi {First}.</div>
+              <div class="me-h">Your students.<br/><em>Our scholarship.</em></div>
+              <div class="me-sub">A 30-minute conversation about the careers your students are walking into.</div>
+            </div>
+            <div class="me-body">
+              <div class="me-line"></div>
+              <div class="me-line mid"></div>
+              <div class="me-line"></div>
+              <div class="me-line short"></div>
+              <div class="me-chips">
+                <span class="m">MFG</span>
+                <span class="h">Health</span>
+                <span class="t">Trades</span>
+              </div>
+            </div>
+            <div class="me-cta">Read more at JCDFoundation.org →</div>
+            <div class="me-foot">Pre-501(c)(3) · <b>Unsubscribe</b></div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">EmailOctopus · Counselors</div>
+          <h4>School counselors &amp; educators</h4>
+          <p>For interview asks to counselors at Rush Copley, Nimco, Tagli, AU,
+            Waubonsee, and the rest of the 12 Dunham Quadrant schools.
+            <strong>"Your students. Our scholarship."</strong>
+            Frames the ask as listening — you set the agenda, we mostly listen.</p>
+          <div class="asset-specs">
+            <span>600px · table-based</span>
+            <span>Inline CSS</span>
+            <span>{{FirstName}}</span>
+            <span>{{Organization}}</span>
+            <span>{{UnsubscribeLink}}</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="email/outreach-counselors.html" target="_blank" rel="noopener">Open template ↗</a>
+        </div>
+      </div>
+
+      <!-- EMPLOYERS -->
+      <div class="asset-card">
+        <div class="asset-preview">
+          <div class="mini-email tilt-r">
+            <div class="me-bar">
+              <img src="assets/jcd-logo-white.svg" alt="" />
+              <span class="me-tag">Employer outreach</span>
+            </div>
+            <div class="me-hero">
+              <div class="me-greet">Hi {First}.</div>
+              <div class="me-h">Day one of<br/>the job. <em>What does it take?</em></div>
+              <div class="me-sub">30 minutes with the people doing the hiring across the quadrant.</div>
+            </div>
+            <div class="me-body">
+              <div class="me-q">
+                <div class="me-q-lab">01 · Career</div>
+                <div class="me-q-t">What does a student need on day one?</div>
+              </div>
+              <div class="me-q q2">
+                <div class="me-q-lab">02 · Pipeline</div>
+                <div class="me-q-t">Where do they come from?</div>
+              </div>
+              <div class="me-q q3">
+                <div class="me-q-lab">03 · Money</div>
+                <div class="me-q-t">$500 check — what would we buy?</div>
+              </div>
+            </div>
+            <div class="me-cta">Read more at JCDFoundation.org →</div>
+            <div class="me-foot">Pre-501(c)(3) · <b>Unsubscribe</b></div>
+          </div>
+        </div>
+        <div class="asset-body">
+          <div class="asset-tag">EmailOctopus · Employers</div>
+          <h4>Employers &amp; apprenticeship leads</h4>
+          <p>For hiring managers, contractor's networks, Valley Industrial
+            Association, and the trade-pipeline contacts.
+            <strong>"Day one of the job — what does it take?"</strong>
+            Leads with the three pocket-card prompts so the ask feels concrete,
+            not abstract.</p>
+          <div class="asset-specs">
+            <span>600px · table-based</span>
+            <span>Inline CSS</span>
+            <span>{{FirstName}}</span>
+            <span>{{Organization}}</span>
+            <span>3-prompt block</span>
+          </div>
+        </div>
+        <div class="asset-actions">
+          <a class="btn btn-primary" href="email/outreach-employers.html" target="_blank" rel="noopener">Open template ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 32px; font-family: var(--font-hand); font-size: 22px; color: var(--brass-gold); transform: rotate(-1deg); display:inline-block;">
+      Paste the HTML into EmailOctopus → set custom fields → send first batch this week →
+    </p>
+  </div>
+</section>
+
+<!-- PROSPECT LANDING -->
+<section id="meet" class="block">
+  <div class="container">
+    <div class="section-label">
+      <h2>Section 07 · Prospect landing</h2>
       <h3>Where the card &amp; QR send people</h3>
     </div>
 
@@ -1025,10 +1216,10 @@ An Applied Legacy of the Dunham Foundation</pre>
 </section>
 
 <!-- DOWNLOAD MANIFEST -->
-<section id="manifest" class="block">
+<section id="manifest" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 07 · Manifest</h2>
+      <h2>Section 08 · Manifest</h2>
       <h3>Every asset, every use</h3>
     </div>
 
@@ -1095,6 +1286,20 @@ An Applied Legacy of the Dunham Foundation</pre>
             <td><a class="pill" href="#signature">Copy ↑</a></td>
           </tr>
           <tr>
+            <td><b>Outreach · counselors</b></td>
+            <td class="f">email/outreach-counselors.html</td>
+            <td class="s">EmailOctopus · 600px</td>
+            <td>School counselors &amp; educators</td>
+            <td><a class="pill" href="email/outreach-counselors.html" target="_blank">Open ↗</a></td>
+          </tr>
+          <tr>
+            <td><b>Outreach · employers</b></td>
+            <td class="f">email/outreach-employers.html</td>
+            <td class="s">EmailOctopus · 600px</td>
+            <td>Hiring leads &amp; apprenticeship</td>
+            <td><a class="pill" href="email/outreach-employers.html" target="_blank">Open ↗</a></td>
+          </tr>
+          <tr>
             <td><b>Public landing (temp)</b></td>
             <td class="f">index.html</td>
             <td class="s">Web · responsive</td>
@@ -1115,17 +1320,17 @@ An Applied Legacy of the Dunham Foundation</pre>
     <p style="margin-top: 24px; font-size: 12px; color: var(--steel-gray); line-height:1.7;">
       <b>How to use print sheets:</b> Open the link in a new tab, then File → Print (or ⌘P).
       Choose <em>Save as PDF</em> as the destination, paper size <em>matches preview</em>,
-      margins <em>None</em>. See Section 08 for the recommended printer and how Orbis
+      margins <em>None</em>. See Section 09 for the recommended printer and how Orbis
       handles the run.
     </p>
   </div>
 </section>
 
 <!-- PRODUCTION -->
-<section id="production" class="block alt">
+<section id="production" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 08 · Production</h2>
+      <h2>Section 09 · Production</h2>
       <h3>From kit to ink on paper</h3>
     </div>
 
@@ -1196,6 +1401,7 @@ An Applied Legacy of the Dunham Foundation</pre>
         <a href="#letterhead">Letterhead</a>
         <a href="#pocket">Pocket card</a>
         <a href="#signature">Email signature</a>
+        <a href="#email-outreach">Email outreach</a>
         <a href="#meet">Prospect landing</a>
         <a href="#manifest">Download manifest</a>
         <a href="#production">Production · printer + Orbis</a>
