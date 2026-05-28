@@ -31,19 +31,17 @@
       background: var(--equipto-blue); border-bottom: 2px solid rgba(255,255,255,0.08);
       display: flex; align-items: center; }
     #nav .container { width:100%; display:flex; align-items:center; justify-content:space-between; }
-    .nav-logo { display:flex; align-items:center; gap:14px; }
-    .nav-logo img { height:44px; width:44px; object-fit:contain; }
-    .nav-logo-text { font-size:13px; font-weight:700; letter-spacing:0.12em;
-      text-transform:uppercase; color: var(--white); line-height:1.3; }
-    .nav-logo-text span { display:block; font-size:10px; font-weight:500;
-      letter-spacing:0.18em; color: rgba(255,255,255,0.55); }
-    .nav-links { display:flex; align-items:center; gap:4px; list-style:none; }
-    .nav-links a { font-size:11px; font-weight:600; letter-spacing:0.1em;
-      text-transform:uppercase; color: rgba(255,255,255,0.65); padding:8px 10px;
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo img { height:36px; width:36px; object-fit:contain; }
+    .nav-logo-text { font-size:10px; font-weight:600; letter-spacing:0.22em;
+      text-transform:uppercase; color: rgba(255,255,255,0.6); line-height:1; }
+    .nav-links { display:flex; align-items:center; gap:0; list-style:none; }
+    .nav-links a { font-size:10px; font-weight:600; letter-spacing:0.08em;
+      text-transform:uppercase; color: rgba(255,255,255,0.65); padding:8px 9px;
       transition:color 0.2s; border-bottom:2px solid transparent;
       white-space: nowrap; }
     .nav-links a:hover { color: var(--white); border-bottom-color: var(--white); }
-    @media (max-width: 900px) { .nav-links { display:none; } }
+    @media (max-width: 1100px) { .nav-links { display:none; } }
 
     /* HERO */
     #hero { background: var(--equipto-blue); color: var(--white); padding: 88px 0 96px;
@@ -72,11 +70,18 @@
     /* SECTIONS */
     section.block { padding: 96px 0; border-top: 1px solid var(--border-line); }
     section.block.alt { background: var(--section-bg-alt); }
-    .section-label { display:inline-flex; flex-direction:column; gap:10px; margin-bottom:48px; }
-    .section-label::after { content:''; display:block; width:40px; height:3px; background: var(--equipto-blue); }
-    .section-label h2 { font-size:11px; font-weight:700; letter-spacing:0.2em;
-      text-transform:uppercase; color: var(--mid-gray); }
-    .section-label h3 { font-size:36px; font-weight:800; color: var(--equipto-blue); line-height:1.15; }
+    .section-label { display:inline-flex; flex-direction:column; gap:14px; margin-bottom:48px; }
+    .section-label::after { content:''; display:block; width:40px; height:3px; background: var(--equipto-blue); margin-top:4px; }
+    .section-label .section-num { font-size:11px; font-weight:700; letter-spacing:0.22em;
+      text-transform:uppercase; color: var(--mid-gray); margin:0; }
+    .section-label h2 { font-size:56px; font-weight:800; color: var(--equipto-blue);
+      line-height:1.02; letter-spacing:-0.015em; margin:0; }
+    .section-label .section-deck { font-size:20px; font-weight:500; color: var(--steel-gray);
+      line-height:1.45; margin:0; max-width:600px; }
+    @media (max-width: 700px) {
+      .section-label h2 { font-size:40px; }
+      .section-label .section-deck { font-size:17px; }
+    }
 
     /* LOGO LOCKUPS */
     .lockup-row { display:grid; grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -586,17 +591,17 @@
 <nav id="nav" role="navigation" aria-label="Primary">
   <div class="container">
     <a href="index.html" class="nav-logo" aria-label="JCD Foundation home">
-      <img src="assets/jcd-logo-white.svg" alt="" />
-      <div class="nav-logo-text">JCD Foundation<span>Outreach Kit</span></div>
+      <img src="assets/jcd-logo-white.svg" alt="JCD Foundation" />
+      <div class="nav-logo-text">Outreach Kit</div>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="#cards">Cards</a></li>
       <li><a href="#leave">Leave-behind</a></li>
       <li><a href="#letterhead">Letterhead</a></li>
-      <li><a href="#pocket">Pocket card</a></li>
-      <li><a href="#signature">Email sig</a></li>
-      <li><a href="#email-outreach">Outreach emails</a></li>
-      <li><a href="#meet">Landing page</a></li>
+      <li><a href="#pocket">Pocket</a></li>
+      <li><a href="#signature">Signature</a></li>
+      <li><a href="#email-outreach">Outreach</a></li>
+      <li><a href="#meet">Landing</a></li>
       <li><a href="#manifest">Downloads</a></li>
       <li><a href="#production">Production</a></li>
       <li><a href="brand-guide.html">Brand guide ↗</a></li>
@@ -658,8 +663,9 @@
 <section id="cards" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 01 · Business cards</h2>
-      <h3>Two formats — personal + handoff</h3>
+      <p class="section-num">Section 01</p>
+      <h2>Business cards</h2>
+      <p class="section-deck">Two formats — personal + handoff</p>
     </div>
 
     <div class="tk-banner">
@@ -786,8 +792,9 @@
 <section id="leave" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 02 · Leave-behind</h2>
-      <h3>One page, two sides, hand it &amp; go</h3>
+      <p class="section-num">Section 02</p>
+      <h2>Leave-behind</h2>
+      <p class="section-deck">One page, two sides, hand it &amp; go</p>
     </div>
 
     <div class="asset-card asset-card-wide">
@@ -836,8 +843,9 @@
 <section id="letterhead" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 03 · Letterhead</h2>
-      <h3>For intent-to-interview &amp; thank-you notes</h3>
+      <p class="section-num">Section 03</p>
+      <h2>Letterhead</h2>
+      <p class="section-deck">For intent-to-interview &amp; thank-you notes</p>
     </div>
 
     <div class="asset-grid">
@@ -921,8 +929,9 @@ An Applied Legacy of the Dunham Foundation</pre>
 <section id="pocket" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 04 · Pocket interview card</h2>
-      <h3>The questions we always ask</h3>
+      <p class="section-num">Section 04</p>
+      <h2>Pocket interview card</h2>
+      <p class="section-deck">The questions we always ask</p>
     </div>
 
     <div class="asset-grid">
@@ -977,8 +986,9 @@ An Applied Legacy of the Dunham Foundation</pre>
 <section id="signature" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 05 · Email signature</h2>
-      <h3>Drop into Gmail, Outlook, Apple Mail</h3>
+      <p class="section-num">Section 05</p>
+      <h2>Email signature</h2>
+      <p class="section-deck">Drop into Gmail, Outlook, Apple Mail</p>
     </div>
 
     <div class="sig-block">
@@ -1036,8 +1046,9 @@ An Applied Legacy of the Dunham Foundation</pre>
 <section id="email-outreach" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 06 · Email outreach</h2>
-      <h3>Two templates · two audiences</h3>
+      <p class="section-num">Section 06</p>
+      <h2>Email outreach</h2>
+      <p class="section-deck">Two templates · two audiences</p>
     </div>
 
     <div class="tk-banner">
@@ -1058,7 +1069,6 @@ An Applied Legacy of the Dunham Foundation</pre>
               <span class="me-tag">Counselor outreach</span>
             </div>
             <div class="me-hero">
-              <div class="me-greet">Hi {First}.</div>
               <div class="me-h">Your students.<br/><em>Our scholarship.</em></div>
               <div class="me-sub">A 30-minute conversation about the careers your students are walking into.</div>
             </div>
@@ -1087,7 +1097,6 @@ An Applied Legacy of the Dunham Foundation</pre>
           <div class="asset-specs">
             <span>600px · table-based</span>
             <span>Inline CSS</span>
-            <span>{{FirstName}}</span>
             <span>{{Organization}}</span>
             <span>{{UnsubscribeLink}}</span>
           </div>
@@ -1106,7 +1115,6 @@ An Applied Legacy of the Dunham Foundation</pre>
               <span class="me-tag">Employer outreach</span>
             </div>
             <div class="me-hero">
-              <div class="me-greet">Hi {First}.</div>
               <div class="me-h">Day one of<br/>the job. <em>What does it take?</em></div>
               <div class="me-sub">30 minutes with the people doing the hiring across the quadrant.</div>
             </div>
@@ -1139,7 +1147,6 @@ An Applied Legacy of the Dunham Foundation</pre>
           <div class="asset-specs">
             <span>600px · table-based</span>
             <span>Inline CSS</span>
-            <span>{{FirstName}}</span>
             <span>{{Organization}}</span>
             <span>3-prompt block</span>
           </div>
@@ -1160,8 +1167,9 @@ An Applied Legacy of the Dunham Foundation</pre>
 <section id="meet" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 07 · Prospect landing</h2>
-      <h3>Where the card &amp; QR send people</h3>
+      <p class="section-num">Section 07</p>
+      <h2>Prospect landing</h2>
+      <p class="section-deck">Where the card &amp; QR send people</p>
     </div>
 
     <div class="asset-card asset-card-wide">
@@ -1219,8 +1227,9 @@ An Applied Legacy of the Dunham Foundation</pre>
 <section id="manifest" class="block alt">
   <div class="container">
     <div class="section-label">
-      <h2>Section 08 · Manifest</h2>
-      <h3>Every asset, every use</h3>
+      <p class="section-num">Section 08</p>
+      <h2>Manifest</h2>
+      <p class="section-deck">Every asset, every use</p>
     </div>
 
     <div style="background: var(--white); border: 1px solid var(--border-line); overflow:hidden;">
@@ -1330,8 +1339,9 @@ An Applied Legacy of the Dunham Foundation</pre>
 <section id="production" class="block">
   <div class="container">
     <div class="section-label">
-      <h2>Section 09 · Production</h2>
-      <h3>From kit to ink on paper</h3>
+      <p class="section-num">Section 09</p>
+      <h2>Production</h2>
+      <p class="section-deck">From kit to ink on paper</p>
     </div>
 
     <div class="prod-grid">
