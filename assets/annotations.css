@@ -1,0 +1,166 @@
+/* ==========================================================================
+   JCD Foundation — highlight & comment layer
+   Drop-in annotation UI for internal review pages.
+   Brand palette hard-coded so the stylesheet is page-independent.
+   ========================================================================== */
+
+:root {
+  --jcd-ann-blue:  #0E2A58;
+  --jcd-ann-gold:  #C5963A;
+  --jcd-ann-panel: #0B1322;
+  --jcd-ann-line:  rgba(122,163,204,0.20);
+  --jcd-ann-mono:  'Roboto Mono', ui-monospace, monospace;
+  --jcd-ann-font:  'Montserrat', system-ui, sans-serif;
+}
+
+/* ---- the highlight itself ---- */
+mark.jcd-hl {
+  background: rgba(197,150,58,0.30);
+  border-bottom: 2px solid var(--jcd-ann-gold);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+mark.jcd-hl:hover,
+mark.jcd-hl.jcd-active { background: rgba(197,150,58,0.55); }
+
+/* ---- inline flag / count bubble after a highlight ---- */
+.jcd-flag {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 16px; height: 16px; padding: 0 4px;
+  margin: 0 2px; vertical-align: super;
+  font-family: var(--jcd-ann-mono); font-size: 9px; font-weight: 700; line-height: 1;
+  color: #fff; background: var(--jcd-ann-gold);
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: transform 140ms ease, background 140ms ease;
+}
+.jcd-flag:hover { transform: translateY(-1px); background: #a87c25; }
+
+/* ---- floating "Comment" button on selection ---- */
+.jcd-add {
+  position: absolute; z-index: 2300;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--jcd-ann-font); font-size: 12px; font-weight: 700; letter-spacing: 0.02em;
+  color: #fff; background: var(--jcd-ann-blue);
+  border: none; border-radius: 7px; padding: 8px 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.28); cursor: pointer;
+  transform: translateX(-50%);
+}
+.jcd-add::before { content: '💬'; font-size: 12px; }
+.jcd-add[hidden] { display: none; }
+
+/* ---- right-click context menu ---- */
+.jcd-ctx {
+  position: absolute; z-index: 2300;
+  background: var(--jcd-ann-panel); border: 1px solid var(--jcd-ann-line);
+  border-radius: 8px; padding: 5px; box-shadow: 0 14px 32px rgba(0,0,0,0.45);
+}
+.jcd-ctx[hidden] { display: none; }
+.jcd-ctx button {
+  display: flex; align-items: center; gap: 9px; width: 100%;
+  font-family: var(--jcd-ann-font); font-size: 13px; color: #fff;
+  background: none; border: none; border-radius: 5px; padding: 8px 14px 8px 10px; cursor: pointer;
+}
+.jcd-ctx button:hover { background: rgba(122,163,204,0.16); }
+
+/* ---- comment popover (composer + thread) ---- */
+.jcd-pop {
+  position: absolute; z-index: 2400; width: 320px; max-width: calc(100vw - 24px);
+  background: var(--jcd-ann-panel); color: rgba(255,255,255,0.92);
+  border: 1px solid var(--jcd-ann-line); border-radius: 14px;
+  box-shadow: 0 24px 52px rgba(0,0,0,0.5);
+  font-family: var(--jcd-ann-font); overflow: hidden;
+}
+.jcd-pop[hidden] { display: none; }
+.jcd-pop-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 14px 11px; border-bottom: 1px solid var(--jcd-ann-line);
+  font-family: var(--jcd-ann-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.jcd-pop-x { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 18px; line-height: 1; cursor: pointer; padding: 0 2px; }
+.jcd-pop-x:hover { color: #fff; }
+.jcd-pop-quote {
+  margin: 12px 14px 4px; padding: 8px 12px;
+  border-left: 3px solid var(--jcd-ann-gold); background: rgba(197,150,58,0.10);
+  font-size: 12.5px; font-style: italic; line-height: 1.45; color: rgba(255,255,255,0.82);
+  max-height: 76px; overflow: auto;
+}
+.jcd-pop-list { padding: 6px 14px 4px; max-height: 240px; overflow: auto; }
+.jcd-pop-list:empty { display: none; }
+.jcd-c { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.jcd-c:last-child { border-bottom: none; }
+.jcd-c-meta { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+.jcd-c-author { font-size: 12.5px; font-weight: 700; color: #fff; }
+.jcd-c-time { font-family: var(--jcd-ann-mono); font-size: 9.5px; letter-spacing: 0.04em; color: rgba(255,255,255,0.4); }
+.jcd-c-body { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.85); white-space: pre-wrap; word-wrap: break-word; }
+
+.jcd-pop-form { padding: 10px 14px 14px; border-top: 1px solid var(--jcd-ann-line); }
+.jcd-name, .jcd-body {
+  width: 100%; font-family: var(--jcd-ann-font); font-size: 13px; color: #fff;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--jcd-ann-line);
+  border-radius: 8px; padding: 9px 11px; resize: vertical;
+}
+.jcd-name { margin-bottom: 8px; }
+.jcd-name[hidden] { display: none; }
+.jcd-body { min-height: 62px; line-height: 1.45; }
+.jcd-name::placeholder, .jcd-body::placeholder { color: rgba(255,255,255,0.4); }
+.jcd-name:focus, .jcd-body:focus { outline: none; border-color: #7AA3CC; background: rgba(255,255,255,0.09); }
+.jcd-asline { font-family: var(--jcd-ann-mono); font-size: 9.5px; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); margin: 8px 2px 0; }
+.jcd-asline button { background: none; border: none; color: var(--jcd-ann-gold); cursor: pointer; font: inherit; padding: 0; text-decoration: underline; }
+.jcd-pop-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; }
+.jcd-cancel, .jcd-post {
+  font-family: var(--jcd-ann-font); font-size: 12px; font-weight: 700; letter-spacing: 0.02em;
+  border-radius: 7px; padding: 8px 14px; cursor: pointer; border: 1px solid transparent;
+}
+.jcd-cancel { background: none; color: rgba(255,255,255,0.6); border-color: var(--jcd-ann-line); }
+.jcd-cancel:hover { color: #fff; }
+.jcd-post { background: var(--jcd-ann-gold); color: #1a1205; }
+.jcd-post:hover { background: #d8a544; }
+
+/* ---- bottom-left toggle pill + panel ---- */
+.jcd-toggle {
+  position: fixed; left: 22px; bottom: 22px; z-index: 2200;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--jcd-ann-font); font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+  color: #fff; background: var(--jcd-ann-blue);
+  border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 9px 14px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.32); cursor: pointer;
+}
+.jcd-toggle:hover { background: #163b73; }
+.jcd-toggle .jcd-dot { font-size: 13px; }
+.jcd-toggle .jcd-count {
+  font-family: var(--jcd-ann-mono); font-size: 10px; min-width: 17px; height: 17px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--jcd-ann-gold); color: #1a1205; border-radius: 9px; padding: 0 4px;
+}
+
+.jcd-panel {
+  position: fixed; left: 22px; bottom: 64px; z-index: 2250; width: 320px; max-width: calc(100vw - 44px);
+  max-height: 60vh; overflow: auto;
+  background: var(--jcd-ann-panel); color: rgba(255,255,255,0.9);
+  border: 1px solid var(--jcd-ann-line); border-radius: 14px;
+  box-shadow: 0 24px 52px rgba(0,0,0,0.5); font-family: var(--jcd-ann-font);
+}
+.jcd-panel[hidden] { display: none; }
+.jcd-panel-head {
+  padding: 14px 16px 12px; border-bottom: 1px solid var(--jcd-ann-line);
+  font-family: var(--jcd-ann-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.jcd-panel-empty { padding: 22px 16px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.jcd-item { display: block; width: 100%; text-align: left; background: none; border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.07); padding: 12px 16px; cursor: pointer; }
+.jcd-item:hover { background: rgba(122,163,204,0.08); }
+.jcd-item-quote { font-size: 12.5px; line-height: 1.4; color: rgba(255,255,255,0.85);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.jcd-item-meta { font-family: var(--jcd-ann-mono); font-size: 9.5px; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.42); margin-top: 5px; display: flex; gap: 10px; }
+.jcd-item-orphan { color: var(--jcd-ann-gold); }
+
+@media print {
+  .jcd-add, .jcd-ctx, .jcd-pop, .jcd-toggle, .jcd-panel, .jcd-flag { display: none !important; }
+  mark.jcd-hl { background: none; border-bottom: 1px solid #999; }
+}

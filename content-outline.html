@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
+  <title>JCD Foundation — Content Outline</title>
+  <meta name="description" content="A suggested content outline and information architecture for the public JCD Foundation site — grounded in nonprofit best practices, peer-org conventions, and SEO/AEO. For sign-off, then sourcing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/annotations.css" />
+  <style>
+    :root {
+      --equipto-blue:   #0E2A58;
+      --steel-blue:     #3B5F8A;
+      --sky-blue:       #7AA3CC;
+      --ice-blue:       #E8EEF6;
+      --white:          #FFFFFF;
+      --deep-charcoal:  #111827;
+      --steel-gray:     #4A5568;
+      --mid-gray:       #9AA3AF;
+      --ice-gray:       #F0F3F7;
+      --paper-gray:     #F7F9FC;
+      --border-line:    #D1D8E0;
+      --brass-gold:     #C5963A;
+      --pulse-teal:     #0A9B8C;
+      --safety-orange:  #E8600A;
+      --body-text:      #2D3748;
+      --font-primary:   'Montserrat', sans-serif;
+      --font-display:   'Archivo Black', sans-serif;
+      --font-hand:      'Caveat', cursive;
+      --font-mono:      'Roboto Mono', monospace;
+      --nav-h:          72px;
+      --container-max:  1280px;
+    }
+
+    /* cluster accent colors */
+    .clr-core    { --clr: var(--equipto-blue); --clr-fg:#fff; }
+    .clr-audience{ --clr: var(--steel-blue);   --clr-fg:#fff; }
+    .clr-trust   { --clr: var(--pulse-teal);   --clr-fg:#fff; }
+    .clr-utility { --clr: var(--mid-gray);     --clr-fg:#fff; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary);
+      font-size: 16px; line-height: 1.7;
+      color: var(--body-text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; }
+
+    /* ---------- NAV ---------- */
+    #nav {
+      position: sticky; top: 0; z-index: 1000;
+      height: var(--nav-h); background: var(--equipto-blue);
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center;
+    }
+    #nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+    .nav-logo-text {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white); line-height: 1.3;
+    }
+    .nav-logo-text span {
+      display: block; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em; color: rgba(255,255,255,0.55);
+    }
+    .nav-right {
+      font-family: var(--font-mono); font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .nav-right .draft-dot {
+      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--brass-gold); margin-right: 8px; vertical-align: middle;
+    }
+
+    /* ---------- HERO ---------- */
+    #hero { background: var(--equipto-blue); color: var(--white); padding: 88px 0 100px; }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.4); }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7.5vw, 104px);
+      line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 32px;
+    }
+    .hero h1 .alt {
+      color: var(--brass-gold); font-family: var(--font-hand);
+      font-style: italic; font-weight: 700; letter-spacing: 0;
+    }
+    .hero-sub {
+      font-size: 19px; line-height: 1.55;
+      max-width: 740px; color: rgba(255,255,255,0.85); margin-bottom: 44px;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px;
+    }
+    .hero-stat { padding-right: 20px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); margin-bottom: 10px;
+    }
+    .hero-stat-value { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); color: var(--white); line-height: 1; }
+    .hero-stat-note { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+    /* ---------- SECTION SHELL ---------- */
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--steel-blue); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--equipto-blue); }
+    .section-h {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.6vw, 48px); line-height: 1;
+      color: var(--equipto-blue); margin-bottom: 22px; letter-spacing: -0.01em;
+    }
+    .section-lead { font-size: 17px; line-height: 1.6; color: var(--steel-gray); max-width: 760px; margin-bottom: 48px; }
+
+    /* ---------- STRATEGY PRIMER ---------- */
+    .primer { padding: 80px 0; background: var(--paper-gray); }
+    .primer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .primer-card { background: var(--white); border: 1px solid var(--border-line); border-top: 3px solid var(--equipto-blue); padding: 26px 24px; }
+    .primer-card .num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--steel-blue); }
+    .primer-card h3 { font-size: 18px; font-weight: 800; color: var(--equipto-blue); margin: 10px 0 10px; line-height: 1.25; }
+    .primer-card p { font-size: 14px; line-height: 1.6; color: var(--body-text); }
+
+    /* ---------- SITEMAP ---------- */
+    .sitemap { padding: 80px 0; background: var(--white); }
+    .map { display: flex; flex-direction: column; gap: 14px; }
+    .map-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .map-node {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+      padding: 9px 14px; border: 1px solid var(--border-line); background: var(--white);
+      color: var(--equipto-blue); display: inline-flex; align-items: center; gap: 8px;
+    }
+    .map-node.root { background: var(--equipto-blue); color: #fff; border-color: var(--equipto-blue); font-weight: 600; }
+    .map-node::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--clr, var(--mid-gray)); }
+    .map-node.root::before { display: none; }
+    .map-group-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--mid-gray); width: 130px; flex-shrink: 0;
+    }
+
+    /* ---------- LEGEND ---------- */
+    .legend { display: flex; flex-wrap: wrap; gap: 22px; margin: 40px 0 8px; padding: 18px 22px; background: var(--ice-gray); border: 1px solid var(--border-line); }
+    .legend-item { display: flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--steel-gray); }
+    .chip-status { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
+    .chip-status.have { background: rgba(10,155,140,0.12); color: var(--pulse-teal); }
+    .chip-status.prog { background: rgba(197,150,58,0.15); color: #9a6f1e; }
+    .chip-status.need { background: rgba(232,96,10,0.12); color: var(--safety-orange); }
+
+    /* ---------- PAGE CARDS ---------- */
+    .pages { padding: 30px 0 100px; background: var(--white); }
+    .cluster-h {
+      font-family: var(--font-display); font-size: 22px; color: var(--equipto-blue);
+      margin: 56px 0 8px; padding-bottom: 12px; border-bottom: 2px solid var(--clr, var(--equipto-blue));
+      display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+    }
+    .cluster-h .ch-note { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-gray); font-weight: 500; }
+    .page-card {
+      border: 1px solid var(--border-line); border-left: 4px solid var(--clr, var(--equipto-blue));
+      background: var(--white); margin-top: 20px;
+    }
+    .pc-head { display: flex; align-items: center; gap: 16px; padding: 20px 24px 16px; flex-wrap: wrap; }
+    .pc-route { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: #fff; background: var(--clr, var(--equipto-blue)); padding: 5px 10px; letter-spacing: 0.02em; }
+    .pc-title-wrap { display: flex; flex-direction: column; gap: 2px; }
+    .pc-title { font-size: 20px; font-weight: 800; color: var(--equipto-blue); line-height: 1.1; }
+    .pc-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); }
+    .pc-pri { margin-left: auto; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 5px 9px; border: 1px solid var(--border-line); color: var(--steel-gray); }
+    .pc-pri.p1 { border-color: var(--equipto-blue); color: var(--equipto-blue); }
+    .pc-purpose { padding: 0 24px 18px; font-size: 14.5px; line-height: 1.6; color: var(--body-text); max-width: 900px; }
+    .pc-cols { display: grid; grid-template-columns: 1.05fr 1fr 1.25fr; gap: 0; border-top: 1px solid var(--border-line); }
+    .pc-col { padding: 20px 24px 24px; border-right: 1px solid var(--border-line); }
+    .pc-col:last-child { border-right: none; }
+    .pc-col-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel-blue); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .pc-col-h::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--clr, var(--steel-blue)); }
+    .pc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .pc-list li { font-size: 13.5px; line-height: 1.5; color: var(--body-text); padding-left: 16px; position: relative; }
+    .pc-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 1px; background: var(--mid-gray); }
+    .pc-list.q li { color: var(--steel-gray); font-style: italic; }
+    .pc-list.q li::before { background: var(--brass-gold); top: 10px; }
+
+    /* sourcing rows */
+    .src-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .src-row { display: flex; flex-direction: column; gap: 4px; padding-bottom: 11px; border-bottom: 1px dashed var(--border-line); }
+    .src-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .src-asset { font-size: 13px; line-height: 1.45; color: var(--body-text); font-weight: 600; }
+    .src-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .src-owner { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--mid-gray); }
+
+    /* ---------- SCHEMA CHECKLIST ---------- */
+    .schema { padding: 80px 0; background: var(--equipto-blue); color: #fff; }
+    .schema .section-eyebrow { color: var(--sky-blue); }
+    .schema .section-eyebrow::before { background: var(--sky-blue); }
+    .schema .section-h { color: #fff; }
+    .schema-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 12px; }
+    .schema-item { border: 1px solid rgba(255,255,255,0.16); padding: 20px 22px; background: rgba(255,255,255,0.03); }
+    .schema-item code { font-family: var(--font-mono); font-size: 12px; color: var(--brass-gold); letter-spacing: 0.02em; }
+    .schema-item p { font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,0.78); margin-top: 8px; }
+
+    /* ---------- BENCHMARK ---------- */
+    .bench { padding: 80px 0 96px; background: var(--paper-gray); }
+    .bench-table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--white); border: 1px solid var(--border-line); }
+    .bench-table th { text-align: left; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel-blue); padding: 16px 18px; border-bottom: 2px solid var(--equipto-blue); vertical-align: bottom; }
+    .bench-table td { padding: 16px 18px; border-bottom: 1px solid var(--border-line); vertical-align: top; line-height: 1.5; color: var(--body-text); }
+    .bench-table tr:last-child td { border-bottom: none; }
+    .bench-table td.org { font-weight: 700; color: var(--equipto-blue); }
+    .bench-take { margin-top: 22px; padding: 20px 24px; background: var(--ice-blue); border-left: 4px solid var(--equipto-blue); font-size: 14.5px; line-height: 1.6; color: var(--equipto-blue); }
+    .bench-take strong { font-weight: 800; }
+
+    /* ---------- FOOTER ---------- */
+    footer { background: var(--deep-charcoal); color: rgba(255,255,255,0.55); padding: 48px 0; border-top: 4px solid var(--equipto-blue); font-size: 13px; position: relative; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 980px) {
+      .pc-cols { grid-template-columns: 1fr; }
+      .pc-col { border-right: none; border-bottom: 1px solid var(--border-line); }
+      .pc-col:last-child { border-bottom: none; }
+    }
+    @media (max-width: 900px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .hero-stat { border-right: none; padding-right: 0; }
+      .primer-grid { grid-template-columns: 1fr; }
+      .schema-grid { grid-template-columns: 1fr; }
+      .map-group-label { width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 24px; }
+      #hero { padding: 56px 0 64px; }
+      .primer, .sitemap, .schema, .bench { padding: 56px 0; }
+      .bench-table { font-size: 12.5px; }
+      .bench-table th, .bench-table td { padding: 12px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="JCD Foundation home">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation Logo" />
+        <div class="nav-logo-text">
+          JCD Foundation
+          <span>Content Outline</span>
+        </div>
+      </a>
+      <div class="nav-right"><span class="draft-dot"></span>Draft v1 · for sign-off</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Site content plan · review &rarr; sign-off &rarr; source</div>
+      <h1>What the site should <span class="alt">say.</span></h1>
+      <p class="hero-sub">
+        A suggested information architecture and content outline for the public JCD
+        Foundation site &mdash; built on nonprofit-foundation best practice, what peer
+        scholarship orgs do well, and how to win in search and AI answer engines (SEO/AEO).
+        Read it, mark it up, and sign off. Once approved, the sourcing column becomes the
+        working plan for who gathers what.
+      </p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-label">Pages mapped</div>
+          <div class="hero-stat-value">14</div>
+          <div class="hero-stat-note">Across 4 clusters</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Audience hubs</div>
+          <div class="hero-stat-value">4</div>
+          <div class="hero-stat-note">Students · Counselors · Employers · Donors</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">AEO priority</div>
+          <div class="hero-stat-value">FAQ · Apply</div>
+          <div class="hero-stat-note">Answer-first, schema-backed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Status</div>
+          <div class="hero-stat-value">Draft v1</div>
+          <div class="hero-stat-note">Awaiting Bob's sign-off</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY PRIMER -->
+  <section class="primer">
+    <div class="container">
+      <div class="section-eyebrow">Why it's shaped this way</div>
+      <h2 class="section-h">Six principles behind the outline.</h2>
+      <p class="section-lead">
+        Every page below earns its place against these. They're the standard we'll hold
+        the content to when we source and write it.
+      </p>
+      <div class="primer-grid">
+        <div class="primer-card">
+          <div class="num">01</div>
+          <h3>Lead with the answer</h3>
+          <p>AI answer engines (Google AI Overviews, ChatGPT, Perplexity) cite content that states the answer plainly, up top. Every key page opens with a direct, quotable definition or step &mdash; not a slow scroll-down.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">02</div>
+          <h3>One page per intent</h3>
+          <p>Separate landing pages for each audience and program let each rank for its own search ("trade scholarship Aurora," "how to refer a student"). Peer orgs that bury everything on one page lose that surface area.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">03</div>
+          <h3>Make the entity unmistakable</h3>
+          <p>Consistent naming (JCD Foundation = John C. Dunham), Organization + FAQ schema, and explicit links to the Dunham Foundation teach search engines exactly who JCD is and how to describe us.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">04</div>
+          <h3>Evergreen body, fresh facts</h3>
+          <p>AI engines favor recently-updated pages. Structure stays stable; dates, dollar figures, deadlines, and stories get refreshed each cycle so the site reads current the day a counselor checks it.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">05</div>
+          <h3>Differentiate, don't conform</h3>
+          <p>The trades-scholarship space is a wall of navy-red-flag sameness. JCD's blue, civic-editorial, foundation-grade voice is the differentiator &mdash; the content should sound calm and credible, not rah-rah patriotic.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">06</div>
+          <h3>Proof over claims</h3>
+          <p>Named schools, real student stories, and plain transparency on where money goes (institutions and employers, never individuals) build the trust funders and families need before they act.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITEMAP -->
+  <section class="sitemap">
+    <div class="container">
+      <div class="section-eyebrow">The shape of the site</div>
+      <h2 class="section-h">Sitemap at a glance.</h2>
+      <p class="section-lead">
+        Four clusters. A shallow, flat tree &mdash; everything important is one or two clicks
+        from home, which both visitors and crawlers reward.
+      </p>
+
+      <div class="map">
+        <div class="map-row">
+          <span class="map-group-label">Root</span>
+          <span class="map-node root">Home /</span>
+        </div>
+        <div class="map-row clr-core">
+          <span class="map-group-label">Core</span>
+          <span class="map-node">/about</span>
+          <span class="map-node">/what-we-fund</span>
+          <span class="map-node">/apply</span>
+        </div>
+        <div class="map-row clr-audience">
+          <span class="map-group-label">Audience hubs</span>
+          <span class="map-node">/students</span>
+          <span class="map-node">/counselors</span>
+          <span class="map-node">/employers</span>
+          <span class="map-node">/donors</span>
+        </div>
+        <div class="map-row clr-trust">
+          <span class="map-group-label">Trust &amp; content</span>
+          <span class="map-node">/impact</span>
+          <span class="map-node">/faq</span>
+          <span class="map-node">/news</span>
+          <span class="map-node">/contact</span>
+        </div>
+        <div class="map-row clr-utility">
+          <span class="map-group-label">Utility</span>
+          <span class="map-node">/financials</span>
+          <span class="map-node">/privacy · /accessibility</span>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span class="legend-item"><span class="chip-status have">Have</span> sourced / exists today</span>
+        <span class="legend-item"><span class="chip-status prog">In progress</span> being gathered now</span>
+        <span class="legend-item"><span class="chip-status need">Need</span> not yet sourced</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE-BY-PAGE -->
+  <section class="pages">
+    <div class="container">
+      <div class="section-eyebrow">The build spec</div>
+      <h2 class="section-h">Page by page.</h2>
+      <p class="section-lead">
+        Each page: its job, the sections it should contain, the questions it should answer
+        for search/AI (AEO), and what we need to source &mdash; with an owner and a status.
+      </p>
+
+      <!-- ===== CLUSTER: CORE ===== -->
+      <div class="clr-core">
+        <h3 class="cluster-h">Core <span class="ch-note">The spine of the site</span></h3>
+
+        <!-- HOME -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">Home</span>
+              <span class="pc-meta">Primary nav · entry point</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">In ten seconds: who JCD is, who it's for, and the one thing to do next. The highest-traffic page and the one AI engines quote when asked "what is the JCD Foundation."</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Hero: mission in one line + apply / refer CTA</li>
+                <li>Who qualifies &mdash; 3 cards (the sectors)</li>
+                <li>How it works &mdash; 3 steps</li>
+                <li>Impact stat band <code>[TK]</code></li>
+                <li>Student story teaser (1)</li>
+                <li>The Dunham legacy, in brief</li>
+                <li>Paths for: students / counselors / employers / donors</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>What is the JCD Foundation?</li>
+                <li>Who can get a JCD scholarship?</li>
+                <li>Trade / vocational scholarships in the Fox Valley</li>
+                <li>Is JCD part of the Dunham Foundation?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">One-line mission statement (approved wording)</span><span class="src-foot"><span class="src-owner">Bob + Orbis</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Hero imagery (sector-accent documentary)</span><span class="src-foot"><span class="src-owner">Orbis · generated + shoot</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Headline impact stat</span><span class="src-foot"><span class="src-owner">Dunham / Bob</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- ABOUT -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/about</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">About &middot; Our Story</span>
+              <span class="pc-meta">Primary nav</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">The legacy and the mission. Establishes JCD as the "Applied Legacy" of John C. Dunham and the Dunham Foundation, and why a steel-shelving manufacturer's estate funds trades education.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Who was John C. Dunham (Equipto, Just-in-Time)</li>
+                <li>From Dunham Foundation to JCD &mdash; the "Applied Legacy"</li>
+                <li>Mission &amp; what we believe about the trades</li>
+                <li>The Dunham Quadrant &mdash; map + the 12 schools</li>
+                <li>Leadership / who runs JCD</li>
+                <li>501(c)(3) status note <code>[TK]</code></li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>Who was John C. Dunham?</li>
+                <li>What is the Dunham Foundation?</li>
+                <li>Why does JCD fund the trades?</li>
+                <li>What area does JCD serve?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Dunham bio + Equipto history (approved)</span><span class="src-foot"><span class="src-owner">Bob · interview + Dunham archive</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Founder's-intent narrative (the "why")</span><span class="src-foot"><span class="src-owner">Bob · May 6 audio + interview</span><span class="chip-status have">Have</span></span></li>
+                <li class="src-row"><span class="src-asset">Dunham Quadrant map graphic</span><span class="src-foot"><span class="src-owner">Orbis</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- WHAT WE FUND -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/what-we-fund</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">What We Fund</span>
+              <span class="pc-meta">Primary nav · the three sectors</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">The programs. Defines the three career sectors JCD backs and the funding model &mdash; that grants flow to institutions and employers, never to individuals.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Advanced Manufacturing &mdash; what's covered</li>
+                <li>Health Sciences &mdash; what's covered</li>
+                <li>Building Trades &mdash; what's covered</li>
+                <li>The funding model (to institutions/employers)</li>
+                <li>Typical award size &amp; what it pays for <code>[TK]</code></li>
+                <li>Partner institutions list</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>What careers does JCD fund?</li>
+                <li>How much is a JCD grant?</li>
+                <li>Does JCD pay students directly?</li>
+                <li>What can the money be used for?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Sector definitions + eligible programs</span><span class="src-foot"><span class="src-owner">Bob + partner interviews</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Award size / disbursement rules</span><span class="src-foot"><span class="src-owner">Bob / Dunham</span><span class="chip-status need">Need</span></span></li>
+                <li class="src-row"><span class="src-asset">Partner institution logos + permission</span><span class="src-foot"><span class="src-owner">Orbis · outreach</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- APPLY -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/apply</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">Eligibility &amp; Apply</span>
+              <span class="pc-meta">Primary nav · highest-intent page</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">The conversion page. An eligibility check, the dated process, and the application itself &mdash; short path on-page, full path on apply-full. Peer best practice: split crystal-clear eligibility from the application guidelines.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Am I eligible? &mdash; quick checker</li>
+                <li>Eligibility criteria, spelled out</li>
+                <li>The 5 steps to apply</li>
+                <li>Key dates (window: Dec 1 2026 &ndash; Mar 1 2027)</li>
+                <li>What you'll need (docs checklist)</li>
+                <li>Short application / link to full</li>
+                <li>Mini-FAQ (deadlines, eligibility edge cases)</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>How do I apply for a JCD scholarship?</li>
+                <li>Am I eligible for JCD funding?</li>
+                <li>When is the JCD application deadline?</li>
+                <li>What documents do I need to apply?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Final eligibility rules + criteria</span><span class="src-foot"><span class="src-owner">Bob / Dunham · legal</span><span class="chip-status need">Need</span></span></li>
+                <li class="src-row"><span class="src-asset">Application form (Airtable GMS)</span><span class="src-foot"><span class="src-owner">Orbis</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Required-documents list</span><span class="src-foot"><span class="src-owner">Bob</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ===== CLUSTER: AUDIENCE HUBS ===== -->
+      <div class="clr-audience">
+        <h3 class="cluster-h">Audience hubs <span class="ch-note">One page per reader &middot; each ranks for its own intent</span></h3>
+
+        <!-- STUDENTS -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/students</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">For Students</span>
+              <span class="pc-meta">Audience hub</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">Speaks directly to a senior deciding whether the trades are for them. Reassuring, concrete, story-led. Funnels to Apply.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>"Is this for me?" &mdash; plain-language intro</li>
+                <li>What you can get &amp; how it helps</li>
+                <li>Student stories (peers, same schools)</li>
+                <li>Day-in-the-life of each sector</li>
+                <li>Steps to apply &rarr; Apply CTA</li>
+                <li>Questions students actually ask</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>Scholarships for trade school near Aurora IL</li>
+                <li>Help paying for welding / nursing / electrician school</li>
+                <li>Do I have to go to a 4-year college?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Student interviews (5&ndash;8 captured)</span><span class="src-foot"><span class="src-owner">Orbis · interview sprint</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Student portraits / B-roll</span><span class="src-foot"><span class="src-owner">Orbis · shoot</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Photo/quote release forms</span><span class="src-foot"><span class="src-owner">Orbis + schools</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- COUNSELORS -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/counselors</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">For Counselors &amp; Schools</span>
+              <span class="pc-meta">Audience hub</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">The referral engine. Gives HS counselors everything to confidently point students at JCD &mdash; eligibility at a glance, a referral path, and downloadable leave-behinds.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Why refer a student to JCD</li>
+                <li>Eligibility &amp; deadlines, at a glance</li>
+                <li>How to refer / what students need</li>
+                <li>The 12 qualifying schools</li>
+                <li>Downloadable outreach kit + flyers</li>
+                <li>Request a counselor visit</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>How do I refer a student to JCD?</li>
+                <li>Which schools qualify for JCD?</li>
+                <li>JCD counselor resources / flyer</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Counselor leave-behinds (print kit)</span><span class="src-foot"><span class="src-owner">Orbis</span><span class="chip-status have">Have</span></span></li>
+                <li class="src-row"><span class="src-asset">Referral process (steps)</span><span class="src-foot"><span class="src-owner">Bob + Orbis</span><span class="chip-status need">Need</span></span></li>
+                <li class="src-row"><span class="src-asset">Visit-request form</span><span class="src-foot"><span class="src-owner">Orbis · Netlify form</span><span class="chip-status prog">In progress</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- EMPLOYERS -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/employers</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">For Employers &amp; Partners</span>
+              <span class="pc-meta">Audience hub</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">Recruits the demand side &mdash; local manufacturers, healthcare systems, and trades employers who hire JCD-funded talent or co-fund grants. Frames JCD as a pipeline partner.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>The local skills-gap case</li>
+                <li>Ways to partner (hire, host, co-fund)</li>
+                <li>Current partners + logos</li>
+                <li>What partnership looks like</li>
+                <li>Become a partner &mdash; contact CTA</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>How can my company partner with JCD?</li>
+                <li>Skilled-trades hiring pipeline Fox Valley</li>
+                <li>Sponsor a trades scholarship Aurora IL</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Partner interviews (Nimco, Tagli, VIA, etc.)</span><span class="src-foot"><span class="src-owner">Orbis · interview sprint</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Employer email template</span><span class="src-foot"><span class="src-owner">Orbis</span><span class="chip-status have">Have</span></span></li>
+                <li class="src-row"><span class="src-asset">Local skills-gap stat</span><span class="src-foot"><span class="src-owner">Orbis · research</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- DONORS -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/donors</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">For Donors &amp; Supporters</span>
+              <span class="pc-meta">Audience hub</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">Makes the case to give and shows where money goes. Trust-first: transparency, impact, and the institutions-not-individuals model. Donate CTA lives here.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>The case for giving</li>
+                <li>Where your money goes (the model)</li>
+                <li>Impact to date <code>[TK]</code></li>
+                <li>Ways to give (one-time, recurring, legacy)</li>
+                <li>Tax status &amp; transparency &rarr; Financials</li>
+                <li>Donate CTA</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>How do I donate to the JCD Foundation?</li>
+                <li>Is JCD a 501(c)(3) / tax-deductible?</li>
+                <li>Where does JCD spend its money?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Giving / donation processor decision</span><span class="src-foot"><span class="src-owner">Bob / Dunham</span><span class="chip-status need">Need</span></span></li>
+                <li class="src-row"><span class="src-asset">501(c)(3) determination letter</span><span class="src-foot"><span class="src-owner">Legal · IRS</span><span class="chip-status need">Need</span></span></li>
+                <li class="src-row"><span class="src-asset">Impact numbers</span><span class="src-foot"><span class="src-owner">Dunham / Bob</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ===== CLUSTER: TRUST & CONTENT ===== -->
+      <div class="clr-trust">
+        <h3 class="cluster-h">Trust &amp; content <span class="ch-note">Credibility, answers, and the SEO engine</span></h3>
+
+        <!-- IMPACT -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/impact</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">Impact &amp; Stories</span>
+              <span class="pc-meta">Trust</span>
+            </div>
+            <span class="pc-pri">P2</span>
+          </div>
+          <p class="pc-purpose">Proof. The stat band plus the human stories that make those numbers real. Doubles as a story library the audience hubs pull from.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Headline numbers <code>[TK]</code></li>
+                <li>Student stories (grid)</li>
+                <li>Partner / employer outcomes</li>
+                <li>The Dunham legacy, retold</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>How many students has JCD helped?</li>
+                <li>JCD Foundation success stories</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Story write-ups + media</span><span class="src-foot"><span class="src-owner">Orbis · interviews</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Verified impact stats</span><span class="src-foot"><span class="src-owner">Dunham / Bob</span><span class="chip-status need">Need</span></span></li>
+                <li class="src-row"><span class="src-asset">Dunham legacy video retell</span><span class="src-foot"><span class="src-owner">Orbis</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- FAQ -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/faq</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">FAQ</span>
+              <span class="pc-meta">Trust · AEO workhorse</span>
+            </div>
+            <span class="pc-pri p1">P1</span>
+          </div>
+          <p class="pc-purpose">The single biggest AEO lever. Real questions, plainly answered, marked up with FAQPage schema so answers can surface directly in AI and search. Grouped by audience.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Eligibility questions</li>
+                <li>Application &amp; deadline questions</li>
+                <li>Funding / award questions</li>
+                <li>For counselors &amp; employers</li>
+                <li>About JCD &amp; the Dunham link</li>
+                <li>(FAQPage structured data on every Q)</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>Can seniors graduating this year apply?</li>
+                <li>Can I apply for more than one award?</li>
+                <li>Does JCD require letters of recommendation?</li>
+                <li>How long does review take?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Master Q&amp;A list (20&ndash;30 to start)</span><span class="src-foot"><span class="src-owner">Orbis draft &rarr; Bob verify</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Answers confirmed accurate</span><span class="src-foot"><span class="src-owner">Bob / Dunham</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- NEWS -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/news</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">News &amp; Insights</span>
+              <span class="pc-meta">Trust · SEO content engine</span>
+            </div>
+            <span class="pc-pri">P2</span>
+          </div>
+          <p class="pc-purpose">The freshness engine. A light blog of award announcements, school spotlights, and trades-career explainers that keeps the site current (AI favors recent pages) and captures long-tail search.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Award &amp; milestone announcements</li>
+                <li>School &amp; partner spotlights</li>
+                <li>"Is X career right for you" explainers</li>
+                <li>Deadline reminders each cycle</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>Long-tail: "how much do welders make in Illinois"</li>
+                <li>"trades careers without a 4-year degree"</li>
+                <li>Recurring deadline / news queries</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Editorial calendar (cadence)</span><span class="src-foot"><span class="src-owner">Orbis</span><span class="chip-status need">Need</span></span></li>
+                <li class="src-row"><span class="src-asset">Ongoing post production</span><span class="src-foot"><span class="src-owner">Orbis (retainer)</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- CONTACT -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/contact</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">Contact</span>
+              <span class="pc-meta">Trust</span>
+            </div>
+            <span class="pc-pri">P2</span>
+          </div>
+          <p class="pc-purpose">A clear way to reach JCD, routed by reason. Carries the NAP (name/address/phone) that anchors local-search and entity trust.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Contact form (routed by audience)</li>
+                <li>Mailing address (Geneva mailbox)</li>
+                <li>Email + general inquiries</li>
+                <li>Links back to each audience hub</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>How do I contact the JCD Foundation?</li>
+                <li>Where is the JCD Foundation located?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Public contact details (address/email)</span><span class="src-foot"><span class="src-owner">Bob</span><span class="chip-status prog">In progress</span></span></li>
+                <li class="src-row"><span class="src-asset">Routed contact form</span><span class="src-foot"><span class="src-owner">Orbis · Netlify form</span><span class="chip-status prog">In progress</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ===== CLUSTER: UTILITY ===== -->
+      <div class="clr-utility">
+        <h3 class="cluster-h">Utility <span class="ch-note">Required for a credible nonprofit &middot; footer-linked</span></h3>
+
+        <!-- FINANCIALS -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/financials</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">Financials &amp; Transparency</span>
+              <span class="pc-meta">Utility · trust signal</span>
+            </div>
+            <span class="pc-pri">P3</span>
+          </div>
+          <p class="pc-purpose">Donor-grade transparency: tax status, governance, and how funds are used. Expected of any credible foundation and a strong trust/entity signal.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>501(c)(3) status + EIN <code>[TK]</code></li>
+                <li>How funds are allocated</li>
+                <li>Governance / board</li>
+                <li>Annual report / Form 990 link</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>Is JCD a registered 501(c)(3)?</li>
+                <li>What is JCD's EIN?</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Determination letter, EIN, governance</span><span class="src-foot"><span class="src-owner">Legal / Dunham</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRIVACY / ACCESSIBILITY -->
+        <article class="page-card">
+          <div class="pc-head">
+            <span class="pc-route">/privacy · /accessibility</span>
+            <div class="pc-title-wrap">
+              <span class="pc-title">Privacy &amp; Accessibility</span>
+              <span class="pc-meta">Utility · compliance</span>
+            </div>
+            <span class="pc-pri">P3</span>
+          </div>
+          <p class="pc-purpose">Boilerplate that matters: privacy policy (handling student/applicant data) and an accessibility statement. Low-content, but expected and de-risking.</p>
+          <div class="pc-cols">
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sections</h4>
+              <ul class="pc-list">
+                <li>Privacy policy (form/applicant data)</li>
+                <li>Cookie / analytics note</li>
+                <li>Accessibility statement (WCAG aim)</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">AEO · answers these</h4>
+              <ul class="pc-list q">
+                <li>(Not search targets &mdash; trust/compliance only)</li>
+              </ul>
+            </div>
+            <div class="pc-col">
+              <h4 class="pc-col-h">Sourcing</h4>
+              <ul class="src-list">
+                <li class="src-row"><span class="src-asset">Policy copy (template + legal review)</span><span class="src-foot"><span class="src-owner">Orbis draft &rarr; legal</span><span class="chip-status need">Need</span></span></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCHEMA / TECHNICAL AEO -->
+  <section class="schema">
+    <div class="container">
+      <div class="section-eyebrow">Under the hood</div>
+      <h2 class="section-h">The AEO layer.</h2>
+      <p class="section-lead" style="color:rgba(255,255,255,0.8);">
+        Content wins the answer; structured data wins the citation. These ship alongside the
+        pages so AI engines can read JCD without guessing.
+      </p>
+      <div class="schema-grid">
+        <div class="schema-item">
+          <code>Organization / NGO schema</code>
+          <p>Name, logo, address, founder (John C. Dunham), and a <code>sameAs</code> link to the Dunham Foundation &mdash; teaches engines who JCD is and how we relate to the parent.</p>
+        </div>
+        <div class="schema-item">
+          <code>FAQPage schema</code>
+          <p>On /faq and the mini-FAQs in Apply &amp; the hubs, so individual answers are eligible to surface directly in AI Overviews and rich results.</p>
+        </div>
+        <div class="schema-item">
+          <code>BreadcrumbList + clean URLs</code>
+          <p>Readable, intent-matched paths (/students, /what-we-fund) and breadcrumbs that make the flat hierarchy explicit to crawlers.</p>
+        </div>
+        <div class="schema-item">
+          <code>Consistent entity naming</code>
+          <p>"JCD Foundation" and "John C. Dunham" used the same way site-wide, with a one-line definition repeated near the top of key pages for quotability.</p>
+        </div>
+        <div class="schema-item">
+          <code>Answer-first formatting</code>
+          <p>Short, declarative opening sentences; question-shaped H2s; scannable lists and steps &mdash; the formats answer engines extract most.</p>
+        </div>
+        <div class="schema-item">
+          <code>Freshness hygiene</code>
+          <p>Dated content (deadlines, awards, stats) reviewed each cycle. Sitemap + lastmod so engines see the site is current.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENCHMARK -->
+  <section class="bench">
+    <div class="container">
+      <div class="section-eyebrow">What peers do</div>
+      <h2 class="section-h">Borrowed &amp; avoided.</h2>
+      <p class="section-lead">
+        A read on comparable scholarship/foundation sites &mdash; what's worth taking, and where
+        JCD's differentiation lane stays clear.
+      </p>
+      <table class="bench-table">
+        <thead>
+          <tr>
+            <th style="width:24%;">Org</th>
+            <th style="width:40%;">Does well</th>
+            <th style="width:36%;">JCD take</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="org">Jack Kent Cooke Foundation</td>
+            <td>Crisp, standalone "How to Apply" with the process broken into discrete, dated steps.</td>
+            <td><strong>Borrow:</strong> the dated step structure on /apply.</td>
+          </tr>
+          <tr>
+            <td class="org">Landscape Architecture Foundation</td>
+            <td>Splits eligibility/guidelines from a deep, well-grouped Scholarship FAQ.</td>
+            <td><strong>Borrow:</strong> separate eligibility from a schema-marked FAQ.</td>
+          </tr>
+          <tr>
+            <td class="org">Community foundations</td>
+            <td>Unified application that auto-matches a student to every award they qualify for.</td>
+            <td><strong>Borrow:</strong> one application, matched in Airtable &mdash; not many forms.</td>
+          </tr>
+          <tr>
+            <td class="org">mikeroweWORKS</td>
+            <td>Work-ethic storytelling and a strong content/scholarship blend.</td>
+            <td><strong>Borrow:</strong> story-led hubs. <strong>Avoid:</strong> the red-black industrial styling.</td>
+          </tr>
+          <tr>
+            <td class="org">Horatio Alger / SkillsUSA / ABC</td>
+            <td>Scholar stories and recognizable, heavy branding.</td>
+            <td><strong>Avoid:</strong> navy-red-flag sameness &mdash; JCD stays blue, civic-editorial.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="bench-take">
+        <strong>The throughline:</strong> peers win on clear eligibility, a single clean
+        application, deep FAQs, and real stories &mdash; so JCD matches all four. Where they
+        converge on patriotic, heavy, navy-red branding, JCD deliberately diverges. Same
+        rigor, opposite tone.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-meta">© 2026 JCD Foundation · Content Outline · Draft v1</div>
+      <div class="footer-meta">An Applied Legacy of the Dunham Foundation</div>
+    </div>
+
+    <!-- ========== ADMIN FAB ========== -->
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="home.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12L12 4l9 8"/>
+              <path d="M5 10v10h14V10"/>
+              <path d="M10 20v-6h4v6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Original Homepage</span>
+            <span class="admin-sub">Pre-launch reference</span>
+          </span>
+        </a>
+
+        <a href="apply-full.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Full Application</span>
+            <span class="admin-sub">Long-form apply</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: absolute; right: 24px; bottom: 24px; z-index: 50; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+  </footer>
+
+  <!-- Highlight & comment layer · switch backend to 'api' once Supabase is wired -->
+  <script src="assets/annotations.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      JCDAnnotations.init({ page: 'content-outline', backend: 'api' });
+    });
+  </script>
+
+</body>
+</html>

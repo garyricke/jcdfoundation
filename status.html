@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/annotations.css" />
   <style>
     :root {
       --equipto-blue:   #0E2A58;
@@ -274,6 +275,31 @@
       color: var(--mid-gray);
       font-weight: 500;
     }
+    /* collapsible Upcoming group */
+    button.timeline-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      border-bottom: 2px solid var(--equipto-blue);
+      cursor: pointer;
+      text-align: left;
+      transition: opacity 160ms ease;
+    }
+    button.timeline-toggle:hover { opacity: 0.78; }
+    .timeline-toggle .group-meta {
+      display: inline-flex; align-items: baseline; gap: 14px;
+    }
+    .timeline-toggle .chev {
+      font-family: var(--font-primary);
+      font-size: 15px; font-weight: 700;
+      color: var(--steel-blue);
+      transition: transform 220ms ease;
+      transform: rotate(-90deg);
+      display: inline-block;
+      line-height: 1;
+    }
+    .timeline-toggle[aria-expanded="true"] .chev { transform: rotate(0deg); }
+    .timeline-block.up-collapsed .timeline-item.future { display: none; }
     .now-marker {
       position: relative;
       margin: 40px 0;
@@ -446,8 +472,8 @@
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-label">Today</div>
-          <div class="hero-stat-value">May 26</div>
-          <div class="hero-stat-note">2026 · Tuesday</div>
+          <div class="hero-stat-value">May 29</div>
+          <div class="hero-stat-note">2026 · Friday</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-label">Phase</div>
@@ -462,7 +488,7 @@
         <div class="hero-stat">
           <div class="hero-stat-label">Grant window</div>
           <div class="hero-stat-value">Dec 1, 2026</div>
-          <div class="hero-stat-note">189 days out</div>
+          <div class="hero-stat-note">186 days out</div>
         </div>
       </div>
     </div>
@@ -480,9 +506,9 @@
       <div class="active-grid">
         <div class="active-card cat-build">
           <span class="chip">Build</span>
-          <h3>Logo round 2 review</h3>
-          <p>8 letter-forward marks delivered with competitive landscape. Waiting on Bob to pick two to advance to round 3 (small-size stress test + hand-built SVG).</p>
-          <div class="date">Delivered May 22 · awaiting picks</div>
+          <h3>Outreach kit + email staged</h3>
+          <p>Final logo "Tamed Original" now carries the outreach kit, letterhead, and two EmailOctopus templates (counselors + employers). Materials staged and ready to fire when the activation push opens.</p>
+          <div class="date">Templates shipped May 27</div>
         </div>
         <div class="active-card cat-interview">
           <span class="chip">Interview</span>
@@ -493,7 +519,7 @@
         <div class="active-card cat-milestone">
           <span class="chip">Milestone</span>
           <h3>Brand sign-off</h3>
-          <p>Brand identity, palette, type stack, and logo direction need Bob's sign-off as part of the M2 milestone trigger. Logo round 2 + Outreach Kit + Letterhead are all on the table.</p>
+          <p>With the logo now locked, the full brand identity — palette, type stack, mark, Outreach Kit, and Letterhead — needs Bob's sign-off as part of the M2 milestone trigger.</p>
           <div class="date">Target: mid June</div>
         </div>
       </div>
@@ -516,10 +542,16 @@
 
   <!-- TIMELINE -->
   <section class="timeline-section">
-    <div class="timeline-block">
+    <div class="timeline-block up-collapsed">
 
       <!-- ============== UPCOMING ============== -->
-      <h3 class="timeline-group-h">Upcoming <span class="count">future</span></h3>
+      <button type="button" class="timeline-group-h timeline-toggle" aria-expanded="false" aria-controls="upcoming-items">
+        <span>Upcoming</span>
+        <span class="group-meta">
+          <span class="count">future</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </span>
+      </button>
 
       <div class="timeline-item future cat-grant" data-cat="grant">
         <div class="date">Mar 01 <span class="year">2027</span></div>
@@ -654,11 +686,37 @@
       <!-- ============== NOW MARKER ============== -->
       <div class="now-marker">
         <span class="now-marker-label">Today · You are here</span>
-        <span class="now-marker-date">Tuesday · May 26, 2026</span>
+        <span class="now-marker-date">Friday · May 29, 2026</span>
       </div>
 
       <!-- ============== PAST ============== -->
       <h3 class="timeline-group-h">Done <span class="count">past</span></h3>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 28 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Outreach kit polish · nav declutter + section reorder</h4>
+          <p>Dropped the {FirstName} merge tag, decluttered the nav, and flipped the section hierarchy across the outreach kit. Tightened the email templates for send.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">May 27 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Shipped</span>
+          </div>
+          <h4>Email outreach · two EmailOctopus templates</h4>
+          <p>Two ready-to-send EmailOctopus templates — one for HS counselors, one for employers — added to brand-kit Section 06. Brand-styled HTML with hosted imagery, ready to drop into a campaign.</p>
+        </div>
+      </div>
 
       <div class="timeline-item cat-build" data-cat="build">
         <div class="date">May 26 <span class="year">2026</span></div>
@@ -708,7 +766,7 @@
             <span class="status-tag done">Shipped</span>
           </div>
           <h4>Logo concepts · round 2</h4>
-          <p>8 letter-forward marks in shades of blue, with competitive landscape (Mike Rowe Works, Horatio Alger, ABC, SkillsUSA, Coleman, Dunham). Awaiting Bob's two picks.</p>
+          <p>8 letter-forward marks in shades of blue, with competitive landscape (Mike Rowe Works, Horatio Alger, ABC, SkillsUSA, Coleman, Dunham). Bob picked #7 "Tamed Original" — vectorized and integrated May 26.</p>
         </div>
       </div>
 
@@ -885,6 +943,23 @@
           <span class="admin-text">
             <span class="admin-title">Project Status</span>
             <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
           </span>
         </a>
 
@@ -1093,6 +1168,26 @@
   </footer>
 
   <script>
+    // Collapsible "Upcoming" group
+    (function () {
+      var block  = document.querySelector('.timeline-block');
+      var toggle = document.querySelector('.timeline-toggle');
+      if (!block || !toggle) return;
+      toggle.addEventListener('click', function () {
+        var collapsed = block.classList.toggle('up-collapsed');
+        toggle.setAttribute('aria-expanded', String(!collapsed));
+      });
+      // expose for the filter script
+      window.__expandUpcoming = function () {
+        block.classList.remove('up-collapsed');
+        toggle.setAttribute('aria-expanded', 'true');
+      };
+      window.__collapseUpcoming = function () {
+        block.classList.add('up-collapsed');
+        toggle.setAttribute('aria-expanded', 'false');
+      };
+    })();
+
     // Filter chip interaction
     (function () {
       var chips = document.querySelectorAll('.filter-chip');
@@ -1105,6 +1200,13 @@
           chips.forEach(function (c) { c.classList.remove('active'); });
           chip.classList.add('active');
           var cat = chip.getAttribute('data-cat');
+          // A category filter is most useful with future items visible;
+          // "All" returns to the collapsed default that surfaces shipped work first.
+          if (cat === 'all') {
+            if (window.__collapseUpcoming) window.__collapseUpcoming();
+          } else {
+            if (window.__expandUpcoming) window.__expandUpcoming();
+          }
           items.forEach(function (item) {
             if (cat === 'all') {
               item.classList.remove('hidden');
@@ -1135,6 +1237,14 @@
       var allChip = document.querySelector('.filter-chip.all');
       if (allChip) allChip.click();
     })();
+  </script>
+
+  <!-- Highlight & comment layer · switch backend to 'api' once Supabase is wired -->
+  <script src="assets/annotations.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      JCDAnnotations.init({ page: 'status', backend: 'api' });
+    });
   </script>
 
 </body>

@@ -4,3 +4,10 @@ Thumbs.db
 *.swp
 .vscode/
 .idea/
+
+# Meeting recordings — keep private audio out of the public repo
+plan/*.m4a
+plan/*.mp3
+
+# Generated/scratch imagery
+generated_imgs/
