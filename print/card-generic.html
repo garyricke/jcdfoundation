@@ -69,12 +69,9 @@
     .card.gen-back .qr-wrap { display:flex; flex-direction:column; align-items:center;
       justify-content:center; gap: 4pt; position:relative; z-index:1; }
     .card.gen-back .qr {
-      width: 0.85in; height: 0.85in; background: var(--white); padding: 4pt;
-      display:grid; grid-template-columns: repeat(11, 1fr); grid-template-rows: repeat(11, 1fr);
-      gap: 1px;
+      width: 0.85in; height: 0.85in; background: var(--white); padding: 0;
     }
-    .card.gen-back .qr i { background: var(--equipto-blue); display:block; }
-    .card.gen-back .qr i.o { background: transparent; }
+    .card.gen-back .qr img { width: 100%; height: 100%; display: block; }
     .card.gen-back .qr-label { font-family: var(--font-mono); font-size: 5.5pt;
       color: rgba(255,255,255,0.7); letter-spacing: 0.14em; text-transform: uppercase; }
 
@@ -128,21 +125,8 @@
       <div class="gb-meta">12 schools · 3 sectors<br/>Apply Dec 1 → Mar 1, 2027 [TK]</div>
     </div>
     <div class="qr-wrap">
-      <div class="qr" aria-hidden="true">
-        <!-- Stylized QR-ish placeholder. Replace with real QR pointing to TheJCDFoundation.org before printing. -->
-        <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
-        <i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i>
-        <i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
-        <i></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i>
-        <i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
-        <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i>
-        <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i>
-        <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i>
-        <i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
-        <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i>
-        <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <div class="qr-label">[TK] Scan</div>
+      <div class="qr"><img src="../assets/qr-thejcdfoundation.svg" alt="Scan to visit TheJCDFoundation.org" /></div>
+      <div class="qr-label">Scan to visit</div>
     </div>
   </div>
 
