@@ -36,11 +36,11 @@
       padding: 0.4in; /* printer-safe margin all sides */ }
 
     /* ===== PAGE 1 (FRONT) — flex column, content can't overflow ===== */
-    .p1 { display: flex; flex-direction: column; height: 100%; gap: 0.15in; }
+    .p1 { display: flex; flex-direction: column; height: 100%; gap: 0.1in; }
 
     /* HERO BAND */
     .p1 .hero { flex: 0 0 auto; background: var(--equipto-blue); color: var(--white);
-      padding: 0.32in 0.36in 0.34in; position: relative; overflow: hidden;
+      padding: 0.24in 0.36in 0.26in; position: relative; overflow: hidden;
       display: flex; flex-direction: column; gap: 0.18in; }
     .p1 .hero::before { content:''; position: absolute; inset: 0;
       background-image:
@@ -64,7 +64,7 @@
       line-height: 1.6; max-width: 4.8in; }
 
     /* SECTOR PHOTO BAND */
-    .p1 .photos { flex: 0 0 1.5in; display: grid;
+    .p1 .photos { flex: 0 0 1.3in; display: grid;
       grid-template-columns: repeat(3, 1fr); gap: 4pt; }
     .p1-photo { position: relative; overflow: hidden; }
     .p1-photo img { width: 100%; height: 100%; object-fit: cover; display: block;
@@ -176,11 +176,8 @@
       line-height: 0.95; letter-spacing: -0.02em; color: var(--white); }
     .p2 .cta .csub { font-family: var(--font-primary); font-size: 9pt;
       color: rgba(255,255,255,0.7); margin-top: 6pt; line-height: 1.6; }
-    .p2 .cta .qr { width: 1.2in; height: 1.2in; background: var(--white); padding: 4pt;
-      display:grid; grid-template-columns: repeat(11, 1fr); grid-template-rows: repeat(11, 1fr);
-      gap: 1px; }
-    .p2 .cta .qr i { background: var(--equipto-blue); }
-    .p2 .cta .qr i.o { background: transparent; }
+    .p2 .cta .qr { width: 1.2in; height: 1.2in; background: var(--white); padding: 4pt; }
+    .p2 .cta .qr img { width: 100%; height: 100%; display: block; }
 
     @media screen {
       .sheet { outline: 1px dashed rgba(197,150,58,0.2); outline-offset: 8px; }
@@ -190,8 +187,7 @@
       body { background: #fff; padding: 0; }
       .toolbar, .actions, .page-label { display: none !important; }
       .sheet-stack { gap: 0; max-width: none; }
-      .sheet { box-shadow: none !important; outline: none !important; page-break-after: always; }
-      .sheet:last-child { page-break-after: auto; }
+      .sheet { box-shadow: none !important; outline: none !important; }
       /* Force browsers to print color overlays + filters on the sector photos */
       .sheet, .sheet *, .p1 .hero, .p1 .foot, .p1-photo, .p1-photo .pcap,
       .sec, .sec .sec-band, .p2 .head, .p2 .cta {
@@ -377,19 +373,7 @@
           <div class="csub">Reply to the email Bob sent, or scan the code →
             Bob Vaughan · Bob.Vaughan@TheJCDFoundation.org · 630.454.4222</div>
         </div>
-        <div class="qr" aria-hidden="true">
-          <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i>
-          <i></i><i class="o"></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i>
-          <i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i class="o"></i><i></i>
-          <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i>
-          <i></i><i></i><i></i><i class="o"></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i>
-          <i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i>
-          <i></i><i class="o"></i><i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i class="o"></i><i></i><i></i><i></i><i></i><i></i><i></i>
-        </div>
+        <div class="qr"><img src="../assets/qr-navy-dots.svg" alt="Scan to visit TheJCDFoundation.org" /></div>
       </div>
     </div>
   </div>
