@@ -406,6 +406,130 @@
       color: var(--steel-gray);
     }
 
+    /* ---------- MEETING DEEP-DIVE MODAL ---------- */
+    .deepdive-link {
+      color: var(--safety-orange);
+      text-decoration: underline;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .deepdive-link:hover { color: var(--equipto-blue); }
+
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(11, 19, 34, 0.74);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 48px 20px;
+      overflow-y: auto;
+      opacity: 0; visibility: hidden;
+      transition: opacity 220ms ease, visibility 220ms ease;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      position: relative;
+      width: 100%; max-width: 860px;
+      background: var(--white);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+      transform: translateY(18px);
+      transition: transform 260ms ease;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+
+    .modal-head {
+      position: sticky; top: 0; z-index: 2;
+      background: var(--equipto-blue);
+      color: var(--white);
+      border-top: 5px solid var(--brass-gold);
+      padding: 26px 34px;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+    }
+    .modal-head .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .modal-head .eyebrow::before { content: ''; width: 24px; height: 1px; background: rgba(255,255,255,0.4); }
+    .modal-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3.2vw, 32px);
+      line-height: 1.04; letter-spacing: -0.01em;
+    }
+    .modal-head h2 .alt { color: var(--brass-gold); font-family: var(--font-hand); font-style: italic; }
+    .modal-close {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3); background: transparent;
+      color: var(--white); cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.12); border-color: var(--white); transform: rotate(90deg); }
+    .modal-close svg { width: 18px; height: 18px; }
+
+    .modal-body { padding: 38px 34px 46px; }
+    .modal-lead {
+      font-size: 16px; color: var(--steel-gray); line-height: 1.7;
+      border-left: 3px solid var(--brass-gold); padding-left: 18px;
+      margin-bottom: 14px;
+    }
+    .md-section { margin-top: 38px; }
+    .md-section h3 {
+      font-family: var(--font-display);
+      font-size: 17px; color: var(--equipto-blue);
+      margin-bottom: 16px;
+      display: flex; align-items: baseline; gap: 12px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border-line);
+    }
+    .md-section h3 .num {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--brass-gold); letter-spacing: 0.1em;
+    }
+    .md-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .md-list > li {
+      position: relative; padding-left: 22px;
+      font-size: 14.5px; line-height: 1.62; color: var(--body-text);
+    }
+    .md-list > li::before {
+      content: ''; position: absolute; left: 0; top: 9px;
+      width: 7px; height: 7px; background: var(--sky-blue);
+      transform: rotate(45deg);
+    }
+    .md-list > li strong { color: var(--equipto-blue); font-weight: 700; }
+    .md-note {
+      font-size: 12.5px; color: var(--mid-gray); font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* checklist + owner chips */
+    .todo-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .todo-list > li {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid var(--border-line);
+    }
+    .todo-list > li:last-child { border-bottom: none; }
+    .todo-box {
+      flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px;
+      border: 1.5px solid var(--steel-blue); border-radius: 4px;
+    }
+    .todo-text { font-size: 14.5px; line-height: 1.55; color: var(--body-text); }
+    .todo-text .owner {
+      display: inline-block; margin-left: 8px; vertical-align: middle;
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 3px;
+    }
+    .owner-jack { background: var(--ice-blue); color: var(--equipto-blue); }
+    .owner-gary { background: rgba(232, 96, 10, 0.12); color: var(--safety-orange); }
+    .owner-bob  { background: rgba(197, 150, 58, 0.18); color: #8A6420; }
+
+    @media (max-width: 640px) {
+      .modal-overlay { padding: 0; }
+      .modal-head { padding: 20px 22px; }
+      .modal-body { padding: 28px 22px 36px; }
+    }
+
     /* ---------- FOOTER ---------- */
     footer {
       background: var(--deep-charcoal);
@@ -718,6 +842,19 @@
         </div>
       </div>
 
+      <div class="timeline-item cat-meeting" data-cat="meeting">
+        <div class="date">May 28 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Meeting</span>
+            <span class="status-tag done">Logged</span>
+          </div>
+          <h4>Working session · Bob, Gary &amp; Jack</h4>
+          <p>Card system locked to names-only / no-titles across a three-card set (Bob, Jack, Jen), with domain + phone corrections and a rethink of the "Earn As You Learn" line. Funding scope clarified, the summer interview sprint mapped (building trades, Waubonsee, Rush Copley, advanced manufacturing), and the EmailOctopus + interview-capture workflow assigned. <a class="deepdive-link" data-open-meeting role="button" tabindex="0">Open the meeting deep-dive →</a></p>
+        </div>
+      </div>
+
       <div class="timeline-item cat-build" data-cat="build">
         <div class="date">May 28 <span class="year">2026</span></div>
         <div class="dot-col"><span class="dot"></span></div>
@@ -928,6 +1065,110 @@
 
     </div>
   </section>
+
+  <!-- ========== MEETING DEEP-DIVE MODAL ========== -->
+  <div class="modal-overlay" id="meeting-modal" role="dialog" aria-modal="true" aria-labelledby="meeting-modal-title" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">May 28, 2026 · Working session · Bob, Gary &amp; Jack</div>
+          <h2 id="meeting-modal-title">What we <span class="alt">covered.</span></h2>
+        </div>
+        <button type="button" class="modal-close" aria-label="Close" data-close-meeting>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-lead">
+          A working pass over the outreach materials and the summer field plan. The
+          headline decisions: a single, ego-free business-card system; a sharper read
+          on what JCD actually funds; and a mapped interview sprint to fill the site
+          with real voices while school is still in session.
+        </p>
+
+        <!-- 01 -->
+        <div class="md-section">
+          <h3><span class="num">01</span> Business card system</h3>
+          <ul class="md-list">
+            <li><strong>Org over individual.</strong> The card leads with <em>JCD Foundation</em>; the person's name is secondary. Bob likes the Butcher &amp; Wolf (Batavia insurance) layout and the navy + gold treatment we used.</li>
+            <li><strong>Names, no titles.</strong> One standard format, three cards — Bob, Jack, and Jen. No titles on anyone: nobody outranks anyone, no underlings.</li>
+            <li><strong>Who carries which card.</strong> A 76-year-old isn't knocking on school doors. Jack and Jen run the in-person school / teacher / student visits; Bob works behind the scenes and handles the senior relationships (Waubonsee, Rush Copley). Gary offered to help on school visits too — Bob is open to it.</li>
+            <li><strong>Phone number.</strong> Bob will add a number that routes through a recorder to a message service — not for taking calls from kids. Applicants always go online; no callbacks. The line is for other adults to leave a message. <span class="md-note">Number (supplied by Bob, June 1): 630-454-4222 — goes active ~June 4.</span></li>
+            <li><strong>Domain fix.</strong> Correct the web address on the card to the registered foundation domain — the plain name had already been harvested, so the registered domain is <strong>thejcdfoundation.org</strong> — the "the" is required because the plain jcdfoundation.org had already been taken.</li>
+            <li><strong>Slogan rethink.</strong> Bob is nervous about "Earn As You Learn" on the flip side — it's true for the trades (work by day, class by night) but not for nursing or academic paths that start school-first. He'd rather under-promise and over-deliver. Find a line that holds across <em>every</em> funded path.</li>
+            <li><strong>Mark idea.</strong> Bob likes the idea of a small swoosh-style mark at the base of the logo (Nike / Amazon feel). Worth exploring.</li>
+          </ul>
+        </div>
+
+        <!-- 02 -->
+        <div class="md-section">
+          <h3><span class="num">02</span> What JCD actually funds</h3>
+          <ul class="md-list">
+            <li>Bob clarified the deposit categories so the copy is accurate: <strong>tuition</strong>, <strong>tuition and fees</strong>, and <strong>apprenticeship startup costs</strong> — chiefly tools, which run steep in the technical trades (electrician, HVAC).</li>
+            <li><strong>Healthcare / nursing is a funded path too</strong>, but it's academics-first — which is exactly why "earn as you learn" can't be a blanket promise.</li>
+          </ul>
+        </div>
+
+        <!-- 03 -->
+        <div class="md-section">
+          <h3><span class="num">03</span> Summer interview &amp; outreach sprint</h3>
+          <ul class="md-list">
+            <li><strong>Timing is good.</strong> Community colleges are in (or near) summer term — a more relaxed window to get in and interview.</li>
+            <li><strong>Building trades.</strong> Bob meets the head of the building trades next week (electrical / HVAC, non-union) — a likely interview. Goal: surface the real barriers. The big one he expects — you can't enter an apprenticeship without an employer willing to take an apprentice. He cites a 25-year-old already running older crews as proof young people can advance fast.</li>
+            <li><strong>Waubonsee.</strong> The new tech center / welding program (among the best in Illinois). The college president is a Batavia resident and proud of the build — a warm door.</li>
+            <li><strong>High schools.</strong> East Aurora, West Aurora, and Kaneland all run programs that send kids into jobs straight out of high school, with employers later paying for more training.</li>
+            <li><strong>Community colleges in the mix:</strong> Waubonsee, College of DuPage, and (less so) Elgin.</li>
+            <li><strong>Advanced manufacturing / machining.</strong> Bob wants into the plants — tie in the Valley Industrial Association's recruiting push and shops like Jake's Machine in Aurora. Lots of retirements opening voids in EDM and mold making.</li>
+            <li><strong>Rush Copley.</strong> The CEO (Bob's former neighbor) will point to the right spokesperson rather than speak himself. The aim: someone who can speak to the demand and the future for kids in these fields. Possible tie-in with Gary's Live Healthy Chicago work at Rush.</li>
+            <li><strong>Future asset.</strong> A year out, interview funded students for progress reports — recruiting fuel for the next cohort.</li>
+          </ul>
+        </div>
+
+        <!-- 04 -->
+        <div class="md-section">
+          <h3><span class="num">04</span> Tools &amp; workflow</h3>
+          <ul class="md-list">
+            <li><strong>Interview capture.</strong> Bob is ordering an Amazon voice-recorder rig (plugs into a phone, works iOS / Android) to record interviews in the field and send to Gary to ingest into the plan. He'll send the link.</li>
+            <li><strong>Email engine.</strong> E-blasts run through EmailOctopus (free tier ~2,000) — AI drafts the email, drop in the list, track opens, list validation built in. Jack owns it; Gary will train him.</li>
+            <li><strong>Short video over long copy.</strong> Nobody reads a three-page email — a 30-second to two-minute video gets watched. JCD content leans on short, character-driven interview video.</li>
+            <li><strong>Printing.</strong> Bob keeps his own long-standing printer (loyalty). We just deliver print-ready PDFs from the page; Gary to wire the print-to-PDF / print-ready export.</li>
+          </ul>
+        </div>
+
+        <!-- 05 -->
+        <div class="md-section">
+          <h3><span class="num">05</span> The "why now" case</h3>
+          <ul class="md-list">
+            <li>AI is hollowing out entry-level white-collar work — there's no better moment to push kids toward the trades.</li>
+            <li>COVID already proved the point: the essential workers were the trades.</li>
+            <li>The cultural headwind to counter — in many high schools, kids who choose the trades are treated as "not smart." JCD exists to flip that.</li>
+          </ul>
+        </div>
+
+        <!-- NEXT STEPS / TODOS -->
+        <div class="md-section">
+          <h3><span class="num">06</span> Next steps &amp; to-dos</h3>
+          <ul class="todo-list">
+            <li><span class="todo-box"></span><span class="todo-text">Make all text edits across the three business cards — names, no titles, JCD Foundation lead. <span class="owner owner-jack">Jack</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Flag any card edit Jack can't make so Gary follows up fast. <span class="owner owner-jack">Jack</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Add the phone number to the cards — 630-454-4222 (supplied June 1, active ~June 4). <span class="owner owner-jack">Jack</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Correct the domain printed on the cards to thejcdfoundation.org. <span class="owner owner-jack">Jack</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Replace / reword "Earn As You Learn" with a line that's true across trades, healthcare, and academic paths. <span class="owner owner-gary">Gary</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Explore a swoosh-style mark at the base of the logo. <span class="owner owner-gary">Gary</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Wire the print-to-PDF / print-ready export so cards go straight to Bob's printer. <span class="owner owner-gary">Gary</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Update funding copy to name tuition, tuition + fees, and apprenticeship tool / startup costs explicitly. <span class="owner owner-gary">Gary</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Set up EmailOctopus and train Jack to build &amp; send e-blasts. <span class="owner owner-gary">Gary</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Send the Amazon recorder link; start capturing field interviews. <span class="owner owner-bob">Bob</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Book the building-trades interview (electrical / HVAC) for next week. <span class="owner owner-bob">Bob</span></span></li>
+            <li><span class="todo-box"></span><span class="todo-text">Open doors at Waubonsee, the Aurora high schools, advanced manufacturing, and Rush Copley for the summer sprint. <span class="owner owner-bob">Bob</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="container">
@@ -1262,6 +1503,46 @@
       // Initialize counts
       var allChip = document.querySelector('.filter-chip.all');
       if (allChip) allChip.click();
+    })();
+  </script>
+
+  <script>
+    // Meeting deep-dive modal
+    (function () {
+      var overlay = document.getElementById('meeting-modal');
+      if (!overlay) return;
+      var lastFocus = null;
+      function open(e) {
+        if (e) e.preventDefault();
+        lastFocus = document.activeElement;
+        overlay.hidden = false;
+        // allow the hidden->visible paint before transitioning
+        requestAnimationFrame(function () { overlay.classList.add('open'); });
+        document.body.style.overflow = 'hidden';
+        var closeBtn = overlay.querySelector('[data-close-meeting]');
+        if (closeBtn) closeBtn.focus();
+      }
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(function () { overlay.hidden = true; }, 240);
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+      document.querySelectorAll('[data-open-meeting]').forEach(function (el) {
+        el.addEventListener('click', open);
+        el.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') open(e);
+        });
+      });
+      overlay.querySelectorAll('[data-close-meeting]').forEach(function (el) {
+        el.addEventListener('click', close);
+      });
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !overlay.hidden) close();
+      });
     })();
   </script>
 
