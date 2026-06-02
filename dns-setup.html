@@ -318,9 +318,8 @@
         </div>
         <p class="plain">1. The <b>login</b> for wherever <b>thejcdfoundation.org</b> was purchased
           (the "registrar" — e.g. GoDaddy, Namecheap, Squarespace, Network Solutions).</p>
-        <p class="plain">2. The <b>two values below.</b> One is already filled in. The other (the
-          <code>www</code> address) will be filled in for you by Gary before this is handed off —
-          if the gold box is still blank, ask him for it.</p>
+        <p class="plain">2. The <b>two values below</b> — both are already filled in for you.
+          (If anything ever looks blank, ask Gary.)</p>
       </div>
 
       <!-- THE TWO RECORDS -->
@@ -343,11 +342,7 @@
         <dl class="rec-rows">
           <dt>Type</dt><dd>CNAME</dd>
           <dt>Name / Host</dt><dd>www</dd>
-          <dt>Value / Points to</dt><dd>
-            <span class="val-fill">your-site-name.netlify.app
-              <span class="hint">Gary fills this in from the Netlify dashboard before handoff. It ends in <b>.netlify.app</b></span>
-            </span>
-          </dd>
+          <dt>Value / Points to</dt><dd>thejcdfoundation.netlify.app</dd>
           <dt>TTL</dt><dd>Automatic <span style="font-family:var(--font-primary);font-size:13px;color:var(--mid-gray);">(or leave the default / 1 hour)</span></dd>
         </dl>
       </div>
@@ -388,7 +383,7 @@
         <li>
           <h3>Add Record 2 (the "CNAME" record)</h3>
           <p>Click <b>Add record</b> again. Choose type <code>CNAME</code>, set the name/host to
-            <code>www</code>, and paste the <code>…netlify.app</code> address from the gold box above.
+            <code>www</code>, and paste <code>thejcdfoundation.netlify.app</code> as the value.
             Save it.</p>
         </li>
         <li>
