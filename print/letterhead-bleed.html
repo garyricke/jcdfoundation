@@ -86,7 +86,7 @@
       .sheet { outline: 1px dashed rgba(197,150,58,0.25); outline-offset: 8px; }
     }
 
-    @page { size: 8.5in 11in; margin: 0; }
+    @page { size: 9in 11.5in; margin: 0; }
     @media print {
       body { background: #fff; padding: 0; }
       .toolbar, .actions { display: none !important; }
@@ -94,6 +94,13 @@
     }
 
     #letter-body { scroll-margin-top: 60px; }
+  
+    /* ===== PRINT BLEED + CROP MARKS (letterhead) ===== */
+    .bleed-page { position: relative; width: 9in; height: 11.5in; background: #FFFFFF; overflow: hidden; margin: 0 auto; }
+    .bleed-page > .sheet { position: absolute; left: 0.25in; top: 0.25in; margin: 0; box-shadow: none;
+                           transform: scale(1.029412, 1.022727); transform-origin: center center; }
+    .crop { position: absolute; left: 0; top: 0; width: 9in; height: 11.5in; pointer-events: none; }
+    @media screen { .bleed-page { outline: 1px dashed rgba(197,150,58,0.35); outline-offset: 10px; } }
   </style>
 </head>
 <body>
@@ -101,15 +108,15 @@
 <div class="toolbar">
   <div>
     <h1>JCD Letterhead</h1>
-    <div class="meta">8.5×11 trim · 0.125in bleed + crop marks · CMYK · print-ready PDF</div>
+    <div class="meta">8.5 × 11 in · ⌘P → Save as PDF · margins: None</div>
   </div>
   <div class="actions">
     <a class="btn ghost" href="../brand-kit.html">← Back to kit</a>
-    <a class="btn" href="pdf/jcd-letterhead.pdf" download>Download print PDF ↓</a>
+    <button class="btn" onclick="window.print()">Print / Save PDF</button>
   </div>
 </div>
 
-<div class="sheet" id="letter-body">
+<div class="bleed-page"><div class="sheet" id="letter-body">
   <!-- HEADER -->
   <div class="lh-head">
     <div class="lh-mark">
@@ -157,7 +164,7 @@
     <div class="ftag">Make. Fix. <em>Care.</em></div>
     <div class="fmeta">An Applied Legacy of<br/><b>the Dunham Foundation</b></div>
   </div>
-</div>
+</div><svg class="crop" viewBox="0 0 9 11.5" xmlns="http://www.w3.org/2000/svg"><g stroke="#000000" stroke-width="0.01" fill="none"><line x1="0.25" y1="0" x2="0.25" y2="0.125"/><line x1="0" y1="0.25" x2="0.125" y2="0.25"/><line x1="8.75" y1="0" x2="8.75" y2="0.125"/><line x1="8.875" y1="0.25" x2="9" y2="0.25"/><line x1="0.25" y1="11.375" x2="0.25" y2="11.5"/><line x1="0" y1="11.25" x2="0.125" y2="11.25"/><line x1="8.75" y1="11.375" x2="8.75" y2="11.5"/><line x1="8.875" y1="11.25" x2="9" y2="11.25"/></g></svg></div>
 
 </body>
 </html>
