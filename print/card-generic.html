@@ -75,7 +75,7 @@
     @page { size: 3.5in 2in; margin: 0; }
     @media print {
       body { background: #fff; padding: 0; }
-      .toolbar, .card-label, .actions { display: none !important; }
+      .toolbar, .card-label, .actions, .print-tip { display: none !important; }
       .sheet-wrap { gap: 0; max-width: none; }
       .card { box-shadow: none !important; outline: none !important; page-break-after: always;
         -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -96,6 +96,8 @@
     <button class="btn" onclick="window.print()">Print / Save PDF</button>
   </div>
 </div>
+
+<div class="print-tip">&#9654; In the print dialog: <strong>Destination → Save as PDF</strong> &nbsp;·&nbsp; <strong>Margins → None</strong> &nbsp;·&nbsp; Paper size matches preview automatically.</div>
 
 <div class="sheet-wrap">
 
