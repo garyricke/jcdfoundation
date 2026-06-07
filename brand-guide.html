@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-final/jcd-favicon.svg" />
   <title>JCD Foundation — Brand Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -679,6 +679,72 @@
       line-height: 1.6;
     }
 
+    .logo-intro {
+      font-size: 15px;
+      color: var(--steel-gray);
+      line-height: 1.65;
+      max-width: 70ch;
+      margin: -8px 0 24px;
+    }
+    .logo-intro a { color: var(--equipto-blue); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(14,42,88,0.25); }
+    .logo-intro a:hover { border-bottom-color: var(--equipto-blue); }
+
+    /* LOGO DOWNLOADS */
+    .logo-downloads { margin-top: 56px; }
+    .dl-head { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 18px 24px; margin-bottom: 26px; }
+    .dl-head h4 {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--mid-gray); margin: 0;
+    }
+    .dl-head p { flex: 1; min-width: 280px; font-size: 14px; color: var(--steel-gray); line-height: 1.6; margin: 0; }
+    .dl-all {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--equipto-blue); color: #fff; text-decoration: none;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
+      padding: 12px 18px; border-radius: 10px; white-space: nowrap;
+      transition: transform 150ms ease, background 150ms ease;
+    }
+    .dl-all svg { width: 16px; height: 16px; }
+    .dl-all:hover { transform: translateY(-2px); background: #0a2148; }
+
+    .dl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .dl-card {
+      background: var(--ice-gray); padding: 24px 22px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .dl-fmt {
+      display: inline-block; font-family: 'Roboto Mono', monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+      color: var(--equipto-blue); background: rgba(14,42,88,0.08);
+      padding: 4px 9px; border-radius: 5px; margin-bottom: 12px;
+    }
+    .dl-card-title { font-size: 16px; font-weight: 800; color: var(--equipto-blue); }
+    .dl-card-sub { font-size: 12.5px; color: var(--steel-gray); line-height: 1.55; margin-top: 6px; }
+    .dl-links { display: flex; flex-direction: column; gap: 7px; margin-top: auto; }
+    .dl-links a {
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 11px;
+      background: #fff; border: 1px solid var(--border-line);
+      border-radius: 8px; padding: 10px 13px;
+      font-size: 13px; font-weight: 600; color: var(--deep-charcoal);
+      text-decoration: none; transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+    }
+    .dl-links a::before {
+      content: ""; width: 15px; height: 15px;
+      background: var(--mid-gray);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E") center/contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E") center/contain no-repeat;
+      transition: background 150ms ease;
+    }
+    .dl-links a span {
+      font-family: 'Roboto Mono', monospace; font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.06em; color: var(--mid-gray); justify-self: end;
+    }
+    .dl-links a:hover { border-color: var(--equipto-blue); background: #fff; transform: translateX(2px); }
+    .dl-links a:hover span { color: var(--equipto-blue); }
+    .dl-links a:hover::before { background: var(--equipto-blue); }
+    @media (max-width: 1000px) { .dl-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .dl-grid { grid-template-columns: 1fr; } }
+
     /* =====================================================
        BRAND VOICE
        ===================================================== */
@@ -1158,707 +1224,6 @@
       .footer-meta { flex-direction: column; gap: 12px; align-items: flex-start; }
     }
 
-    /* =====================================================
-       LOGO LAB — ROUND 2 EXPLORATION
-       ===================================================== */
-    #logo-lab { background: var(--section-bg-alt); }
-
-    .lab-intro {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 48px;
-      align-items: start;
-      margin-bottom: 56px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--border-line);
-    }
-    @media (max-width: 820px) { .lab-intro { grid-template-columns: 1fr; gap: 24px; } }
-
-    .lab-intro-copy p {
-      font-size: 17px;
-      color: var(--steel-gray);
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .lab-intro-copy p strong { color: var(--equipto-blue); }
-
-    .lab-meta {
-      background: var(--white);
-      border: 1px solid var(--border-line);
-      padding: 24px;
-    }
-    .lab-meta-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 10px 0;
-      border-bottom: 1px dashed var(--border-line);
-      gap: 12px;
-    }
-    .lab-meta-row:last-child { border-bottom: 0; padding-bottom: 0; }
-    .lab-meta-row:first-child { padding-top: 0; }
-    .lab-meta-k {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-    }
-    .lab-meta-v {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--equipto-blue);
-      text-align: right;
-    }
-
-    .lab-legend {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-    .lab-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: var(--white);
-      border: 1px solid var(--border-line);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--steel-gray);
-    }
-    .lab-chip::before {
-      content: '';
-      width: 10px; height: 10px;
-      border-radius: 50%;
-    }
-    .lab-chip.nb::before { background: var(--safety-orange); }
-    .lab-chip.oai::before { background: var(--pulse-teal); }
-    .lab-chip strong {
-      color: var(--equipto-blue);
-      font-weight: 700;
-    }
-
-    .concept-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-    @media (max-width: 760px) { .concept-grid { grid-template-columns: 1fr; gap: 24px; } }
-
-    .concept {
-      background: var(--white);
-      border: 1px solid var(--border-line);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .concept:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(17, 24, 39, 0.08);
-    }
-
-    .concept-img {
-      position: relative;
-      aspect-ratio: 1/1;
-      overflow: hidden;
-      background: var(--ice-gray);
-    }
-    .concept-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .concept-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(17, 24, 39, 0.88);
-      color: var(--white);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 7px 11px;
-      backdrop-filter: blur(4px);
-    }
-    .concept-badge::before {
-      content: '';
-      width: 8px; height: 8px;
-      border-radius: 50%;
-    }
-    .concept-badge.nb::before { background: var(--safety-orange); }
-    .concept-badge.oai::before { background: var(--pulse-teal); }
-
-    .concept-num {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      background: var(--white);
-      color: var(--equipto-blue);
-      padding: 7px 11px;
-      font-weight: 700;
-    }
-
-    .concept-body {
-      padding: 24px 26px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .concept-dir {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--safety-orange);
-      font-weight: 700;
-    }
-    .concept-name {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--equipto-blue);
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
-    .concept-note {
-      font-size: 14px;
-      color: var(--steel-gray);
-      line-height: 1.6;
-    }
-    .concept-foot {
-      margin-top: 6px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .concept-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--steel-gray);
-      padding: 4px 8px;
-      background: var(--ice-gray);
-      border-radius: 2px;
-    }
-    .concept-tag.pro { color: var(--pulse-teal); background: rgba(10, 155, 140, 0.08); }
-    .concept-tag.watch { color: var(--safety-orange); background: rgba(232, 96, 10, 0.08); }
-
-    .lab-cta-bar {
-      margin-top: 48px;
-      padding: 32px;
-      background: var(--equipto-blue);
-      color: var(--white);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
-    }
-    @media (max-width: 640px) { .lab-cta-bar { grid-template-columns: 1fr; } }
-    .lab-cta-bar h4 {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      margin-bottom: 6px;
-    }
-    .lab-cta-bar p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-      max-width: 640px;
-      line-height: 1.55;
-    }
-    .lab-cta-bar .cta-stamp {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--brass-gold);
-      padding: 14px 20px;
-      border: 2px solid var(--brass-gold);
-    }
-
-    /* =====================================================
-       WHY CHANGE — diagnostic of current logo
-       ===================================================== */
-    #why-change { background: var(--white); }
-
-    .wc-hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 56px;
-      align-items: stretch;
-      margin-bottom: 56px;
-    }
-    @media (max-width: 900px) { .wc-hero { grid-template-columns: 1fr; gap: 32px; } }
-
-    .wc-current {
-      background: var(--ice-gray);
-      padding: 56px 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      border: 1px solid var(--border-line);
-    }
-    .wc-current img {
-      max-width: 80%;
-      height: auto;
-    }
-    .wc-caption {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--steel-gray);
-      text-align: center;
-    }
-    .wc-caption strong { color: var(--equipto-blue); font-weight: 700; }
-
-    .wc-shrink {
-      background: var(--equipto-blue);
-      color: var(--white);
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .wc-shrink-head {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--brass-gold);
-    }
-    .wc-shrink h4 {
-      font-size: 26px;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-    .wc-shrink p {
-      font-size: 14px;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.78);
-    }
-    .wc-shrink-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      padding: 20px 0 12px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
-    .wc-shrink-slot {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 8px;
-      background: var(--white);
-      min-height: 110px;
-      justify-content: center;
-    }
-    .wc-shrink-slot img { display: block; height: auto; }
-    .wc-shrink-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--steel-gray);
-    }
-    .wc-shrink-verdict {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--safety-orange);
-    }
-
-    .diag-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 900px) { .diag-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .diag-grid { grid-template-columns: 1fr; } }
-
-    .diag {
-      background: var(--white);
-      border: 1px solid var(--border-line);
-      border-left: 3px solid var(--safety-orange);
-      padding: 22px 24px;
-    }
-    .diag-num {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--safety-orange);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .diag-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--equipto-blue);
-      line-height: 1.2;
-      letter-spacing: -0.005em;
-      margin-bottom: 8px;
-    }
-    .diag-body {
-      font-size: 14px;
-      color: var(--steel-gray);
-      line-height: 1.6;
-    }
-
-    .wc-verdict {
-      margin-top: 48px;
-      padding: 32px 36px;
-      background: var(--equipto-blue);
-      color: var(--white);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-    @media (max-width: 640px) { .wc-verdict { grid-template-columns: 1fr; } }
-    .wc-verdict-stamp {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--brass-gold);
-      border: 2px solid var(--brass-gold);
-      padding: 14px 20px;
-      white-space: nowrap;
-    }
-    .wc-verdict p {
-      font-size: 17px;
-      line-height: 1.55;
-      color: rgba(255,255,255,0.9);
-    }
-    .wc-verdict p em {
-      font-style: normal;
-      color: var(--brass-gold);
-      font-weight: 700;
-    }
-
-    /* =====================================================
-       STRESS TEST — tiny marks + contexts
-       ===================================================== */
-    .stress-intro {
-      margin-top: 72px;
-      padding-top: 56px;
-      border-top: 1px solid var(--border-line);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: end;
-      margin-bottom: 40px;
-    }
-    @media (max-width: 820px) { .stress-intro { grid-template-columns: 1fr; gap: 20px; } }
-
-    .stress-intro h3 {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--equipto-blue);
-      line-height: 1.1;
-      letter-spacing: -0.015em;
-      margin-bottom: 12px;
-    }
-    .stress-intro h3 em {
-      font-style: normal;
-      color: var(--safety-orange);
-    }
-    .stress-intro p {
-      font-size: 15px;
-      color: var(--steel-gray);
-      line-height: 1.6;
-    }
-    .stress-legend {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .verdict-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 1px solid var(--border-line);
-    }
-    .verdict-chip::before {
-      content: '';
-      width: 10px; height: 10px;
-      border-radius: 50%;
-    }
-    .verdict-chip.survives { color: var(--pulse-teal); }
-    .verdict-chip.survives::before { background: var(--pulse-teal); }
-    .verdict-chip.struggles { color: var(--brass-gold); }
-    .verdict-chip.struggles::before { background: var(--brass-gold); }
-    .verdict-chip.fails { color: var(--safety-orange); }
-    .verdict-chip.fails::before { background: var(--safety-orange); }
-
-    .stress-table {
-      background: var(--white);
-      border: 1px solid var(--border-line);
-      overflow-x: auto;
-    }
-    .stress-head {
-      display: grid;
-      grid-template-columns: 220px 220px 1fr 1fr 1fr 120px;
-      gap: 0;
-      padding: 14px 20px;
-      background: var(--section-bg-alt);
-      border-bottom: 1px solid var(--border-line);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-      min-width: 1080px;
-    }
-    .stress-row {
-      display: grid;
-      grid-template-columns: 220px 220px 1fr 1fr 1fr 120px;
-      gap: 0;
-      padding: 20px;
-      border-bottom: 1px solid var(--border-line);
-      align-items: center;
-      min-width: 1080px;
-    }
-    .stress-row:last-child { border-bottom: 0; }
-    .stress-row.baseline {
-      background: #FFF4EC;
-      border-left: 3px solid var(--safety-orange);
-    }
-
-    .sr-dir {
-      padding-right: 20px;
-    }
-    .sr-dir-name {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--equipto-blue);
-      line-height: 1.2;
-      letter-spacing: -0.005em;
-    }
-    .sr-dir-kind {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--steel-gray);
-      margin-top: 4px;
-    }
-    .sr-dir-engine {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      padding: 3px 8px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: var(--ice-gray);
-      color: var(--steel-gray);
-    }
-    .sr-dir-engine::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-    }
-    .sr-dir-engine.nb::before { background: var(--safety-orange); }
-    .sr-dir-engine.oai::before { background: var(--pulse-teal); }
-    .sr-dir-engine.current::before { background: var(--steel-gray); }
-
-    .sr-sizes {
-      display: flex;
-      align-items: flex-end;
-      gap: 14px;
-      padding-right: 20px;
-    }
-    .sr-size {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-    .sr-size img {
-      border: 1px solid var(--border-line);
-      background: var(--white);
-      display: block;
-      object-fit: contain;
-    }
-    .sr-size img.bg-ice { background: var(--ice-gray); }
-    .sr-size-label {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      color: var(--mid-gray);
-    }
-
-    /* Browser tab mockup */
-    .ctx-tab {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px 6px 8px;
-      background: var(--white);
-      border: 1px solid var(--border-line);
-      border-bottom: 0;
-      border-radius: 6px 6px 0 0;
-      max-width: 220px;
-      min-width: 180px;
-      box-shadow: 0 -2px 0 var(--ice-gray);
-      position: relative;
-    }
-    .ctx-tab::before {
-      content: '';
-      position: absolute;
-      left: 0; right: 0; bottom: -1px;
-      height: 1px;
-      background: var(--white);
-    }
-    .ctx-tab img {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      object-fit: contain;
-      background: transparent;
-    }
-    .ctx-tab-title {
-      font-size: 11px;
-      color: var(--deep-charcoal);
-      font-weight: 500;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      flex: 1;
-    }
-    .ctx-tab-x {
-      color: var(--mid-gray);
-      font-size: 14px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .ctx-wrap {
-      padding-right: 16px;
-    }
-
-    /* Mobile nav mockup */
-    .ctx-navbar {
-      background: var(--equipto-blue);
-      border-radius: 4px;
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 260px;
-    }
-    .ctx-navbar img {
-      height: 26px;
-      width: auto;
-      object-fit: contain;
-    }
-    .ctx-navbar-burger {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .ctx-navbar-burger span {
-      display: block;
-      width: 18px;
-      height: 2px;
-      background: var(--white);
-    }
-
-    /* App icon mockup (squircle) */
-    .ctx-app {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .ctx-squircle {
-      width: 60px;
-      height: 60px;
-      border-radius: 14px;
-      background: var(--white);
-      border: 1px solid var(--border-line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(17, 24, 39, 0.1);
-      flex-shrink: 0;
-    }
-    .ctx-squircle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .ctx-app-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      font-size: 11px;
-    }
-    .ctx-app-name {
-      font-weight: 700;
-      color: var(--deep-charcoal);
-    }
-    .ctx-app-tag {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid-gray);
-    }
-
-    .sr-verdict {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-    }
-    .sr-verdict-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border: 1px solid;
-    }
-    .sr-verdict-badge.survives { color: var(--pulse-teal); border-color: var(--pulse-teal); }
-    .sr-verdict-badge.struggles { color: var(--brass-gold); border-color: var(--brass-gold); }
-    .sr-verdict-badge.fails { color: var(--safety-orange); border-color: var(--safety-orange); }
-    .sr-verdict-note {
-      font-size: 11px;
-      color: var(--steel-gray);
-      line-height: 1.45;
-    }
   </style>
 </head>
 <body>
@@ -1879,8 +1244,8 @@
         <li><a href="#story">Brand Story</a></li>
         <li><a href="#mission">Mission</a></li>
         <li><a href="#identity">Identity</a></li>
-        <li><a href="#why-change">Why Change</a></li>
-        <li><a href="#logo-lab">Logo Lab</a></li>
+        <li><a href="#logo">Logo</a></li>
+        <li><a href="#downloads">Downloads</a></li>
         <li><a href="#voice">Voice</a></li>
         <li><a href="#focus">Focus Areas</a></li>
         <li><a href="#audience">Audience</a></li>
@@ -1896,6 +1261,8 @@
     <a href="#story"   onclick="closeMobileNav()">Brand Story</a>
     <a href="#mission" onclick="closeMobileNav()">Mission</a>
     <a href="#identity" onclick="closeMobileNav()">Identity</a>
+    <a href="#logo"     onclick="closeMobileNav()">Logo</a>
+    <a href="#downloads" onclick="closeMobileNav()">Downloads</a>
     <a href="#voice"   onclick="closeMobileNav()">Voice</a>
     <a href="#focus"   onclick="closeMobileNav()">Focus Areas</a>
     <a href="#audience" onclick="closeMobileNav()">Audience</a>
@@ -2217,8 +1584,9 @@
       </div>
 
       <!-- LOGO USAGE -->
-      <div class="logo-usage-section">
-        <h4>Logo Usage</h4>
+      <div class="logo-usage-section" id="logo">
+        <h4>The Logo</h4>
+        <p class="logo-intro">JCD has one approved mark — the “Tamed Original.” Use it exactly as supplied, in one of the two color treatments below. (Curious how we got here? See the <a href="logo-archive.html">logo archive &amp; history →</a>.)</p>
 
         <div class="logo-usage-grid">
           <div class="logo-usage-card on-light">
@@ -2255,621 +1623,70 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- =====================================================
-       WHY CHANGE — diagnostic of the current mark
-       ===================================================== -->
-  <section id="why-change" aria-labelledby="why-change-heading">
-    <div class="container">
-      <div class="section-label">
-        <h2>The Case for a New Mark</h2>
-        <h3 id="why-change-heading">Why Change What We Have</h3>
-      </div>
-
-      <div class="wc-hero">
-        <div class="wc-current">
-          <img src="assets/JCD Offical logo.jpg" alt="The current JCD Foundation logo — italic chrome wordmark with blue swoosh" />
-          <div class="wc-caption"><strong>Current mark</strong> · "JCD" wordmark + swoosh · c. 2023</div>
+      <!-- DOWNLOADS -->
+      <div class="logo-downloads" id="downloads">
+        <div class="dl-head">
+          <h4>Logo Downloads</h4>
+          <p>Every approved form of the mark, organized by where you'll use it. SVG is preferred wherever it's supported; reach for PNG or PDF only when SVG won't work. <strong>Click any single file below and it downloads straight to your computer</strong> — you don't have to grab the whole ZIP.</p>
+          <a class="dl-all" href="assets/logo-final/jcd-logo-package.zip" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download everything (ZIP)
+          </a>
         </div>
 
-        <div class="wc-shrink">
-          <div>
-            <div class="wc-shrink-head">Stress test · actual pixel sizes</div>
-            <h4>Here's what happens when it shrinks.</h4>
-            <p>The chrome gradient flattens to a gray blur. The swoosh ribbon turns into a smudge. The italic letters lose their silver-to-white contrast. By 24px, the mark is unreadable.</p>
-          </div>
-          <div class="wc-shrink-row">
-            <div class="wc-shrink-slot">
-              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 16px" width="30" style="height: 16px;" />
-              <span class="wc-shrink-label">16 px</span>
+        <div class="dl-grid">
+
+          <div class="dl-card">
+            <div class="dl-card-top">
+              <span class="dl-fmt">SVG</span>
+              <div class="dl-card-title">Web &amp; screen</div>
+              <p class="dl-card-sub">Vector, infinitely scalable. The default for websites, apps, and anything digital.</p>
             </div>
-            <div class="wc-shrink-slot">
-              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 24px" width="46" style="height: 24px;" />
-              <span class="wc-shrink-label">24 px</span>
-            </div>
-            <div class="wc-shrink-slot">
-              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 40px" width="76" style="height: 40px;" />
-              <span class="wc-shrink-label">40 px</span>
-            </div>
-            <div class="wc-shrink-slot">
-              <img src="assets/jcd-logo-dark.svg" alt="Current logo at 64px" width="122" style="height: 64px;" />
-              <span class="wc-shrink-label">64 px</span>
+            <div class="dl-links">
+              <a href="assets/logo-final/jcd-logo-primary.svg" download>Primary · navy <span>SVG</span></a>
+              <a href="assets/logo-final/jcd-logo-reversed.svg" download>Reversed · white <span>SVG</span></a>
+              <a href="assets/logo-final/jcd-favicon.svg" download>Favicon mark <span>SVG</span></a>
             </div>
           </div>
-          <div class="wc-shrink-verdict">Verdict · Requires redesign for small-size use</div>
+
+          <div class="dl-card">
+            <div class="dl-card-top">
+              <span class="dl-fmt">PNG</span>
+              <div class="dl-card-title">Office, email &amp; slides</div>
+              <p class="dl-card-sub">Transparent raster at 1600px. For Word, PowerPoint, Google Slides, and email signatures.</p>
+            </div>
+            <div class="dl-links">
+              <a href="assets/logo-final/jcd-logo-primary.png" download>Primary · navy <span>PNG</span></a>
+              <a href="assets/logo-final/jcd-logo-reversed.png" download>Reversed · white <span>PNG</span></a>
+            </div>
+          </div>
+
+          <div class="dl-card">
+            <div class="dl-card-top">
+              <span class="dl-fmt">PDF</span>
+              <div class="dl-card-title">Print &amp; vendors</div>
+              <p class="dl-card-sub">True vector PDF — hand these to printers, embroiderers, and sign shops.</p>
+            </div>
+            <div class="dl-links">
+              <a href="assets/logo-final/jcd-logo-primary.pdf" download>Primary · navy <span>PDF</span></a>
+              <a href="assets/logo-final/jcd-logo-reversed.pdf" download>Reversed · white <span>PDF</span></a>
+            </div>
+          </div>
+
+          <div class="dl-card">
+            <div class="dl-card-top">
+              <span class="dl-fmt">ICON</span>
+              <div class="dl-card-title">Favicon, app &amp; avatar</div>
+              <p class="dl-card-sub">The square mark for browser tabs, app icons, and social profile pictures.</p>
+            </div>
+            <div class="dl-links">
+              <a href="assets/logo-final/jcd-favicon-512.png" download>Square mark <span>512px</span></a>
+              <a href="assets/logo-final/jcd-favicon-180.png" download>Apple touch <span>180px</span></a>
+              <a href="assets/logo-final/jcd-favicon-32.png" download>Browser tab <span>32px</span></a>
+            </div>
+          </div>
+
         </div>
-      </div>
-
-      <div class="diag-grid">
-        <article class="diag">
-          <div class="diag-num">Observation 01</div>
-          <div class="diag-title">The style dates us.</div>
-          <p class="diag-body">Chrome gradient + italic + swoosh-ribbon is the visual vocabulary of 1998–2008 — used widely for auto-detailing shops, small-league sports teams, and mid-market corporate. It reads "established small business," which is not the message for a foundation investing in the <em>next</em> generation of tradespeople.</p>
-        </article>
-
-        <article class="diag">
-          <div class="diag-num">Observation 02</div>
-          <div class="diag-title">The chrome can't survive production.</div>
-          <p class="diag-body">The silver-to-white gradient that gives the current mark its lift disappears the moment it hits single-color print, embroidery, laser etching, or small-scale screen. The "flat" SVG we trace from it loses the shine and leaves a heavy, cramped silhouette.</p>
-        </article>
-
-        <article class="diag">
-          <div class="diag-num">Observation 03</div>
-          <div class="diag-title">There's no icon-only version.</div>
-          <p class="diag-body">Every modern brand needs a reduced mark for favicons, app icons, social avatars, and small-scale signage. The current logo is a wordmark-only lockup at a wide aspect ratio (1782 × 934) — it simply cannot compress into a square without becoming illegible.</p>
-        </article>
-
-        <article class="diag">
-          <div class="diag-num">Observation 04</div>
-          <div class="diag-title">It doesn't signal craft.</div>
-          <p class="diag-body">JCD funds welders, nurses, carpenters, electricians — people who make things with their hands. The current mark signals "corporate swoosh," not "craft." There's no visual connection to tools, work, trades, or the people we serve.</p>
-        </article>
-
-        <article class="diag">
-          <div class="diag-num">Observation 05</div>
-          <div class="diag-title">It fights the brand voice.</div>
-          <p class="diag-body">Our defined tone is editorial-poster × streetwear × Portra documentary — honest, gritty, confident, a little rough around the edges. The chrome-and-swoosh is the opposite: polished, corporate, trying a little too hard. Every touchpoint we build feels at war with the logo sitting on top of it.</p>
-        </article>
-
-        <article class="diag">
-          <div class="diag-num">Observation 06</div>
-          <div class="diag-title">Equity is still low — so the cost is low.</div>
-          <p class="diag-body">JCD is a new foundation. Scholarship count is still small, external recognition of the mark is minimal, print runs are limited. The moment to reset is <em>now</em>, before the current mark lives on thousands of banners, transcripts, and grad photos and becomes harder to replace.</p>
-        </article>
-      </div>
-
-      <div class="wc-verdict">
-        <div class="wc-verdict-stamp">Opportunity · Not problem</div>
-        <p>The logo we have is <em>a 2004 logo</em>. We're building a 2026 foundation for the next generation of skilled-trades talent. The eight concepts in the Logo Lab below are an honest attempt to meet this moment — <em>the work, the people, the craft</em> — with a mark that earns its place on a welder's apron, a nurse's name badge, and a 16-pixel browser tab.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- =====================================================
-       LOGO LAB — ROUND 2 EXPLORATION
-       ===================================================== -->
-  <section id="logo-lab" aria-labelledby="logo-lab-heading">
-    <div class="container">
-      <div class="section-label">
-        <h2>Logo Lab · Round 2</h2>
-        <h3 id="logo-lab-heading">Eight Directions, Two Engines</h3>
-      </div>
-
-      <div class="lab-intro">
-        <div class="lab-intro-copy">
-          <p><strong>This is exploration, not decision.</strong> The current stencil monogram + quadrant seal pair in §Identity is the standing direction — these concepts are a round-two widening to pressure-test it before we vectorize anything.</p>
-          <p>We ran the same six directional briefs through two image engines: <strong>Nano Banana</strong> (Gemini 3 Pro Image) and <strong>OpenAI Image</strong> (gpt-image). Each has a different accent — NB tends documentary and in-context, OpenAI tends cleaner and more graphic. Both views are useful.</p>
-          <p>Read each card's <em>tradeoff</em> note before picking favorites. A logo that photographs well on a leather apron may not shrink to 24px on a nav bar. Our job is to find the one that does both.</p>
-        </div>
-
-        <aside class="lab-meta">
-          <div class="lab-meta-row"><span class="lab-meta-k">Round</span><span class="lab-meta-v">02 · Exploration</span></div>
-          <div class="lab-meta-row"><span class="lab-meta-k">Concepts</span><span class="lab-meta-v">8 total</span></div>
-          <div class="lab-meta-row"><span class="lab-meta-k">Directions</span><span class="lab-meta-v">6 themes</span></div>
-          <div class="lab-meta-row"><span class="lab-meta-k">Engines</span><span class="lab-meta-v">NB · gpt-image</span></div>
-          <div class="lab-meta-row"><span class="lab-meta-k">Vectorized</span><span class="lab-meta-v">None yet</span></div>
-          <div class="lab-meta-row"><span class="lab-meta-k">Status</span><span class="lab-meta-v" style="color: var(--safety-orange);">Under review</span></div>
-        </aside>
-      </div>
-
-      <div class="lab-legend">
-        <span class="lab-chip nb"><strong>NB</strong> Nano Banana · Gemini 3 Pro Image</span>
-        <span class="lab-chip oai"><strong>OAI</strong> OpenAI · gpt-image</span>
-      </div>
-
-      <div class="concept-grid">
-
-        <!-- ============ CONCEPT 01 — NB · Stencil on concrete ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/generated-2026-04-24T20-54-08-618Z-6y1y6h.png" alt="JCD stenciled in safety orange on a weathered concrete wall" />
-            <span class="concept-badge nb">Nano Banana</span>
-            <span class="concept-num">01 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 1 · Stencil Monogram</div>
-            <div class="concept-name">Shop-Wall Stencil</div>
-            <p class="concept-note">Hand-applied through a real cardboard stencil, safety-orange spray on weathered concrete. The cardboard stencil still on the ground is a bonus storytelling detail — it says "we made this, on purpose, with our hands." Pairs with the standing monogram direction.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Stencil</span>
-              <span class="concept-tag">In-Context</span>
-              <span class="concept-tag pro">Auth. texture</span>
-              <span class="concept-tag watch">Not a logo file</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ============ CONCEPT 02 — OAI · Quadrant seal ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/oai-logo-quadrant-seal.png" alt="JCD quadrant seal logo with four sector icons" />
-            <span class="concept-badge oai">OpenAI Image</span>
-            <span class="concept-num">02 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 2 · Quadrant Seal</div>
-            <div class="concept-name">Four-Sector Medallion</div>
-            <p class="concept-note">Flat graphic build of the standing seal direction. The four pie slices carry trade, health, safety, and craft icons; a navy medallion locks the JCD wordmark dead-center. Clean enough to sit on a favicon, rich enough to embroider on a cap.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Seal</span>
-              <span class="concept-tag">Flat vector</span>
-              <span class="concept-tag pro">Scales down</span>
-              <span class="concept-tag watch">Detail-dense at 24px</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ============ CONCEPT 03 — NB · Tool-forged wordmark ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/generated-2026-04-24T20-54-47-826Z-pv8hqp.png" alt="JCD wordmark built from tools — hammer, C-clamp, wrench" />
-            <span class="concept-badge nb">Nano Banana</span>
-            <span class="concept-num">03 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 3 · Tool-Forged Wordmark</div>
-            <div class="concept-name">Hammer / Clamp / Wrench</div>
-            <p class="concept-note">J is a claw hammer, C is a C-clamp, D is an adjustable wrench. Reads as letterforms first, tools second — which is exactly the brief. Navy + brass gets the editorial heft; the wordmark has a playful confidence the current stencil doesn't.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Tool-forged</span>
-              <span class="concept-tag">Flat illustration</span>
-              <span class="concept-tag pro">Memorable</span>
-              <span class="concept-tag watch">Harder to vectorize</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ============ CONCEPT 04 — OAI · Dataplate ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/oai-logo-dataplate.png" alt="Industrial aluminum dataplate stamped with JCD Foundation" />
-            <span class="concept-badge oai">OpenAI Image</span>
-            <span class="concept-num">04 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 4 · Industrial Dataplate</div>
-            <div class="concept-name">Riveted Nameplate</div>
-            <p class="concept-note">Brushed aluminum, four rivets, stamped serial-number typography. Doubles as a visual identity and a "manufacturer's stamp" story — every scholarship grad gets a real one. The artifact is the logo; the logo is the artifact.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Dataplate</span>
-              <span class="concept-tag">Product story</span>
-              <span class="concept-tag pro">Tangible hook</span>
-              <span class="concept-tag watch">Photograph-only</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ============ CONCEPT 05 — NB · Chop-stamp on apron ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/generated-2026-04-24T20-55-32-690Z-l87o31.png" alt="JCD chop-stamp seal on a waxed canvas welder's apron" />
-            <span class="concept-badge nb">Nano Banana</span>
-            <span class="concept-num">05 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 5 · Chop-Stamp</div>
-            <div class="concept-name">Maker's Mark on Leather</div>
-            <p class="concept-note">Single-ink pressed-leather chop stamp: JCD lockup inside, circular "EST. 2026 · FOX VALLEY · BUILD WHAT'S NEXT" outside. The imperfect pressure — some letters bolder than others — is the point. Streetwear-adjacent, craft-first. Strongest candidate for merch.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Chop-stamp</span>
-              <span class="concept-tag">On swag</span>
-              <span class="concept-tag pro">Craft signal</span>
-              <span class="concept-tag watch">Needs a flat version too</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ============ CONCEPT 06 — NB · Shield patch ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/generated-2026-04-24T20-56-14-643Z-8j39wn.png" alt="JCD heritage shield patch embroidered on a canvas work jacket" />
-            <span class="concept-badge nb">Nano Banana</span>
-            <span class="concept-num">06 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 6 · Heritage Shield</div>
-            <div class="concept-name">Chenille Patch on Canvas</div>
-            <p class="concept-note">Three-panel heraldic shield (mfg / health / trades) with banner lockups above and below. Union-worker lineage without feeling costume-y. Embroidered stitch treatment reads loud from ten feet. Best as a secondary mark, not a primary.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Shield</span>
-              <span class="concept-tag">Embroidery</span>
-              <span class="concept-tag pro">Heritage cue</span>
-              <span class="concept-tag watch">Reads "varsity"</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ============ CONCEPT 07 — OAI · Tee with tool wordmark ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/oai-logo-tee-tools.png" alt="Cream t-shirt screen-printed with JCD tool-forged wordmark" />
-            <span class="concept-badge oai">OpenAI Image</span>
-            <span class="concept-num">07 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 3 · Tool-Forged · On Swag</div>
-            <div class="concept-name">Screen-Print Tee</div>
-            <p class="concept-note">Same tool-forged wordmark as #03, here applied as two-color screen print on a cream crewneck. Validates the mark at larger scale on fabric — the letterforms hold up, the tools stay legible. Answers the "can this live on a tee?" question without ambiguity.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Tool-forged</span>
-              <span class="concept-tag">On swag</span>
-              <span class="concept-tag pro">Wearable</span>
-              <span class="concept-tag watch">Busy at small sizes</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- ============ CONCEPT 08 — OAI · I-beam stencil ============ -->
-        <article class="concept">
-          <div class="concept-img">
-            <img src="generated_imgs/oai-logo-ibeam-stencil.png" alt="JCD stenciled in safety orange on a rusted steel I-beam" />
-            <span class="concept-badge oai">OpenAI Image</span>
-            <span class="concept-num">08 / 08</span>
-          </div>
-          <div class="concept-body">
-            <div class="concept-dir">Direction 1 · Stencil · On Steel</div>
-            <div class="concept-name">I-Beam Application</div>
-            <p class="concept-note">Stencil direction again, this time translated onto rusted structural steel inside a shop. The stencil language holds on any industrial surface — wall, beam, shipping container, dumpster. This is why Direction 1 keeps its shortlist spot: it travels.</p>
-            <div class="concept-foot">
-              <span class="concept-tag">Stencil</span>
-              <span class="concept-tag">On steel</span>
-              <span class="concept-tag pro">Surface-agnostic</span>
-              <span class="concept-tag watch">Same mark, new skin</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- =====================================================
-           STRESS TEST — tiny marks + real contexts
-           ===================================================== -->
-      <div class="stress-intro">
-        <div>
-          <h3>Small-Size <em>Stress Test.</em></h3>
-          <p>A logo only earns its place if it survives 16 pixels. For each direction we built a purpose-designed <em>favicon companion mark</em> — a simplified lockup optimized for scale — and rendered it at actual pixel sizes in the places it would actually live: browser tabs, mobile nav bars, app icons. The current mark is shown at the top as the baseline to beat.</p>
-        </div>
-        <div class="stress-legend">
-          <span class="verdict-chip survives">Survives</span>
-          <span class="verdict-chip struggles">Struggles</span>
-          <span class="verdict-chip fails">Fails</span>
-        </div>
-      </div>
-
-      <div class="stress-table">
-        <div class="stress-head">
-          <span>Direction</span>
-          <span>Pixel sizes</span>
-          <span>Browser tab</span>
-          <span>Mobile nav</span>
-          <span>App icon</span>
-          <span>Verdict</span>
-        </div>
-
-        <!-- ========== BASELINE ========== -->
-        <div class="stress-row baseline">
-          <div class="sr-dir">
-            <div class="sr-dir-name">Current Mark</div>
-            <div class="sr-dir-kind">Italic + Swoosh · baseline</div>
-            <span class="sr-dir-engine current">Existing</span>
-          </div>
-          <div class="sr-sizes">
-            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="30" height="16" style="height: 16px;" alt="" /><span class="sr-size-label">16</span></div>
-            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="46" height="24" style="height: 24px;" alt="" /><span class="sr-size-label">24</span></div>
-            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="76" height="40" style="height: 40px;" alt="" /><span class="sr-size-label">40</span></div>
-            <div class="sr-size"><img src="assets/jcd-logo-dark.svg" width="122" height="64" style="height: 64px;" alt="" /><span class="sr-size-label">64</span></div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-tab">
-              <img src="assets/jcd-logo-dark.svg" alt="" />
-              <span class="ctx-tab-title">JCD Foundation</span>
-              <span class="ctx-tab-x">×</span>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-navbar">
-              <img src="assets/jcd-logo-white.svg" alt="" />
-              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-app">
-              <div class="ctx-squircle"><img src="assets/JCD Offical logo.jpg" alt="" /></div>
-              <div class="ctx-app-meta">
-                <span class="ctx-app-name">JCD</span>
-                <span class="ctx-app-tag">Current</span>
-              </div>
-            </div>
-          </div>
-          <div class="sr-verdict">
-            <span class="sr-verdict-badge fails">Fails</span>
-            <span class="sr-verdict-note">Unreadable at tab size. Swoosh dominates.</span>
-          </div>
-        </div>
-
-        <!-- ========== DIRECTION 1 · Stencil ========== -->
-        <div class="stress-row">
-          <div class="sr-dir">
-            <div class="sr-dir-name">Stencil Monogram</div>
-            <div class="sr-dir-kind">Direction 01</div>
-            <span class="sr-dir-engine oai">OAI</span>
-          </div>
-          <div class="sr-sizes">
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="16" height="16" alt="" class="bg-ice" /><span class="sr-size-label">16</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="24" height="24" alt="" class="bg-ice" /><span class="sr-size-label">24</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="40" height="40" alt="" class="bg-ice" /><span class="sr-size-label">40</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-stencil.png" width="64" height="64" alt="" class="bg-ice" /><span class="sr-size-label">64</span></div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-tab">
-              <img src="generated_imgs/oai-favicon-stencil.png" alt="" />
-              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
-              <span class="ctx-tab-x">×</span>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-navbar">
-              <img src="generated_imgs/oai-favicon-stencil.png" alt="" style="height: 28px;" />
-              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-app">
-              <div class="ctx-squircle"><img src="generated_imgs/oai-favicon-stencil.png" alt="" /></div>
-              <div class="ctx-app-meta">
-                <span class="ctx-app-name">JCD</span>
-                <span class="ctx-app-tag">Apply</span>
-              </div>
-            </div>
-          </div>
-          <div class="sr-verdict">
-            <span class="sr-verdict-badge survives">Survives</span>
-            <span class="sr-verdict-note">Stencil bridges hold down to 16px. Loudest at any size.</span>
-          </div>
-        </div>
-
-        <!-- ========== DIRECTION 2 · Quadrant Seal ========== -->
-        <div class="stress-row">
-          <div class="sr-dir">
-            <div class="sr-dir-name">Quadrant Seal</div>
-            <div class="sr-dir-kind">Direction 02</div>
-            <span class="sr-dir-engine oai">OAI</span>
-          </div>
-          <div class="sr-sizes">
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="16" height="16" alt="" /><span class="sr-size-label">16</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="24" height="24" alt="" /><span class="sr-size-label">24</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="40" height="40" alt="" /><span class="sr-size-label">40</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-quadrant.png" width="64" height="64" alt="" /><span class="sr-size-label">64</span></div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-tab">
-              <img src="generated_imgs/oai-favicon-quadrant.png" alt="" />
-              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
-              <span class="ctx-tab-x">×</span>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-navbar">
-              <img src="generated_imgs/oai-favicon-quadrant.png" alt="" style="height: 30px; background: transparent;" />
-              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-app">
-              <div class="ctx-squircle"><img src="generated_imgs/oai-favicon-quadrant.png" alt="" /></div>
-              <div class="ctx-app-meta">
-                <span class="ctx-app-name">JCD</span>
-                <span class="ctx-app-tag">Apply</span>
-              </div>
-            </div>
-          </div>
-          <div class="sr-verdict">
-            <span class="sr-verdict-badge survives">Survives</span>
-            <span class="sr-verdict-note">Color-block quadrants read as blob of color at 16px; still distinct.</span>
-          </div>
-        </div>
-
-        <!-- ========== DIRECTION 3 · Tool-Forged ========== -->
-        <div class="stress-row">
-          <div class="sr-dir">
-            <div class="sr-dir-name">Tool-Forged Wordmark</div>
-            <div class="sr-dir-kind">Direction 03</div>
-            <span class="sr-dir-engine nb">NB</span>
-          </div>
-          <div class="sr-sizes">
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="24" height="16" alt="" class="bg-ice" /><span class="sr-size-label">16</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="36" height="24" alt="" class="bg-ice" /><span class="sr-size-label">24</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="60" height="40" alt="" class="bg-ice" /><span class="sr-size-label">40</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" width="96" height="64" alt="" class="bg-ice" /><span class="sr-size-label">64</span></div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-tab">
-              <img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" alt="" />
-              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
-              <span class="ctx-tab-x">×</span>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-navbar">
-              <img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" alt="" style="height: 26px; background: rgba(255,255,255,0.95); padding: 3px 6px;" />
-              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-app">
-              <div class="ctx-squircle"><img src="generated_imgs/generated-2026-04-24T21-23-53-224Z-wpt335.png" alt="" /></div>
-              <div class="ctx-app-meta">
-                <span class="ctx-app-name">JCD</span>
-                <span class="ctx-app-tag">Apply</span>
-              </div>
-            </div>
-          </div>
-          <div class="sr-verdict">
-            <span class="sr-verdict-badge struggles">Struggles</span>
-            <span class="sr-verdict-note">Tool accents lose detail by 24px, but letterforms still legible.</span>
-          </div>
-        </div>
-
-        <!-- ========== DIRECTION 4 · Dataplate ========== -->
-        <div class="stress-row">
-          <div class="sr-dir">
-            <div class="sr-dir-name">Dataplate</div>
-            <div class="sr-dir-kind">Direction 04</div>
-            <span class="sr-dir-engine oai">OAI</span>
-          </div>
-          <div class="sr-sizes">
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="21" height="16" alt="" /><span class="sr-size-label">16</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="32" height="24" alt="" /><span class="sr-size-label">24</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="53" height="40" alt="" /><span class="sr-size-label">40</span></div>
-            <div class="sr-size"><img src="generated_imgs/oai-favicon-dataplate.png" width="85" height="64" alt="" /><span class="sr-size-label">64</span></div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-tab">
-              <img src="generated_imgs/oai-favicon-dataplate.png" alt="" />
-              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
-              <span class="ctx-tab-x">×</span>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-navbar">
-              <img src="generated_imgs/oai-favicon-dataplate.png" alt="" style="height: 24px;" />
-              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-app">
-              <div class="ctx-squircle"><img src="generated_imgs/oai-favicon-dataplate.png" alt="" /></div>
-              <div class="ctx-app-meta">
-                <span class="ctx-app-name">JCD</span>
-                <span class="ctx-app-tag">Apply</span>
-              </div>
-            </div>
-          </div>
-          <div class="sr-verdict">
-            <span class="sr-verdict-badge struggles">Struggles</span>
-            <span class="sr-verdict-note">"FOUNDATION" goes illegible at 24px. JCD-only version would survive.</span>
-          </div>
-        </div>
-
-        <!-- ========== DIRECTION 5 · Chop-Stamp ========== -->
-        <div class="stress-row">
-          <div class="sr-dir">
-            <div class="sr-dir-name">Chop-Stamp</div>
-            <div class="sr-dir-kind">Direction 05</div>
-            <span class="sr-dir-engine nb">NB</span>
-          </div>
-          <div class="sr-sizes">
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="16" height="16" alt="" /><span class="sr-size-label">16</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="24" height="24" alt="" /><span class="sr-size-label">24</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="40" height="40" alt="" /><span class="sr-size-label">40</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" width="64" height="64" alt="" /><span class="sr-size-label">64</span></div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-tab">
-              <img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" alt="" />
-              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
-              <span class="ctx-tab-x">×</span>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-navbar">
-              <img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" alt="" style="height: 30px; background: transparent;" />
-              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-app">
-              <div class="ctx-squircle"><img src="generated_imgs/generated-2026-04-24T21-24-26-217Z-piixwt.png" alt="" /></div>
-              <div class="ctx-app-meta">
-                <span class="ctx-app-name">JCD</span>
-                <span class="ctx-app-tag">Apply</span>
-              </div>
-            </div>
-          </div>
-          <div class="sr-verdict">
-            <span class="sr-verdict-badge survives">Survives</span>
-            <span class="sr-verdict-note">Outer text blurs under 32px; center JCD stays crisp. Strongest app-icon candidate.</span>
-          </div>
-        </div>
-
-        <!-- ========== DIRECTION 6 · Heritage Shield ========== -->
-        <div class="stress-row">
-          <div class="sr-dir">
-            <div class="sr-dir-name">Heritage Shield</div>
-            <div class="sr-dir-kind">Direction 06</div>
-            <span class="sr-dir-engine nb">NB</span>
-          </div>
-          <div class="sr-sizes">
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="16" height="16" alt="" /><span class="sr-size-label">16</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="24" height="24" alt="" /><span class="sr-size-label">24</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="40" height="40" alt="" /><span class="sr-size-label">40</span></div>
-            <div class="sr-size"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" width="64" height="64" alt="" /><span class="sr-size-label">64</span></div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-tab">
-              <img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" alt="" />
-              <span class="ctx-tab-title">JCD Foundation — Build what's next.</span>
-              <span class="ctx-tab-x">×</span>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-navbar">
-              <img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" alt="" style="height: 30px; background: transparent;" />
-              <div class="ctx-navbar-burger"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="ctx-wrap">
-            <div class="ctx-app">
-              <div class="ctx-squircle"><img src="generated_imgs/generated-2026-04-24T21-24-58-046Z-6f92ij.png" alt="" /></div>
-              <div class="ctx-app-meta">
-                <span class="ctx-app-name">JCD</span>
-                <span class="ctx-app-tag">Apply</span>
-              </div>
-            </div>
-          </div>
-          <div class="sr-verdict">
-            <span class="sr-verdict-badge struggles">Struggles</span>
-            <span class="sr-verdict-note">Three-stripe color band holds; JCD letters crunch at 16px.</span>
-          </div>
-        </div>
-
-      </div>
-
-      <p style="font-size: 14px; color: var(--steel-gray); margin-top: 16px; line-height: 1.55;"><strong style="color: var(--equipto-blue);">Reading the results.</strong> The stencil (#01), chop-stamp (#05), and quadrant seal (#02) are the three directions that held together at true 16-pixel display — which means they're the only three that can carry a full multi-channel identity today without a separate icon system. Tool-forged (#03), dataplate (#04), and heritage shield (#06) are viable <em>with</em> a paired simplified favicon variant, which is a normal and acceptable path for many strong brands.</p>
-
-      <div class="lab-cta-bar">
-        <div>
-          <h4>Next step: narrow to two, then vectorize.</h4>
-          <p>Mark your favorites (direction + engine), and we'll commission proper SVG artwork for the final two. Budget roughly a week per vectorization round. Typography specimen + color lockup variants included.</p>
-        </div>
-        <div class="cta-stamp">Round 3 → vector</div>
       </div>
 
     </div>
@@ -3269,6 +2086,18 @@
           </span>
         </a>
 
+        <a href="logo-archive.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l1.5 12.5a2 2 0 0 0 2 1.5h11a2 2 0 0 0 2-1.5L21 7"/><path d="M2 4h20v3H2z"/><path d="M10 11h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Archive</span>
+            <span class="admin-sub">History &amp; concepts</span>
+          </span>
+        </a>
+
         <a href="logo-v2.html" role="menuitem">
           <span class="admin-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3454,6 +2283,35 @@
         closeMobileNav();
       }
     });
+  </script>
+
+  <!-- Force logo files to download (not open in the browser) -->
+  <script>
+    (function () {
+      function saveBlob(blob, name) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+      }
+      document.querySelectorAll('a[download][href]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var href = link.getAttribute('href');
+          // fetch() only works over http(s); on file:// previews we let the browser do its default.
+          if (location.protocol !== 'http:' && location.protocol !== 'https:') return;
+          e.preventDefault();
+          var name = href.split('/').pop().split('?')[0];
+          fetch(href)
+            .then(function (r) { if (!r.ok) throw new Error('fetch failed'); return r.blob(); })
+            .then(function (blob) { saveBlob(blob, name); })
+            .catch(function () { window.location.href = href; });
+        });
+      });
+    })();
   </script>
 
 </body>
