@@ -144,11 +144,12 @@ async function savePDF(filename, selector, w, h) {
   btn.textContent = 'Generating…'; btn.disabled = true;
   try {
     const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({ orientation: 'landscape', unit: 'in', format: [w, h] });
+    const pdf = new jsPDF({ unit: 'in', format: [w, h], orientation: 'landscape' });
     const els = document.querySelectorAll(selector);
+    const pxW = Math.round(w * 96), pxH = Math.round(h * 96);
     for (let i = 0; i < els.length; i++) {
       if (i > 0) pdf.addPage([w, h], 'landscape');
-      const canvas = await html2canvas(els[i], { scale: 4, useCORS: true, allowTaint: true, logging: false });
+      const canvas = await html2canvas(els[i], { scale: 4, width: pxW, height: pxH, useCORS: true, allowTaint: true, logging: false });
       pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, w, h);
     }
     pdf.save(filename);
