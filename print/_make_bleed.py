@@ -16,7 +16,6 @@ FILES = {
     "card-jack.html": "card-jack-bleed.html",
     "card-jen.html": "card-jen-bleed.html",
     "card-generic.html": "card-generic-bleed.html",
-    "pocket-card.html": "pocket-card-bleed.html",
 }
 
 BLEED_CSS = """

@@ -136,7 +136,7 @@
       .foundations-card { grid-template-columns: 1fr; gap: 32px; padding: 40px; }
     }
 
-    /* Asset cards (cards/letterhead/leave-behind/pocket) */
+    /* Asset cards (cards/letterhead/leave-behind) */
     .asset-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     .asset-card { background: var(--white); border:1px solid var(--border-line);
       display:flex; flex-direction:column; }
@@ -332,17 +332,38 @@
     .mini-leave .lh-foot { padding: 8px 14px; border-top: 1px solid var(--border-line);
       font-family: var(--font-mono); font-size:7px; color: var(--equipto-blue); }
 
-    /* Mini pocket card */
-    .mini-pocket { width: 240px; height: 140px; background: var(--deep-charcoal);
-      color: var(--white); padding: 14px 16px; position:relative;
-      box-shadow: 0 4px 22px rgba(0,0,0,0.25); transform: rotate(2deg);
-      display:flex; flex-direction:column; justify-content:space-between; }
-    .mini-pocket .pk-l { font-family: var(--font-mono); font-size:8px;
-      letter-spacing:0.18em; text-transform:uppercase; color: var(--brass-gold); }
-    .mini-pocket .pk-q { font-family: var(--font-display); font-size:13px;
-      line-height:1.15; letter-spacing:-0.01em; color: var(--white); }
-    .mini-pocket .pk-num { font-family: var(--font-mono); font-size:9px;
-      color: rgba(255,255,255,0.5); }
+    /* Interview guide */
+    .iv-intro { margin-bottom: 34px; }
+    .iv-intro > p { font-size: 15px; color: var(--steel-gray); line-height: 1.7; max-width: 80ch; }
+    .iv-intro em { font-style: italic; color: var(--equipto-blue); }
+    .tk { font-family: var(--font-mono); font-size: 0.85em; font-weight: 700; color: var(--brass-gold); }
+    .iv-logistics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border-line); border: 1px solid var(--border-line); margin-top: 22px; }
+    .iv-log-item { background: var(--white); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+    .iv-log-item .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--mid-gray); }
+    .iv-log-item .v { font-size: 12.5px; color: var(--deep-charcoal); line-height: 1.4; }
+    .iv-set { border: 1px solid var(--border-line); margin-bottom: 18px; background: var(--white); }
+    .iv-set-head { display: flex; gap: 18px; align-items: flex-start; padding: 22px 24px;
+      background: var(--ice-gray); border-bottom: 1px solid var(--border-line); }
+    .iv-set-num { flex-shrink: 0; width: 38px; height: 38px; display: grid; place-items: center;
+      background: var(--equipto-blue); color: #fff; font-family: var(--font-display); font-size: 16px; }
+    .iv-set-head h3 { font-size: 20px; color: var(--equipto-blue); margin-bottom: 6px; }
+    .iv-who { font-size: 13px; color: var(--steel-gray); line-height: 1.6; }
+    .iv-who b { color: var(--equipto-blue); }
+    .iv-qs { list-style: none; margin: 0; padding: 8px 24px 20px; counter-reset: ivq; }
+    .iv-q { padding: 16px 0; border-bottom: 1px solid var(--border-line); counter-increment: ivq; }
+    .iv-q:last-child { border-bottom: none; }
+    .iv-q .qt { font-size: 15px; font-weight: 600; color: var(--deep-charcoal); line-height: 1.4;
+      position: relative; padding-left: 36px; }
+    .iv-q .qt::before { content: counter(ivq, decimal-leading-zero); position: absolute; left: 0; top: 1px;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--brass-gold); }
+    .iv-q .learn { font-size: 13px; color: var(--steel-gray); line-height: 1.55; padding-left: 36px; margin-top: 6px; }
+    .iv-q .learn::before { content: "What we're learning — "; font-weight: 700; color: var(--equipto-blue); }
+    .iv-note { font-size: 12.5px; color: var(--steel-gray); padding: 0 24px 18px; line-height: 1.55; }
+    .iv-note b { color: var(--equipto-blue); }
+    .iv-foot { font-size: 12.5px; color: var(--steel-gray); margin-top: 18px; line-height: 1.6; }
+    @media (max-width: 820px) { .iv-logistics { grid-template-columns: 1fr 1fr; } }
 
     /* Mini email mockup — for EmailOctopus outreach templates */
     .mini-email {
@@ -594,7 +615,7 @@
       <li><a href="#leave">Leave-behind</a></li>
       <li><a href="#letterhead">Letterhead</a></li>
       <li><a href="#signature">Signature</a></li>
-      <li><a href="#pocket">Pocket</a></li>
+      <li><a href="#interview">Interview</a></li>
       <li><a href="#email-outreach">Outreach</a></li>
       <li><a href="#meet">Landing</a></li>
       <li><a href="#manifest">Downloads</a></li>
@@ -968,60 +989,85 @@ JCD Foundation</pre>
   </div>
 </section>
 
-<!-- POCKET CARD -->
-<section id="pocket" class="block">
+<!-- INTERVIEW GUIDE -->
+<section id="interview" class="block">
   <div class="container">
     <div class="section-label">
       <p class="section-num">Section 05</p>
-      <h2>Pocket interview card</h2>
-      <p class="section-deck">The questions we always ask</p>
+      <h2>Interview guide</h2>
+      <p class="section-deck">What we think we'll ask — Bob, mark it up</p>
     </div>
 
-    <div class="asset-grid">
-      <div class="asset-card">
-        <div class="asset-preview">
-          <div class="mini-pocket">
-            <div class="pk-l">JCD · Interview prompts</div>
-            <div class="pk-q">"What does a student need on day one of the job that we could put in their hands?"</div>
-            <div class="pk-num">01 · 03</div>
-          </div>
-        </div>
-        <div class="asset-body">
-          <div class="asset-tag">Print · Wallet size</div>
-          <h4>Pocket prompt card</h4>
-          <p>Three questions Bob, Gary, and Jack always ask. Slides into a shirt pocket
-            during interviews. Reverse side carries the JCD URL + one-line mission so the
-            interviewee can keep it.</p>
-          <div class="asset-specs">
-            <span>3.5 × 2 in</span><span>Front + back</span><span>Charcoal stock</span>
-          </div>
-        </div>
-        <div class="asset-actions">
-          <a class="btn btn-primary" href="print/pocket-card.html" target="_blank" rel="noopener">Print sheet ↗</a>
-        </div>
-      </div>
-
-      <div class="asset-card" style="background: var(--deep-charcoal); color: var(--white); border-color: var(--deep-charcoal);">
-        <div class="asset-body" style="padding: 32px;">
-          <div class="asset-tag" style="color: var(--brass-gold);">The three prompts</div>
-          <h4 style="color: var(--white);">01 · 02 · 03</h4>
-          <div style="display:flex; flex-direction:column; gap: 24px; margin-top: 18px;">
-            <div>
-              <div style="font-family: var(--font-mono); font-size:10px; color: var(--brass-gold); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:6px;">01 · Career</div>
-              <div style="font-family: var(--font-display); font-size: 17px; line-height: 1.25; color: var(--white);">"What does a student need on day one of the job that we could put in their hands?"</div>
-            </div>
-            <div>
-              <div style="font-family: var(--font-mono); font-size:10px; color: var(--brass-gold); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:6px;">02 · Pipeline</div>
-              <div style="font-family: var(--font-display); font-size: 17px; line-height: 1.25; color: var(--white);">"Where do the kids you'd hire come from — and what's standing in their way?"</div>
-            </div>
-            <div>
-              <div style="font-family: var(--font-mono); font-size:10px; color: var(--brass-gold); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:6px;">03 · Money</div>
-              <div style="font-family: var(--font-display); font-size: 17px; line-height: 1.25; color: var(--white);">"If we wrote a $500 check tomorrow for one student, what's the most useful thing we'd buy with it?"</div>
-            </div>
-          </div>
-        </div>
+    <div class="iv-intro">
+      <p>This is our first draft of the spring/summer listening tour, pieced together from the May&nbsp;6 &amp; May&nbsp;28 conversations. It's how <em>we</em> think the interviews go — the point is to hand it to you, Bob, and have you fix it: what's wrong, what's missing, and who we should actually be sitting down with. Every question carries a note on <b>what we're trying to learn</b> so our intent is visible. People and places we haven't locked yet are marked <span class="tk">[TK]</span>.</p>
+      <div class="iv-logistics">
+        <div class="iv-log-item"><span class="k">Format</span><span class="v">~30 min, conversational — no script-reading</span></div>
+        <div class="iv-log-item"><span class="k">Capture</span><span class="v">Phone voice memo; the interviewer just talks</span></div>
+        <div class="iv-log-item"><span class="k">Becomes</span><span class="v">Short videos, profile cards, FAQ answers</span></div>
+        <div class="iv-log-item"><span class="k">Tone</span><span class="v">We're here to listen — not grill or sell</span></div>
       </div>
     </div>
+
+    <!-- SET A — STUDENTS -->
+    <div class="iv-set">
+      <div class="iv-set-head">
+        <span class="iv-set-num">A</span>
+        <div>
+          <h3>Students</h3>
+          <p class="iv-who"><b>Who:</b> Seniors at the 12 qualifying schools + homeschoolers heading into advanced manufacturing, health sciences, or the higher-tech trades — caught before they graduate. Later: past recipients reporting back.<br><b>Goal:</b> the real student voice for the site — what they want, what's blocking them, and proof that a small check matters.</p>
+        </div>
+      </div>
+      <ol class="iv-qs">
+        <li class="iv-q"><div class="qt">What do you want to do after high school — and when did that click for you?</div><div class="learn">Their career objective in their own words (the application asks exactly this — no essay), plus an origin story we can film.</div></li>
+        <li class="iv-q"><div class="qt">Walk me through the path — where would you train, how long, and what does it cost just to start?</div><div class="learn">Maps the real route and the first-dollar costs per field, and surfaces where the friction is.</div></li>
+        <li class="iv-q"><div class="qt">What's the one thing money is getting in the way of right now?</div><div class="learn">The concrete $200–$500 need (tools, boots, fees, a deposit, a transcript) — validates the disbursement model.</div></li>
+        <li class="iv-q"><div class="qt">Has anyone ever treated this path like it's the lesser choice?</div><div class="learn">The "trades = not smart" stigma a kid named at BHS — the chip on the shoulder our copy can speak to.</div></li>
+        <li class="iv-q"><div class="qt">How did you hear about help like this — and who do you know that has no idea it exists?</div><div class="learn">How students actually find funding; informs the counselor + recruiting channels.</div></li>
+        <li class="iv-q"><div class="qt">A year from now, what would make you say "this worked"?</div><div class="learn">Sets up the progress-report follow-up content Bob wants recipients to send back.</div></li>
+      </ol>
+      <p class="iv-note"><b>If they're already a recipient:</b> What did the scholarship actually pay for, and what changed because of it? <span style="color:var(--mid-gray);">→ outcome proof for recruiting the next round.</span></p>
+    </div>
+
+    <!-- SET B — EDUCATORS / PROGRAM LEADERS -->
+    <div class="iv-set">
+      <div class="iv-set-head">
+        <span class="iv-set-num">B</span>
+        <div>
+          <h3>Educators &amp; program leaders</h3>
+          <p class="iv-who"><b>Who:</b> Waubonsee (welding / new tech center), Aurora University (nursing), College of DuPage, and high-school CTE instructors &amp; program directors. <span class="tk">[TK — confirm the specific people]</span><br><b>Goal:</b> credible voices explaining the path and the field outlook, what makes a strong candidate, and where our dollars remove friction.</p>
+        </div>
+      </div>
+      <ol class="iv-qs">
+        <li class="iv-q"><div class="qt">For a kid starting in your program, what's the honest picture — timeline, cost, and what they walk into on day one?</div><div class="learn">A plain-language map of each path for the site.</div></li>
+        <li class="iv-q"><div class="qt">What does the job market look like for your graduates — demand, pay, where they land?</div><div class="learn">The "demand that's coming, what the future looks like" stated by a credible voice.</div></li>
+        <li class="iv-q"><div class="qt">What separates the students who finish from the ones who fall off?</div><div class="learn">The strong-candidate profile — what JCD should reinforce and screen for.</div></li>
+        <li class="iv-q"><div class="qt">Where does a small amount of money make the biggest difference for your students?</div><div class="learn">Points the fund at the real gap — fees, tools, certs, a deposit.</div></li>
+        <li class="iv-q"><div class="qt">What do parents and high schools still get wrong about this career?</div><div class="learn">Myths to bust in our copy, including the "not smart" stigma around the trades.</div></li>
+        <li class="iv-q"><div class="qt">Which of your students should we be filming or talking to?</div><div class="learn">A direct pipeline into the student interviews above.</div></li>
+      </ol>
+    </div>
+
+    <!-- SET C — EMPLOYERS / INDUSTRY PARTNERS -->
+    <div class="iv-set">
+      <div class="iv-set-head">
+        <span class="iv-set-num">C</span>
+        <div>
+          <h3>Employers &amp; industry partners</h3>
+          <p class="iv-who"><b>Who:</b> The building-trades lead, electrical/HVAC apprenticeship leads (Tagli Electric — non-union certified school), Nimco (plumbing), Valley Industrial Association + machinists like Jake's Machine (adv. mfg), and Rush Copley + health-system leaders. Union and non-union. <span class="tk">[TK — confirm names + intros]</span><br><b>Goal:</b> demand, barriers, and day-one needs — the heart of the model. Checks go to employers and institutions, never to students.</p>
+        </div>
+      </div>
+      <ol class="iv-qs">
+        <li class="iv-q"><div class="qt">How many people like this do you need each year — and how many can you actually bring on?</div><div class="learn">Quantifies the gap (e.g., the electricians take ~20 apprentices a year; the area needs ~200).</div></li>
+        <li class="iv-q"><div class="qt">Where do your best people come from, and what's stopping you from finding more?</div><div class="learn">The barriers question Bob keeps asking — often it's finding an employer to place an apprentice.</div></li>
+        <li class="iv-q"><div class="qt">On day one, what does someone need to show up with that they often don't have?</div><div class="learn">The exact tools / boots / gear list JCD would buy to remove the barrier.</div></li>
+        <li class="iv-q"><div class="qt">If we wrote a check tomorrow to help one person start with you, what should it buy — and who do we make it out to?</div><div class="learn">Confirms disbursement to the employer/institution and pins down a concrete purchase.</div></li>
+        <li class="iv-q"><div class="qt">What does a career here look like in five years — pay, growth, how far a sharp kid can go?</div><div class="learn">The aspirational future (the 25-year-old crew chief running older crews) — recruiting fuel.</div></li>
+        <li class="iv-q"><div class="qt">What do you wish high schoolers and parents understood about this work?</div><div class="learn">The dignity-of-the-trades + "AI-proof" angle for the site.</div></li>
+        <li class="iv-q"><div class="qt">Who else should we be talking to?</div><div class="learn">Network expansion — other contractors, programs, and the Valley Industrial Association.</div></li>
+      </ol>
+    </div>
+
+    <p class="iv-foot">Targets marked <span class="tk">[TK]</span> need you to confirm the name and make the intro, Bob. And tell us who we're missing — this is meant to be marked up.</p>
   </div>
 </section>
 
@@ -1125,7 +1171,7 @@ JCD Foundation</pre>
           <p>For hiring managers, contractor's networks, Valley Industrial
             Association, and the trade-pipeline contacts.
             <strong>"Day one of the job — what does it take?"</strong>
-            Leads with the three pocket-card prompts so the ask feels concrete,
+            Leads with the three core interview prompts so the ask feels concrete,
             not abstract.</p>
           <div class="asset-specs">
             <span>600px · table-based</span>
@@ -1278,13 +1324,6 @@ JCD Foundation</pre>
             <td><a class="pill" href="print/leave-behind.html" target="_blank">Print ↗</a></td>
           </tr>
           <tr>
-            <td><b>Pocket prompt card</b></td>
-            <td class="f">print/pocket-card.html</td>
-            <td class="s">3.5 × 2 in · 2 pages</td>
-            <td>Interview prompts (in pocket)</td>
-            <td><a class="pill" href="print/pocket-card.html" target="_blank">Print ↗</a></td>
-          </tr>
-          <tr>
             <td><b>Email signature</b></td>
             <td class="f">brand-kit.html#signature</td>
             <td class="s">HTML snippet</td>
@@ -1350,11 +1389,11 @@ JCD Foundation</pre>
         <p class="prod-p">JCD Foundation's mailing address is already a box at this store —
           so it's the natural production partner. Local, walk-in, reliable short-run
           quality for everything in this kit: business cards, letterhead, double-sided
-          leave-behinds, pocket cards. CMYK PDFs run out of the box, with small starter
+          leave-behinds. CMYK PDFs run out of the box, with small starter
           quantities available before we commit to bigger orders.</p>
         <div class="prod-meta">
           <div class="prod-meta-row"><span class="lab">Relationship</span><span class="val">JCD Foundation mailbox · already on file</span></div>
-          <div class="prod-meta-row"><span class="lab">Best for</span><span class="val">Cards · letterhead · leave-behinds · pocket cards</span></div>
+          <div class="prod-meta-row"><span class="lab">Best for</span><span class="val">Cards · letterhead · leave-behinds</span></div>
           <div class="prod-meta-row"><span class="lab">Turnaround</span><span class="val">Typically 2–4 business days on short runs</span></div>
         </div>
       </div>
@@ -1384,8 +1423,7 @@ JCD Foundation</pre>
         <h4 class="prod-banner-h">Hard numbers come once the kit is <em>finalized and approved.</em></h4>
         <p class="prod-banner-p">After Bob signs off on the brand kit, we get firm quotes
           from the UPS Store on unit cost per piece and recommended starter quantities
-          (250 of Bob's cards, 500 generic handoffs, 100 leave-behinds, letterhead pack,
-          pocket cards).</p>
+          (250 of Bob's cards, 500 generic handoffs, 100 leave-behinds, letterhead pack).</p>
       </div>
     </div>
   </div>
@@ -1406,7 +1444,7 @@ JCD Foundation</pre>
         <a href="#cards">Business cards</a>
         <a href="#leave">Leave-behind</a>
         <a href="#letterhead">Letterhead</a>
-        <a href="#pocket">Pocket card</a>
+        <a href="#interview">Interview guide</a>
         <a href="#signature">Email signature</a>
         <a href="#email-outreach">Email outreach</a>
         <a href="#meet">Prospect landing</a>
