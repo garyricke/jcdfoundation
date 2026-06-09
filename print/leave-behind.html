@@ -36,12 +36,12 @@
       padding: 0.4in; /* printer-safe margin all sides */ }
 
     /* ===== PAGE 1 (FRONT) — flex column, content can't overflow ===== */
-    .p1 { display: flex; flex-direction: column; height: 100%; gap: 0.1in; }
+    .p1 { display: flex; flex-direction: column; height: 100%; gap: 0.06in; }
 
     /* HERO BAND */
     .p1 .hero { flex: 0 0 auto; background: var(--equipto-blue); color: var(--white);
-      padding: 0.24in 0.36in 0.26in; position: relative; overflow: hidden;
-      display: flex; flex-direction: column; gap: 0.18in; }
+      padding: 0.18in 0.36in 0.18in; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; gap: 0.1in; }
     .p1 .hero::before { content:''; position: absolute; inset: 0;
       background-image:
         repeating-linear-gradient(0deg, transparent, transparent 23px, rgba(255,255,255,0.04) 23px, rgba(255,255,255,0.04) 24px),
@@ -57,14 +57,14 @@
     .p1 .hs .l { font-family: var(--font-mono); font-size: 6.5pt;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: rgba(255,255,255,0.6); margin-top: 4pt; }
-    .p1 .hero h1 { font-family: var(--font-display); font-size: 46pt;
+    .p1 .hero h1 { font-family: var(--font-display); font-size: 37pt;
       line-height: 0.92; letter-spacing: -0.02em; margin-top: 2pt; }
     .p1 .hero h1 em { font-style: normal; color: var(--brass-gold); }
     .p1 .hero .sub { font-size: 10pt; color: rgba(255,255,255,0.78);
       line-height: 1.6; max-width: 4.8in; }
 
     /* SECTOR PHOTO BAND */
-    .p1 .photos { flex: 0 0 1.3in; display: grid;
+    .p1 .photos { flex: 0 0 1.12in; display: grid;
       grid-template-columns: repeat(3, 1fr); gap: 4pt; }
     .p1-photo { position: relative; overflow: hidden; }
     .p1-photo img { width: 100%; height: 100%; object-fit: cover; display: block;
@@ -92,7 +92,7 @@
       color: var(--equipto-blue); margin-bottom: 8pt; letter-spacing: -0.01em; }
     .p1 .mid h2::after { content: ''; display: block; width: 24pt; height: 2pt;
       background: var(--brass-gold); margin-top: 6pt; }
-    .p1 .mid p { font-size: 10pt; line-height: 1.6; color: var(--deep-charcoal); margin-bottom: 7pt; }
+    .p1 .mid p { font-size: 10pt; line-height: 1.45; color: var(--deep-charcoal); margin-bottom: 6pt; }
     .p1 .mid p:last-child { margin-bottom: 0; }
     .p1 .mid p b { color: var(--equipto-blue); }
 
@@ -129,17 +129,17 @@
     .p2 .head .right { font-family: var(--font-mono); font-size: 7.5pt;
       letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 
-    .p2 .body { flex: 1 1 auto; padding: 0.1in 0.05in 0; display: grid;
-      grid-template-columns: 1fr 1fr; gap: 0.4in; align-content: start; }
+    .p2 .body { flex: 1 1 auto; min-height: 0; padding: 0.1in 0.05in 0; display: grid;
+      grid-template-columns: 1fr 1fr; column-gap: 0.4in; row-gap: 0.16in; align-content: start; }
     .p2 .body h2 { font-family: var(--font-display); font-size: 22pt;
       line-height: 0.95; letter-spacing: -0.02em;
       color: var(--equipto-blue); grid-column: 1 / -1; margin-bottom: 6pt; }
     .p2 .body h2 em { font-style: normal; color: var(--brass-gold); }
     .p2 .body .lede { grid-column: 1 / -1; font-size: 11pt;
-      line-height: 1.7; color: var(--steel-gray); margin-bottom: 14pt; max-width: 6in; }
+      line-height: 1.55; color: var(--steel-gray); margin-bottom: 6pt; max-width: 6in; }
 
     .step { display:flex; gap: 14pt; align-items: flex-start;
-      padding-top: 14pt; border-top: 1pt solid var(--border-line); }
+      padding-top: 10pt; border-top: 1pt solid var(--border-line); }
     .step .num { font-family: var(--font-display); font-size: 32pt;
       color: var(--brass-gold); line-height: 0.85; flex-shrink: 0; }
     .step .text h3 { font-family: var(--font-primary); font-size: 11pt;
@@ -148,8 +148,8 @@
 
     /* Sectors strip — image tiles */
     .sectors-strip { grid-column: 1 / -1; display:grid; grid-template-columns: repeat(3, 1fr);
-      gap: 4pt; margin-top: 22pt; }
-    .sec { position: relative; overflow: hidden; height: 1.55in; }
+      gap: 4pt; margin-top: 10pt; }
+    .sec { position: relative; overflow: hidden; height: 1.35in; }
     .sec img { width: 100%; height: 100%; object-fit: cover; display: block;
       filter: contrast(1.05) saturate(0.92); }
     .sec .sec-band { position: absolute; left: 0; right: 0; bottom: 0;
@@ -206,7 +206,7 @@
   </div>
   <div class="actions">
     <a class="btn ghost" href="../brand-kit.html">← Back to kit</a>
-    <button class="btn" onclick="window.print()">Print / Save PDF</button>
+    <a class="btn" href="pdf/jcd-leave-behind.pdf" download>Download print PDF ↓</a>
   </div>
 </div>
 
