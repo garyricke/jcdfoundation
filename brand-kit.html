@@ -503,27 +503,22 @@
       .prod-banner-step { position: static; }
     }
 
-    /* Email signature copy block */
-    .sig-block { display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items:flex-start; }
-    .sig-preview { background: var(--white); border: 1px solid var(--border-line); padding: 32px; }
-    .sig-html { font-family: 'Helvetica Neue', Arial, sans-serif; color: #2D3748;
-      font-size: 13px; line-height: 1.5; }
-    .sig-html .nm { font-weight:700; color: #0E2A58; font-size:15px; }
-    .sig-html .ti { color: #4A5568; font-size:12px; }
-    .sig-html .rule { width: 32px; height: 2px; background: #C5963A; margin: 10px 0; }
-    .sig-html .meta { font-size:11px; color: #4A5568; }
-    .sig-html .meta a { color: #0E2A58; }
-    .sig-code { background: var(--deep-charcoal); color: rgba(255,255,255,0.85);
-      padding: 24px; font-family: var(--font-mono); font-size: 11px; line-height:1.55;
-      overflow-x: auto; max-height: 420px; overflow-y: auto; white-space: pre; }
-    .sig-code .tag { color: #6FB3D2; }
-    .sig-code .attr { color: #C5963A; }
-    .sig-code .str { color: #B8E0A4; }
-    .copy-btn { margin-top: 12px; }
-    .copy-status { font-size:11px; font-family: var(--font-mono); color: var(--pulse-teal);
-      letter-spacing:0.08em; text-transform:uppercase; opacity: 0; transition: opacity 0.3s; }
-    .copy-status.show { opacity: 1; }
-    @media (max-width: 900px) { .sig-block, .lockup-row, .asset-grid, .specs { grid-template-columns:1fr; } }
+    /* Email signature — per-person copy cards */
+    .sig-howto { font-size: 13px; color: var(--steel-gray); line-height: 1.7; margin-bottom: 26px; }
+    .sig-howto b { color: var(--equipto-blue); }
+    .sig-howto .app { font-weight: 700; color: var(--equipto-blue); }
+    .sig-list { display: flex; flex-direction: column; gap: 18px; }
+    .sig-row { border: 1px solid var(--border-line); background: var(--white); }
+    .sig-row-head { display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--border-line);
+      background: var(--ice-gray); flex-wrap: wrap; }
+    .sig-row-name { font-size: 15px; font-weight: 700; color: var(--equipto-blue); }
+    .sig-row-name span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--mid-gray); margin-left: 10px; font-weight: 500; }
+    .sig-copy.copied { background: var(--pulse-teal); border-color: var(--pulse-teal); color: #fff; }
+    .sig-preview { padding: 26px 24px; background: var(--white); }
+    .sig-foot { font-size: 12px; color: var(--steel-gray); margin-top: 18px; line-height: 1.6; }
+    @media (max-width: 900px) { .lockup-row, .asset-grid, .specs { grid-template-columns:1fr; } }
 
     /* Cheatsheet — colors + type */
     .cheat { display:grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-bottom: 64px; }
@@ -990,55 +985,43 @@ JCD Foundation</pre>
     <div class="section-label">
       <p class="section-num">Section 05</p>
       <h2>Email signature</h2>
-      <p class="section-deck">Drop into Gmail, Outlook, Apple Mail</p>
+      <p class="section-deck">One per person — copy &amp; paste into Gmail, Outlook, or Apple Mail</p>
     </div>
 
-    <div class="sig-block">
-      <div class="sig-preview">
-        <div class="sig-html" id="sig-rendered">
-          <div class="nm">Bob Vaughan</div>
-          <div class="ti">JCD Foundation</div>
-          <div class="rule"></div>
-          <div class="meta">
-            630.454.4222 · <a href="mailto:info@thejcdfoundation.org">info@thejcdfoundation.org</a><br/>
-            <a href="https://thejcdfoundation.org">thejcdfoundation.org</a>
-          </div>
+    <p class="sig-howto">Click <b>Copy signature</b> on your card, then open your mail app's signature settings and paste — it arrives already formatted, with the logo (no code to handle).
+      &nbsp; <span class="app">Gmail:</span> ⚙ See all settings → Signature → Create new → paste → Save.
+      &nbsp; <span class="app">Apple Mail:</span> Settings → Signatures → + → uncheck "Always match my default message font" → paste.
+      &nbsp; <span class="app">Outlook:</span> Settings → Mail → Compose and reply (or File → Options → Mail → Signatures) → paste.</p>
+
+    <div class="sig-list">
+
+      <div class="sig-row">
+        <div class="sig-row-head">
+          <div class="sig-row-name">Bob Vaughan <span>JCD Foundation</span></div>
+          <button class="btn btn-primary sig-copy" data-sig="sig-bob" onclick="copySig(this)"><span class="label">Copy signature</span></button>
         </div>
+        <div class="sig-preview"><div id="sig-bob" class="sig-source"><table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif; color:#111827; border-collapse:collapse;"><tr><td style="vertical-align:middle; padding:0 18px 0 0; border-right:3px solid #C5963A;"><img src="https://raw.githubusercontent.com/garyricke/jcdfoundation/main/assets/logo-final/jcd-logo-primary.png" alt="JCD Foundation" width="140" style="display:block; width:140px; height:auto; border:0; outline:none;" /></td><td style="vertical-align:middle; padding:0 0 0 18px;"><div style="font-size:16px; font-weight:bold; color:#0E2A58; line-height:1.2;">Bob Vaughan</div><div style="font-size:11px; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase; color:#4A5568; padding-top:3px;">JCD Foundation</div><div style="font-size:12px; font-weight:bold; color:#C5963A; padding-top:7px;">Supporting Career Paths</div><div style="font-size:12px; color:#4A5568; line-height:1.8; padding-top:8px;"><a href="tel:+16304544222" style="color:#4A5568; text-decoration:none;">630.454.4222</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:info@thejcdfoundation.org" style="color:#4A5568; text-decoration:none;">info@thejcdfoundation.org</a><br><a href="https://thejcdfoundation.org" style="color:#0E2A58; text-decoration:none; font-weight:bold;">thejcdfoundation.org</a></div></td></tr></table></div></div>
       </div>
-      <div>
-        <div class="sig-code" id="sig-source"><span class="tag">&lt;table</span> <span class="attr">cellpadding=</span><span class="str">"0"</span> <span class="attr">cellspacing=</span><span class="str">"0"</span> <span class="attr">style=</span><span class="str">"font-family:Helvetica,Arial,sans-serif;color:#2D3748;font-size:13px;line-height:1.5"</span><span class="tag">&gt;</span>
-  <span class="tag">&lt;tr&gt;&lt;td&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"font-weight:700;color:#0E2A58;font-size:15px"</span><span class="tag">&gt;</span>Bob Vaughan<span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"color:#4A5568;font-size:12px"</span><span class="tag">&gt;</span>JCD Foundation<span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"width:32px;height:2px;background:#C5963A;margin:10px 0"</span><span class="tag">&gt;&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attr">style=</span><span class="str">"font-size:11px;color:#4A5568"</span><span class="tag">&gt;</span>
-      630.454.4222 ·
-      <span class="tag">&lt;a</span> <span class="attr">href=</span><span class="str">"mailto:info@thejcdfoundation.org"</span> <span class="attr">style=</span><span class="str">"color:#0E2A58"</span><span class="tag">&gt;</span>info@thejcdfoundation.org<span class="tag">&lt;/a&gt;&lt;br&gt;</span>
-      <span class="tag">&lt;a</span> <span class="attr">href=</span><span class="str">"https://thejcdfoundation.org"</span> <span class="attr">style=</span><span class="str">"color:#0E2A58"</span><span class="tag">&gt;</span>thejcdfoundation.org<span class="tag">&lt;/a&gt;</span>
-    <span class="tag">&lt;/div&gt;</span>
-  <span class="tag">&lt;/td&gt;&lt;/tr&gt;</span>
-<span class="tag">&lt;/table&gt;</span></div>
-        <button class="btn btn-primary copy-btn" data-copy="sig-source-plain">Copy HTML</button>
-        <span class="copy-status" id="copy-status">Copied to clipboard</span>
-        <p style="font-size:12px; color: var(--steel-gray); margin-top: 16px; line-height:1.6;">
-          Inline-styled HTML — survives Outlook, Gmail, Apple Mail without breaking.
-          Logo is intentionally text-only (no remote image) so it never gets stripped.
-        </p>
+
+      <div class="sig-row">
+        <div class="sig-row-head">
+          <div class="sig-row-name">Jack Whetsel <span>JCD Foundation</span></div>
+          <button class="btn btn-primary sig-copy" data-sig="sig-jack" onclick="copySig(this)"><span class="label">Copy signature</span></button>
+        </div>
+        <div class="sig-preview"><div id="sig-jack" class="sig-source"><table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif; color:#111827; border-collapse:collapse;"><tr><td style="vertical-align:middle; padding:0 18px 0 0; border-right:3px solid #C5963A;"><img src="https://raw.githubusercontent.com/garyricke/jcdfoundation/main/assets/logo-final/jcd-logo-primary.png" alt="JCD Foundation" width="140" style="display:block; width:140px; height:auto; border:0; outline:none;" /></td><td style="vertical-align:middle; padding:0 0 0 18px;"><div style="font-size:16px; font-weight:bold; color:#0E2A58; line-height:1.2;">Jack Whetsel</div><div style="font-size:11px; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase; color:#4A5568; padding-top:3px;">JCD Foundation</div><div style="font-size:12px; font-weight:bold; color:#C5963A; padding-top:7px;">Supporting Career Paths</div><div style="font-size:12px; color:#4A5568; line-height:1.8; padding-top:8px;"><a href="tel:+16304544222" style="color:#4A5568; text-decoration:none;">630.454.4222</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:info@thejcdfoundation.org" style="color:#4A5568; text-decoration:none;">info@thejcdfoundation.org</a><br><a href="https://thejcdfoundation.org" style="color:#0E2A58; text-decoration:none; font-weight:bold;">thejcdfoundation.org</a></div></td></tr></table></div></div>
       </div>
+
+      <div class="sig-row">
+        <div class="sig-row-head">
+          <div class="sig-row-name">Jen Leek <span>JCD Foundation</span></div>
+          <button class="btn btn-primary sig-copy" data-sig="sig-jen" onclick="copySig(this)"><span class="label">Copy signature</span></button>
+        </div>
+        <div class="sig-preview"><div id="sig-jen" class="sig-source"><table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif; color:#111827; border-collapse:collapse;"><tr><td style="vertical-align:middle; padding:0 18px 0 0; border-right:3px solid #C5963A;"><img src="https://raw.githubusercontent.com/garyricke/jcdfoundation/main/assets/logo-final/jcd-logo-primary.png" alt="JCD Foundation" width="140" style="display:block; width:140px; height:auto; border:0; outline:none;" /></td><td style="vertical-align:middle; padding:0 0 0 18px;"><div style="font-size:16px; font-weight:bold; color:#0E2A58; line-height:1.2;">Jen Leek</div><div style="font-size:11px; font-weight:bold; letter-spacing:1.5px; text-transform:uppercase; color:#4A5568; padding-top:3px;">JCD Foundation</div><div style="font-size:12px; font-weight:bold; color:#C5963A; padding-top:7px;">Supporting Career Paths</div><div style="font-size:12px; color:#4A5568; line-height:1.8; padding-top:8px;"><a href="tel:+16304544222" style="color:#4A5568; text-decoration:none;">630.454.4222</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:info@thejcdfoundation.org" style="color:#4A5568; text-decoration:none;">info@thejcdfoundation.org</a><br><a href="https://thejcdfoundation.org" style="color:#0E2A58; text-decoration:none; font-weight:bold;">thejcdfoundation.org</a></div></td></tr></table></div></div>
+      </div>
+
     </div>
 
-    <pre id="sig-source-plain" hidden>&lt;table cellpadding="0" cellspacing="0" style="font-family:Helvetica,Arial,sans-serif;color:#2D3748;font-size:13px;line-height:1.5"&gt;
-  &lt;tr&gt;&lt;td&gt;
-    &lt;div style="font-weight:700;color:#0E2A58;font-size:15px"&gt;Bob Vaughan&lt;/div&gt;
-    &lt;div style="color:#4A5568;font-size:12px"&gt;JCD Foundation&lt;/div&gt;
-    &lt;div style="width:32px;height:2px;background:#C5963A;margin:10px 0"&gt;&lt;/div&gt;
-    &lt;div style="font-size:11px;color:#4A5568"&gt;
-      630.454.4222 ·
-      &lt;a href="mailto:info@thejcdfoundation.org" style="color:#0E2A58"&gt;info@thejcdfoundation.org&lt;/a&gt;&lt;br&gt;
-      &lt;a href="https://thejcdfoundation.org" style="color:#0E2A58"&gt;thejcdfoundation.org&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;</pre>
+    <p class="sig-foot">The logo loads from the public repo, so it shows for everyone who receives your email. Only the name changes between the three — phone, email, and website are shared.</p>
   </div>
 </section>
 
@@ -1708,6 +1691,35 @@ JCD Foundation</pre>
 </footer>
 
 <script>
+  // Email signatures — copy the rendered signature as rich HTML so it pastes
+  // pre-formatted (with logo) into the mail client, not as raw code.
+  async function copySig(btn) {
+    var src = document.getElementById(btn.getAttribute('data-sig'));
+    if (!src) return;
+    var html = src.innerHTML.trim();
+    var done = function () {
+      var lbl = btn.querySelector('.label'); var prev = lbl.textContent;
+      btn.classList.add('copied'); lbl.textContent = 'Copied ✓';
+      setTimeout(function () { btn.classList.remove('copied'); lbl.textContent = prev; }, 1900);
+    };
+    try {
+      if (navigator.clipboard && window.ClipboardItem) {
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([src.innerText.replace(/\n{2,}/g, '\n').trim()], { type: 'text/plain' })
+        })]);
+        done(); return;
+      }
+      throw new Error('no clipboard api');
+    } catch (e) {
+      try {
+        var range = document.createRange(); range.selectNodeContents(src);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        document.execCommand('copy'); sel.removeAllRanges(); done();
+      } catch (e2) { alert('Copy failed — select the preview and copy with ⌘C / Ctrl+C.'); }
+    }
+  }
+
   // Copy buttons
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
