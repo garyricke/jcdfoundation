@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
+  <title>JCD Foundation — Interview Questions</title>
+  <meta name="description" content="A recorded-interview script for Bob and other sources — plain-spoken questions that fill the open items in the content outline. Record, transcribe, drop the answers back into the plan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/annotations.css" />
+  <style>
+    :root {
+      --equipto-blue:   #0E2A58;
+      --steel-blue:     #3B5F8A;
+      --sky-blue:       #7AA3CC;
+      --ice-blue:       #E8EEF6;
+      --white:          #FFFFFF;
+      --deep-charcoal:  #111827;
+      --steel-gray:     #4A5568;
+      --mid-gray:       #9AA3AF;
+      --ice-gray:       #F0F3F7;
+      --paper-gray:     #F7F9FC;
+      --border-line:    #D1D8E0;
+      --brass-gold:     #C5963A;
+      --pulse-teal:     #0A9B8C;
+      --safety-orange:  #E8600A;
+      --body-text:      #2D3748;
+      --font-primary:   'Montserrat', sans-serif;
+      --font-display:   'Archivo Black', sans-serif;
+      --font-hand:      'Caveat', cursive;
+      --font-mono:      'Roboto Mono', monospace;
+      --nav-h:          72px;
+      --container-max:  1280px;
+    }
+
+    /* interviewee accent colors */
+    .iv-bob        { --clr: var(--equipto-blue);  --clr-fg:#fff; }
+    .iv-dunham     { --clr: var(--steel-gray);    --clr-fg:#fff; }
+    .iv-partners   { --clr: var(--pulse-teal);    --clr-fg:#fff; }
+    .iv-students   { --clr: var(--safety-orange); --clr-fg:#fff; }
+    .iv-counselors { --clr: var(--steel-blue);    --clr-fg:#fff; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary);
+      font-size: 16px; line-height: 1.7;
+      color: var(--body-text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; }
+
+    /* ---------- NAV ---------- */
+    #nav {
+      position: sticky; top: 0; z-index: 1000;
+      height: var(--nav-h); background: var(--equipto-blue);
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center;
+    }
+    #nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+    .nav-logo-text {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white); line-height: 1.3;
+    }
+    .nav-logo-text span {
+      display: block; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em; color: rgba(255,255,255,0.55);
+    }
+    .nav-right {
+      font-family: var(--font-mono); font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .nav-right .draft-dot {
+      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--brass-gold); margin-right: 8px; vertical-align: middle;
+    }
+
+    /* ---------- HERO ---------- */
+    #hero { background: var(--equipto-blue); color: var(--white); padding: 88px 0 100px; }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.4); }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7.5vw, 104px);
+      line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 32px;
+    }
+    .hero h1 .alt {
+      color: var(--brass-gold); font-family: var(--font-hand);
+      font-style: italic; font-weight: 700; letter-spacing: 0;
+    }
+    .hero-sub {
+      font-size: 19px; line-height: 1.55;
+      max-width: 760px; color: rgba(255,255,255,0.85); margin-bottom: 44px;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px;
+    }
+    .hero-stat { padding-right: 20px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); margin-bottom: 10px;
+    }
+    .hero-stat-value { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); color: var(--white); line-height: 1; }
+    .hero-stat-note { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+    /* ---------- SECTION SHELL ---------- */
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--steel-blue); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--equipto-blue); }
+    .section-h {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.6vw, 48px); line-height: 1;
+      color: var(--equipto-blue); margin-bottom: 22px; letter-spacing: -0.01em;
+    }
+    .section-lead { font-size: 17px; line-height: 1.6; color: var(--steel-gray); max-width: 760px; margin-bottom: 48px; }
+
+    /* ---------- HOW TO USE PRIMER ---------- */
+    .primer { padding: 80px 0; background: var(--paper-gray); }
+    .primer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .primer-card { background: var(--white); border: 1px solid var(--border-line); border-top: 3px solid var(--equipto-blue); padding: 26px 24px; }
+    .primer-card .num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--steel-blue); }
+    .primer-card h3 { font-size: 16px; font-weight: 800; color: var(--equipto-blue); margin: 10px 0 10px; line-height: 1.25; }
+    .primer-card p { font-size: 13.5px; line-height: 1.6; color: var(--body-text); }
+
+    /* ---------- LEGEND ---------- */
+    .legendwrap { padding: 56px 0 0; background: var(--white); }
+    .legend { display: flex; flex-wrap: wrap; gap: 22px; padding: 18px 22px; background: var(--ice-gray); border: 1px solid var(--border-line); }
+    .legend-item { display: flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--steel-gray); }
+    .chip-status { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
+    .chip-status.have { background: rgba(10,155,140,0.12); color: var(--pulse-teal); }
+    .chip-status.prog { background: rgba(197,150,58,0.15); color: #9a6f1e; }
+    .chip-status.need { background: rgba(232,96,10,0.12); color: var(--safety-orange); }
+
+    /* ---------- INTERVIEW BLOCKS ---------- */
+    .interviews { padding: 30px 0 100px; background: var(--white); }
+
+    .iv-section { counter-reset: q; margin-top: 64px; scroll-margin-top: 88px; }
+    .iv-section:first-of-type { margin-top: 24px; }
+    .iv-head {
+      border-left: 5px solid var(--clr, var(--equipto-blue));
+      padding: 4px 0 4px 22px; margin-bottom: 8px;
+    }
+    .iv-kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--clr, var(--steel-blue)); }
+    .iv-name { font-family: var(--font-display); font-size: clamp(24px, 3vw, 34px); color: var(--equipto-blue); line-height: 1.05; margin: 8px 0 8px; }
+    .iv-role { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel-gray); margin-bottom: 12px; }
+    .iv-note { font-size: 14.5px; line-height: 1.6; color: var(--body-text); max-width: 880px; }
+    .iv-note strong { color: var(--equipto-blue); font-weight: 700; }
+
+    /* theme group */
+    .theme {
+      border: 1px solid var(--border-line);
+      border-left: 4px solid var(--clr, var(--equipto-blue));
+      background: var(--white); margin-top: 22px; scroll-margin-top: 88px;
+    }
+    .theme-head { display: flex; align-items: center; gap: 14px; padding: 18px 26px; flex-wrap: wrap; border-bottom: 1px solid var(--border-line); background: var(--paper-gray); }
+    .theme-title { font-size: 17px; font-weight: 800; color: var(--equipto-blue); line-height: 1.15; }
+    .theme-feeds { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+    .route-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em; color: var(--clr, var(--steel-blue)); border: 1px solid var(--border-line); padding: 3px 8px; background: var(--white); }
+
+    .q-list { list-style: none; padding: 6px 26px 14px; }
+    .q-item { counter-increment: q; display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--border-line); }
+    .q-item:last-child { border-bottom: none; }
+    .q-num { flex-shrink: 0; width: 42px; }
+    .q-num::before {
+      content: "Q" counter(q);
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      color: var(--clr, var(--steel-blue)); letter-spacing: 0.04em;
+    }
+    .q-body { flex: 1; min-width: 0; }
+    .q-text { font-size: 17px; line-height: 1.4; font-weight: 600; color: var(--equipto-blue); }
+    .q-why { font-size: 13.5px; line-height: 1.55; color: var(--steel-gray); margin-top: 7px; font-style: italic; }
+    .q-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 11px; }
+    .q-foot .src-asset { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid-gray); }
+
+    /* info popup — "what we're listening for" */
+    .q-info {
+      display: inline-grid; place-items: center;
+      width: 22px; height: 22px; margin-left: 9px;
+      vertical-align: middle; flex-shrink: 0;
+      border: 2px solid var(--brass-gold);
+      color: var(--brass-gold);
+      background: transparent; border-radius: 50%;
+      cursor: pointer; padding: 0;
+      transition: background 150ms ease, color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+    }
+    .q-info svg { width: 13px; height: 13px; stroke-width: 2.8; }
+    .q-info:hover, .q-info[aria-expanded="true"] {
+      background: var(--brass-gold); color: #fff; transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(197,150,58,0.4);
+    }
+    .q-note {
+      margin-top: 14px;
+      border: 1px solid var(--border-line);
+      border-left: 3px solid var(--clr, var(--steel-blue));
+      background: var(--paper-gray);
+      padding: 16px 20px; border-radius: 0 6px 6px 0;
+    }
+    .q-note-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clr, var(--steel-blue)); margin-bottom: 11px; }
+    .q-note p { font-size: 13.5px; line-height: 1.65; color: var(--body-text); margin-bottom: 11px; }
+    .q-note p:last-child { margin-bottom: 0; }
+    .q-note ul { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 11px; }
+    .q-note li { font-size: 13.5px; line-height: 1.5; color: var(--body-text); padding-left: 16px; position: relative; }
+    .q-note li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 1px; background: var(--clr, var(--mid-gray)); }
+    .q-note strong { color: var(--equipto-blue); font-weight: 700; }
+
+    /* drafted-FAQ list inside a popup */
+    .faq-draft { display: flex; flex-direction: column; gap: 13px; counter-reset: fq; margin-top: 4px; }
+    .fd { padding-bottom: 13px; border-bottom: 1px dashed var(--border-line); }
+    .fd:last-child { padding-bottom: 0; border-bottom: none; }
+    .fd-q { counter-increment: fq; font-size: 13.5px; font-weight: 700; color: var(--equipto-blue); margin-bottom: 5px; line-height: 1.4; }
+    .fd-q::before { content: counter(fq) ". "; color: var(--brass-gold); font-family: var(--font-mono); }
+    .fd-a { font-size: 12.5px; line-height: 1.55; color: var(--steel-gray); }
+    .fd-flag { display: inline-block; font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--safety-orange); background: rgba(232,96,10,0.12); padding: 2px 7px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+
+    /* ---------- CLOSING NOTE ---------- */
+    .closing { padding: 80px 0; background: var(--equipto-blue); color: #fff; }
+    .closing .section-eyebrow { color: var(--sky-blue); }
+    .closing .section-eyebrow::before { background: var(--sky-blue); }
+    .closing .section-h { color: #fff; }
+    .closing p { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.82); max-width: 760px; }
+    .closing a.inline { color: var(--brass-gold); border-bottom: 1px solid rgba(197,150,58,0.45); }
+    .closing a.inline:hover { border-bottom-color: var(--brass-gold); }
+
+    /* ---------- FOOTER ---------- */
+    footer { background: var(--deep-charcoal); color: rgba(255,255,255,0.55); padding: 48px 0; border-top: 4px solid var(--equipto-blue); font-size: 13px; position: relative; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .hero-stat { border-right: none; padding-right: 0; }
+      .primer-grid { grid-template-columns: 1fr 1fr; }
+      .theme-feeds { margin-left: 0; width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 24px; }
+      #hero { padding: 56px 0 64px; }
+      .primer, .closing { padding: 56px 0; }
+      .primer-grid { grid-template-columns: 1fr; }
+      .q-item { gap: 12px; }
+      .q-num { width: 34px; }
+      .q-text { font-size: 16px; }
+    }
+
+    /* ---------- PRINT (clean read-aloud sheet) ---------- */
+    @media print {
+      #nav, .admin-fab-wrap, .closing, .q-info { display: none !important; }
+      .q-note { display: block !important; }
+      body { font-size: 12px; }
+      .theme, .iv-head { break-inside: avoid; }
+      .q-item { break-inside: avoid; }
+      #hero { background: #fff; color: #000; padding: 0 0 16px; }
+      .hero-eyebrow, .hero-stats, .hero-sub { color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="JCD Foundation home">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation Logo" />
+        <div class="nav-logo-text">
+          JCD Foundation
+          <span>Interview Questions</span>
+        </div>
+      </a>
+      <div class="nav-right"><span class="draft-dot"></span>Interview script · for recording</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Record &rarr; transcribe &rarr; fill the outline</div>
+      <h1>Questions worth <span class="alt">recording.</span></h1>
+      <p class="hero-sub">
+        A run-through-able interview script for Bob and the other sources behind the site.
+        Every question maps to an open item in the <a href="content-outline.html" style="color:var(--brass-gold);border-bottom:1px solid rgba(197,150,58,0.45);">content outline</a> &mdash;
+        record the audio, transcribe it, and the answers drop straight into the pages that need them.
+      </p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-label">Interview blocks</div>
+          <div class="hero-stat-value">5</div>
+          <div class="hero-stat-note">Bob · Dunham/Legal · Partners · Students · Counselors</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Questions</div>
+          <div class="hero-stat-value">50</div>
+          <div class="hero-stat-note">Grouped by theme &amp; page</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Feeds</div>
+          <div class="hero-stat-value">14 pages</div>
+          <div class="hero-stat-note">Every open sourcing item</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Format</div>
+          <div class="hero-stat-value">Audio</div>
+          <div class="hero-stat-note">Let them talk; follow the probes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="primer">
+    <div class="container">
+      <div class="section-eyebrow">How to run it</div>
+      <h2 class="section-h">Four notes before you hit record.</h2>
+      <div class="primer-grid">
+        <div class="primer-card">
+          <div class="num">01</div>
+          <h3>Conversation, not a form</h3>
+          <p>Read the bold question aloud and let the answer breathe. The italic line under each is an optional probe &mdash; only use it if they stall or you want more.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">02</div>
+          <h3>Record clean audio</h3>
+          <p>Phone voice memo or a quiet room is enough. Transcription needs clear speech, so one voice at a time &mdash; restate the question if they talk over it.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">03</div>
+          <h3>Follow the tags</h3>
+          <p>Each question shows which page it feeds and its status chip. <span class="chip-status need">Need</span> items are the gaps that block the build &mdash; prioritize those.</p>
+        </div>
+        <div class="primer-card">
+          <div class="num">04</div>
+          <h3>Skip what doesn't fit</h3>
+          <p>Not every block applies to every sitting. Do Bob first; the partner, student, and counselor blocks are separate, repeatable interviews.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGEND -->
+  <section class="legendwrap">
+    <div class="container">
+      <div class="legend">
+        <span class="legend-item"><span class="chip-status have">Have</span> answer already on hand</span>
+        <span class="legend-item"><span class="chip-status prog">In progress</span> partly sourced &mdash; confirm / finish</span>
+        <span class="legend-item"><span class="chip-status need">Need</span> not yet sourced &mdash; this interview gets it</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERVIEW BLOCKS -->
+  <section class="interviews">
+    <div class="container">
+      <div class="section-eyebrow">The script</div>
+      <h2 class="section-h">Block by block.</h2>
+      <p class="section-lead">
+        Five interviewees, grouped by the themes each one owns. Questions are numbered within
+        each block so you can jot &ldquo;Bob Q14&rdquo; in your notes and find it again.
+      </p>
+
+      <!-- ===== BLOCK 1 · BOB ===== -->
+      <div class="iv-section iv-bob" id="bob">
+        <header class="iv-head">
+          <div class="iv-kicker">Interview 01</div>
+          <h3 class="iv-name">Bob Vaughan</h3>
+          <div class="iv-role">JCD lead &amp; founder's voice · record audio · plan 45&ndash;60 min</div>
+          <p class="iv-note">
+            The big one. Bob holds the narrative no document can give us &mdash; the
+            <strong>why</strong> behind JCD, the Dunham story, and the decisions that set
+            eligibility and the funding model. Let him tell it long; we'll cut later.
+          </p>
+        </header>
+
+        <!-- Theme: legacy -->
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">John C. Dunham &amp; the legacy</span>
+            <div class="theme-feeds"><span class="route-tag">/about</span><span class="route-tag">/impact</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Who was John C. Dunham &mdash; in your words, the person and not just the r&eacute;sum&eacute;?</div>
+              <div class="q-why">Probe: a single story or moment that captures what he was like.</div>
+              <div class="q-foot"><span class="src-asset">Dunham bio</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Tell me the Equipto story &mdash; what the company made, how he built it, and what &ldquo;just-in-time&rdquo; meant to him.</div>
+              <div class="q-why">Probe: how did running a manufacturer shape how he saw working people?</div>
+              <div class="q-foot"><span class="src-asset">Equipto history</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">How did the Dunham Foundation come to be, and what was John's intent for his estate?</div>
+              <div class="q-foot"><span class="src-asset">Founder's intent</span><span class="chip-status have">Have (verify)</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">How would you explain the link between the Dunham Foundation and JCD &mdash; the &ldquo;Applied Legacy&rdquo; &mdash; to someone who's never heard of either?</div>
+              <div class="q-why">We use this exact framing site-wide, so the plainer the better.</div>
+              <div class="q-foot"><span class="src-asset">Entity relationship</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Why trades education specifically? What connects a steel-shelving manufacturer's estate to funding careers in the trades?</div>
+              <div class="q-foot"><span class="src-asset">The &ldquo;why&rdquo;</span><span class="chip-status have">Have (verify)</span></div>
+            </div></li>
+          </ul>
+        </article>
+
+        <!-- Theme: mission -->
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">Mission &amp; what we believe</span>
+            <div class="theme-feeds"><span class="route-tag">/</span><span class="route-tag">/about</span><span class="route-tag">/students</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">In one sentence: what does the JCD Foundation exist to do?</div>
+              <div class="q-why">This becomes the approved one-line mission on the homepage. Push for one clean sentence.</div>
+              <div class="q-foot"><span class="src-asset">Mission statement</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What do you believe about the trades that most people get wrong?</div>
+              <div class="q-foot"><span class="src-asset">Voice / POV</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Picture the student you most want to reach. Who are they?</div>
+              <div class="q-why">Helps us write /students and the homepage to a real person, not &ldquo;everyone.&rdquo;</div>
+              <div class="q-foot"><span class="src-asset">Audience definition</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What does success look like for JCD five years out?</div>
+              <div class="q-foot"><span class="src-asset">Vision</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+
+        <!-- Theme: what we fund -->
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">What we fund &amp; the funding model</span>
+            <div class="theme-feeds"><span class="route-tag">/what-we-fund</span><span class="route-tag">/donors</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Walk me through the three sectors &mdash; Advanced Manufacturing, Health Sciences, Building Trades &mdash; and what each one actually covers.<button type="button" class="q-info" aria-expanded="false" aria-controls="note-sectors" aria-label="What we're listening for"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.2" r="1.2" fill="currentColor" stroke="none"/></svg></button></div>
+              <div class="q-note" id="note-sectors" hidden>
+                <div class="q-note-h">What we're listening for</div>
+                <p>These three sectors are the backbone of the site &mdash; the homepage cards, the entire <strong>/what-we-fund</strong> page, and the searches we want to win (&ldquo;welding scholarship near Aurora,&rdquo; &ldquo;help paying for nursing school&rdquo;). &ldquo;We fund manufacturing, health, and trades&rdquo; isn't enough &mdash; we need what's <em>inside</em> each bucket. Press Bob for:</p>
+                <ul>
+                  <li><strong>Real job titles</strong> in each sector &mdash; the roles a funded student actually lands in (CNC machinist, welder; CNA, LPN, surgical tech; electrician, HVAC, carpenter).</li>
+                  <li><strong>Which programs &amp; credentials qualify</strong> &mdash; certificate, apprenticeship, associate's? Is anything four-year ever in scope, or is it strictly sub-bachelor's?</li>
+                  <li><strong>The edges</strong> &mdash; what's clearly in vs. out, and the gray areas people ask about (CDL/truck driving, cosmetology, IT, culinary).</li>
+                  <li><strong>Why these three</strong> &mdash; what ties them together (local employer demand, Dunham's intent), and whether the list could grow over time.</li>
+                  <li><strong>Where they live locally</strong> &mdash; which of the 12 qualifying schools and programs each sector maps to.</li>
+                </ul>
+                <p>Goal: enough detail to write three honest &ldquo;what's covered&rdquo; lists, seed the FAQ answers, and match students to the right award in Airtable.</p>
+              </div>
+              <div class="q-foot"><span class="src-asset">Sector definitions</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">This came up on May 6 &mdash; that the focus &ldquo;could change over time &hellip; it may not.&rdquo; Can you confirm how locked-in the three areas really are?</div>
+              <div class="q-why">Already half-answered at the May 6 meeting (~17:05) &mdash; it's why the logo deliberately doesn't hard-encode &ldquo;three of anything.&rdquo; We're confirming, not asking cold. Probe: what would actually trigger adding or dropping an area?</div>
+              <div class="q-foot"><span class="src-asset">Scope flexibility</span><span class="chip-status prog">Confirm</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Explain the funding model in plain terms: money goes to institutions and employers, never to individuals. Why that design?</div>
+              <div class="q-foot"><span class="src-asset">Funding model rationale</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What does a typical award pay for, and roughly how big is it?</div>
+              <div class="q-foot"><span class="src-asset">Award size</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Which partner institutions do we fund or work with today?</div>
+              <div class="q-why">Probe: any we can name and logo on the site, with permission?</div>
+              <div class="q-foot"><span class="src-asset">Partner institutions</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+
+        <!-- Theme: eligibility & apply -->
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">Eligibility &amp; applying</span>
+            <div class="theme-feeds"><span class="route-tag">/apply</span><span class="route-tag">/faq</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Who is eligible &mdash; what are the actual criteria a student has to meet?</div>
+              <div class="q-foot"><span class="src-asset">Eligibility rules</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Walk me through the steps a student takes to apply, start to finish.</div>
+              <div class="q-foot"><span class="src-asset">Application steps</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What documents or materials does an applicant need to have ready?</div>
+              <div class="q-foot"><span class="src-asset">Required-documents list</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Are the dates set &mdash; Dec 1 2026 to Mar 1 2027 &mdash; and is that the annual window going forward?</div>
+              <div class="q-foot"><span class="src-asset">Key dates</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What are the edge cases people always ask about &mdash; graduating seniors, part-time students, applying for more than one award?</div>
+              <div class="q-foot"><span class="src-asset">Eligibility edge cases</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+
+        <!-- Theme: impact (pre-launch) -->
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">Impact &mdash; before there are results<button type="button" class="q-info" aria-expanded="false" aria-controls="note-impact" aria-label="Why this is framed for pre-launch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.2" r="1.2" fill="currentColor" stroke="none"/></svg></button></span>
+            <div class="theme-feeds"><span class="route-tag">/impact</span><span class="route-tag">/</span><span class="route-tag">/donors</span></div>
+          </div>
+          <div class="q-note" id="note-impact" hidden style="margin:0 26px 0; border-radius:6px;">
+            <div class="q-note-h">Heads up &mdash; this program hasn't started</div>
+            <p>JCD is brand new and can't run until the <strong>501(c)(3)</strong> comes through; the first application window is <strong>Dec 1 2026 &ndash; Mar 1 2027</strong>. So there are <em>no</em> students funded, dollars awarded, or schools reached yet. Don't ask Bob for &ldquo;impact so far&rdquo; &mdash; there isn't any. These questions get what we <em>can</em> say at launch: who's behind it, what's committed, and what year one is meant to look like. Everything here is intent/goals, not results &mdash; label it that way and mark unconfirmed figures <code>[TK]</code>.</p>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">The program hasn't run yet &mdash; it's brand new and waiting on 501(c)(3) status. So what can we honestly say <em>today</em>: the funding behind it, the schools lined up, the employer partners, the model?</div>
+              <div class="q-why">We lead with readiness and intent, not results. Probe: what's already committed vs. still aspirational?</div>
+              <div class="q-foot"><span class="src-asset">What we can claim at launch</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What are the year-one targets &mdash; how many students you hope to fund, the award pool, and which sectors come first?</div>
+              <div class="q-why">These are goals, not outcomes &mdash; we'll say so plainly and mark anything unconfirmed with [TK].</div>
+              <div class="q-foot"><span class="src-asset">Year-one goals</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">When does the first cohort actually happen? Confirm the 501(c)(3) gate and the Dec 2026 &ndash; Mar 2027 application window.</div>
+              <div class="q-foot"><span class="src-asset">Launch timing</span><span class="chip-status prog">Confirm</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Until there are funded students, what stands in for proof &mdash; the Dunham legacy, a partner's endorsement, the size of the local need? What story do we lead with at launch?</div>
+              <div class="q-foot"><span class="src-asset">Launch proof / story</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+
+        <!-- Theme: counselor referral -->
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">The counselor referral path</span>
+            <div class="theme-feeds"><span class="route-tag">/counselors</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">If a high-school counselor wanted to refer a student tomorrow, what exactly should they do?</div>
+              <div class="q-foot"><span class="src-asset">Referral steps</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What do you want counselors to understand about JCD that they might not expect?</div>
+              <div class="q-foot"><span class="src-asset">Counselor messaging</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+
+        <!-- Theme: FAQ + contact -->
+        <article class="theme" id="faq-check">
+          <div class="theme-head">
+            <span class="theme-title">FAQ check &amp; public contact details</span>
+            <div class="theme-feeds"><span class="route-tag">/faq</span><span class="route-tag">/contact</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">I'll read back the 7 draft FAQ answers we already have on the homepage &mdash; tell me where any are wrong or need softening. (Watch the undocumented-eligibility one especially.)<button type="button" class="q-info" aria-expanded="false" aria-controls="note-faq" aria-label="The 7 drafted FAQ answers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.2" r="1.2" fill="currentColor" stroke="none"/></svg></button></div>
+              <div class="q-why">Reality check: those 7 (in home.html) are the <em>only</em> drafted Q&amp;As &mdash; their answers are unverified, so this is the accuracy pass on them. The fuller &ldquo;20&ndash;30&rdquo; master list the outline calls for still has to be written; the next question starts gathering it.</div>
+              <div class="q-note" id="note-faq" hidden>
+                <div class="q-note-h">The 7 drafted answers · read each aloud, get Bob's yes / needs-work</div>
+                <div class="faq-draft">
+                  <div class="fd">
+                    <div class="fd-q">Do I need a 4.0?</div>
+                    <div class="fd-a">No. We don't care about your class rank. We care whether you show up, whether you can commit to the training, and whether the sector you're picking actually excites you. A 2.5 with a clear plan beats a 4.0 with no direction. Every time.</div>
+                  </div>
+                  <div class="fd">
+                    <div class="fd-q">Is there an essay?</div>
+                    <div class="fd-a">Technically there's one short-answer prompt at the end (&ldquo;tell us in a few words why you want to do this&rdquo;). No word count. No trick questions. No &ldquo;describe a challenge you overcame.&rdquo; Just be yourself. Three good sentences beat three good paragraphs.</div>
+                  </div>
+                  <div class="fd">
+                    <div class="fd-q">What if I'm not sure which sector yet?</div>
+                    <div class="fd-a">Pick the one that feels closest. We'll pair you with someone working in all three so you can ask the real questions &mdash; hours, wages, what they wish they knew at 18. You can switch tracks up until your training actually starts.</div>
+                  </div>
+                  <div class="fd">
+                    <div class="fd-q">What does it actually cost me?</div>
+                    <div class="fd-a">Zero dollars. That's not marketing &mdash; that's the mechanics. JCD pays tuition direct to your program, sends a gear stipend to you, and connects you to employer partners. No fees. No hidden application cost. No catch.</div>
+                  </div>
+                  <div class="fd">
+                    <div class="fd-q">What if I want to go to a 4-year school later?</div>
+                    <div class="fd-a">Totally fine. Most of our paths include transferable college credit. A lot of scholars end up going back for a bachelor's in their late 20s &mdash; paid for by an employer. Starting in the trades isn't closing a door. It's opening a different one.</div>
+                  </div>
+                  <div class="fd">
+                    <div class="fd-q">I'm undocumented. Can I still apply?<span class="fd-flag">Verify carefully</span></div>
+                    <div class="fd-a">Yes. JCD scholarships are funded privately by the Dunham family &mdash; not federally &mdash; so immigration status doesn't affect eligibility. If you graduated from one of our qualifying schools and want to train into one of our three sectors, you're in the running. <strong>(Highest-stakes claim on the page &mdash; confirm this is actually true before launch.)</strong></div>
+                  </div>
+                  <div class="fd">
+                    <div class="fd-q">How long does the application take?</div>
+                    <div class="fd-a">Eight minutes if you move fast. <code>[TK]</code> Five questions, a short answer at the end, done. Save and come back if you need to. We'll confirm we got it within 48 hours.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="q-foot"><span class="src-asset">FAQ answers verified (7 drafted)</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What questions do families and students ask you most often that we haven't listed?</div>
+              <div class="q-foot"><span class="src-asset">Additional FAQs</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What contact details should be public &mdash; the Geneva mailing address, the shared phone, the info@ email?</div>
+              <div class="q-foot"><span class="src-asset">Public contact info</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Who should inquiries route to, by type &mdash; student, counselor, employer, donor, press?</div>
+              <div class="q-foot"><span class="src-asset">Contact routing</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- ===== BLOCK 2 · DUNHAM / LEGAL ===== -->
+      <div class="iv-section iv-dunham" id="dunham">
+        <header class="iv-head">
+          <div class="iv-kicker">Interview 02</div>
+          <h3 class="iv-name">Dunham Foundation &amp; Legal</h3>
+          <div class="iv-role">The Dunham contact / counsel · mostly documents to obtain</div>
+          <p class="iv-note">
+            These are <strong>confirm-and-collect</strong> items more than stories &mdash; several
+            produce a file (a determination letter, a 990) rather than a quote. Ask the question,
+            then ask &ldquo;can you send the document.&rdquo;
+          </p>
+        </header>
+
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">Status, governance &amp; money flow</span>
+            <div class="theme-feeds"><span class="route-tag">/financials</span><span class="route-tag">/donors</span><span class="route-tag">/what-we-fund</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What is JCD's 501(c)(3) status today, and when do we expect the IRS determination letter?</div>
+              <div class="q-why">Public launch is gated on this; even a target date helps us plan.</div>
+              <div class="q-foot"><span class="src-asset">Determination letter</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What is the EIN, once it's available?</div>
+              <div class="q-foot"><span class="src-asset">EIN</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What are the formal disbursement rules &mdash; how exactly do funds move to institutions and employers?</div>
+              <div class="q-foot"><span class="src-asset">Disbursement rules</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Who governs JCD &mdash; board members and their roles?</div>
+              <div class="q-foot"><span class="src-asset">Governance / board</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Will there be an annual report or Form 990 we can link from the site?</div>
+              <div class="q-foot"><span class="src-asset">990 / annual report</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">How will donations be processed &mdash; what platform or processor, and when?</div>
+              <div class="q-why">Decides the Donate CTA on /donors; blocks that page until chosen.</div>
+              <div class="q-foot"><span class="src-asset">Donation processor</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- ===== BLOCK 3 · PARTNER EMPLOYERS ===== -->
+      <div class="iv-section iv-partners" id="partners">
+        <header class="iv-head">
+          <div class="iv-kicker">Interview 03</div>
+          <h3 class="iv-name">Partner Employers</h3>
+          <div class="iv-role">Nimco, Tagli, VIA &amp; others · one short recorded interview each</div>
+          <p class="iv-note">
+            Same questions every time, so the clips line up. Goal: the <strong>demand-side
+            case</strong> for /employers, plus real hiring outcomes for /impact. Keep each to
+            15&ndash;20 minutes.
+          </p>
+        </header>
+
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">The partner conversation</span>
+            <div class="theme-feeds"><span class="route-tag">/employers</span><span class="route-tag">/impact</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Tell me about your company and the skilled roles you're always trying to fill.</div>
+              <div class="q-foot"><span class="src-asset">Partner profile</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Where do you feel the local skills gap most acutely?</div>
+              <div class="q-why">Probe: any number you'd put on it &mdash; open roles, months to hire?</div>
+              <div class="q-foot"><span class="src-asset">Skills-gap evidence</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Why did you partner with JCD &mdash; what made it worth your time?</div>
+              <div class="q-foot"><span class="src-asset">Partner testimonial</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What does the partnership look like in practice &mdash; hiring, hosting, co-funding?</div>
+              <div class="q-foot"><span class="src-asset">Partnership model</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Have you hired or worked with JCD-funded talent? What happened?</div>
+              <div class="q-foot"><span class="src-asset">Employer outcomes</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">May we use your company name and logo on the JCD site?</div>
+              <div class="q-foot"><span class="src-asset">Logo permission</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- ===== BLOCK 4 · STUDENTS ===== -->
+      <div class="iv-section iv-students" id="students">
+        <header class="iv-head">
+          <div class="iv-kicker">Interview 04</div>
+          <h3 class="iv-name">Students</h3>
+          <div class="iv-role">5&ndash;8 interviews · keep it human · capture a release each time</div>
+          <p class="iv-note">
+            Short, warm, on camera if possible. Short clips beat long answers. <strong>Get a
+            signed photo/quote release before you publish anything</strong> &mdash; no release, no
+            face or name on the site.
+          </p>
+        </header>
+
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">The student story</span>
+            <div class="theme-feeds"><span class="route-tag">/students</span><span class="route-tag">/impact</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What are you studying, and what drew you to it?</div>
+              <div class="q-foot"><span class="src-asset">Student interview</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Was the trades path an easy decision, or did you feel pressure to go the four-year route?</div>
+              <div class="q-foot"><span class="src-asset">Student interview</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What did the JCD support actually make possible for you?</div>
+              <div class="q-foot"><span class="src-asset">Impact / outcome</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">Walk me through a day in your program.</div>
+              <div class="q-why">Feeds the &ldquo;day-in-the-life&rdquo; section for each sector.</div>
+              <div class="q-foot"><span class="src-asset">B-roll / detail</span><span class="chip-status prog">In progress</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What would you say to a senior who's unsure whether the trades are for them?</div>
+              <div class="q-foot"><span class="src-asset">Peer-to-peer quote</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">May we share your name, photo, and story on the site?</div>
+              <div class="q-why">Get it in writing &mdash; this is the release form, not just a yes on tape.</div>
+              <div class="q-foot"><span class="src-asset">Photo/quote release</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- ===== BLOCK 5 · COUNSELORS ===== -->
+      <div class="iv-section iv-counselors" id="counselors">
+        <header class="iv-head">
+          <div class="iv-kicker">Interview 05</div>
+          <h3 class="iv-name">High-School Counselors</h3>
+          <div class="iv-role">Quick interviews to pressure-test the /counselors hub</div>
+          <p class="iv-note">
+            A few short conversations to make sure the counselor page matches how referrals
+            <strong>actually</strong> happen in their office &mdash; not how we imagine they do.
+          </p>
+        </header>
+
+        <article class="theme">
+          <div class="theme-head">
+            <span class="theme-title">The referral reality</span>
+            <div class="theme-feeds"><span class="route-tag">/counselors</span></div>
+          </div>
+          <ul class="q-list">
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">When a student isn't headed to a four-year college, what options do you reach for first?</div>
+              <div class="q-foot"><span class="src-asset">Counselor context</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What would make it easy for you to point a student at JCD?</div>
+              <div class="q-foot"><span class="src-asset">Referral path</span><span class="chip-status need">Need</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What leave-behinds or materials actually get used in your office?</div>
+              <div class="q-why">Tells us whether the print outreach kit lands or sits in a drawer.</div>
+              <div class="q-foot"><span class="src-asset">Materials feedback</span><span class="chip-status have">Have (kit)</span></div>
+            </div></li>
+            <li class="q-item"><span class="q-num"></span><div class="q-body">
+              <div class="q-text">What do you need to know to trust a scholarship enough to recommend it?</div>
+              <div class="q-foot"><span class="src-asset">Trust signals</span><span class="chip-status need">Need</span></div>
+            </div></li>
+          </ul>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <div class="container">
+      <div class="section-eyebrow">After the interview</div>
+      <h2 class="section-h">From tape to outline.</h2>
+      <p>
+        Record the audio, run it through transcription, then match each answer to its question
+        and drop it into the matching item on the
+        <a class="inline" href="content-outline.html">content outline</a>. As items move from
+        <strong style="color:var(--safety-orange);">Need</strong> to
+        <strong style="color:var(--brass-gold);">In progress</strong> to
+        <strong style="color:var(--pulse-teal);">Have</strong>, the sourcing plan becomes the
+        build plan. Mark anything still unverified with <code>[TK]</code> so it's obvious what
+        hasn't been confirmed yet.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-meta">© 2026 JCD Foundation · Interview Questions · Draft v1</div>
+    </div>
+
+    <!-- ========== ADMIN FAB ========== -->
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="agenda.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 4h6"/>
+              <path d="M8.5 10l1.5 1.5 2.5-2.5"/>
+              <path d="M8.5 16l1.5 1.5 2.5-2.5"/>
+              <line x1="15" y1="9.5" x2="16.5" y2="9.5"/>
+              <line x1="15" y1="15.5" x2="16.5" y2="15.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Meeting Agenda</span>
+            <span class="admin-sub">Today&rsquo;s run of show</span>
+          </span>
+        </a>
+
+        <a href="dns-setup.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Domain Setup</span>
+            <span class="admin-sub">DNS handoff guide</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
+          </span>
+        </a>
+
+        <a href="interview-questions.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-9 8.3 9 9 0 0 1-3.8-.8L3 20l1-4.2A8.38 8.38 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5z"/>
+              <path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.5 2.1-2.5 2.1"/>
+              <circle cx="11.8" cy="15.6" r=".6" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Interview Questions</span>
+            <span class="admin-sub">Recording script for sourcing</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="home.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12L12 4l9 8"/>
+              <path d="M5 10v10h14V10"/>
+              <path d="M10 20v-6h4v6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Original Homepage</span>
+            <span class="admin-sub">Pre-launch reference</span>
+          </span>
+        </a>
+
+        <a href="apply-full.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Full Application</span>
+            <span class="admin-sub">Long-form apply</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: absolute; right: 24px; bottom: 24px; z-index: 50; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+  </footer>
+
+  <!-- Info popups · "what we're listening for" toggles -->
+  <script>
+    (function () {
+      document.querySelectorAll('.q-info').forEach(function (btn) {
+        var id = btn.getAttribute('aria-controls');
+        var note = id && document.getElementById(id);
+        if (!note) return;
+        btn.addEventListener('click', function () {
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          note.hidden = open;
+        });
+      });
+    })();
+  </script>
+
+  <!-- Highlight & comment layer · switch backend to 'api' once Supabase is wired -->
+  <script src="assets/annotations.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      JCDAnnotations.init({ page: 'interview-questions', backend: 'api' });
+    });
+  </script>
+
+</body>
+</html>

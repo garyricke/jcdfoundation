@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
+  <title>JCD Foundation — Meeting Agenda · June 26, 2026</title>
+  <meta name="description" content="Working agenda for the June 26, 2026 JCD Foundation meeting — walk the interview questions, check the outreach program, and get the live domain attached to the Netlify site." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/annotations.css" />
+  <style>
+    :root {
+      --equipto-blue:   #0E2A58;
+      --steel-blue:     #3B5F8A;
+      --sky-blue:       #7AA3CC;
+      --ice-blue:       #E8EEF6;
+      --white:          #FFFFFF;
+      --deep-charcoal:  #111827;
+      --steel-gray:     #4A5568;
+      --mid-gray:       #9AA3AF;
+      --ice-gray:       #F0F3F7;
+      --paper-gray:     #F7F9FC;
+      --border-line:    #D1D8E0;
+      --brass-gold:     #C5963A;
+      --pulse-teal:     #0A9B8C;
+      --safety-orange:  #E8600A;
+      --body-text:      #2D3748;
+      --font-primary:   'Montserrat', sans-serif;
+      --font-display:   'Archivo Black', sans-serif;
+      --font-hand:      'Caveat', cursive;
+      --font-mono:      'Roboto Mono', monospace;
+      --nav-h:          72px;
+      --container-max:  1100px;
+    }
+
+    .clr-interview { --clr: var(--equipto-blue); }
+    .clr-outreach  { --clr: var(--pulse-teal);   }
+    .clr-domain    { --clr: var(--safety-orange); }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary);
+      font-size: 16px; line-height: 1.7;
+      color: var(--body-text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; }
+
+    /* ---------- NAV ---------- */
+    #nav {
+      position: sticky; top: 0; z-index: 1000;
+      height: var(--nav-h); background: var(--equipto-blue);
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center;
+    }
+    #nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; max-width: 1280px; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+    .nav-logo-text {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white); line-height: 1.3;
+    }
+    .nav-logo-text span {
+      display: block; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.18em; color: rgba(255,255,255,0.55);
+    }
+    .nav-right {
+      font-family: var(--font-mono); font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .nav-right .draft-dot {
+      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--brass-gold); margin-right: 8px; vertical-align: middle;
+    }
+
+    /* ---------- HERO ---------- */
+    #hero { background: var(--equipto-blue); color: var(--white); padding: 76px 0 84px; }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.4); }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6.5vw, 84px);
+      line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 28px;
+    }
+    .hero h1 .alt {
+      color: var(--brass-gold); font-family: var(--font-hand);
+      font-style: italic; font-weight: 700; letter-spacing: 0;
+    }
+    .hero-sub { font-size: 18px; line-height: 1.55; max-width: 680px; color: rgba(255,255,255,0.85); margin-bottom: 40px; }
+    .hero-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 28px; }
+    .hero-mi { padding-right: 20px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .hero-mi:last-child { border-right: none; }
+    .hero-mi-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+    .hero-mi-value { font-size: 15px; color: var(--white); line-height: 1.4; font-weight: 600; }
+    .hero-mi-value span { display: block; font-weight: 400; font-size: 13px; color: rgba(255,255,255,0.6); }
+
+    /* ---------- AGENDA LIST ---------- */
+    .agenda { padding: 72px 0 40px; background: var(--white); }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--steel-blue); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--equipto-blue); }
+    .section-h { font-family: var(--font-display); font-size: clamp(28px, 3.4vw, 42px); line-height: 1; color: var(--equipto-blue); margin-bottom: 18px; letter-spacing: -0.01em; }
+    .section-lead { font-size: 16px; line-height: 1.6; color: var(--steel-gray); max-width: 720px; margin-bottom: 44px; }
+
+    .item {
+      border: 1px solid var(--border-line);
+      border-left: 5px solid var(--clr, var(--equipto-blue));
+      background: var(--white); margin-top: 22px;
+    }
+    .item-head { display: flex; align-items: flex-start; gap: 18px; padding: 24px 28px 18px; flex-wrap: wrap; }
+    .item-num {
+      font-family: var(--font-display); font-size: 20px; color: #fff;
+      background: var(--clr, var(--equipto-blue)); width: 44px; height: 44px;
+      display: grid; place-items: center; flex-shrink: 0; border-radius: 4px;
+    }
+    .item-titles { flex: 1; min-width: 200px; }
+    .item-title { font-family: var(--font-display); font-size: 22px; color: var(--equipto-blue); line-height: 1.1; letter-spacing: -0.01em; }
+    .item-obj { font-size: 14.5px; line-height: 1.5; color: var(--steel-gray); margin-top: 8px; }
+    .item-tag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px; white-space: nowrap; }
+    .item-tag.go    { background: rgba(232,96,10,0.12); color: var(--safety-orange); }
+    .item-tag.disc  { background: rgba(10,155,140,0.12); color: var(--pulse-teal); }
+    .item-tag.review{ background: rgba(14,42,88,0.10); color: var(--equipto-blue); }
+
+    .item-body { padding: 4px 28px 24px; }
+    .item-sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel-blue); margin: 14px 0 12px; display: flex; align-items: center; gap: 8px; }
+    .item-sub::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--clr, var(--steel-blue)); }
+    .points { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .points li { font-size: 14.5px; line-height: 1.55; color: var(--body-text); padding-left: 18px; position: relative; }
+    .points li::before { content: ''; position: absolute; left: 0; top: 10px; width: 7px; height: 1px; background: var(--clr, var(--mid-gray)); }
+    .points strong { color: var(--equipto-blue); font-weight: 700; }
+    .points code, .next code { font-family: var(--font-mono); font-size: 12.5px; background: var(--ice-gray); padding: 1px 6px; border-radius: 3px; color: var(--equipto-blue); }
+
+    .next {
+      margin-top: 20px; padding: 16px 20px;
+      background: var(--paper-gray);
+      border: 1px solid var(--border-line);
+      border-left: 3px solid var(--clr, var(--equipto-blue));
+      border-radius: 0 6px 6px 0;
+    }
+    .next-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--clr, var(--steel-blue)); margin-bottom: 8px; }
+    .next p { font-size: 14px; line-height: 1.55; color: var(--body-text); }
+    .next .owner { font-weight: 700; color: var(--equipto-blue); }
+    .item-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--clr, var(--steel-blue)); border-bottom: 1px solid transparent; }
+    .item-link:hover { border-bottom-color: var(--clr, var(--steel-blue)); }
+    .item-link svg { width: 14px; height: 14px; }
+
+    /* ---------- DECISIONS RECAP ---------- */
+    .recap { padding: 56px 0 88px; background: var(--white); }
+    .recap-box { background: var(--equipto-blue); color: #fff; padding: 36px 36px 32px; border-radius: 4px; }
+    .recap-box h2 { font-family: var(--font-display); font-size: 26px; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .recap-box p.intro { font-size: 14.5px; color: rgba(255,255,255,0.75); margin-bottom: 24px; }
+    .recap-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .recap-list li { display: flex; gap: 16px; align-items: flex-start; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .recap-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .recap-q { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--brass-gold); flex-shrink: 0; width: 64px; padding-top: 2px; }
+    .recap-t { font-size: 14.5px; line-height: 1.5; color: rgba(255,255,255,0.92); }
+    .recap-t strong { color: #fff; font-weight: 700; }
+
+    /* ---------- FOOTER ---------- */
+    footer { background: var(--deep-charcoal); color: rgba(255,255,255,0.55); padding: 48px 0; border-top: 4px solid var(--equipto-blue); font-size: 13px; position: relative; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; max-width: 1280px; }
+    .footer-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    @media (max-width: 720px) {
+      .container { padding: 0 24px; }
+      #hero { padding: 52px 0 60px; }
+      .hero-meta { grid-template-columns: 1fr; gap: 20px; }
+      .hero-mi { border-right: none; padding-right: 0; }
+      .agenda { padding: 52px 0 30px; }
+    }
+    @media print {
+      #nav, .admin-fab-wrap { display: none !important; }
+      #hero { background: #fff; color: #000; padding: 0 0 16px; }
+      .hero-eyebrow, .hero-sub, .hero-meta, .hero-mi-label, .hero-mi-value { color: #000 !important; }
+      .item, .recap-box { break-inside: avoid; }
+      .recap-box { background: #fff; color: #000; border: 1px solid #000; }
+      .recap-t, .recap-box p.intro { color: #000 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" aria-label="Primary">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="JCD Foundation home">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation Logo" />
+        <div class="nav-logo-text">
+          JCD Foundation
+          <span>Meeting Agenda</span>
+        </div>
+      </a>
+      <div class="nav-right"><span class="draft-dot"></span>June 26, 2026</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Working agenda &middot; June 26, 2026</div>
+      <h1>Today&rsquo;s <span class="alt">agenda.</span></h1>
+      <p class="hero-sub">
+        Three things to get through: walk the interview questions with Bob, check where the
+        outreach program stands and what&rsquo;s next, and &mdash; the priority &mdash; get the live
+        domain pointed at the site today, password protection and all.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-mi">
+          <div class="hero-mi-label">Who</div>
+          <div class="hero-mi-value">Bob Vaughan<span>Gary Ricke · Jack Whetsel</span></div>
+        </div>
+        <div class="hero-mi">
+          <div class="hero-mi-label">Three items</div>
+          <div class="hero-mi-value">Interview · Outreach · Domain<span>~45&ndash;60 minutes</span></div>
+        </div>
+        <div class="hero-mi">
+          <div class="hero-mi-label">Today&rsquo;s win</div>
+          <div class="hero-mi-value">Domain live on Netlify<span>Even behind the password gate</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="agenda">
+    <div class="container">
+      <div class="section-eyebrow">Run of show</div>
+      <h2 class="section-h">What we&rsquo;ll cover.</h2>
+      <p class="section-lead">
+        Each item has an objective, the points to hit, and the decision or next step to walk
+        away with. Decisions to capture are recapped at the bottom.
+      </p>
+
+      <!-- ITEM 1 · INTERVIEW -->
+      <article class="item clr-interview">
+        <div class="item-head">
+          <div class="item-num">1</div>
+          <div class="item-titles">
+            <div class="item-title">Walk the interview questions</div>
+            <div class="item-obj">Lock the recorded-interview script and start capturing Bob&rsquo;s answers &mdash; prioritizing the gaps that block the build.</div>
+          </div>
+          <span class="item-tag review">Review &amp; record</span>
+        </div>
+        <div class="item-body">
+          <div class="item-sub">Points to hit</div>
+          <ul class="points">
+            <li>Open the <strong>Interview Questions</strong> page and run Bob&rsquo;s block live &mdash; record the audio so Jack can transcribe.</li>
+            <li>Hit the <strong>Need</strong> items first: eligibility rules, award size, the funding-model rationale, year-one targets, referral steps, and contact routing.</li>
+            <li>Confirm the two reframed items: the three focus areas <strong>can shift over time</strong> (from May 6), and impact is <strong>pre-launch</strong> &mdash; no results yet, gated on the 501(c)(3).</li>
+            <li>Verify the <strong>7 drafted homepage FAQ answers</strong> &mdash; especially the undocumented-eligibility claim.</li>
+            <li>Decide who runs the partner, student, and counselor interviews, and when.</li>
+          </ul>
+          <div class="next">
+            <div class="next-h">Decision / next step</div>
+            <p>Record Bob&rsquo;s block today if he&rsquo;s up for it. <span class="owner">Owner: Jack</span> &mdash; transcribe and drop answers into the content outline; <span class="owner">Gary</span> sequences the other interviews.</p>
+          </div>
+          <a class="item-link" href="interview-questions.html#bob">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Interview Questions &mdash; Bob&rsquo;s block
+          </a>
+          <a class="item-link" href="interview-questions.html#faq-check" style="margin-left:24px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            FAQ check (7 answers to verify)
+          </a>
+        </div>
+      </article>
+
+      <!-- ITEM 2 · OUTREACH -->
+      <article class="item clr-outreach">
+        <div class="item-head">
+          <div class="item-num">2</div>
+          <div class="item-titles">
+            <div class="item-title">Outreach program &mdash; status &amp; next steps</div>
+            <div class="item-obj">Confirm where the round-1 outreach kit stands, go over the outreach interview questions, and agree the next push: who we contact, with what, and when.</div>
+          </div>
+          <span class="item-tag disc">Discuss</span>
+        </div>
+        <div class="item-body">
+          <div class="item-sub">Status check</div>
+          <ul class="points">
+            <li><strong>Print kit</strong> (UPS Store Geneva runs) &mdash; what&rsquo;s printed, what&rsquo;s still pending a proof.</li>
+            <li><strong>Email templates</strong> (counselors + employers, EmailOctopus) &mdash; ready to send? Who&rsquo;s on the list and who hits go?</li>
+            <li><strong>Letterhead Geneva address</strong> &mdash; is the open [TK] now resolved across the kit?</li>
+            <li>Agree a <strong>first-send date</strong> and the initial target schools and employers.</li>
+          </ul>
+
+          <div class="item-sub">Go over the outreach interview questions</div>
+          <ul class="points">
+            <li>Walk the <strong>partner, student, and counselor blocks</strong> on the Interview Questions page &mdash; these are the field interviews that feed the outreach stories and the audience hubs.</li>
+            <li>Reconcile them with the printed <strong>interview guide</strong> (Section 05) &mdash; has Bob&rsquo;s markup come back? Merge any changes so there&rsquo;s one source of truth.</li>
+            <li><strong>Lock the question set</strong> so Jack can start booking and recording partner interviews (Nimco, Tagli, VIA).</li>
+            <li>Pre-launch caveat: student interviews can&rsquo;t be JCD-funded students yet &mdash; decide whether to interview current trades students aspirationally or hold the block until the first cohort.</li>
+          </ul>
+
+          <div class="next">
+            <div class="next-h">Decision / next step</div>
+            <p>Lock the outreach interview questions and set a first-send date + target list. <span class="owner">Owner: Gary &amp; Jack</span> &mdash; finalize the kit, schedule the EmailOctopus send, and start booking partner interviews.</p>
+          </div>
+          <a class="item-link" href="interview-questions.html#partners">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Field interview blocks
+          </a>
+          <a class="item-link" href="brand-kit.html#interview" style="margin-left:24px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Interview guide (Sec 05)
+          </a>
+          <a class="item-link" href="brand-kit.html#email-outreach" style="margin-left:24px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Email outreach (Sec 06)
+          </a>
+        </div>
+      </article>
+
+      <!-- ITEM 3 · DOMAIN -->
+      <article class="item clr-domain">
+        <div class="item-head">
+          <div class="item-num">3</div>
+          <div class="item-titles">
+            <div class="item-title">Attach the live domain &mdash; today</div>
+            <div class="item-obj">Point thejcdfoundation.org at the Netlify site now. The site is already password-gated, so going live exposes nothing public.</div>
+          </div>
+          <span class="item-tag go">Priority · do today</span>
+        </div>
+        <div class="item-body">
+          <div class="item-sub">Points to hit</div>
+          <ul class="points">
+            <li>The site already lives on Netlify (<code>thejcdfoundation.netlify.app</code>) and is already behind the password gate &mdash; <strong>pointing the domain doesn&rsquo;t make anything public</strong>.</li>
+            <li>The <strong>only blocker is access</strong>: who has the login for the registrar where <code>thejcdfoundation.org</code> was purchased?</li>
+            <li>Two DNS records are ready to add: <strong>A</strong> &nbsp;<code>@</code> &rarr; <code>75.2.60.5</code> and <strong>CNAME</strong> &nbsp;<code>www</code> &rarr; <code>thejcdfoundation.netlify.app</code>.</li>
+            <li><strong>Only ADD, never delete</strong> &mdash; leave MX/TXT records alone so the <code>info@thejcdfoundation.org</code> email keeps working.</li>
+            <li>Then in Netlify: add the custom domain and let it provision the HTTPS certificate.</li>
+          </ul>
+          <div class="next">
+            <div class="next-h">Decision / next step</div>
+            <p>Decide now: does <span class="owner">Gary</span> get temporary registrar access to add the records today, or does <span class="owner">Bob</span> add them himself using the DNS guide? Either way &mdash; records in today, HTTPS live by end of day.</p>
+          </div>
+          <a class="item-link" href="dns-setup.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Open DNS Setup guide
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- DECISIONS RECAP -->
+  <section class="recap">
+    <div class="container">
+      <div class="recap-box">
+        <h2>Decisions to capture today.</h2>
+        <p class="intro">The three things we don&rsquo;t want to leave the table without.</p>
+        <ul class="recap-list">
+          <li>
+            <span class="recap-q">Item 1</span>
+            <span class="recap-t"><strong>Did we record Bob&rsquo;s answers</strong> to the Need-priority questions, and who owns the partner / student / counselor interviews next?</span>
+          </li>
+          <li>
+            <span class="recap-q">Item 2</span>
+            <span class="recap-t"><strong>The outreach interview questions locked</strong>, plus a first-send date and target list for the outreach email.</span>
+          </li>
+          <li>
+            <span class="recap-q">Item 3</span>
+            <span class="recap-t"><strong>Who adds the two DNS records today</strong> &mdash; Gary with registrar access, or Bob via the guide &mdash; so the domain goes live (still password-gated) by end of day.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-meta">© 2026 JCD Foundation · Meeting Agenda · June 26, 2026</div>
+    </div>
+
+    <!-- ========== ADMIN FAB ========== -->
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="agenda.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 4h6"/>
+              <path d="M8.5 10l1.5 1.5 2.5-2.5"/>
+              <path d="M8.5 16l1.5 1.5 2.5-2.5"/>
+              <line x1="15" y1="9.5" x2="16.5" y2="9.5"/>
+              <line x1="15" y1="15.5" x2="16.5" y2="15.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Meeting Agenda</span>
+            <span class="admin-sub">Today&rsquo;s run of show</span>
+          </span>
+        </a>
+
+        <a href="dns-setup.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Domain Setup</span>
+            <span class="admin-sub">DNS handoff guide</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
+          </span>
+        </a>
+
+        <a href="interview-questions.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-9 8.3 9 9 0 0 1-3.8-.8L3 20l1-4.2A8.38 8.38 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5z"/>
+              <path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.5 2.1-2.5 2.1"/>
+              <circle cx="11.8" cy="15.6" r=".6" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Interview Questions</span>
+            <span class="admin-sub">Recording script for sourcing</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="home.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12L12 4l9 8"/>
+              <path d="M5 10v10h14V10"/>
+              <path d="M10 20v-6h4v6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Original Homepage</span>
+            <span class="admin-sub">Pre-launch reference</span>
+          </span>
+        </a>
+
+        <a href="apply-full.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Full Application</span>
+            <span class="admin-sub">Long-form apply</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: absolute; right: 24px; bottom: 24px; z-index: 50; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+        max-height: 70vh; overflow-y: auto;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+  </footer>
+
+  <!-- Highlight & comment layer · switch backend to 'api' once Supabase is wired -->
+  <script src="assets/annotations.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      JCDAnnotations.init({ page: 'agenda', backend: 'api' });
+    });
+  </script>
+
+</body>
+</html>
