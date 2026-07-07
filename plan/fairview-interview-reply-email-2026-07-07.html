@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Reply to Bob — Fairview Dental interview</title></head>
+<body style="margin:0; padding:24px; background:#ffffff; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#1a2535; line-height:1.6;">
+
+  <div class="copy-control" style="max-width:600px; margin:0 0 18px; display:flex; align-items:center; gap:12px;">
+    <button id="copy-btn" onclick="copyEmail()" style="display:inline-flex; align-items:center; gap:8px; background:#0362BC; color:#fff; border:none; border-radius:8px; padding:10px 16px; font-family:inherit; font-size:14px; font-weight:600; cursor:pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy email
+    </button>
+    <span id="copy-status" style="font-size:13px; color:#4a5568;">Click, then paste into your reply to Bob (formatting included).</span>
+  </div>
+
+  <div id="email-body" style="max-width:600px; margin:0; background:#ffffff;">
+
+    <p style="margin:0 0 16px;">Bob &mdash;</p>
+
+    <p style="margin:0 0 16px;">This is great. Fairview is a perfect fit &mdash; two hygienists early in their careers plus the owners is exactly the health-sciences story we want to tell.</p>
+
+    <p style="margin:0 0 8px;">Tuesdays and Thursdays at noon work well for me the rest of July. Any of these are open on my end:</p>
+
+    <ul style="margin:0 0 16px; padding-left:22px;">
+      <li style="margin:0 0 4px;">Thursday, July 16</li>
+      <li style="margin:0 0 4px;">Tuesday, July 21</li>
+      <li style="margin:0 0 4px;">Thursday, July 23</li>
+      <li style="margin:0 0 4px;">Tuesday, July 28</li>
+      <li style="margin:0 0 0;">Thursday, July 30</li>
+    </ul>
+
+    <p style="margin:0 0 16px;">Just pick whichever noon works best for them and I&rsquo;ll lock it in &mdash; it&rsquo;s a quick trip, about 15 minutes from Batavia to their office on Sullivan Rd.</p>
+
+    <p style="margin:0 0 8px;">Here&rsquo;s what I have in mind, so you can set expectations with them:</p>
+
+    <ul style="margin:0 0 16px; padding-left:22px;">
+      <li style="margin:0 0 8px;">About 20&ndash;25 minutes of audio interview, then a short 5-minute video at the end.</li>
+      <li style="margin:0 0 8px;">If you agree, we can interview <strong>both owners together</strong> &mdash; I&rsquo;ve got a new four-mic audio setup, so we can record you both at once and take less of your time &mdash; then spend a few minutes with each of the young hygienists on how they got into it.</li>
+      <li style="margin:0 0 8px;">I&rsquo;m assuming Jack will be assisting to help run the recording and camera.</li>
+      <li style="margin:0 0 0;">Plan on us being there about an hour total.</li>
+    </ul>
+
+    <p style="margin:0 0 16px;">One question: do we want to bring a simple photo/quote release so anything we capture is cleared to use on the site? I can put one together.</p>
+
+    <p style="margin:0 0 16px;">I&rsquo;ve also pulled the whole plan &mdash; the questions and the logistics &mdash; onto one page you can click through and review:</p>
+
+    <p style="margin:0 0 24px;">
+      <a href="https://thejcdfoundation.org/interview-fairview.html" style="display:inline-block; background:#0362BC; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Review the full interview plan &rarr;</a>
+    </p>
+
+    <p style="margin:0 0 20px;">Thanks for setting this up &mdash;</p>
+
+    <p style="margin:0; color:#1a2535;">Gary</p>
+
+  </div>
+
+  <script>
+    function setStatus(m,ok){var s=document.getElementById('copy-status');s.textContent=m;s.style.color=ok?'#1a7f37':'#b42318';}
+    function selectFallback(el){try{var r=document.createRange();r.selectNode(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);var ok=document.execCommand('copy');s.removeAllRanges();setStatus(ok?'✓ Copied — paste into your email':'Press ⌘C to copy the selected email',ok);}catch(e){setStatus('Select the email and press ⌘C',false);}}
+    function copyEmail(){var el=document.getElementById('email-body');if(navigator.clipboard&&window.ClipboardItem){var d=[new ClipboardItem({'text/html':new Blob([el.outerHTML],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})];navigator.clipboard.write(d).then(function(){setStatus('✓ Copied — paste into your email (formatting included)',true);},function(){selectFallback(el);});}else{selectFallback(el);}}
+  </script>
+</body></html>
