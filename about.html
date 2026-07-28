@@ -1341,15 +1341,28 @@
       }
 
       // ---- reveal only once we know the audio is really there ----
-      audio.addEventListener('loadedmetadata', function () {
+      function reveal() {
         if (!audio.duration || !isFinite(audio.duration)) return;
+        if (launch.classList.contains('is-ready')) return;
         launch.classList.add('is-ready');
         launchLabel.textContent = 'Listen \u00b7 ' + fmt(audio.duration);
         launch.setAttribute('aria-label', 'Play the story, ' + fmt(audio.duration));
         clock.textContent = '0:00 / ' + fmt(audio.duration);
         canvas.setAttribute('aria-valuemax', Math.round(audio.duration));
         sizeCanvas(); draw();
-      });
+      }
+      audio.addEventListener('loadedmetadata', reveal);
+      // Over a CDN the metadata often arrives BEFORE this script runs, so the
+      // event has already fired and the listener above would never see it.
+      // Check the current state too, and keep polling briefly as a backstop.
+      if (audio.readyState >= 1) reveal();
+      var revealTries = 0;
+      var revealTimer = window.setInterval(function () {
+        if (audio.readyState >= 1) reveal();
+        if (launch.classList.contains('is-ready') || ++revealTries > 40) {
+          window.clearInterval(revealTimer);
+        }
+      }, 250);
       audio.addEventListener('error', function () {
         launch.classList.remove('is-ready');
         console.info('[JCD] Hero voiceover unavailable — play button hidden.');
