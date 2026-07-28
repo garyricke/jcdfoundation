@@ -151,6 +151,17 @@
     .chip-status.have { background: rgba(10,155,140,0.12); color: var(--pulse-teal); }
     .chip-status.prog { background: rgba(197,150,58,0.15); color: #9a6f1e; }
     .chip-status.need { background: rgba(232,96,10,0.12); color: var(--safety-orange); }
+    .chip-status.done { background: rgba(14,42,88,0.10); color: var(--equipto-blue); }
+    /* June 26 sit-down banner */
+    .j26 {
+      border: 1px solid var(--border-line); border-left: 4px solid var(--equipto-blue);
+      background: var(--white); padding: 22px 26px; margin: 0 0 4px;
+    }
+    .j26 h3 { font-size: 17px; font-weight: 800; color: var(--equipto-blue); margin: 0 0 8px; line-height: 1.2; }
+    .j26 .stamp { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pulse-teal); display: block; margin-bottom: 6px; }
+    .j26 p { font-size: 14.5px; line-height: 1.65; color: var(--body-text); margin: 0 0 10px; max-width: 860px; }
+    .j26 ul { margin: 0 0 4px; padding-left: 20px; font-size: 14px; line-height: 1.7; color: var(--body-text); max-width: 860px; }
+    .j26 li { margin-bottom: 5px; }
 
     /* ---------- INTERVIEW BLOCKS ---------- */
     .interviews { padding: 30px 0 100px; background: var(--white); }
@@ -365,6 +376,28 @@
         <span class="legend-item"><span class="chip-status have">Have</span> answer already on hand</span>
         <span class="legend-item"><span class="chip-status prog">In progress</span> partly sourced &mdash; confirm / finish</span>
         <span class="legend-item"><span class="chip-status need">Need</span> not yet sourced &mdash; this interview gets it</span>
+        <span class="legend-item"><span class="chip-status done">Answered 6/26</span> Bob answered it in the June 26 sit-down</span>
+      </div>
+
+      <div class="j26">
+        <span class="stamp">Session log &middot; June 26, 2026</span>
+        <h3>Bob worked most of the Bob block on June 26 &mdash; unrecorded.</h3>
+        <p>Gary read this script to Bob in the June 26 meeting and he answered a large share of it
+          on the spot. Those answers are captured in
+          <code>plan/JCD-Foundation-26-june-2026-meeting.md</code> and have been pushed into the site
+          where they corrected something. <strong>They were not recorded on camera</strong> &mdash; so
+          the questions marked <span class="chip-status done">Answered 6/26</span> still need a
+          filmed or clean-audio pass if we want them as quotable footage. Ask them again; don't re-derive them.</p>
+        <p>What changed materially that day:</p>
+        <ul>
+          <li><strong>Window moved</strong> &mdash; Jan 1 &rarr; Mar 31, 2027 (off Dec 1), so students draft over winter break.</li>
+          <li><strong>No phone.</strong> All contact is web and email. Nothing routes to a call.</li>
+          <li><strong>The Dunham Fund is not named</strong> anywhere public &mdash; not as sponsor, not as funder. John C. Dunham the person, yes.</li>
+          <li><strong>Funding is broader than tuition</strong> &mdash; transportation, tools, boots, supplies, required work clothing.</li>
+          <li><strong>/donors, /financials and /news are cut.</strong> No donation ask, no published financials.</li>
+          <li><strong>No GPA, no test scores, no family finances.</strong> One short answer, 300 words or less, on what you want to pursue.</li>
+          <li><strong>Interview roster changed</strong> &mdash; see the partner blocks below.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -482,7 +515,8 @@
               <div class="q-foot"><span class="src-asset">Scope flexibility</span><span class="chip-status prog">Confirm</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
-              <div class="q-text">Explain the funding model in plain terms: money goes to institutions and employers, never to individuals. Why that design?</div>
+              <div class="q-text">Explain the funding model in plain terms &mdash; what JCD actually pays for, and who the check goes to.</div>
+              <div class="q-why"><strong>Rewritten after 6/26.</strong> Don't lead with &ldquo;never to individuals&rdquo; &mdash; Bob is now leaning the other way. The strong on-camera answer is the <em>scope</em>: tuition, plus transportation, tools, boots, supplies, required work clothing. His line: &ldquo;Day one, boots cost 200 bucks. Kid doesn't have 200 bucks.&rdquo; And: &ldquo;We'll help you get there.&rdquo; Get both on tape.</div>
               <div class="q-foot"><span class="src-asset">Funding model rationale</span><span class="chip-status prog">In progress</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
@@ -517,8 +551,9 @@
               <div class="q-foot"><span class="src-asset">Required-documents list</span><span class="chip-status need">Need</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
-              <div class="q-text">Are the dates set &mdash; Dec 1 2026 to Mar 1 2027 &mdash; and is that the annual window going forward?</div>
-              <div class="q-foot"><span class="src-asset">Key dates</span><span class="chip-status prog">In progress</span></div>
+              <div class="q-text">Are the dates set &mdash; Jan 1 to Mar 31 2027 &mdash; and is that the annual window going forward?</div>
+              <div class="q-why"><strong>Answered 6/26:</strong> moved off Dec 1 deliberately. Students draft over December break and submit the week they're back at school. Get him to say it on camera &mdash; the reasoning is the good part.</div>
+              <div class="q-foot"><span class="src-asset">Key dates</span><span class="chip-status done">Answered 6/26</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
               <div class="q-text">What are the edge cases people always ask about &mdash; graduating seniors, part-time students, applying for more than one award?</div>
@@ -535,11 +570,11 @@
           </div>
           <div class="q-note" id="note-impact" hidden style="margin:0 26px 0; border-radius:6px;">
             <div class="q-note-h">Heads up &mdash; this program hasn't started</div>
-            <p>JCD is brand new and can't run until the <strong>501(c)(3)</strong> comes through; the first application window is <strong>Dec 1 2026 &ndash; Mar 1 2027</strong>. So there are <em>no</em> students funded, dollars awarded, or schools reached yet. Don't ask Bob for &ldquo;impact so far&rdquo; &mdash; there isn't any. These questions get what we <em>can</em> say at launch: who's behind it, what's committed, and what year one is meant to look like. Everything here is intent/goals, not results &mdash; label it that way and mark unconfirmed figures <code>[TK]</code>.</p>
+            <p>The <strong>501(c)(3) was approved July 24, 2026</strong> (private operating foundation), but the first application window doesn't open until <strong>Jan 1 2027</strong>. So there are still <em>no</em> students funded, dollars awarded, or schools reached yet. Don't ask Bob for &ldquo;impact so far&rdquo; &mdash; there isn't any. These questions get what we <em>can</em> say at launch: who's behind it, what's committed, and what year one is meant to look like. Everything here is intent/goals, not results &mdash; label it that way and mark unconfirmed figures <code>[TK]</code>.</p>
           </div>
           <ul class="q-list">
             <li class="q-item"><span class="q-num"></span><div class="q-body">
-              <div class="q-text">The program hasn't run yet &mdash; it's brand new and waiting on 501(c)(3) status. So what can we honestly say <em>today</em>: the funding behind it, the schools lined up, the employer partners, the model?</div>
+              <div class="q-text">The 501(c)(3) is approved but the program hasn't run yet. So what can we honestly say <em>today</em>: the schools lined up, the employer partners, the model?</div>
               <div class="q-why">We lead with readiness and intent, not results. Probe: what's already committed vs. still aspirational?</div>
               <div class="q-foot"><span class="src-asset">What we can claim at launch</span><span class="chip-status need">Need</span></div>
             </div></li>
@@ -596,23 +631,23 @@
                   </div>
                   <div class="fd">
                     <div class="fd-q">Is there an essay?</div>
-                    <div class="fd-a">Technically there's one short-answer prompt at the end (&ldquo;tell us in a few words why you want to do this&rdquo;). No word count. No trick questions. No &ldquo;describe a challenge you overcame.&rdquo; Just be yourself. Three good sentences beat three good paragraphs.</div>
+                    <div class="fd-a"><em>Revised 6/26 &mdash; live copy now reads:</em> Not really. There's one short answer at the end &mdash; <strong>300 words or less</strong> &mdash; and it asks one thing: what do you want to pursue? That's it. No &ldquo;describe a challenge you overcame.&rdquo; We're not asking you to prove you've had it hard. Tell us what you want to do and why. Three good sentences beat three good paragraphs.</div>
                   </div>
                   <div class="fd">
                     <div class="fd-q">What if I'm not sure which sector yet?</div>
-                    <div class="fd-a">Pick the one that feels closest. We'll pair you with someone working in all three so you can ask the real questions &mdash; hours, wages, what they wish they knew at 18. You can switch tracks up until your training actually starts.</div>
+                    <div class="fd-a"><em>Revised 6/26 &mdash; live copy now reads:</em> Pick something. Start a nursing program and find out it isn't for you &mdash; that's fine, you found out. Try welding and decide you don't want to do it for thirty years &mdash; also fine. You checked one off and you can go on to the next. What we're looking for isn't certainty. It's that you pursued something and gave it a real try. <strong>(Dropped the mentor-pairing claim &mdash; that program feature was never confirmed.)</strong></div>
                   </div>
                   <div class="fd">
                     <div class="fd-q">What does it actually cost me?</div>
-                    <div class="fd-a">Zero dollars. That's not marketing &mdash; that's the mechanics. JCD pays tuition direct to your program, sends a gear stipend to you, and connects you to employer partners. No fees. No hidden application cost. No catch.</div>
+                    <div class="fd-a"><em>Revised 6/26 &mdash; live copy now reads:</em> Nothing to apply. No fees, no hidden application cost, no catch. And JCD doesn't stop at tuition &mdash; getting to the job or the campus, tools, work boots, supplies, the clothing your employer requires on day one. Steel-toed boots cost $200 before you've earned a dollar. We'll help you get there. <strong>(Award sizes and who the check goes to are still open &mdash; marked [TK] on the live page.)</strong></div>
                   </div>
                   <div class="fd">
                     <div class="fd-q">What if I want to go to a 4-year school later?</div>
                     <div class="fd-a">Totally fine. Most of our paths include transferable college credit. A lot of scholars end up going back for a bachelor's in their late 20s &mdash; paid for by an employer. Starting in the trades isn't closing a door. It's opening a different one.</div>
                   </div>
                   <div class="fd">
-                    <div class="fd-q">I'm undocumented. Can I still apply?<span class="fd-flag">Verify carefully</span></div>
-                    <div class="fd-a">Yes. JCD scholarships are funded privately by the Dunham family &mdash; not federally &mdash; so immigration status doesn't affect eligibility. If you graduated from one of our qualifying schools and want to train into one of our three sectors, you're in the running. <strong>(Highest-stakes claim on the page &mdash; confirm this is actually true before launch.)</strong></div>
+                    <div class="fd-q"><s>I'm undocumented. Can I still apply?</s> &rarr; replaced by &ldquo;Does my family's income matter?&rdquo;<span class="fd-flag">Resolved 6/26</span></div>
+                    <div class="fd-a"><strong>Bob killed this question outright:</strong> &ldquo;We don't even want to know. We're not going to ask. I wouldn't even have it on that FAQ.&rdquo; JCD asks no citizenship question, so the FAQ shouldn't raise one. The old answer also named the Dunham family as the funder &mdash; a second violation. Both are gone. The slot now holds: <em>Does my family's income matter? No. Your parents can be millionaires or on welfare &mdash; it's none of our business and we don't ask.</em></div>
                   </div>
                   <div class="fd">
                     <div class="fd-q">How long does the application take?</div>
@@ -667,21 +702,23 @@
               <div class="q-foot"><span class="src-asset">EIN</span><span class="chip-status need">Need</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
-              <div class="q-text">What are the formal disbursement rules &mdash; how exactly do funds move to institutions and employers?</div>
-              <div class="q-foot"><span class="src-asset">Disbursement rules</span><span class="chip-status need">Need</span></div>
+              <div class="q-text">What are the formal disbursement rules &mdash; who does the check actually go to?</div>
+              <div class="q-why"><strong>Open as of 6/26 &mdash; the single biggest unresolved item.</strong> Bob is now leaning toward <em>reimbursing the student directly</em>, reversing &ldquo;never to individuals.&rdquo; His reasoning: no college wants to administer it, and an employer like Andy Platt will balk at cutting a separate check. He said he still has to research it. Until it's settled, every public page has to stay vague on mechanics.</div>
+              <div class="q-foot"><span class="src-asset">Disbursement rules</span><span class="chip-status prog">In progress</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
               <div class="q-text">Who governs JCD &mdash; board members and their roles?</div>
               <div class="q-foot"><span class="src-asset">Governance / board</span><span class="chip-status need">Need</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
-              <div class="q-text">Will there be an annual report or Form 990 we can link from the site?</div>
-              <div class="q-foot"><span class="src-asset">990 / annual report</span><span class="chip-status need">Need</span></div>
+              <div class="q-text"><s>Will there be an annual report or Form 990 we can link from the site?</s></div>
+              <div class="q-why"><strong>Answered 6/26 &mdash; don't ask again.</strong> &ldquo;We make people go get the 990 on their own.&rdquo; No link, no financials page. Deliberate: the funding source stays off the site.</div>
+              <div class="q-foot"><span class="src-asset">990 / annual report</span><span class="chip-status done">Answered 6/26</span></div>
             </div></li>
             <li class="q-item"><span class="q-num"></span><div class="q-body">
-              <div class="q-text">How will donations be processed &mdash; what platform or processor, and when?</div>
-              <div class="q-why">Decides the Donate CTA on /donors; blocks that page until chosen.</div>
-              <div class="q-foot"><span class="src-asset">Donation processor</span><span class="chip-status need">Need</span></div>
+              <div class="q-text"><s>How will donations be processed &mdash; what platform or processor, and when?</s></div>
+              <div class="q-why"><strong>Moot as of 6/26.</strong> &ldquo;We're not gonna ask for any donations.&rdquo; No donate CTA, no processor, no /donors page.</div>
+              <div class="q-foot"><span class="src-asset">Donation processor</span><span class="chip-status done">Answered 6/26</span></div>
             </div></li>
           </ul>
         </article>
@@ -692,12 +729,22 @@
         <header class="iv-head">
           <div class="iv-kicker">Interview 03</div>
           <h3 class="iv-name">Partner Employers</h3>
-          <div class="iv-role">Nimco, Tagli, VIA &amp; others · one short recorded interview each</div>
+          <div class="iv-role">Roster revised June 26 &middot; one short recorded interview each</div>
           <p class="iv-note">
             Same questions every time, so the clips line up. Goal: the <strong>demand-side
             case</strong> for /employers, plus real hiring outcomes for /impact. Keep each to
             15&ndash;20 minutes.
           </p>
+          <div class="j26" style="margin-top:18px;">
+            <span class="stamp">Roster as of June 26, 2026</span>
+            <ul style="padding-left:20px;">
+              <li><strong>Trades &mdash; locked.</strong> <strong>Nathan Whitwell</strong> [TK spelling], Batavia High grad (~1 year out), now an electrical apprentice at <strong>Platt Electric</strong> [TK company name] under <strong>Andy Platt</strong>. Filmed <em>on a job site, off hours</em>. Bob's instruction was explicit: talk to the kid, not the building &mdash; &ldquo;I don't need to go look at some building with a bunch of conduits, a switch box. Talk to a kid.&rdquo; Bob opens the door via Andy Platt; the Batavia connection runs through Coach Woodwell [TK].</li>
+              <li><strong>Health sciences &mdash; pivoted.</strong> Rush Copley (John Dietrich) is effectively blocked &mdash; HIPAA makes filming in a medical facility a non-starter and the Rush system is &ldquo;very reluctant.&rdquo; Audio-only was floated. The plan instead moves to <strong>schools</strong>: <strong>College of DuPage</strong> preferred over Waubonsee, with an intro through a former COD president [TK &mdash; transcript says &ldquo;O'Brien Caputo,&rdquo; likely <em>Brian Caputo</em>; verify before outreach].</li>
+              <li><strong>Manufacturing &mdash; restart.</strong> The Valley Industrial Association route is abandoned; Bob hit a board-approval process just to get a manufacturer's name. Approach a manufacturer directly. <strong>No name identified yet</strong> &mdash; this is the biggest gap in the interview plan.</li>
+              <li><strong>Already done:</strong> Fairview Dental (see the <a href="interview-fairview.html" style="color:var(--pulse-teal); text-decoration:underline;">field brief</a>) covers the health-sciences employer angle.</li>
+            </ul>
+            <p style="margin-top:8px;"><strong>Why COD keeps coming up:</strong> Bob rates its course catalog at roughly double Waubonsee's, and it runs the classroom hours for DuPage County electrical apprentices &mdash; who can do much of it online rather than at the union hall. That catalog is also the source we're using to build the real job-title list per sector.</p>
+          </div>
         </header>
 
         <article class="theme">
@@ -912,6 +959,35 @@
           <span class="admin-text">
             <span class="admin-title">Domain Setup</span>
             <span class="admin-sub">DNS handoff guide</span>
+          </span>
+        </a>
+
+        <a href="about.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15.5H6.5A2.5 2.5 0 0 0 4 21z"/>
+              <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H19"/>
+              <line x1="8" y1="7.5" x2="15" y2="7.5"/>
+              <line x1="8" y1="11" x2="13" y2="11"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Our Story</span>
+            <span class="admin-sub">About page &middot; draft</span>
+          </span>
+        </a>
+
+        <a href="what-we-fund.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7.5h18v11H3z"/>
+              <circle cx="12" cy="13" r="2.6"/>
+              <path d="M3 7.5 6.5 4h11L21 7.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">What We Fund</span>
+            <span class="admin-sub">Funding scope &middot; draft</span>
           </span>
         </a>
 

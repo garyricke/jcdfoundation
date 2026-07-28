@@ -11,3 +11,34 @@ plan/*.mp3
 
 # Generated/scratch imagery
 generated_imgs/
+
+# Credentials — never commit
+.env
+.env.*
+!.env.example
+
+# Large source media — host on Cloudinary, don't commit
+# (dunham-about-video.mp4 is the ~1GB raw JCD interview source)
+assets/dunham-about-video.mp4
+assets/john-dunham-pic-*.png
+assets/john-dunham-vid-*.mp4
+
+# Built about-page hero montage. NOT committed by design — these must go to
+# Cloudinary and about.html's <video> src swapped to the CDN URLs before deploy.
+# Until then the hero only plays locally. See status.html (Jul 28 entry).
+assets/jcd-dunham-hero.mp4
+assets/jcd-dunham-hero.webm
+assets/jcd-dunham-hero-poster.jpg
+
+# About-page voiceover — goes to Cloudinary, same as the hero video
+assets/jcd-dunham-vo.mp3
+
+# Local preview server (range-request capable — the stdlib one stalls video)
+dev-serve.py
+
+# Meeting + interview transcripts — the repo is PUBLIC. These contain candid
+# strategy talk and named third parties. Keep them local.
+# (The May 6 / May 28 transcripts predate this rule and are already committed —
+#  see the Jul 28 note in status.html if you want them removed.)
+plan/JCD-Foundation-26-june-2026-meeting.md
+plan/dunham-about-video-transcript.md

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What We Fund — JCD Foundation</title>
+  <meta name="description" content="JCD funds tuition and the costs that actually stop people from starting — transportation, tools, work boots, supplies and required clothing — across advanced manufacturing, health sciences and the building trades." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/annotations.css" />
+  <style>
+    :root {
+      --equipto-blue:   #0E2A58;
+      --white:          #FFFFFF;
+      --deep-charcoal:  #111827;
+      --steel-gray:     #4A5568;
+      --mid-gray:       #9AA3AF;
+      --ice-gray:       #F0F3F7;
+      --border-line:    #D1D8E0;
+      --brass-gold:     #C5963A;
+      --deep-brass:     #8A6A1F;
+      --pulse-teal:     #0A9B8C;
+      --safety-orange:  #E8600A;
+      --body-text:      #2D3748;
+      --section-bg-alt: #F7F9FC;
+
+      --font-primary:   'Montserrat', sans-serif;
+      --font-display:   'Archivo Black', 'Montserrat', sans-serif;
+      --font-mono:      'Roboto Mono', monospace;
+      --font-hand:      'Caveat', cursive;
+
+      --section-pad:    110px;
+      --container-max:  1280px;
+      --nav-h:          72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-primary); font-size: 17px; line-height: 1.65;
+      color: var(--body-text); background: var(--white);
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: 0; background: none; }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; }
+
+    .scribble { display: inline-block; position: relative; white-space: nowrap; }
+    .scribble::after {
+      content: ''; position: absolute; left: -4%; right: -4%; bottom: -6px; height: 14px;
+      background: no-repeat center/100% 100%; z-index: -1;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'><path d='M5 12 C 60 2, 120 18, 180 8 S 280 14, 295 6' stroke='%23E8600A' stroke-width='5' fill='none' stroke-linecap='round'/></svg>");
+    }
+    .scribble.gold::after { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'><path d='M5 12 C 60 2, 120 18, 180 8 S 280 14, 295 6' stroke='%23C5963A' stroke-width='5' fill='none' stroke-linecap='round'/></svg>"); }
+    .scribble.teal::after { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 20' preserveAspectRatio='none'><path d='M5 12 C 60 2, 120 18, 180 8 S 280 14, 295 6' stroke='%230A9B8C' stroke-width='5' fill='none' stroke-linecap='round'/></svg>"); }
+
+    .sticker {
+      display: inline-block; background: var(--safety-orange); color: var(--white);
+      font-weight: 800; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 8px 14px; transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--deep-charcoal);
+    }
+    .sticker.gold { background: var(--brass-gold); transform: rotate(2deg); }
+    .sticker.teal { background: var(--pulse-teal); transform: rotate(-2deg); }
+
+    .hand { font-family: var(--font-hand); font-weight: 700; font-size: 28px; line-height: 1; }
+    .label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-gray); }
+    .mono { font-family: var(--font-mono); }
+    a.inline { color: var(--deep-brass); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+    a.inline:hover { color: var(--equipto-blue); }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: var(--equipto-blue); z-index: 100; display: flex; align-items: center; }
+    .nav .inner { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { height: 34px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.82); }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.current { color: var(--white); border-bottom: 2px solid var(--brass-gold); padding-bottom: 3px; }
+    .nav-cta { background: var(--brass-gold); color: var(--equipto-blue) !important; font-weight: 800; padding: 10px 20px; letter-spacing: 0.04em; }
+    .nav-cta:hover { background: var(--white); }
+
+    /* One-line draft marker. The full rationale lives in status.html, not on the page.
+       At launch: delete this bar and the "draft" class on <body>. */
+    .draftbar {
+      margin-top: var(--nav-h); background: var(--deep-charcoal); color: rgba(229,233,240,0.70);
+      font-family: var(--font-mono); font-size: 11px; line-height: 1; padding: 9px 0;
+      border-bottom: 2px solid var(--safety-orange);
+    }
+    .draftbar .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .draftbar .tag { color: var(--safety-orange); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    .draftbar .spacer { margin-left: auto; }
+    .draftbar a { color: var(--brass-gold); text-decoration: underline; }
+
+    .hero { background: var(--equipto-blue); color: var(--white); padding: 96px 0 104px; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; right: -140px; bottom: -160px; width: 480px; height: 480px; border: 54px solid rgba(255,255,255,0.035); border-radius: 50%; }
+    .hero .label { color: var(--brass-gold); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(42px, 6.2vw, 82px); line-height: 0.98; letter-spacing: -0.02em; margin: 20px 0 26px; max-width: 16ch; }
+    .hero p { font-size: 19px; line-height: 1.7; color: rgba(255,255,255,0.8); max-width: 62ch; }
+    .hero .hand { color: var(--brass-gold); margin-top: 30px; display: block; }
+
+    section.band { padding: var(--section-pad) 0; }
+    section.alt { background: var(--section-bg-alt); }
+    section.dark { background: var(--equipto-blue); color: var(--white); }
+    section.dark .label { color: var(--brass-gold); }
+    section.dark p { color: rgba(255,255,255,0.82); }
+    h2.sec { font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 54px); line-height: 1.02; letter-spacing: -0.02em; color: var(--equipto-blue); margin: 16px 0 26px; }
+    section.dark h2.sec { color: var(--white); }
+    .sec-lede { font-size: 19px; line-height: 1.7; max-width: 62ch; }
+    .body-copy p { margin-bottom: 20px; max-width: 66ch; }
+    .body-copy p:last-child { margin-bottom: 0; }
+
+    .pull { border-left: 5px solid var(--brass-gold); padding: 6px 0 6px 26px; margin: 34px 0; max-width: 60ch; }
+    .pull .q { display: block; font-family: var(--font-display); font-size: clamp(22px, 2.6vw, 30px); line-height: 1.25; letter-spacing: -0.01em; color: var(--equipto-blue); }
+    section.dark .pull .q { color: var(--white); }
+    .pull cite { display: block; margin-top: 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); font-style: normal; }
+    section.dark .pull cite { color: rgba(255,255,255,0.55); }
+
+    /* ---------- the two buckets ---------- */
+    .buckets { display: grid; grid-template-columns: 1fr 1.35fr; gap: 0; margin-top: 46px; border: 1px solid var(--border-line); }
+    .bucket { padding: 40px 36px; }
+    .bucket.one { background: var(--ice-gray); border-right: 1px solid var(--border-line); }
+    .bucket.two { background: var(--white); }
+    .bucket .cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px; }
+    .bucket.one .cap { color: var(--mid-gray); }
+    .bucket.two .cap { color: var(--safety-orange); }
+    .bucket h3 { font-family: var(--font-display); font-size: 26px; line-height: 1.1; color: var(--equipto-blue); margin-bottom: 16px; }
+    .bucket > p { font-size: 15.5px; line-height: 1.65; margin-bottom: 22px; }
+    .costlist { list-style: none; display: grid; gap: 2px; }
+    .costlist li { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px dashed var(--border-line); font-size: 16px; }
+    .costlist li:last-child { border-bottom: 0; }
+    .costlist svg { flex: 0 0 22px; width: 22px; height: 22px; color: var(--safety-orange); margin-top: 1px; }
+    .costlist b { color: var(--equipto-blue); font-weight: 700; }
+    .costlist span { display: block; font-size: 14px; color: var(--steel-gray); line-height: 1.5; margin-top: 2px; }
+
+    /* ---------- boots callout ---------- */
+    .boots {
+      margin-top: 44px; background: var(--deep-charcoal); color: var(--white);
+      padding: 44px 40px; display: flex; gap: 34px; align-items: center; flex-wrap: wrap;
+    }
+    .boots .num { font-family: var(--font-display); font-size: clamp(54px, 8vw, 96px); line-height: 0.85; color: var(--safety-orange); }
+    .boots .txt { flex: 1 1 340px; }
+    .boots .txt p { font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.86); margin-bottom: 10px; }
+    .boots cite { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-style: normal; }
+
+    /* ---------- sectors ---------- */
+    .sectors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 46px; }
+    .sector { border: 1px solid var(--border-line); border-top: 6px solid var(--clr); background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; }
+    .sector .tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clr); }
+    .sector h3 { font-family: var(--font-display); font-size: 23px; line-height: 1.1; color: var(--equipto-blue); margin: 10px 0 14px; }
+    .sector p { font-size: 15.5px; line-height: 1.6; margin-bottom: 16px; }
+    .sector .roles { font-family: var(--font-mono); font-size: 13px; line-height: 1.8; color: var(--steel-gray); border-top: 1px solid var(--border-line); padding-top: 14px; margin-top: auto; }
+    .sector.m { --clr: var(--equipto-blue); }
+    .sector.h { --clr: var(--pulse-teal); }
+    .sector.t { --clr: var(--safety-orange); }
+
+    /* ---------- award sizing ---------- */
+    .awards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
+    .award { border: 1px solid rgba(255,255,255,0.2); padding: 34px 30px; }
+    .award .cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass-gold); margin-bottom: 12px; }
+    .award .big { font-family: var(--font-display); font-size: clamp(26px, 3.4vw, 38px); line-height: 1.05; color: var(--white); margin-bottom: 14px; }
+    .award p { font-size: 15.5px; line-height: 1.6; color: rgba(255,255,255,0.75); }
+
+    /* ---------- employers ---------- */
+    .emp { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; margin-top: 44px; }
+    .emp-card { background: var(--white); border: 1px solid var(--border-line); border-left: 4px solid var(--brass-gold); padding: 28px 26px; }
+    .emp-card h4 { font-family: var(--font-display); font-size: 19px; line-height: 1.15; color: var(--equipto-blue); margin-bottom: 10px; }
+    .emp-card p { font-size: 15px; line-height: 1.6; }
+
+    /* ---------- open item note ---------- */
+    .openitem {
+      margin-top: 44px; border: 2px dashed var(--safety-orange); background: #FFF8F3;
+      padding: 30px 32px; max-width: 78ch;
+    }
+    .openitem .cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--safety-orange); font-weight: 700; margin-bottom: 10px; }
+    .openitem p { font-size: 15.5px; line-height: 1.65; margin-bottom: 12px; }
+    .openitem p:last-child { margin-bottom: 0; }
+
+    .cta { padding: 96px 0; text-align: center; }
+    .cta h2 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 58px); line-height: 1.03; color: var(--equipto-blue); margin-bottom: 20px; }
+    .cta p { font-size: 18px; max-width: 54ch; margin: 0 auto 34px; }
+    .btn { display: inline-block; background: var(--equipto-blue); color: var(--white); font-weight: 800; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; padding: 18px 38px; box-shadow: 6px 6px 0 var(--brass-gold); transition: transform .12s, box-shadow .12s; }
+    .btn:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--brass-gold); }
+    .btn.ghost { background: transparent; color: var(--equipto-blue); border: 2px solid var(--equipto-blue); box-shadow: none; margin-left: 14px; }
+    .btn.ghost:hover { background: var(--equipto-blue); color: var(--white); transform: none; }
+
+    .footer { background: var(--equipto-blue); color: rgba(255,255,255,0.7); padding: 70px 0 0; position: relative; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-logo { height: 40px; margin-bottom: 18px; }
+    .footer-about { font-size: 14.5px; line-height: 1.65; max-width: 42ch; }
+    .footer-col h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brass-gold); margin-bottom: 14px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 9px; font-size: 14.5px; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(255,255,255,0.14); margin-top: 54px; padding: 22px 0 28px; font-size: 13px; color: rgba(255,255,255,0.5); }
+
+
+    /* ---------- internal review layers ----------
+       .internal-only  → visible only while <body class="draft">
+       .pull cite      → visible only while <body class="draft show-sourcing">
+       At launch: delete the .draftbar block and the "draft" class on <body class="draft">.
+       Both layers disappear; quote provenance stays in the source. */
+    .internal-only { display: none; }
+    body.draft .internal-only { display: block; }
+    .pull cite, .leg .src { display: none; }
+    body.draft.show-sourcing .pull cite,
+    body.draft.show-sourcing .leg .src { display: block; }
+    .srctoggle {
+      display: inline-block; margin-left: 10px; padding: 4px 12px;
+      border: 1px solid var(--brass-gold); color: var(--brass-gold);
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer; background: none;
+    }
+    .srctoggle:hover { background: var(--brass-gold); color: var(--deep-charcoal); }
+    body.draft.show-sourcing .srctoggle { background: var(--brass-gold); color: var(--deep-charcoal); }
+
+    @media (max-width: 900px) {
+      .buckets, .sectors, .awards, .footer-grid { grid-template-columns: 1fr; }
+      .bucket.one { border-right: 0; border-bottom: 1px solid var(--border-line); }
+      .nav-links { gap: 16px; font-size: 12px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .container { padding: 0 24px; }
+      :root { --section-pad: 74px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="inner">
+      <a href="home.html" aria-label="JCD Foundation home">
+        <img src="assets/jcd-logo-white.svg" alt="JCD Foundation" class="nav-logo" />
+      </a>
+      <div class="nav-links">
+        <a href="about.html">Our Story</a>
+        <a href="what-we-fund.html" class="current">What We Fund</a>
+        <a href="home.html#faq">FAQ</a>
+        <a href="apply-full.html" class="nav-cta">Apply</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- One-line draft marker — remove at launch (with the "draft" class on <body>) -->
+  <div class="draftbar">
+    <div class="container">
+      <div class="row">
+        <span class="tag">Draft</span>
+        <span>Unverified copy &mdash; see <a href="status.html">build notes</a></span>
+        <span class="spacer"></span>
+        <button type="button" class="srctoggle" data-srctoggle aria-pressed="false">Show sourcing</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <span class="label">What We Fund</span>
+      <h1>Tuition is the easy part.</h1>
+      <p>Most scholarships write a check to a school and call it done. That check doesn't get you to
+        the job site at 6 a.m., and it doesn't put steel-toed boots on your feet on day one. JCD
+        funds the whole distance &mdash; because the gap between &ldquo;accepted&rdquo; and
+        &ldquo;actually showed up&rdquo; is where people fall out.</p>
+      <span class="hand">We&rsquo;ll help you get there.</span>
+    </div>
+  </header>
+
+  <!-- ================= THE TWO BUCKETS ================= -->
+  <section class="band">
+    <div class="container">
+      <span class="label">01 &middot; The scope</span>
+      <h2 class="sec">Two kinds of cost.<br>We cover <span class="scribble">both.</span></h2>
+      <p class="sec-lede">Here's the reason this foundation looks different on paper: the barrier
+        that stops a kid from starting a career usually isn't the tuition bill. It's the four hundred
+        dollars of stuff nobody budgets for.</p>
+
+      <div class="buckets">
+        <div class="bucket one">
+          <div class="cap">Bucket 01 &mdash; what everyone funds</div>
+          <h3>Tuition &amp; program fees</h3>
+          <p>The certificate, the associate degree, the apprenticeship classroom hours, the licensing
+            exam. Paid at whatever share the program and the student's situation call for.</p>
+          <p style="font-size:14px; color:var(--steel-gray); margin-bottom:0;">This is table stakes.
+            Every scholarship in the region does this.</p>
+        </div>
+        <div class="bucket two">
+          <div class="cap">Bucket 02 &mdash; what almost nobody funds</div>
+          <h3>The costs that actually stop people</h3>
+          <ul class="costlist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-6l2-5h9l4 5h2v6h-2"/><path d="M9 17h6"/></svg>
+              <div><b>Getting there.</b><span>A car you don't have, gas you can't cover, a bus that doesn't run to Sugar Grove. There are kids in Aurora who can't attend Waubonsee for no reason other than that they can't get there.</span></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5l-10 10a2.8 2.8 0 0 1-4-4l10-10z"/><path d="M14.7 6.3 18 3l3 3-3.3 3.3"/></svg>
+              <div><b>Tools.</b><span>Trades apprentices supply their own. So do a lot of manufacturing hires. Nobody hands you a starter set.</span></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20v-6a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v6"/><path d="M9 11V6a3 3 0 0 1 6 0v5"/></svg>
+              <div><b>Work boots &amp; required clothing.</b><span>Steel-toed on day one, non-negotiable, and roughly $200 before you've earned a dollar.</span></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10.5 4 8.5 3.5 6 3.5H3v14h3c2.5 0 4.5.5 6 2 1.5-1.5 3.5-2 6-2h3v-14h-3c-2.5 0-4.5.5-6 2z"/><path d="M12 5.5v14"/></svg>
+              <div><b>Supplies &amp; safety gear.</b><span>Books, a welding helmet, PPE. Manufacturing floors have safety requirements a new hire has to meet before they're allowed to work.</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="boots">
+        <div class="num">$200</div>
+        <div class="txt">
+          <p>&ldquo;If a kid goes into the building trades, all my guys are telling me &mdash; the kids
+            have got to get to the job. Some kids don't have an ability to get to the job. They don't
+            have a car. Day one, boots cost 200 bucks. Kid doesn't have 200 bucks.&rdquo;</p>
+          <cite>Source: Bob Vaughan, June 26 2026. Verbatim.</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTORS ================= -->
+  <section class="band alt" id="sectors">
+    <div class="container">
+      <span class="label">02 &middot; The three sectors</span>
+      <h2 class="sec">Where the money goes.</h2>
+      <p class="sec-lede">Three paths, chosen because they're the three worlds John C. Dunham
+        actually worked in &mdash; not because a report said so. <a class="inline" href="about.html">That
+        story is here.</a></p>
+
+      <div class="sectors">
+        <div class="sector m">
+          <div class="tag">01 &middot; Advanced Manufacturing</div>
+          <h3>Build the things the region runs on.</h3>
+          <p>Machining, welding, industrial tech, automation and the machines behind them. It's the
+            sector we expect to need the most cultivation &mdash; the industry associations aren't
+            yet reaching young people at all.</p>
+          <div class="roles">Machinist · CNC operator<br>Welder · industrial maintenance<br>Injection molding · automation tech<br><em style="color:var(--mid-gray);">Final list [TK] — building from College of DuPage's program catalog</em></div>
+        </div>
+        <div class="sector h">
+          <div class="tag">02 &middot; Health Sciences</div>
+          <h3>The clinicians your community needs.</h3>
+          <p>Short credentials into real clinical careers, plus the nursing route. Our view of who
+            carries the load: doctors are one level, but the nurses do all the work &mdash; and so do
+            the techs who assist them.</p>
+          <div class="roles">Registered nurse<br>Radiology tech · dental hygiene<br>Phlebotomy · lab tech<br><em style="color:var(--mid-gray);">Expanding from COD's certification list [TK]</em></div>
+        </div>
+        <div class="sector t">
+          <div class="tag">03 &middot; Building Trades</div>
+          <h3>Learn a trade. Get paid to do it.</h3>
+          <p>A fragmented field where nearly everyone trains their own. We expect the strongest
+            traction from <strong>non-union employers</strong> willing to take a chance on an
+            apprentice &mdash; which is exactly who JCD's funding helps most.</p>
+          <div class="roles">Electrician · HVAC<br>Plumber · pipefitter<br>Operating engineer · carpenter<br><em style="color:var(--mid-gray);">Union classroom hours often run through COD</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AWARD SIZING ================= -->
+  <section class="band dark">
+    <div class="container">
+      <span class="label">03 &middot; How big is an award</span>
+      <h2 class="sec">It depends. On purpose.</h2>
+      <p class="sec-lede">There's no flat number, and that's a deliberate design choice. An award is
+        sized to what the program costs and what the student's situation actually requires &mdash;
+        we don't want to be backed into a box.</p>
+
+      <div class="awards">
+        <div class="award">
+          <div class="cap">Example &mdash; four-year nursing route</div>
+          <div class="big">About half<br>the tuition.</div>
+          <p>A student headed into a nursing program at a private university running roughly $30K a
+            year. JCD would expect to cover something on the order of half.</p>
+        </div>
+        <div class="award">
+          <div class="cap">Example &mdash; community-college certificate</div>
+          <div class="big">Up to<br>all of it.</div>
+          <p>A health-sciences technician certificate at around $3K. For a student with real need,
+            that's a case where JCD covers the whole thing.</p>
+        </div>
+      </div>
+
+      <div class="pull" style="margin-top: 44px; border-left-color: var(--brass-gold);">
+        <span class="q">Unless the circumstances dictate 100% funding, it's not going to be a couple
+          thousand bucks a year. It's gonna be some real money.</span>
+        <cite>Source: Bob Vaughan, June 26 2026. Verbatim.</cite>
+      </div>
+
+      <p style="max-width:66ch;">Those two figures are illustrations, not a published schedule. A
+        formal award table gets set before the January window opens.
+        <span class="mono" style="font-size:13.5px;">[TK &mdash; award schedule to be finalized]</span></p>
+    </div>
+  </section>
+
+  <!-- ================= WHO GETS PAID — OPEN ITEM ================= -->
+  <section class="band">
+    <div class="container">
+      <span class="label">04 &middot; How the money moves</span>
+      <h2 class="sec">Reimbursement, not<br>a check to a bursar.</h2>
+      <p class="sec-lede">JCD is a <strong>501(c)(3) private operating foundation</strong>. That
+        structure is the reason we can reimburse real costs directly, rather than only routing tuition
+        through an institution.</p>
+
+      <div class="body-copy">
+        <div class="pull">
+          <span class="q">Because we're an operating foundation, we can reimburse the people for
+            those costs.</span>
+          <cite>Source: Bob Vaughan, June 26 2026. Verbatim.</cite>
+        </div>
+
+        <p>The practical logic is simple. Colleges don't want to administer a boots-and-bus-fare
+          line item, and neither does a small electrical contractor &mdash; ask one to cut a separate
+          check and you'll get a straight answer about how much they don't want to mess with it. So
+          the most likely design is reimbursing the student directly for documented costs.</p>
+      </div>
+
+      <div class="openitem internal-only">
+        <div class="cap">Open item &mdash; do not publish this section as settled</div>
+        <p><strong>Bob has not finalized who the payee is.</strong> His exact position on June 26 was
+          that he's leaning toward reimbursing the individual, followed immediately by &ldquo;I said
+          that, but I've got to research it.&rdquo; This reverses the earlier, widely-repeated JCD
+          line &mdash; &ldquo;disbursed to schools and employers, never to individuals&rdquo; &mdash;
+          which still appears on <strong>printed round-1 stock</strong> handed to employers.</p>
+        <p><strong>Confirm before launch:</strong> private foundations that make grants directly to
+          individuals for study or training generally need IRS advance approval of their
+          grant-selection procedures (IRC &sect;4945(g)). Worth one call to JCD's counsel or accountant
+          to establish whether that was part of the April 1 filing or is a separate step &mdash; it
+          determines whether the January window can pay students directly.</p>
+        <p style="font-family: var(--font-mono); font-size: 13px; color: var(--steel-gray);">
+          Owner: Bob &middot; Blocks: this section, the leave-behind reprint, and the disbursement
+          language in both outreach emails.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EMPLOYERS ================= -->
+  <section class="band alt">
+    <div class="container">
+      <span class="label">05 &middot; If you're an employer</span>
+      <h2 class="sec">This is a hiring<br><span class="scribble teal">advantage.</span></h2>
+      <p class="sec-lede">The pitch to employers isn't charity, and we want to be explicit that it
+        isn't. If JCD covers what falls outside what you'd normally provide, you can afford to take a
+        chance on someone you'd otherwise pass on.</p>
+
+      <div class="emp">
+        <div class="emp-card">
+          <h4>You pick who you want</h4>
+          <p>JCD attaches no strings to the hire. There's no requirement to take a particular
+            student from a particular ZIP code. That's your call, entirely.</p>
+        </div>
+        <div class="emp-card">
+          <h4>We cover what's outside your norm</h4>
+          <p>Transportation, tools, boots, required clothing &mdash; whatever sits beyond what you'd
+            normally supply an apprentice. Your wage stays your wage.</p>
+        </div>
+        <div class="emp-card">
+          <h4>It widens your candidate pool</h4>
+          <p>An employer with this behind them has an enhancement to draw some good people. Kids
+            who couldn't have said yes before now can.</p>
+        </div>
+        <div class="emp-card">
+          <h4>We set expectations first</h4>
+          <p>Show up, show up on time, show up prepared, and do your own research before you ask.
+            That's the deal we make with students before they reach you.</p>
+        </div>
+      </div>
+
+      <div class="pull">
+        <span class="q">They don't realize that if these kids have some help, they could turn out to
+          be some really good people. But they need a little bit of help.</span>
+        <cite>Source: Bob Vaughan, June 26 2026. Verbatim.</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE OTHER HALF OF THE DEAL ================= -->
+  <section class="band dark">
+    <div class="container">
+      <span class="label">06 &middot; What we ask back</span>
+      <h2 class="sec">We'll help you get there.<br>You've got to show up.</h2>
+      <p class="sec-lede">There's no GPA requirement and no income test, so it's worth being precise
+        about what JCD does expect. It isn't academic. It's the stuff every employer in every one of
+        these interviews named first.</p>
+
+      <div class="emp" style="margin-top: 40px;">
+        <div class="emp-card" style="background: transparent; border-color: rgba(255,255,255,0.2); border-left-color: var(--brass-gold);">
+          <h4 style="color:#fff;">Show up</h4>
+          <p style="color:rgba(255,255,255,0.72);">On time. One example we heard: driving the route
+            the day before, so a train can't be the reason you're late.</p>
+        </div>
+        <div class="emp-card" style="background: transparent; border-color: rgba(255,255,255,0.2); border-left-color: var(--brass-gold);">
+          <h4 style="color:#fff;">Show up prepared</h4>
+          <p style="color:rgba(255,255,255,0.72);">With your tools, your boots, your gear. That's
+            precisely what JCD is funding, so there's no excuse left.</p>
+        </div>
+        <div class="emp-card" style="background: transparent; border-color: rgba(255,255,255,0.2); border-left-color: var(--brass-gold);">
+          <h4 style="color:#fff;">Do the work of learning</h4>
+          <p style="color:rgba(255,255,255,0.72);">&ldquo;Work really hard at understanding, and not
+            asking questions that you should already research.&rdquo;</p>
+        </div>
+        <div class="emp-card" style="background: transparent; border-color: rgba(255,255,255,0.2); border-left-color: var(--brass-gold);">
+          <h4 style="color:#fff;">Actually try it</h4>
+          <p style="color:rgba(255,255,255,0.72);">Deciding a path isn't for you is a fine outcome
+            &mdash; as long as you pursued it first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="container">
+      <span class="sticker gold">Window opens Jan 1, 2027</span>
+      <h2 style="margin-top:26px;">Tell us what you<br>want to do.</h2>
+      <p>Three hundred words, no fee, no transcript minimum, no questions about your family's money.
+        Applications run January 1 through March 31.</p>
+      <a class="btn" href="apply-full.html">Start an application</a>
+      <a class="btn ghost" href="about.html">Read our story</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/jcd-logo-white.svg" alt="JCD Foundation" class="footer-logo" />
+          <p class="footer-about">The applied legacy of John C. Dunham. Funding Fox Valley seniors
+            into real careers in advanced manufacturing, health sciences, and the building trades.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Foundation</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="what-we-fund.html">What We Fund</a></li>
+            <li><a href="home.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tracks</h4>
+          <ul>
+            <li><a href="#sectors">Manufacturing</a></li>
+            <li><a href="#sectors">Health Sciences</a></li>
+            <li><a href="#sectors">Building Trades</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Apply</h4>
+          <ul>
+            <li><a href="home.html#check">Eligibility</a></li>
+            <li><a href="apply-full.html">Full Application</a></li>
+            <li><a href="mailto:info@thejcdfoundation.org">info@thejcdfoundation.org</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 JCD Foundation &middot; Fox Valley, IL</span>
+        <span>Built with care. Zero debt, zero nonsense.</span>
+      </div>
+    </div>
+
+    <!-- ========== ADMIN FAB ========== -->
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="agenda.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 4h6"/>
+              <path d="M8.5 10l1.5 1.5 2.5-2.5"/>
+              <path d="M8.5 16l1.5 1.5 2.5-2.5"/>
+              <line x1="15" y1="9.5" x2="16.5" y2="9.5"/>
+              <line x1="15" y1="15.5" x2="16.5" y2="15.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Meeting Agenda</span>
+            <span class="admin-sub">Today&rsquo;s run of show</span>
+          </span>
+        </a>
+
+        <a href="dns-setup.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Domain Setup</span>
+            <span class="admin-sub">DNS handoff guide</span>
+          </span>
+        </a>
+
+        <a href="about.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15.5H6.5A2.5 2.5 0 0 0 4 21z"/>
+              <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H19"/>
+              <line x1="8" y1="7.5" x2="15" y2="7.5"/>
+              <line x1="8" y1="11" x2="13" y2="11"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Our Story</span>
+            <span class="admin-sub">About page &middot; draft</span>
+          </span>
+        </a>
+
+        <a href="what-we-fund.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7.5h18v11H3z"/>
+              <circle cx="12" cy="13" r="2.6"/>
+              <path d="M3 7.5 6.5 4h11L21 7.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">What We Fund</span>
+            <span class="admin-sub">Funding scope &middot; draft</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
+          </span>
+        </a>
+
+        <a href="interview-questions.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-9 8.3 9 9 0 0 1-3.8-.8L3 20l1-4.2A8.38 8.38 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5z"/>
+              <path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.5 2.1-2.5 2.1"/>
+              <circle cx="11.8" cy="15.6" r=".6" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Interview Questions</span>
+            <span class="admin-sub">Recording script for sourcing</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="home.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12L12 4l9 8"/>
+              <path d="M5 10v10h14V10"/>
+              <path d="M10 20v-6h4v6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Original Homepage</span>
+            <span class="admin-sub">Pre-launch reference</span>
+          </span>
+        </a>
+
+        <a href="apply-full.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Full Application</span>
+            <span class="admin-sub">Long-form apply</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: absolute; right: 24px; bottom: 24px; z-index: 50; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+
+  </footer>
+
+
+  <script>
+    (function () {
+      var btn = document.querySelector('[data-srctoggle]');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var on = document.body.classList.toggle('show-sourcing');
+        btn.textContent = on ? 'Hide sourcing' : 'Show sourcing';
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    })();
+  </script>
+
+  <script src="assets/annotations.js"></script>
+</body>
+</html>
