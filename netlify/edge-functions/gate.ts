@@ -23,7 +23,18 @@ function escapeHtml(s: string): string {
     .replace(/'/g, "&#39;");
 }
 
-function gatePage(error?: string): string {
+// Only allow same-origin absolute paths through the redirect, so a crafted
+// link can't turn the gate into an open redirect to another site.
+function safeNext(raw: string | null | undefined): string {
+  if (!raw) return "/";
+  // Reject absolute URLs ("https://evil.com") and protocol-relative ("//evil.com").
+  if (!raw.startsWith("/") || raw.startsWith("//")) return "/";
+  // Never bounce back into the gate endpoint itself.
+  if (raw.startsWith("/_gate")) return "/";
+  return raw;
+}
+
+function gatePage(error?: string, next: string = "/"): string {
   const errBlock = error
     ? `<div class="gate-error">${escapeHtml(error)}</div>`
     : "";
@@ -217,6 +228,7 @@ body::after {
   <h1>Pull <em>up.</em></h1>
   <p class="gate-hand">one word gets you in.</p>
   <form class="gate-form" action="/_gate" method="POST" autocomplete="off">
+    <input type="hidden" name="next" value="${escapeHtml(next)}" />
     <input class="gate-input" type="password" name="password" placeholder="the password" autofocus required autocapitalize="off" autocorrect="off" spellcheck="false" />
     ${errBlock}
     <button class="gate-btn" type="submit">Let me in →</button>
@@ -233,9 +245,11 @@ export default async (request: Request, context: Context) => {
   // Handle the gate-form submission.
   if (request.method === "POST" && url.pathname === "/_gate") {
     let provided = "";
+    let next = "/";
     try {
       const form = await request.formData();
       provided = String(form.get("password") ?? "");
+      next = safeNext(String(form.get("next") ?? "/"));
     } catch {
       provided = "";
     }
@@ -244,14 +258,14 @@ export default async (request: Request, context: Context) => {
       return new Response(null, {
         status: 303,
         headers: {
-          Location: "/",
+          Location: next,
           "Set-Cookie": `${COOKIE_NAME}=${PASSWORD}; Path=/; Max-Age=${COOKIE_MAX_AGE}; Secure; HttpOnly; SameSite=Lax`,
           ...SECURITY_HEADERS,
         },
       });
     }
 
-    return new Response(gatePage("not quite. try again."), {
+    return new Response(gatePage("not quite. try again.", next), {
       status: 401,
       headers: {
         "content-type": "text/html; charset=utf-8",
@@ -275,7 +289,9 @@ export default async (request: Request, context: Context) => {
     return response;
   }
 
-  return new Response(gatePage(), {
+  // Remember what they were actually trying to reach, so a shared deep link
+  // (e.g. /about.html) survives the unlock instead of dumping them on the home page.
+  return new Response(gatePage(undefined, safeNext(url.pathname + url.search)), {
     status: 200,
     headers: {
       "content-type": "text/html; charset=utf-8",
