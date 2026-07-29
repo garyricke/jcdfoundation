@@ -598,8 +598,8 @@
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-label">Today</div>
-          <div class="hero-stat-value">July 27</div>
-          <div class="hero-stat-note">2026 · Monday</div>
+          <div class="hero-stat-value">July 29</div>
+          <div class="hero-stat-note">2026 · Wednesday</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-label">Phase</div>
@@ -614,7 +614,7 @@
         <div class="hero-stat">
           <div class="hero-stat-label">Grant window</div>
           <div class="hero-stat-value">Jan 1, 2027</div>
-          <div class="hero-stat-note">Opens 158 days out · closes Mar 31</div>
+          <div class="hero-stat-note">Opens 156 days out · closes Mar 31</div>
         </div>
       </div>
     </div>
@@ -630,6 +630,12 @@
         time and dollars over the next several days.
       </p>
       <div class="active-grid">
+        <div class="active-card cat-build">
+          <span class="chip">Build</span>
+          <h3>Live for Bob &amp; Jack to review</h3>
+          <p>Everything is deployed and behind the password. The link to send is <strong>thejcdfoundation.netlify.app/about.html</strong> &mdash; deep links now survive the unlock, so it lands where it should. A copy-paste update email is ready at <code>plan/about-page-update-email-2026-07-28.html</code>. Waiting on their read of the new page, and on Bob for the four open questions below.</p>
+          <div class="date">Sent / awaiting feedback</div>
+        </div>
         <div class="active-card cat-milestone">
           <span class="chip">Milestone</span>
           <h3>Launch sequence is released</h3>
@@ -837,11 +843,36 @@
       <!-- ============== NOW MARKER ============== -->
       <div class="now-marker">
         <span class="now-marker-label">Today · You are here</span>
-        <span class="now-marker-date">Monday · July 27, 2026</span>
+        <span class="now-marker-date">Wednesday · July 29, 2026</span>
       </div>
 
       <!-- ============== PAST ============== -->
       <h3 class="timeline-group-h">Done <span class="count">past</span></h3>
+
+      <div class="timeline-item cat-build" data-cat="build">
+        <div class="date">Jul 28 <span class="year">2026</span></div>
+        <div class="dot-col"><span class="dot"></span></div>
+        <div class="body">
+          <div class="item-head">
+            <span class="chip">Build</span>
+            <span class="status-tag done">Deployed</span>
+          </div>
+          <h4>Pushed live &mdash; plus two bugs that only existed in production</h4>
+          <p>Three commits to <code>main</code>: <code>b518a1e</code> (the new pages and the June 26 reconciliation), <code>0f30e2e</code> (hero play button), <code>f836f84</code> (password gate). All deployed and verified against the live site.</p>
+
+          <p><strong>The play button never appeared in production.</strong> It reveals itself when the audio fires <code>loadedmetadata</code> &mdash; but over the CDN the metadata arrived <em>before</em> the inline script ran, so the event had already fired and the listener never saw it. Locally the file loaded slowly enough that the ordering happened to work, which is exactly why it passed every test. Now it checks <code>readyState</code> directly on init with a short polling backstop. <span class="md-note">Caught by Gary on the live site, not in testing &mdash; worth remembering that &ldquo;works locally&rdquo; proves very little about CDN timing.</span></p>
+
+          <p><strong>Shared links didn't work.</strong> The password gate's post-unlock redirect was hardcoded to <code>&quot;/&quot;</code>, so anyone sent a deep link typed the password and landed on the home page with the page they actually wanted thrown away. On a site whose home page doesn't prominently link to About, most people would simply never have found it. The requested path now travels through the unlock form and becomes the redirect target, surviving a failed attempt too. <code>safeNext()</code> permits only same-origin absolute paths &mdash; taking a redirect target from a form field is how open redirects happen, so <code>https://&hellip;</code>, <code>//&hellip;</code> and <code>/_gate</code> are all refused. Verified end-to-end against the live gate.</p>
+
+          <div class="md-note">
+            <strong>Kept out of the public repo.</strong> <code>github.com/garyricke/jcdfoundation</code> is public even though the site is gated. The June 26 meeting transcript and the Dunham video transcript are now git-ignored &mdash; they contain candid strategy talk and named third parties, and git history makes a push effectively permanent. <span style="opacity:0.85;">The May 6 and May 28 transcripts were committed before this rule and remain public; worth a separate decision.</span> Also ignored: <code>.env</code>, all source media, and the built video/audio (those live on Cloudinary).
+          </div>
+
+          <p><strong>Housekeeping:</strong> <code>core.fileMode false</code> &mdash; something had chmod'd 138 files to 755, so git reported them all as modified when the content was byte-identical; without this the commit would have been 155 files of noise around 17 real changes. And <code>dev-serve.py</code> (git-ignored) replaces <code>python3 -m http.server</code> for local preview, because the stdlib server doesn't answer HTTP range requests and Chrome stalls forever on the hero video and audio &mdash; it presents exactly like a broken asset rather than a server problem.</p>
+
+          <p><strong>Update email drafted</strong> at <code>plan/about-page-update-email-2026-07-28.html</code> for Bob and Jack, leading on the About page video and narration: stills pulled from the documentary and animated, and a three-minute narration written from that same source and aimed at the student. Carries the four open questions for Bob.</p>
+        </div>
+      </div>
 
       <div class="timeline-item cat-milestone" data-cat="milestone">
         <div class="date">Jul 24 <span class="year">2026</span></div>
