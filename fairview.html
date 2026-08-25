@@ -168,6 +168,20 @@
     text-transform: uppercase; color: var(--mid-gray); margin-top: 5px;
   }
   .person:hover .person-name { color: var(--clr); }
+  /* Play cue for posters inside an element that is itself the button. */
+  .phone-cue {
+    position: absolute; inset: 0; pointer-events: none;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(14,42,88,0.06) 0%, rgba(14,42,88,0.60) 100%);
+    color: var(--white);
+  }
+  .phone-cue svg { width: 54px; height: 54px; filter: drop-shadow(0 3px 10px rgba(0,0,0,0.55)); transition: transform .18s ease; }
+  .person:hover .phone-cue svg { transform: scale(1.1); }
+  .phone-cue .cue-label {
+    position: absolute; left: 0; right: 0; bottom: 12px; text-align: center;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(255,255,255,0.92);
+  }
 
   /* ---------- STAT TILES ---------- */
   .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 46px; }
@@ -175,6 +189,7 @@
     background: var(--white); border: 1px solid var(--border-line);
     border-top: 4px solid var(--clr); border-radius: 4px;
     padding: 34px 30px 28px;
+    display: flex; flex-direction: column;
   }
   .stat-num {
     font-family: var(--font-display); font-size: 46px; line-height: 1;
@@ -187,16 +202,18 @@
   }
   .stat-src {
     font-family: var(--font-mono); font-size: 11px; color: var(--mid-gray);
-    margin-top: 12px; line-height: 1.6;
+    margin-top: 12px; margin-bottom: 22px; line-height: 1.6;
   }
   .stat-hear {
-    display: inline-flex; align-items: center; gap: 7px; margin-top: 16px;
-    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--clr);
-    background: none; border: 0; padding: 0; cursor: pointer;
+    display: flex; width: 100%; align-items: center; justify-content: center; gap: 10px;
+    margin-top: auto; padding: 14px 18px;
+    font-family: var(--font-primary); font-size: 15px; font-weight: 700;
+    letter-spacing: 0.04em; color: var(--white);
+    background: var(--clr); border: 0; border-radius: 3px; cursor: pointer;
+    font-family: inherit; transition: background .16s ease;
   }
-  .stat-hear:hover { text-decoration: underline; }
-  .stat-hear svg { width: 14px; height: 14px; }
+  .stat-hear:hover { background: #0b8578; }
+  .stat-hear svg { width: 20px; height: 20px; flex: none; }
 
   /* ---------- COMPARISON CHART ---------- */
   .chart { margin-top: 56px; max-width: 860px; }
@@ -394,31 +411,31 @@
     <div class="sec-eyebrow">Who we talked to</div>
     <h2 class="sec">Five people, one practice.</h2>
     <p class="lede">Four of them own it. Two of them are the career we&rsquo;re trying to send
-      students into. Tap any of them to hear the piece we&rsquo;d put on the public page.</p>
+      students into. Tap any of them to watch the clip we&rsquo;d put on the public page.</p>
 
     <div class="people">
       <button class="person" data-open="ladder">
-        <div class="phone"><img data-poster="ladder" alt="Dr. Michele Bruno"></div>
+        <div class="phone"><img data-poster="ladder" alt="Dr. Michele Bruno"><span class="phone-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg><span class="cue-label">Watch</span></span></div>
         <div class="person-name">Dr. Michele Bruno</div>
         <div class="person-role">Dentist &middot; former owner</div>
       </button>
       <button class="person" data-open="thriving">
-        <div class="phone"><img data-poster="thriving" alt="Dr. David Dominguez"></div>
+        <div class="phone"><img data-poster="thriving" alt="Dr. David Dominguez"><span class="phone-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg><span class="cue-label">Watch</span></span></div>
         <div class="person-name">Dr. David Dominguez</div>
         <div class="person-role">Dentist &middot; 8 years</div>
       </button>
       <button class="person" data-open="no-partnership">
-        <div class="phone"><img data-poster="no-partnership" alt="Dr. Salvador Cardenas"></div>
+        <div class="phone"><img data-poster="no-partnership" alt="Dr. Salvador Cardenas"><span class="phone-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg><span class="cue-label">Watch</span></span></div>
         <div class="person-name">Dr. Salvador Cardenas</div>
         <div class="person-role">Dentist &middot; owner</div>
       </button>
       <button class="person" data-open="engine">
-        <div class="phone"><img data-poster="engine" alt="Dr. David Gorenz"></div>
+        <div class="phone"><img data-poster="engine" alt="Dr. David Gorenz"><span class="phone-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg><span class="cue-label">Watch</span></span></div>
         <div class="person-name">Dr. David Gorenz</div>
         <div class="person-role">Dentist &middot; 9 years</div>
       </button>
       <button class="person" data-open="gap-scholarships">
-        <div class="phone"><img data-poster="gap-scholarships" alt="Cassie and Bethany"></div>
+        <div class="phone"><img data-poster="gap-scholarships" alt="Cassie and Bethany"><span class="phone-cue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg><span class="cue-label">Watch</span></span></div>
         <div class="person-name">Cassie &amp; Bethany</div>
         <div class="person-role">Hygienists</div>
       </button>
@@ -439,8 +456,8 @@
         <div class="stat-label">Starting pay for a new hygiene graduate</div>
         <div class="stat-src">Stated separately by Dr. Cardenas, Dr. Gorenz and Dr. Dominguez. Plus 401(k), PTO, medical, holiday pay and free dental work.</div>
         <button class="stat-hear" data-open="pay-cardenas">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 010 7"></path></svg>
-          Hear it
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg>
+          Watch the clip
         </button>
       </div>
       <div class="stat">
@@ -448,8 +465,8 @@
         <div class="stat-label">What the two hygienists paid to qualify</div>
         <div class="stat-src">Cassie: $20&ndash;25K at Illinois Valley CC. Bethany: $25&ndash;30K at College of DuPage. This is the gap JCD closes.</div>
         <button class="stat-hear" data-open="cost">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 010 7"></path></svg>
-          Hear it
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg>
+          Watch the clip
         </button>
       </div>
       <div class="stat">
@@ -457,8 +474,8 @@
         <div class="stat-label">From high school to working, prerequisites included</div>
         <div class="stat-src">The degree itself is two years. Cassie took 3.5 years door to door; Bethany took 4. No four-year university required.</div>
         <button class="stat-hear" data-open="two-years">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 010 7"></path></svg>
-          Hear it
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg>
+          Watch the clip
         </button>
       </div>
     </div>
@@ -538,7 +555,7 @@
     <div class="qa-set">
       <div class="qa-set-title">What the employers say</div>
 
-      <details class="qa">
+      <details class="qa" open>
         <summary class="qa-q">How badly do you actually need hygienists?</summary>
         <div class="qa-body">
           <div class="phone-wrap"><div class="phone">
