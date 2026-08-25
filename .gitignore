@@ -42,3 +42,12 @@ dev-serve.py
 #  see the Jul 28 note in status.html if you want them removed.)
 plan/JCD-Foundation-26-june-2026-meeting.md
 plan/dunham-about-video-transcript.md
+
+# Fairview Dental field footage (Aug 20 2026) — ~14 GB of raw interview MOVs
+# featuring named third parties. The repo is PUBLIC. Never commit these; the
+# selected cuts go to Cloudinary and are referenced by URL.
+assets/fairview-dental-interviews-aug2026/
+
+# Fairview interview transcripts — same reasoning as the meeting transcripts
+# above: candid talk, named third parties, compensation figures. Keep local.
+plan/fairview-transcripts/

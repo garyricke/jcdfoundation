@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fairview Dental — What the Field Told Us · JCD Foundation</title>
+<meta name="description" content="Five interviews at Fairview Dental in Aurora: what a dental hygiene career actually pays, what it costs to get there, and why nobody was funding it.">
+<meta name="robots" content="noindex, nofollow">
+<!-- Canonical points at the host that actually resolves today. Flip to
+     https://thejcdfoundation.org/fairview once DNS for the .org is live. -->
+<link rel="canonical" href="https://thejcdfoundation.netlify.app/fairview">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600&family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --equipto-blue: #0E2A58;
+    --steel-blue: #3B5F8A;
+    --sky-blue: #7AA3CC;
+    --ice-blue: #E8EEF6;
+    --white: #FFFFFF;
+    --deep-charcoal: #111827;
+    --steel-gray: #4A5568;
+    --mid-gray: #9AA3AF;
+    --ice-gray: #F0F3F7;
+    --paper-gray: #F7F9FC;
+    --border-line: #D1D8E0;
+    --brass-gold: #C5963A;
+    --brass-deep: #8A6A1F;
+    --pulse-teal: #0A9B8C;
+    --safety-orange: #E8600A;
+    --body-text: #2D3748;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-hand: 'Caveat', cursive;
+    --font-mono: 'Roboto Mono', monospace;
+    --nav-h: 72px;
+    --container-max: 1280px;
+    --clr: var(--pulse-teal);      /* Health Sciences sector accent */
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-primary);
+    font-size: 16px; line-height: 1.7;
+    color: var(--body-text);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+  img, video { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; }
+  .narrow { max-width: 780px; margin: 0 auto; }
+  .inlink { color: var(--brass-deep); border-bottom: 1px solid rgba(138,106,31,0.4); }
+  .inlink:hover { border-bottom-color: var(--brass-deep); }
+
+  /* ---------- NAV ---------- */
+  #nav {
+    position: sticky; top: 0; z-index: 1000;
+    height: var(--nav-h); background: var(--equipto-blue);
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center;
+  }
+  #nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+  .nav-logo-text {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--white); line-height: 1.3;
+  }
+  .nav-logo-text span {
+    display: block; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; color: rgba(255,255,255,0.55);
+  }
+  .nav-right {
+    font-family: var(--font-mono); font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .nav-right .draft-dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--pulse-teal); margin-right: 8px; vertical-align: middle;
+  }
+
+  /* ---------- REVIEW BANNER ---------- */
+  #reviewbar {
+    background: var(--deep-charcoal); color: rgba(255,255,255,0.85);
+    font-family: var(--font-mono); font-size: 11.5px;
+    letter-spacing: 0.06em; padding: 11px 0;
+  }
+  #reviewbar .container { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  #reviewbar b { color: var(--pulse-teal); letter-spacing: 0.18em; text-transform: uppercase; }
+
+  /* ---------- HERO ---------- */
+  #hero { background: var(--equipto-blue); color: var(--white); padding: 76px 0 84px; overflow: hidden; }
+  #hero .container { display: grid; grid-template-columns: 1fr 320px; gap: 64px; align-items: center; }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 26px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.4); }
+  #hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 5.4vw, 68px); line-height: 1.02;
+    letter-spacing: -0.02em; margin-bottom: 26px;
+  }
+  #hero h1 em { font-style: normal; color: var(--pulse-teal); }
+  .hero-sub { font-size: 17.5px; line-height: 1.72; color: rgba(255,255,255,0.82); max-width: 54ch; }
+  .hero-hand {
+    font-family: var(--font-hand); font-size: 25px;
+    color: var(--brass-gold); margin-top: 26px;
+  }
+
+  /* ---------- PHONE FRAME (vertical video) ---------- */
+  .phone {
+    position: relative; width: 100%; aspect-ratio: 9/16;
+    background: #000; border-radius: 22px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.16);
+    box-shadow: 0 26px 60px rgba(0,0,0,0.42);
+  }
+  .phone video, .phone img { width: 100%; height: 100%; object-fit: cover; }
+  .phone-play {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(14,42,88,0.10) 0%, rgba(14,42,88,0.62) 100%);
+    border: 0; cursor: pointer; color: var(--white);
+  }
+  .phone-play svg { width: 58px; height: 58px; filter: drop-shadow(0 3px 10px rgba(0,0,0,0.5)); }
+  .phone-play:hover svg { transform: scale(1.07); }
+  .phone-play svg { transition: transform .18s ease; }
+
+  /* ---------- SECTIONS ---------- */
+  section.band { padding: 92px 0; }
+  section.alt { background: var(--paper-gray); }
+  section.dark { background: var(--equipto-blue); color: var(--white); }
+  .sec-eyebrow {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--clr); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sec-eyebrow::before { content: ''; width: 26px; height: 2px; background: var(--clr); }
+  h2.sec {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.6vw, 44px); line-height: 1.1;
+    letter-spacing: -0.015em; color: var(--equipto-blue);
+    margin-bottom: 22px;
+  }
+  section.dark h2.sec { color: var(--white); }
+  .lede { font-size: 18px; line-height: 1.75; color: var(--steel-gray); max-width: 68ch; }
+  section.dark .lede { color: rgba(255,255,255,0.8); }
+
+  /* ---------- PEOPLE ---------- */
+  .people {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 22px; margin-top: 48px;
+  }
+  .person { text-align: left; background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit; }
+  .person .phone { aspect-ratio: 9/14; border-radius: 14px; border-color: var(--border-line); }
+  .person-name {
+    font-weight: 700; font-size: 15px; color: var(--equipto-blue);
+    margin-top: 14px; line-height: 1.35;
+  }
+  .person-role {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mid-gray); margin-top: 5px;
+  }
+  .person:hover .person-name { color: var(--clr); }
+
+  /* ---------- STAT TILES ---------- */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 46px; }
+  .stat {
+    background: var(--white); border: 1px solid var(--border-line);
+    border-top: 4px solid var(--clr); border-radius: 4px;
+    padding: 34px 30px 28px;
+  }
+  .stat-num {
+    font-family: var(--font-display); font-size: 46px; line-height: 1;
+    color: var(--equipto-blue); letter-spacing: -0.02em;
+  }
+  .stat-num small { font-size: 19px; letter-spacing: 0; }
+  .stat-label {
+    font-weight: 700; font-size: 15px; color: var(--body-text);
+    margin-top: 14px; line-height: 1.45;
+  }
+  .stat-src {
+    font-family: var(--font-mono); font-size: 11px; color: var(--mid-gray);
+    margin-top: 12px; line-height: 1.6;
+  }
+  .stat-hear {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 16px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--clr);
+    background: none; border: 0; padding: 0; cursor: pointer;
+  }
+  .stat-hear:hover { text-decoration: underline; }
+  .stat-hear svg { width: 14px; height: 14px; }
+
+  /* ---------- COMPARISON CHART ---------- */
+  .chart { margin-top: 56px; max-width: 860px; }
+  .chart-row { margin-bottom: 26px; }
+  .chart-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 9px; gap: 16px;
+  }
+  .chart-name { font-weight: 600; font-size: 15px; color: var(--body-text); }
+  .chart-val { font-family: var(--font-display); font-size: 19px; color: var(--equipto-blue); }
+  .chart-track { height: 34px; background: var(--ice-gray); border-radius: 2px; overflow: hidden; }
+  .chart-fill { height: 100%; border-radius: 2px; }
+  .chart-fill.cost { background: var(--brass-gold); width: 28.5%; }
+  .chart-fill.earn { background: var(--clr); width: 100%; }
+  .chart-note {
+    font-size: 13.5px; color: var(--steel-gray); line-height: 1.65;
+    border-left: 3px solid var(--border-line); padding-left: 16px; margin-top: 26px;
+  }
+
+  /* ---------- THE GAP ---------- */
+  #gap { background: var(--deep-charcoal); color: var(--white); padding: 100px 0; }
+  #gap h2.sec { color: var(--white); }
+  #gap .lede { color: rgba(255,255,255,0.82); }
+  #gap .container { display: grid; grid-template-columns: 1fr 300px; gap: 62px; align-items: start; }
+  .pullquote {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 37px); line-height: 1.24;
+    letter-spacing: -0.015em; color: var(--white); margin: 30px 0;
+  }
+  .pullquote .hl { color: var(--pulse-teal); }
+  .attrib {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+  }
+  .gap-second {
+    border-left: 3px solid var(--pulse-teal); padding-left: 22px;
+    margin-top: 40px; font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.86);
+  }
+
+  /* ---------- ACCORDION ---------- */
+  .qa-set { margin-top: 44px; }
+  .qa-set-title {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--clr);
+    padding-bottom: 12px; border-bottom: 2px solid var(--clr); margin-bottom: 4px;
+  }
+  .qa { border-bottom: 1px solid var(--border-line); }
+  .qa-q { list-style: none; }
+  .qa-q::-webkit-details-marker { display: none; }
+  .qa-q::marker { content: ''; }
+  .qa-q {
+    width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
+    font-family: inherit; font-size: 17.5px; font-weight: 600; color: var(--equipto-blue);
+    padding: 24px 46px 24px 0; position: relative; line-height: 1.45;
+  }
+  .qa-q:hover { color: var(--clr); }
+  .qa-q::after {
+    content: ''; position: absolute; right: 12px; top: 50%;
+    width: 11px; height: 11px; margin-top: -7px;
+    border-right: 2px solid var(--clr); border-bottom: 2px solid var(--clr);
+    transform: rotate(45deg); transition: transform .22s ease;
+  }
+  .qa[open] .qa-q::after { transform: rotate(-135deg); margin-top: -3px; }
+  .qa-body { display: none; padding: 4px 0 34px; }
+  .qa[open] .qa-body { display: grid; grid-template-columns: 220px 1fr; gap: 34px; align-items: start; }
+  .qa-answer { font-size: 17px; line-height: 1.75; color: var(--body-text); }
+  .qa-answer q { font-style: normal; }
+  .qa-answer .who {
+    display: block; font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray);
+    margin-top: 14px;
+  }
+  .qa-more {
+    margin-top: 18px; font-size: 14.5px; line-height: 1.7; color: var(--steel-gray);
+    background: var(--paper-gray); border-left: 3px solid var(--border-line);
+    padding: 14px 18px;
+  }
+
+  /* ---------- MODAL ---------- */
+  #modal {
+    position: fixed; inset: 0; z-index: 2000; display: none;
+    align-items: center; justify-content: center;
+    background: rgba(8,16,32,0.93); padding: 30px;
+  }
+  #modal.open { display: flex; }
+  .modal-inner { width: min(340px, 90vw); }
+  .modal-inner .phone { border-radius: 20px; }
+  .modal-inner video { object-fit: contain; background: #000; }
+  .modal-cap {
+    color: var(--white); font-family: var(--font-mono); font-size: 11.5px;
+    letter-spacing: 0.12em; text-transform: uppercase; text-align: center;
+    margin-top: 16px; line-height: 1.7;
+  }
+  #modal-close {
+    position: absolute; top: 22px; right: 26px;
+    background: none; border: 0; color: var(--white); cursor: pointer;
+    font-size: 34px; line-height: 1; padding: 6px 12px;
+  }
+
+  /* ---------- CLOSING ---------- */
+  .closing { background: var(--equipto-blue); color: var(--white); padding: 88px 0; }
+  .closing h2 { font-family: var(--font-display); font-size: clamp(26px,3.4vw,40px); line-height: 1.12; margin-bottom: 20px; }
+  .btnrow { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .btn {
+    display: inline-block; padding: 14px 26px; border-radius: 3px;
+    font-weight: 700; font-size: 14px; letter-spacing: 0.03em;
+  }
+  .btn-primary { background: var(--brass-gold); color: var(--equipto-blue); }
+  .btn-primary:hover { background: #d4a854; }
+  .btn-ghost { border: 1px solid rgba(255,255,255,0.35); color: var(--white); }
+  .btn-ghost:hover { border-color: var(--white); }
+
+  footer.site {
+    background: var(--deep-charcoal); color: rgba(255,255,255,0.5);
+    padding: 30px 0; font-size: 12.5px;
+  }
+  footer.site .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1040px) {
+    .people { grid-template-columns: repeat(3, 1fr); }
+    #hero .container, #gap .container { grid-template-columns: 1fr; gap: 44px; }
+    #hero .phone-wrap, #gap .phone-wrap { max-width: 290px; }
+  }
+  @media (max-width: 760px) {
+    .container { padding: 0 24px; }
+    section.band { padding: 64px 0; }
+    .stats { grid-template-columns: 1fr; }
+    .people { grid-template-columns: repeat(2, 1fr); }
+    .qa[open] .qa-body { grid-template-columns: 1fr; }
+    .qa-body .phone-wrap { max-width: 210px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+  @media print { #nav, #reviewbar, .admin-fab-wrap, #modal { display: none !important; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/jcd-logo-white.svg" alt="JCD Foundation">
+      <span class="nav-logo-text">JCD Foundation<span>Supporting Career Paths</span></span>
+    </a>
+    <div class="nav-right"><span class="draft-dot"></span>Field Evidence &middot; Draft</div>
+  </div>
+</nav>
+
+<div id="reviewbar">
+  <div class="container">
+    <b>Review copy</b>
+    <span>Not public. Shared with Fairview Dental to approve the clips before anything goes live.</span>
+  </div>
+</div>
+
+<header id="hero">
+  <div class="container">
+    <div>
+      <div class="hero-eyebrow">Fairview Dental &middot; Aurora &middot; Aug 20 2026</div>
+      <h1>Nobody was<br>funding <em>this</em> path.</h1>
+      <p class="hero-sub">We spent an hour at one of the largest dental practices in Kane County and
+        asked five people the same thing: what does this career actually pay, what does it cost to get
+        into, and who helps you get there. The last answer was the one we didn&rsquo;t expect.</p>
+      <p class="hero-hand">Here&rsquo;s what they told us. &darr;</p>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <video data-clip="gap-scholarships" muted loop playsinline preload="metadata"></video>
+        <button class="phone-play" data-open="gap-scholarships" aria-label="Play the clip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="container narrow">
+    <div class="sec-eyebrow">Why we went</div>
+    <h2 class="sec">The program hasn&rsquo;t started. The path already exists.</h2>
+    <p class="lede">JCD hasn&rsquo;t funded a student yet &mdash; the first grant window opens in
+      January 2027. So we can&rsquo;t show you results. What we can show you is whether the road we
+      intend to pay for actually leads anywhere. Fairview Dental employs sixteen hygienists across
+      sixteen chairs in Aurora. Four dentists and two hygienists sat down with us on a Thursday
+      lunch hour. Nobody was paid, nobody was coached, and nothing below is a JCD claim &mdash;
+      it&rsquo;s theirs.</p>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="container">
+    <div class="sec-eyebrow">Who we talked to</div>
+    <h2 class="sec">Five people, one practice.</h2>
+    <p class="lede">Four of them own it. Two of them are the career we&rsquo;re trying to send
+      students into. Tap any of them to hear the piece we&rsquo;d put on the public page.</p>
+
+    <div class="people">
+      <button class="person" data-open="ladder">
+        <div class="phone"><img data-poster="ladder" alt="Dr. Michele Bruno"></div>
+        <div class="person-name">Dr. Michele Bruno</div>
+        <div class="person-role">Dentist &middot; former owner</div>
+      </button>
+      <button class="person" data-open="thriving">
+        <div class="phone"><img data-poster="thriving" alt="Dr. David Dominguez"></div>
+        <div class="person-name">Dr. David Dominguez</div>
+        <div class="person-role">Dentist &middot; 8 years</div>
+      </button>
+      <button class="person" data-open="no-partnership">
+        <div class="phone"><img data-poster="no-partnership" alt="Dr. Salvador Cardenas"></div>
+        <div class="person-name">Dr. Salvador Cardenas</div>
+        <div class="person-role">Dentist &middot; owner</div>
+      </button>
+      <button class="person" data-open="engine">
+        <div class="phone"><img data-poster="engine" alt="Dr. David Gorenz"></div>
+        <div class="person-name">Dr. David Gorenz</div>
+        <div class="person-role">Dentist &middot; 9 years</div>
+      </button>
+      <button class="person" data-open="gap-scholarships">
+        <div class="phone"><img data-poster="gap-scholarships" alt="Cassie and Bethany"></div>
+        <div class="person-name">Cassie &amp; Bethany</div>
+        <div class="person-role">Hygienists</div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container">
+    <div class="sec-eyebrow">The numbers</div>
+    <h2 class="sec">What it pays. What it costs. How long it takes.</h2>
+    <p class="lede">Every figure below came out of someone&rsquo;s mouth on camera. The pay figure
+      was given independently by three different owners who were not in the room together.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">$45<small>/hr</small></div>
+        <div class="stat-label">Starting pay for a new hygiene graduate</div>
+        <div class="stat-src">Stated separately by Dr. Cardenas, Dr. Gorenz and Dr. Dominguez. Plus 401(k), PTO, medical, holiday pay and free dental work.</div>
+        <button class="stat-hear" data-open="pay-cardenas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 010 7"></path></svg>
+          Hear it
+        </button>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$20&ndash;30<small>K</small></div>
+        <div class="stat-label">What the two hygienists paid to qualify</div>
+        <div class="stat-src">Cassie: $20&ndash;25K at Illinois Valley CC. Bethany: $25&ndash;30K at College of DuPage. This is the gap JCD closes.</div>
+        <button class="stat-hear" data-open="cost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 010 7"></path></svg>
+          Hear it
+        </button>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3&ndash;4<small> yrs</small></div>
+        <div class="stat-label">From high school to working, prerequisites included</div>
+        <div class="stat-src">The degree itself is two years. Cassie took 3.5 years door to door; Bethany took 4. No four-year university required.</div>
+        <button class="stat-hear" data-open="two-years">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 010 7"></path></svg>
+          Hear it
+        </button>
+      </div>
+    </div>
+
+    <div class="chart">
+      <div class="chart-row">
+        <div class="chart-head">
+          <span class="chart-name">What it costs to qualify</span>
+          <span class="chart-val">$20,000&ndash;30,000</span>
+        </div>
+        <div class="chart-track"><div class="chart-fill cost"></div></div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-head">
+          <span class="chart-name">First-year earnings at $45/hr</span>
+          <span class="chart-val">~$93,600</span>
+        </div>
+        <div class="chart-track"><div class="chart-fill earn"></div></div>
+      </div>
+      <p class="chart-note"><strong>How we got that second number:</strong> the $45/hour is theirs.
+        The annual figure is our arithmetic &mdash; $45 &times; 40 hours &times; 52 weeks, before tax
+        and before any of the benefits they described. Nobody at Fairview stated an annual salary,
+        and part-time schedules are common in the field. We show it because the shape of the
+        comparison is the point: <strong>one year of the job covers the whole cost of getting
+        into it, three times over.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section id="gap">
+  <div class="container">
+    <div>
+      <div class="sec-eyebrow">The finding</div>
+      <h2 class="sec">The money that exists goes somewhere else.</h2>
+      <p class="lede">We asked both hygienists whether there were scholarships for what they did.
+        We expected a yes. We got the clearest argument for this foundation that anyone has
+        made to us yet &mdash; and they made it twice, about two different colleges.</p>
+
+      <blockquote class="pullquote">
+        &ldquo;We were eliminated from <span class="hl">three quarters of the scholarships</span>
+        right away, because they were directly for the nursing program.&rdquo;
+      </blockquote>
+      <div class="attrib">Cassie &middot; Illinois Valley Community College</div>
+
+      <div class="gap-second">
+        <p>&ldquo;COD has barely any dental hygiene scholarship specific. And they do have the STEM
+          field scholarships, but when I tried to apply, some of them were like &mdash;
+          <em>your degree isn&rsquo;t part of that STEM field.</em>&rdquo;</p>
+        <div class="attrib" style="margin-top:12px;">Bethany &middot; College of DuPage</div>
+      </div>
+
+      <p class="lede" style="margin-top:40px; color:rgba(255,255,255,0.86);">Nursing takes the
+        healthcare money. STEM rules them out for being healthcare. A career with a documented
+        shortage, a $45 starting wage and a two-year credential has almost nothing pointed at it.
+        <strong style="color:var(--pulse-teal);">That is the hole JCD was built to fill</strong>
+        &mdash; and until this interview, we were only guessing it was there.</p>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <img data-poster="gap-stem" alt="Bethany on the STEM exclusion">
+        <button class="phone-play" data-open="gap-stem" aria-label="Play the clip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg>
+        </button>
+      </div>
+      <p class="modal-cap" style="text-align:left; margin-top:14px; color:rgba(255,255,255,0.55);">Bethany, on being ruled out of STEM</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container">
+    <div class="sec-eyebrow">In their words</div>
+    <h2 class="sec">Everything we asked.</h2>
+    <p class="lede">Read it or watch it &mdash; every answer below is written out as well as filmed.
+      Expand a question to get the clip and the quote together.</p>
+
+    <div class="qa-set">
+      <div class="qa-set-title">What the employers say</div>
+
+      <details class="qa">
+        <summary class="qa-q">How badly do you actually need hygienists?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="shortage" alt=""><button class="phone-play" data-open="shortage" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>It&rsquo;s a well-known fact that there&rsquo;s a shortage of hygienists out there&hellip;
+            With that shortage has come higher pay. I think hygienists are making more than they ever
+            have at this time. So it&rsquo;s a great time to get into it.</q>
+            <span class="who">Dr. David Gorenz</span>
+            <div class="qa-more">Dr. Dominguez, separately: &ldquo;It is hard to have a fully staffed
+              hygiene team&hellip; a lot of those dentists are doing a lot of the cleanings themselves.
+              I do see a big need for hygiene. It&rsquo;s a field that I never see is gonna go away.&rdquo;</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">Is anyone already building a pipeline into this job?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="no-partnership" alt=""><button class="phone-play" data-open="no-partnership" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>There&rsquo;s currently no partnership with any kind of organization right now where we
+            can mingle with potential prospective hygienists. So I think that&rsquo;s lacking in the
+            marketplace.</q>
+            <span class="who">Dr. Salvador Cardenas</span>
+            <div class="qa-more">Asked what a JCD-sponsored student might do, Dr. Dominguez said:
+              &ldquo;I have not come across an intern opportunity or seen that in the dental field,
+              but that sounds like an incredible idea&hellip; I could see that program thriving.&rdquo;</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">Does class rank matter when you hire?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="attributes" alt=""><button class="phone-play" data-open="attributes" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>High energy&hellip; a drive to want to help people. Patients come first. An ability to put
+            others before yourself. Interpersonal skills is really big.</q>
+            <span class="who">Dr. David Gorenz</span>
+            <div class="qa-more">Not one of the four owners named grades, class rank or a GPA when asked
+              what makes a good hire. Dr. Dominguez: &ldquo;someone that has a strong character &mdash;
+              able to talk to people, carry on a conversation, hard worker, a team player.&rdquo;</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">Would you host a student who wanted to see the job first?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="shadowing" alt=""><button class="phone-play" data-open="shadowing" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>West Aurora High School has a program&hellip; every semester they&rsquo;re gonna send us
+            one senior to shadow us, for credit for them. They&rsquo;d rotate &mdash; hang out with the
+            hygienist for a week or two, then the assistant, then the back with the insurance gals.</q>
+            <span class="who">Dr. Salvador Cardenas</span>
+            <div class="qa-more">He also went to West Aurora &mdash; the same high school John C. Dunham
+              graduated from in 1928. On the students&rsquo; reaction: &ldquo;They were stoked. When we
+              were in high school we didn&rsquo;t have stuff like that.&rdquo;</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">How much does the practice depend on hygiene?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="engine" alt=""><button class="phone-play" data-open="engine" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>Hygiene is the engine that keeps our practice going. We have a hundred patients coming
+            in for hygiene every day. That is what most of our patients are coming for.</q>
+            <span class="who">Dr. David Gorenz</span>
+            <div class="qa-more">Dr. Dominguez put it differently: &ldquo;Hygiene is the heart and soul
+              of our practice.&rdquo; Fairview runs 16 operatories and books more than 20,000 cleanings
+              and exams a year across roughly 50 employees.</div>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="qa-set">
+      <div class="qa-set-title">What the hygienists say</div>
+
+      <details class="qa">
+        <summary class="qa-q">Did you have to be a straight-A student?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="grades" alt=""><button class="phone-play" data-open="grades" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>I won&rsquo;t lie, I was the straight-A student &mdash; but I had a lot of classmates that
+            had to retake anatomy, that were B&rsquo;s, C&rsquo;s, but still got into the program. That
+            goes to show that you don&rsquo;t have to be straight-A to get in.</q>
+            <span class="who">Bethany &middot; College of DuPage</span>
+            <div class="qa-more">Both programs admitted on a blind point sheet &mdash; &ldquo;each student
+              was a number, they had no idea who the student was.&rdquo; Grades count, but so does prior
+              dental experience.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">Did you feel pressure to do a four-year degree instead?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="two-years" alt=""><button class="phone-play" data-open="two-years" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>Part of the draw is the fact that it is a shorter-term program &mdash; that you don&rsquo;t
+            have to go to a four-year university to achieve it.</q>
+            <span class="who">Cassie &middot; Illinois Valley Community College</span>
+            <div class="qa-more"><strong>Worth being precise about:</strong> the hygiene degree itself is
+              two years, and Dr. Gorenz confirmed a bachelor&rsquo;s adds nothing but &ldquo;the prestige
+              &mdash; from our standpoint, nothing really.&rdquo; But both hygienists needed prerequisites
+              first. Door to door it took Cassie 3.5 years and Bethany 4.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">Is it hard to get a seat?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="seats" alt=""><button class="phone-play" data-open="seats" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>My program in particular only accepts eight students per cohort&hellip; I know of other
+            hygienists that waited two, maybe three years on a wait list before they even got into
+            their program.</q>
+            <span class="who">Cassie &middot; Illinois Valley Community College</span>
+            <div class="qa-more"><strong>This changes what JCD is for.</strong> College of DuPage takes
+              about 30 from a pool of 100-plus, with in-district preference. Money isn&rsquo;t the only
+              barrier here &mdash; seats are. A grant that arrives without a seat attached solves half
+              the problem.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">What kind of person is this job for?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="introvert" alt=""><button class="phone-play" data-open="introvert" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>I&rsquo;m more of an introverted kind of person, and it&rsquo;s more of an extroverted job
+            than I realized. But it&rsquo;s made me come out of my shell&hellip; I was someone that only
+            would talk to people that I knew.</q>
+            <span class="who">Bethany &middot; College of DuPage</span>
+            <div class="qa-more">Cassie, who calls herself the opposite: &ldquo;someone that&rsquo;s got a
+              good work ethic and is willing to put in the work and has determination to be somewhere
+              does great in a career like this.&rdquo; Neither of them described a type.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary class="qa-q">Where does it go after the first job?</summary>
+        <div class="qa-body">
+          <div class="phone-wrap"><div class="phone">
+            <img data-poster="ladder" alt=""><button class="phone-play" data-open="ladder" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"></path></svg></button>
+          </div></div>
+          <div class="qa-answer">
+            <q>Whether you stop after two years of a junior college or you decide to go on &mdash;
+            it&rsquo;s amazing.</q>
+            <span class="who">Dr. Michele Bruno</span>
+            <div class="qa-more">She started as a hygienist at Parkland, worked a couple of years, then
+              went to UIC dental school and graduated in 1993 &mdash; ending up an owner of both the
+              practice and the building. At Fairview, assistants regularly go back to school, become
+              hygienists and return. The two-year credential is a door, not a ceiling.</div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container narrow">
+    <h2>So what does this change?</h2>
+    <p class="lede" style="color:rgba(255,255,255,0.82);">Three things. The grant size now has a
+      real number behind it &mdash; $20&ndash;30K is what these two actually paid. The
+      &ldquo;we don&rsquo;t care about your class rank&rdquo; promise is no longer just our
+      position; it&rsquo;s what four employers said unprompted. And we learned that the scholarship
+      money already out there is pointed somewhere else entirely.</p>
+    <p class="lede" style="color:rgba(255,255,255,0.82); margin-top:20px;">One thing we got wrong
+      going in: we assumed money was the barrier. For dental hygiene, a seat is just as scarce.
+      That&rsquo;s a partnership problem, and Fairview has already offered to help solve it.</p>
+    <div class="btnrow">
+      <a class="btn btn-primary" href="what-we-fund.html">What we fund &rarr;</a>
+      <a class="btn btn-ghost" href="content-outline.html">Where this feeds the site</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <span>&copy; 2026 JCD Foundation &middot; Fairview Dental field evidence</span>
+    <span>Recorded Aug 20, 2026 &middot; Review copy &mdash; not for distribution</span>
+  </div>
+</footer>
+
+<div id="modal" role="dialog" aria-modal="true" aria-label="Interview clip">
+  <button id="modal-close" aria-label="Close">&times;</button>
+  <div class="modal-inner">
+    <div class="phone"><video id="modal-video" controls playsinline preload="metadata"></video></div>
+    <p class="modal-cap" id="modal-cap"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var CLOUD = 'https://res.cloudinary.com/dsbllwpbh';
+  var VID   = CLOUD + '/video/upload/q_auto,vc_auto/jcd/fairview-';
+  var POST  = CLOUD + '/video/upload/q_auto,f_auto,w_540,so_2/jcd/fairview-';
+
+  var CLIPS = {
+    'gap-scholarships': 'Cassie · “Eliminated from three quarters of the scholarships”',
+    'gap-stem':         'Bethany · “Your degree isn’t part of that STEM field”',
+    'pay-cardenas':     'Dr. Salvador Cardenas · “$45 an hour — not a bad gig right out of school”',
+    'cost':             'Cassie & Bethany · What the degree cost them',
+    'two-years':        'On the two-year route, and the prerequisites either side of it',
+    'engine':           'Dr. David Gorenz · “Hygiene is the engine that keeps our practice going”',
+    'shortage':         'Dr. David Gorenz · On the shortage, and what it did to pay',
+    'no-partnership':   'Dr. Salvador Cardenas · “That’s lacking in the marketplace”',
+    'thriving':         'Dr. David Dominguez · “I could see that program thriving”',
+    'attributes':       'What the owners actually hire for',
+    'shadowing':        'Dr. Salvador Cardenas · The West Aurora shadowing program',
+    'grades':           'Bethany · “You don’t have to be straight-A to get in”',
+    'seats':            'Cassie · “Only eight students per cohort”',
+    'introvert':        'Bethany · “It’s made me come out of my shell”',
+    'ladder':           'Dr. Michele Bruno · Hygienist, then dentist, then owner'
+  };
+
+  /* wire posters + inline sources */
+  document.querySelectorAll('[data-poster]').forEach(function (img) {
+    var k = img.getAttribute('data-poster');
+    img.src = POST + k + '.jpg';
+    img.loading = 'lazy';
+    if (!img.alt) img.alt = CLIPS[k] || '';
+  });
+  document.querySelectorAll('video[data-clip]').forEach(function (v) {
+    var k = v.getAttribute('data-clip');
+    v.src = VID + k + '.mp4';
+    v.poster = POST + k + '.jpg';
+  });
+
+  /* modal */
+  var modal = document.getElementById('modal'),
+      mv    = document.getElementById('modal-video'),
+      mcap  = document.getElementById('modal-cap'),
+      last  = null;
+
+  function open(key) {
+    if (!key) return;
+    last = document.activeElement;
+    mv.src = VID + key + '.mp4';
+    mv.poster = POST + key + '.jpg';
+    mcap.textContent = CLIPS[key] || '';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var p = mv.play(); if (p && p.catch) p.catch(function () {});
+    document.getElementById('modal-close').focus();
+  }
+  function close() {
+    modal.classList.remove('open');
+    mv.pause(); mv.removeAttribute('src'); mv.load();
+    document.body.style.overflow = '';
+    if (last && last.focus) last.focus();
+  }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-open]');
+    if (t) { e.preventDefault(); open(t.getAttribute('data-open')); return; }
+    if (e.target === modal || e.target.id === 'modal-close') close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) close();
+  });
+
+  /* hero clip loops silently once it can play */
+  var hero = document.querySelector('#hero video[data-clip]');
+  if (hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hero.addEventListener('canplay', function () {
+      var p = hero.play(); if (p && p.catch) p.catch(function () {});
+    }, { once: true });
+  }
+
+  /* one accordion row open at a time, per set */
+  document.querySelectorAll('.qa-set').forEach(function (set) {
+    set.querySelectorAll('details.qa').forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        set.querySelectorAll('details.qa').forEach(function (o) { if (o !== d) o.open = false; });
+      });
+    });
+  });
+})();
+</script>
+
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="agenda.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 4h6"/>
+              <path d="M8.5 10l1.5 1.5 2.5-2.5"/>
+              <path d="M8.5 16l1.5 1.5 2.5-2.5"/>
+              <line x1="15" y1="9.5" x2="16.5" y2="9.5"/>
+              <line x1="15" y1="15.5" x2="16.5" y2="15.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Meeting Agenda</span>
+            <span class="admin-sub">Today&rsquo;s run of show</span>
+          </span>
+        </a>
+
+        <a href="dns-setup.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Domain Setup</span>
+            <span class="admin-sub">DNS handoff guide</span>
+          </span>
+        </a>
+
+        <a href="about.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15.5H6.5A2.5 2.5 0 0 0 4 21z"/>
+              <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H19"/>
+              <line x1="8" y1="7.5" x2="15" y2="7.5"/>
+              <line x1="8" y1="11" x2="13" y2="11"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Our Story</span>
+            <span class="admin-sub">About page &middot; draft</span>
+          </span>
+        </a>
+
+        <a href="what-we-fund.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7.5h18v11H3z"/>
+              <circle cx="12" cy="13" r="2.6"/>
+              <path d="M3 7.5 6.5 4h11L21 7.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">What We Fund</span>
+            <span class="admin-sub">Funding scope &middot; draft</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
+          </span>
+        </a>
+
+        <a href="interview-questions.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-9 8.3 9 9 0 0 1-3.8-.8L3 20l1-4.2A8.38 8.38 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5z"/>
+              <path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.5 2.1-2.5 2.1"/>
+              <circle cx="11.8" cy="15.6" r=".6" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Interview Questions</span>
+            <span class="admin-sub">Recording script for sourcing</span>
+          </span>
+        </a>
+
+        <a href="interview-fairview.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="6" width="14" height="12" rx="2"/>
+              <path d="M16 10l6-3v10l-6-3z"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Fairview Brief</span>
+            <span class="admin-sub">Field interview plan</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="home.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12L12 4l9 8"/>
+              <path d="M5 10v10h14V10"/>
+              <path d="M10 20v-6h4v6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Original Homepage</span>
+            <span class="admin-sub">Pre-launch reference</span>
+          </span>
+        </a>
+
+        <a href="apply-full.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Full Application</span>
+            <span class="admin-sub">Long-form apply</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: absolute; right: 24px; bottom: 24px; z-index: 50; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+        max-height: 78vh; overflow-y: auto;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+
+</body>
+</html>
