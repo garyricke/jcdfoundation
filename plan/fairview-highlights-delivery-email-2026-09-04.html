@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Email to Bob — Fairview highlights video</title></head>
+<body style="margin:0; padding:24px; background:#ffffff; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#1a2535; line-height:1.6;">
+  <div class="copy-control" style="max-width:600px; margin:0 0 18px; display:flex; align-items:center; gap:12px;">
+    <button id="copy-btn" onclick="copyEmail()" style="display:inline-flex; align-items:center; gap:8px; background:#0A9B8C; color:#fff; border:none; border-radius:8px; padding:10px 16px; font-family:inherit; font-size:14px; font-weight:600; cursor:pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy email
+    </button>
+    <span id="copy-status" style="font-size:13px; color:#4a5568;">Click, then paste into your email (formatting included).</span>
+  </div>
+  <div style="max-width:600px; margin:0 0 14px; font-size:13px; color:#4a5568;">
+    <strong>To:</strong> bvaughan_msi@comcast.net &nbsp;·&nbsp; <strong>Cc:</strong> jwhetsel29@gmail.com<br>
+    <strong>Subject:</strong> Re: Fairview Dental Rough Cut &amp; Page
+  </div>
+
+  <div id="email-body" style="max-width:600px; margin:0; background:#ffffff;">
+    <p style="margin:0 0 16px;">Bob,</p>
+
+    <p style="margin:0 0 16px;">Michele's in. She sits in the last section, right after Cassie and Bethany answer the long-term career question.</p>
+
+    <a href="https://thejcdfoundation.netlify.app/fairview" style="text-decoration:none;">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto:good,w_1100/v1788873979/jcd/email-fairview-highlights-triptych2.png" alt="Three frames from the Fairview film" style="display:block; width:100%; max-width:600px; height:auto; border:1px solid #dce3ed; border-radius:10px;">
+    </a>
+    <p style="margin:6px 0 18px; font-size:13px; color:#4a5568;">The long-term career question &middot; Dr. Michele Bruno &middot; Dr. Gorenz on the close</p>
+
+    <p style="margin:0 0 10px;">
+      <a href="https://thejcdfoundation.netlify.app/fairview" style="display:inline-block; background:#0A9B8C; color:#ffffff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:8px;">Open the Fairview page &rarr;</a>
+    </p>
+    <p style="margin:0 0 22px; font-size:13px; color:#4a5568;">Password is <strong>goodkids</strong>.</p>
+
+    <p style="margin:0 0 16px;">The film sits at the top of that page now, so it's the first thing you hit rather than something to hunt for. There's a download button under it if you'd rather have the file on your laptop for a meeting.</p>
+
+    <p style="margin:0 0 16px;">Her piece runs about twenty seconds. Who she is, then whether she imagined owning a practice back when she was starting out as a hygienist &mdash; "Never" &mdash; and then the line that makes our whole case. "Being a hygienist is a great career. Being a dentist is a great career, and whether you stop after two years of a junior college or you decide to go on, it's amazing."</p>
+
+    <p style="margin:0 0 16px;">She's the only person on the tape who started where our applicants would start and ended up owning the place.</p>
+
+    <p style="margin:0 0 16px;">Two other things since you last watched it. There's music under it now. And the two clipped words I flagged are fixed. She's introduced on screen as a dentist and former part owner of Fairview, in her own words &mdash; I left the Foundation connection out of it.</p>
+
+    <p style="margin:0 0 16px;">If you'd rather her line closed the film instead of Dr. Gorenz's, say the word and I'll swap it.</p>
+
+    <p style="margin:0;">Gary</p>
+  </div>
+
+<script>
+  function setStatus(m,ok){var s=document.getElementById('copy-status');s.textContent=m;s.style.color=ok?'#1a7f37':'#b42318';}
+  function selectFallback(el){try{var r=document.createRange();r.selectNode(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);var ok=document.execCommand('copy');s.removeAllRanges();setStatus(ok?'✓ Copied — paste into your email':'Press ⌘C to copy the selected email',ok);}catch(e){setStatus('Select the email and press ⌘C',false);}}
+  function copyEmail(){var el=document.getElementById('email-body');if(navigator.clipboard&&window.ClipboardItem){var d=[new ClipboardItem({'text/html':new Blob([el.outerHTML],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})];navigator.clipboard.write(d).then(function(){setStatus('✓ Copied — paste into your email (formatting included)',true);},function(){selectFallback(el);});}else{selectFallback(el);}}
+</script>
+</body></html>

@@ -51,3 +51,6 @@ assets/fairview-dental-interviews-aug2026/
 # Fairview interview transcripts — same reasoning as the meeting transcripts
 # above: candid talk, named third parties, compensation figures. Keep local.
 plan/fairview-transcripts/
+
+# John video renders (VO v4 + music bed + full mix) — large, served from Cloudinary
+assets/john-video/

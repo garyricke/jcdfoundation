@@ -351,6 +351,56 @@
     * { transition: none !important; }
   }
   @media print { #nav, #reviewbar, .admin-fab-wrap, #modal { display: none !important; } }
+
+  /* ---------- THE FILM ---------- */
+  /* Near-black to match the film's own title cards, so the frame floats in the band. */
+  #film { background: #0F1114; color: var(--white); padding: 96px 0; }
+  #film .container { display: grid; grid-template-columns: 400px 1fr; gap: 68px; align-items: center; }
+  #film h2 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.4vw, 46px); line-height: 1.04;
+    letter-spacing: -0.02em; color: var(--white); margin-bottom: 22px;
+  }
+  #film .lede { color: rgba(255,255,255,0.74); font-size: 17px; max-width: 58ch; }
+  .film-frame {
+    position: relative; border-radius: 20px; overflow: hidden; background: #000;
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+  }
+  .film-frame video {
+    display: block; width: 100%; aspect-ratio: 9/16;
+    object-fit: cover; background: #000;
+  }
+  .film-contents { list-style: none; margin: 30px 0 0; padding: 0; }
+  .film-contents li {
+    display: flex; gap: 16px; align-items: baseline;
+    padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.10);
+    font-size: 15px; color: rgba(255,255,255,0.86);
+  }
+  .film-contents li:last-child { border-bottom: 1px solid rgba(255,255,255,0.10); }
+  .film-contents .n {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+    color: var(--clr); flex: 0 0 auto;
+  }
+  .film-meta {
+    margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(255,255,255,0.48);
+  }
+  .film-dl {
+    display: inline-flex; align-items: center; gap: 9px;
+    color: var(--white); border: 1px solid rgba(255,255,255,0.28); border-radius: 3px;
+    padding: 10px 16px; transition: border-color .18s ease, color .18s ease;
+  }
+  .film-dl:hover { border-color: var(--clr); color: var(--clr); }
+  .film-dl svg { width: 15px; height: 15px; }
+  @media (max-width: 1040px) {
+    #film .container { grid-template-columns: 1fr; gap: 44px; }
+    .film-frame { max-width: 320px; margin: 0 auto; }
+  }
+  @media (max-width: 760px) {
+    #film { padding: 64px 0; }
+  }
 </style>
 </head>
 <body>
@@ -378,7 +428,7 @@
       <div class="hero-eyebrow">Fairview Dental &middot; Aurora &middot; Aug 20 2026</div>
       <h1>Nobody was<br>funding <em>this</em> path.</h1>
       <p class="hero-sub">We spent an hour at one of the largest dental practices in Kane County and
-        asked five people the same thing: what does this career actually pay, what does it cost to get
+        asked six people the same thing: what does this career actually pay, what does it cost to get
         into, and who helps you get there. The last answer was the one we didn&rsquo;t expect.</p>
       <p class="hero-hand">Here&rsquo;s what they told us. &darr;</p>
     </div>
@@ -392,6 +442,41 @@
     </div>
   </div>
 </header>
+
+<section id="film">
+  <div class="container">
+    <div class="film-frame">
+      <video controls playsinline preload="metadata"
+             poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_78,q_auto,f_jpg,w_760/jcd/fairview-highlights-v2-scored.jpg">
+        <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto,vc_auto/jcd/fairview-highlights-v2-scored.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div>
+      <div class="sec-eyebrow">The film</div>
+      <h2>Seven questions.<br>Four minutes.</h2>
+      <p class="lede">One lunch hour, one practice, six people. We asked what the work demands, what
+        it pays, what it costs to qualify, and whether it&rsquo;s a career people stay in. This is
+        what they said, in order &mdash; the argument the clips further down add up to.</p>
+      <ol class="film-contents">
+        <li><span class="n">01</span><span>The demand</span></li>
+        <li><span class="n">02</span><span>What they look for</span></li>
+        <li><span class="n">03</span><span>Starting pay</span></li>
+        <li><span class="n">04</span><span>What hygienists mean to the practice</span></li>
+        <li><span class="n">05</span><span>Why they chose it</span></li>
+        <li><span class="n">06</span><span>The education: time, cost, difficulty</span></li>
+        <li><span class="n">07</span><span>Is this a long-term career?</span></li>
+      </ol>
+      <div class="film-meta">
+        <span>4:20 &middot; captions on &middot; sound up</span>
+        <a class="film-dl"
+           href="https://res.cloudinary.com/dsbllwpbh/video/upload/fl_attachment:JCD-Fairview-Dental/jcd/fairview-highlights-v2-scored.mp4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download &middot; 77 MB
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="band">
   <div class="container narrow">
@@ -409,7 +494,7 @@
 <section class="band alt">
   <div class="container">
     <div class="sec-eyebrow">Who we talked to</div>
-    <h2 class="sec">Five people, one practice.</h2>
+    <h2 class="sec">Six people, one practice.</h2>
     <p class="lede">Four of them own it. Two of them are the career we&rsquo;re trying to send
       students into. Tap any of them to watch the clip we&rsquo;d put on the public page.</p>
 
