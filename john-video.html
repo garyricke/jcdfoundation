@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>The John Dunham video &mdash; versions &amp; script | JCD Foundation</title>
+<meta name="description" content="Internal: the About-page narration about John C. Dunham. Current cut, earlier version, and every change Bob made to the script.">
+<link rel="canonical" href="https://thejcdfoundation.netlify.app/john-video">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --equipto-blue: #0E2A58;
+    --steel-blue: #3B5F8A;
+    --sky-blue: #7AA3CC;
+    --white: #FFFFFF;
+    --deep-charcoal: #111827;
+    --steel-gray: #4A5568;
+    --mid-gray: #9AA3AF;
+    --ice-gray: #F0F3F7;
+    --paper-gray: #F7F9FC;
+    --border-line: #D1D8E0;
+    --brass-gold: #C5963A;
+    --brass-deep: #8A6A1F;
+    --body-text: #2D3748;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-hand: 'Caveat', cursive;
+    --font-mono: 'Roboto Mono', monospace;
+    --nav-h: 72px;
+    --container-max: 1280px;
+    --clr: var(--brass-gold);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-primary); color: var(--body-text);
+    background: var(--white); line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: var(--container-max); margin: 0 auto; padding: 0 40px; }
+  .narrow { max-width: 820px; margin: 0 auto; }
+
+  #nav {
+    position: sticky; top: 0; z-index: 1000;
+    height: var(--nav-h); background: var(--equipto-blue);
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center;
+  }
+  #nav .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo img { height: 44px; width: 44px; object-fit: contain; }
+  .nav-logo-text {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--white); line-height: 1.3;
+  }
+  .nav-logo-text span { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; color: rgba(255,255,255,0.5); }
+  .nav-right {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: rgba(255,255,255,0.55);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .draft-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--clr); }
+
+  #reviewbar { background: var(--deep-charcoal); color: rgba(255,255,255,0.72); padding: 13px 0; font-family: var(--font-mono); font-size: 11.5px; }
+  #reviewbar .container { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  #reviewbar b { color: var(--clr); letter-spacing: 0.18em; text-transform: uppercase; }
+
+  /* ---------- CURRENT CUT ---------- */
+  #current { background: #0F1114; color: var(--white); padding: 84px 0 92px; }
+  #current .container { display: grid; grid-template-columns: 1fr 520px; gap: 64px; align-items: center; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--clr); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before { content: ''; width: 26px; height: 2px; background: var(--clr); }
+  #current h1 {
+    font-family: var(--font-display); font-size: clamp(34px, 4.4vw, 54px);
+    line-height: 1.04; letter-spacing: -0.02em; margin-bottom: 22px;
+  }
+  #current .lede { color: rgba(255,255,255,0.74); font-size: 17px; max-width: 54ch; }
+  .facts { margin-top: 30px; display: grid; grid-template-columns: repeat(2, max-content); gap: 12px 44px; }
+  .fact-k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .fact-v { font-size: 15px; color: rgba(255,255,255,0.92); font-weight: 600; }
+  .vid-frame {
+    border-radius: 14px; overflow: hidden; background: #000;
+    border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+  }
+  .vid-frame video { display: block; width: 100%; aspect-ratio: 16/9; background: #000; }
+  .dl {
+    margin-top: 22px; display: inline-flex; align-items: center; gap: 9px;
+    color: var(--white); border: 1px solid rgba(255,255,255,0.28); border-radius: 3px;
+    padding: 11px 17px; font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    transition: border-color .18s ease, color .18s ease;
+  }
+  .dl:hover { border-color: var(--clr); color: var(--clr); }
+  .dl svg { width: 15px; height: 15px; }
+  .livenote {
+    margin-top: 18px; font-family: var(--font-mono); font-size: 11px; line-height: 1.7;
+    color: rgba(255,255,255,0.5); border-left: 2px solid var(--clr); padding-left: 14px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section.band { padding: 88px 0; }
+  section.alt { background: var(--paper-gray); }
+  h2.sec {
+    font-family: var(--font-display); font-size: clamp(27px, 3.2vw, 40px);
+    line-height: 1.08; letter-spacing: -0.02em; color: var(--equipto-blue); margin-bottom: 18px;
+  }
+  .lede-l { font-size: 17.5px; line-height: 1.75; color: var(--steel-gray); max-width: 70ch; }
+
+  /* ---------- COMPARE ---------- */
+  .cmp { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 44px; }
+  .cmp-card { background: var(--white); border: 1px solid var(--border-line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
+  .cmp-card.is-current { border-color: var(--clr); border-width: 2px; }
+  .cmp-card video { display: block; width: 100%; aspect-ratio: 16/9; background: #000; }
+  .cmp-body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; }
+  .cmp-tag {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--mid-gray); margin-bottom: 9px;
+  }
+  .cmp-card.is-current .cmp-tag { color: var(--brass-deep); }
+  .cmp-h { font-family: var(--font-display); font-size: 20px; color: var(--equipto-blue); margin-bottom: 10px; letter-spacing: -0.01em; }
+  .cmp-p { font-size: 14.5px; color: var(--steel-gray); line-height: 1.7; }
+  .cmp-meta {
+    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border-line);
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mid-gray);
+    display: flex; flex-wrap: wrap; gap: 6px 18px;
+  }
+
+  /* ---------- SCRIPT ---------- */
+  .s-keep { font-size: 17px; line-height: 1.8; color: var(--body-text); margin-bottom: 17px; }
+  .chg { margin: 30px 0 34px; border: 1px solid var(--border-line); border-radius: 6px; overflow: hidden; background: var(--white); }
+  .chg-head {
+    background: var(--ice-gray); padding: 13px 20px; font-weight: 700; font-size: 14px;
+    color: var(--equipto-blue); display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-line);
+  }
+  .chg-n {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--white); background: var(--brass-deep); padding: 4px 9px; border-radius: 2px;
+  }
+  .chg-cols { display: grid; grid-template-columns: 1fr 1fr; }
+  .chg-col { padding: 20px 22px 22px; }
+  .chg-col + .chg-col { border-left: 1px solid var(--border-line); background: #FFFDF7; }
+  .chg-lbl {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 13px;
+  }
+  .chg-lbl.was { color: var(--mid-gray); }
+  .chg-lbl.now { color: var(--brass-deep); }
+  .s-cut {
+    font-size: 14.5px; line-height: 1.72; color: var(--mid-gray);
+    text-decoration: line-through; text-decoration-color: rgba(154,163,175,0.6);
+    margin-bottom: 12px;
+  }
+  .s-new { font-size: 15px; line-height: 1.75; color: var(--body-text); margin-bottom: 12px; font-weight: 500; }
+  .s-none { font-size: 14.5px; color: var(--mid-gray); font-style: italic; }
+  .chg-why {
+    padding: 14px 22px 16px; background: var(--paper-gray);
+    border-top: 1px solid var(--border-line);
+    font-size: 14px; line-height: 1.7; color: var(--steel-gray);
+  }
+
+  /* ---------- STANDING ---------- */
+  .open-q { border-left: 3px solid var(--clr); background: var(--paper-gray); padding: 22px 26px; margin-top: 26px; }
+  .open-q h3 { font-size: 17px; color: var(--equipto-blue); margin-bottom: 10px; }
+  .open-q p { font-size: 15px; line-height: 1.75; color: var(--steel-gray); margin-bottom: 10px; }
+  .open-q blockquote { border-left: 2px solid var(--border-line); padding-left: 16px; margin: 12px 0; font-size: 15px; color: var(--steel-gray); }
+  .inlink { color: var(--brass-deep); border-bottom: 1px solid rgba(138,106,31,0.4); }
+  .inlink:hover { border-bottom-color: var(--brass-deep); }
+
+  footer.site { background: var(--deep-charcoal); color: rgba(255,255,255,0.5); padding: 30px 0; font-size: 12.5px; position: relative; }
+  footer.site .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+  @media (max-width: 1040px) {
+    #current .container { grid-template-columns: 1fr; gap: 42px; }
+    .cmp { grid-template-columns: 1fr; }
+    .cmp-h { font-size: 19px; }
+  }
+  @media (max-width: 760px) {
+    .container { padding: 0 24px; }
+    section.band { padding: 60px 0; }
+    #current { padding: 60px 0 66px; }
+    .chg-cols { grid-template-columns: 1fr; }
+    .chg-col + .chg-col { border-left: 0; border-top: 1px solid var(--border-line); }
+    .facts { grid-template-columns: 1fr; gap: 4px 0; }
+    .fact-v { margin-bottom: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  @media print { #nav, #reviewbar, .admin-fab-wrap { display: none !important; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/jcd-logo-white.svg" alt="JCD Foundation">
+      <span class="nav-logo-text">JCD Foundation<span>Supporting Career Paths</span></span>
+    </a>
+    <div class="nav-right"><span class="draft-dot"></span>Internal &middot; Version History</div>
+  </div>
+</nav>
+
+<div id="reviewbar">
+  <div class="container">
+    <b>Internal</b>
+    <span>The John Dunham narration &mdash; what is current, what came before, and every change Bob made.</span>
+  </div>
+</div>
+
+<section id="current">
+  <div class="container">
+    <div>
+      <div class="eyebrow">Current cut</div>
+      <h1>&ldquo;A shot with<br>conditions on it.&rdquo;</h1>
+      <p class="lede">The narration that runs over the archival montage on the About page. The
+        script is unchanged &mdash; still the version Bob approved on 27 August. What is new is the
+        picture and the captions.</p>
+      <div class="facts">
+        <div class="fact-k">Runtime</div><div class="fact-v">2:53</div>
+        <div class="fact-k">Film</div><div class="fact-v">v5 &middot; 36 images, animated captions</div>
+        <div class="fact-k">Script</div><div class="fact-v">v4 &middot; 392 words &middot; unchanged</div>
+        <div class="fact-k">Approved</div><div class="fact-v">Bob, 27 Aug 2026</div>
+        <div class="fact-k">Recorded</div><div class="fact-v">4 Sep 2026</div>
+      </div>
+      <a class="dl" href="https://res.cloudinary.com/dsbllwpbh/video/upload/fl_attachment:JCD-John-Dunham/jcd/jcd-dunham-about-video-v5.mp4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download the current cut &middot; 41 MB
+      </a>
+      <p class="livenote">New in v5: seven more archival images, so the picture now runs the full
+        length without repeating &mdash; and word-by-word captions over the read. The live About page
+        still plays the <strong>v3</strong> voiceover; swapping it is a one-line change, held until
+        you want it made.</p>
+    </div>
+    <div>
+      <div class="vid-frame">
+        <video controls playsinline preload="metadata"
+               poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_60,q_auto,f_jpg,w_1200/jcd/jcd-dunham-about-video-v5.jpg">
+          <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto,vc_auto/jcd/jcd-dunham-about-video-v5.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--brass-deep)">Side by side</div>
+    <h2 class="sec">Three cuts. Two reads.</h2>
+    <p class="lede-l">All three are built the same way &mdash; the same music bed, the same
+      loudness &mdash; so nothing here flatters one over another. v3 was never finished as a film;
+      it existed only as a voiceover played over a silent loop, and has been rendered here so the
+      comparison is fair.</p>
+    <div class="cmp">
+      <div class="cmp-card is-current">
+        <video controls playsinline preload="metadata"
+               poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_60,q_auto,f_jpg,w_900/jcd/jcd-dunham-about-video-v5.jpg">
+          <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto,vc_auto/jcd/jcd-dunham-about-video-v5.mp4" type="video/mp4">
+        </video>
+        <div class="cmp-body">
+          <div class="cmp-tag">Current</div>
+          <div class="cmp-h">Version 5</div>
+          <p class="cmp-p">Same read as v4. Seven more archival images &mdash; including him with the
+            students he put his own money behind &mdash; and word-by-word captions.</p>
+          <div class="cmp-meta"><span>2:53</span><span>36 images</span><span>Captions</span></div>
+        </div>
+      </div>
+      <div class="cmp-card">
+        <video controls playsinline preload="metadata"
+               poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_12,q_auto,f_jpg,w_900/jcd/jcd-dunham-about-video-v4.jpg">
+          <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto,vc_auto/jcd/jcd-dunham-about-video-v4.mp4" type="video/mp4">
+        </video>
+        <div class="cmp-body">
+          <div class="cmp-tag">Superseded</div>
+          <div class="cmp-h">Version 4</div>
+          <p class="cmp-p">Bob&rsquo;s edits applied. Opens on the four-year-college claim, and every
+            funding specific is gone. Eleven images, no captions.</p>
+          <div class="cmp-meta"><span>2:53</span><span>11 images</span><span>Recorded 4 Sep</span></div>
+        </div>
+      </div>
+      <div class="cmp-card">
+        <video controls playsinline preload="metadata"
+               poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_34,q_auto,f_jpg,w_900/jcd/jcd-dunham-about-video-v3.jpg">
+          <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto,vc_auto/jcd/jcd-dunham-about-video-v3.mp4" type="video/mp4">
+        </video>
+        <div class="cmp-body">
+          <div class="cmp-tag">Superseded</div>
+          <div class="cmp-h">Version 3</div>
+          <p class="cmp-p">The read Bob marked up. Opens on the trades-as-fallback claim, and spells
+            out what the money covers &mdash; boots, tools, the ride there.</p>
+          <div class="cmp-meta"><span>3:08</span><span>518 words</span><span>Recorded 28 Jul</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="container narrow">
+    <div class="eyebrow" style="color:var(--brass-deep)">The script</div>
+    <h2 class="sec">What changed, and why.</h2>
+    <p class="lede-l">The v4 script in full, in reading order. Where Bob changed something, both
+      versions sit side by side &mdash; struck text on the left is what came out. Three changes,
+      518 words down to 392.</p>
+    <div style="margin-top:38px">
+      <div class="chg">
+        <div class="chg-head"><span class="chg-n">Change 1</span>The opening claim</div>
+        <div class="chg-cols">
+          <div class="chg-col"><div class="chg-lbl was">Was &middot; v3 &middot; 17 words</div>
+            <p class="s-cut">Somebody has probably told you that the trades are what you do if college doesn&#x27;t work out.</p>
+          </div>
+          <div class="chg-col"><div class="chg-lbl now">Now &middot; v4 &middot; 18 words</div>
+            <p class="s-new">Somebody has probably told you that you must go to a four-year college to have a successful career.</p>
+          </div>
+        </div>
+        <p class="chg-why">v3 argued against the trades being a fallback. v4 goes at the four-year default instead &mdash; the thing a seventeen-year-old has actually been told.</p>
+      </div>
+      <p class="s-keep">That&#x27;s backwards. And the man this foundation is named for would have told you so himself.</p>
+      <p class="s-keep">John Dunham graduated from West Aurora High School in 1928. Band, track, the drama club. His friends called him Ham.</p>
+      <p class="s-keep">Then he went to work in his father&#x27;s factory in Aurora. Running errands. Sweeping the floor.</p>
+      <p class="s-keep">He was twenty-one when his father made him an offer. John was home from college with a new wife and a four-week-old son, and his father looked at him and said: if you&#x27;re man enough to have a wife and a four-week-old son, you&#x27;re man enough to sell on commission.</p>
+      <p class="s-keep">That&#x27;s not a soft landing. That&#x27;s a shot with conditions on it.</p>
+      <p class="s-keep">He took it.</p>
+      <p class="s-keep">The company made motorcycle lamps back then. Sidecars. Then car bodies. Then the steel shelving it became known for. He ran it for fifty years — and in fifty years, he never stopped knowing every person on that floor by their first name.</p>
+      <p class="s-keep">He kept a list he called his rules to live by. Always do the worst job first. Don&#x27;t look backwards and rehash things. Have confidence, courage, and honesty.</p>
+      <p class="s-keep">Late in his life he&#x27;d visit a classroom, and before he said one word about business he&#x27;d walk the room, shake every student&#x27;s hand, and ask them their name.</p>
+      <p class="s-keep">And when he put his own money behind young people, he wasn&#x27;t looking for the highest grades. He was looking for get-up-and-go. Drive. Somebody who&#x27;d already proven something to themselves.</p>
+      <p class="s-keep">When he died, all of it went back to the place that raised him.</p>
+      <p class="s-keep">This is what it&#x27;s for.</p>
+      <div class="chg">
+        <div class="chg-head"><span class="chg-n">Change 2</span>Eligibility, and everything about money</div>
+        <div class="chg-cols">
+          <div class="chg-col"><div class="chg-lbl was">Was &middot; v3 &middot; 159 words</div>
+            <p class="s-cut">We fund young people out of twelve Fox Valley high schools, into advanced manufacturing, health sciences, and the building trades.</p>
+            <p class="s-cut">We won&#x27;t ask for your grade point average. We won&#x27;t ask what your parents make. Your parents can be millionaires. They can be on welfare. It isn&#x27;t our business.</p>
+            <p class="s-cut">And we don&#x27;t stop at tuition — because tuition isn&#x27;t what stops people. What stops people is a car you don&#x27;t have. Tools you can&#x27;t buy. Steel-toed boots that cost two hundred dollars on your first morning, before you&#x27;ve earned a dime.</p>
+            <p class="s-cut">We&#x27;ll cover that. We&#x27;ll help you get there.</p>
+            <p class="s-cut">Here&#x27;s our end of it. You show up. You show up on time. You show up ready.</p>
+            <p class="s-cut">And if you try something and find out it isn&#x27;t for you — that&#x27;s fine. You found out. That&#x27;s further than most people ever get.</p>
+            <p class="s-cut">We&#x27;re not going to ask you what you&#x27;ve overcome.</p>
+            <p class="s-cut">We&#x27;re going to ask what you want to do.</p>
+          </div>
+          <div class="chg-col"><div class="chg-lbl now">Now &middot; v4 &middot; 47 words</div>
+            <p class="s-new">We provide financial assistance for young people graduating from twelve Fox Valley area high schools, pursuing careers in advanced manufacturing, health sciences and the building trades.</p>
+            <p class="s-new">We won&#x27;t ask for your class rank or what you&#x27;ve overcome.</p>
+            <p class="s-new">We&#x27;re going to ask you what you want to do.</p>
+          </div>
+        </div>
+        <p class="chg-why">Bob: <em>&ldquo;What we fund beyond tuition is fluid and may change based on each individual situation. I don&rsquo;t want to set expectations.&rdquo;</em> Class rank replaces grade point average, and the two &ldquo;won&rsquo;t ask&rdquo; lines collapse into one.</p>
+      </div>
+      <p class="s-keep">Because that&#x27;s the question John cared about. He spent the end of his life pushing people to go after the thing they actually wanted — and someone who knew him put it simply: John had a wonderful life, because John chose to have a wonderful life.</p>
+      <p class="s-keep">That&#x27;s the part nobody can do for you.</p>
+      <div class="chg">
+        <div class="chg-head"><span class="chg-n">Change 3</span>Cut from the close</div>
+        <div class="chg-cols">
+          <div class="chg-col"><div class="chg-lbl was">Was &middot; v3 &middot; 15 words</div>
+            <p class="s-cut">The rest — tuition, tools, boots, the ride there — that part we can do.</p>
+          </div>
+          <div class="chg-col"><div class="chg-lbl now">Now &middot; v4 &middot; 0 words</div>
+            <p class="s-none">Nothing. The line was removed outright.</p>
+          </div>
+        </div>
+        <p class="chg-why">The script now goes straight from &ldquo;that&rsquo;s the part nobody can do for you&rdquo; to the question.</p>
+      </div>
+      <p class="s-keep">So. What do you want to do?</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container narrow">
+    <div class="eyebrow" style="color:var(--brass-deep)">Where it stands</div>
+    <h2 class="sec">One question still open.</h2>
+    <p class="lede-l">Bob&rsquo;s deletion was a positional range &mdash; everything from the
+      parents&rsquo;-income line through &ldquo;we&rsquo;re not going to ask you what you&rsquo;ve
+      overcome.&rdquo; It swallowed two beats that were not funding promises, and both are his own
+      words from June.</p>
+    <div class="open-q">
+      <h3>Two lines that may have gone by accident</h3>
+      <blockquote>Here&rsquo;s our end of it. You show up. You show up on time. You show up ready.</blockquote>
+      <blockquote>And if you try something and find out it isn&rsquo;t for you &mdash; that&rsquo;s
+        fine. You found out. That&rsquo;s further than most people ever get.</blockquote>
+      <p>Neither sets an expectation about money. They were cut because they sat inside the range,
+        not because Bob called them out. Raised with him on 27 August; no answer yet. If he wants
+        them back they slot in after the class-rank line with no other change &mdash; and that means
+        a re-record.</p>
+    </div>
+    <p class="lede-l" style="margin-top:30px">The v4 read also uses a different voice from v3. That
+      was unavoidable &mdash; no record of the v3 voice settings survives &mdash; and it was flagged
+      to Bob when the file went over. Matching the older read more closely is possible if he
+      prefers it.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <span>JCD Foundation &middot; internal reference</span>
+    <span>Script source of truth: plan/vo-script-about-hero.md</span>
+  </div>
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="agenda.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 4h6"/>
+              <path d="M8.5 10l1.5 1.5 2.5-2.5"/>
+              <path d="M8.5 16l1.5 1.5 2.5-2.5"/>
+              <line x1="15" y1="9.5" x2="16.5" y2="9.5"/>
+              <line x1="15" y1="15.5" x2="16.5" y2="15.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Meeting Agenda</span>
+            <span class="admin-sub">Today&rsquo;s run of show</span>
+          </span>
+        </a>
+
+        <a href="dns-setup.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Domain Setup</span>
+            <span class="admin-sub">DNS handoff guide</span>
+          </span>
+        </a>
+
+        <a href="about.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15.5H6.5A2.5 2.5 0 0 0 4 21z"/>
+              <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H19"/>
+              <line x1="8" y1="7.5" x2="15" y2="7.5"/>
+              <line x1="8" y1="11" x2="13" y2="11"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Our Story</span>
+            <span class="admin-sub">About page &middot; draft</span>
+          </span>
+        </a>
+        <a href="john-video.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <line x1="3" y1="9.5" x2="21" y2="9.5"/>
+              <path d="M10.5 12.75v3.5l3-1.75z"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">John Video</span>
+            <span class="admin-sub">Versions &amp; script changes</span>
+          </span>
+        </a>
+
+        <a href="what-we-fund.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7.5h18v11H3z"/>
+              <circle cx="12" cy="13" r="2.6"/>
+              <path d="M3 7.5 6.5 4h11L21 7.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">What We Fund</span>
+            <span class="admin-sub">Funding scope &middot; draft</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
+          </span>
+        </a>
+
+        <a href="interview-questions.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-9 8.3 9 9 0 0 1-3.8-.8L3 20l1-4.2A8.38 8.38 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5z"/>
+              <path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.5 2.1-2.5 2.1"/>
+              <circle cx="11.8" cy="15.6" r=".6" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Interview Questions</span>
+            <span class="admin-sub">Recording script for sourcing</span>
+          </span>
+        </a>
+
+        <a href="interview-fairview.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="6" width="14" height="12" rx="2"/>
+              <path d="M16 10l6-3v10l-6-3z"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Fairview Brief</span>
+            <span class="admin-sub">Field interview plan</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="home.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12L12 4l9 8"/>
+              <path d="M5 10v10h14V10"/>
+              <path d="M10 20v-6h4v6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Original Homepage</span>
+            <span class="admin-sub">Pre-launch reference</span>
+          </span>
+        </a>
+
+        <a href="apply-full.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Full Application</span>
+            <span class="admin-sub">Long-form apply</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: absolute; right: 24px; bottom: 24px; z-index: 50; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+        max-height: 78vh; overflow-y: auto;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        if (wrap.parentElement) wrap.parentElement.style.position = 'relative';
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+
+
+</footer>
+
+</body>
+</html>
