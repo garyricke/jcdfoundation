@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fairview Dental · JCD Foundation</title>
+<meta name="description" content="Seven questions, six people, one practice: a four-minute film from Fairview Dental in Aurora on what a dental hygiene career pays, costs and leads to.">
+<!-- Public, no password: excluded from the site gate in netlify.toml so Bob
+     can share it with Fairview. Kept out of search until the site launches. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://thejcdfoundation.netlify.app/fairview-film">
+<meta property="og:title" content="Fairview Dental · JCD Foundation">
+<meta property="og:description" content="Seven questions, six people, one practice. A four-minute film.">
+<meta property="og:image" content="https://res.cloudinary.com/dsbllwpbh/video/upload/so_78,q_auto,f_jpg,w_1200/jcd/fairview-highlights-v2-scored.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --equipto-blue: #0E2A58;
+    --film-black: #0F1114;
+    --white: #FFFFFF;
+    --brass-gold: #C5963A;
+    --pulse-teal: #0A9B8C;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-primary);
+    background: var(--film-black);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 40px; width: 100%; }
+
+  header { background: var(--equipto-blue); padding: 16px 0; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand img { height: 44px; width: 44px; object-fit: contain; }
+  .brand-text {
+    font-weight: 800; font-size: 13px; letter-spacing: 0.14em;
+    text-transform: uppercase; line-height: 1.3;
+  }
+  .brand-text span {
+    display: block; font-weight: 500; font-size: 10px; letter-spacing: 0.18em;
+    color: var(--brass-gold);
+  }
+
+  main { flex: 1; padding: 72px 0 88px; }
+  main .container {
+    display: grid; grid-template-columns: 400px 1fr; gap: 64px; align-items: center;
+  }
+  .film-frame {
+    aspect-ratio: 9 / 16; background: #000; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+  }
+  .film-frame video { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--pulse-teal); margin-bottom: 16px;
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(36px, 5vw, 56px); line-height: 1.02; letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .lede { font-size: 17px; color: rgba(255,255,255,0.78); max-width: 520px; }
+  .contents { list-style: none; margin: 32px 0; border-top: 1px solid rgba(255,255,255,0.12); }
+  .contents li {
+    display: flex; gap: 16px; padding: 11px 0; font-size: 15px; font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .contents .n { font-family: var(--font-mono); color: var(--brass-gold); font-size: 13px; padding-top: 2px; }
+  .meta {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px;
+    font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.6);
+  }
+  .dl {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px;
+    color: var(--white); font-family: var(--font-primary); font-size: 14px; font-weight: 600;
+    transition: border-color .2s, color .2s;
+  }
+  .dl:hover { border-color: var(--brass-gold); color: var(--brass-gold); }
+  .dl svg { width: 24px; height: 24px; }
+
+  footer {
+    padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08);
+    font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.45);
+  }
+
+  @media (max-width: 860px) {
+    .container { padding: 0 16px; }
+    main { padding: 32px 0 56px; }
+    main .container { grid-template-columns: 1fr; gap: 36px; }
+    .film-frame { max-width: 400px; width: 100%; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">
+      <img src="assets/jcd-logo-white.svg" alt="JCD Foundation">
+      <span class="brand-text">JCD Foundation<span>Supporting Career Paths</span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="film-frame">
+      <video controls playsinline preload="metadata"
+             poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_78,q_auto,f_jpg,w_760/jcd/fairview-highlights-v2-scored.jpg">
+        <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto,vc_auto/jcd/fairview-highlights-v2-scored.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div>
+      <div class="eyebrow">Fairview Dental &middot; Aurora &middot; Aug 20 2026</div>
+      <h1>Seven questions.<br>Four minutes.</h1>
+      <p class="lede">One lunch hour, one practice, six people. We asked what the work demands, what
+        it pays, what it costs to qualify, and whether it&rsquo;s a career people stay in. This is
+        what they said, in order.</p>
+      <ol class="contents">
+        <li><span class="n">01</span><span>The demand</span></li>
+        <li><span class="n">02</span><span>What they look for</span></li>
+        <li><span class="n">03</span><span>Starting pay</span></li>
+        <li><span class="n">04</span><span>What hygienists mean to the practice</span></li>
+        <li><span class="n">05</span><span>Why they chose it</span></li>
+        <li><span class="n">06</span><span>The education: time, cost, difficulty</span></li>
+        <li><span class="n">07</span><span>Is this a long-term career?</span></li>
+      </ol>
+      <div class="meta">
+        <span>4:20 &middot; captions on &middot; sound up</span>
+        <a class="dl"
+           href="https://res.cloudinary.com/dsbllwpbh/video/upload/fl_attachment:JCD-Fairview-Dental/jcd/fairview-highlights-v2-scored.mp4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download &middot; 77 MB
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">&copy; 2026 JCD Foundation &middot; With thanks to the team at Fairview Dental</div>
+</footer>
+
+</body>
+</html>

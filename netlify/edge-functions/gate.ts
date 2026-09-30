@@ -9,6 +9,14 @@ const PASSWORD = "goodkids";
 const COOKIE_NAME = "jcd_unlock";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 
+// Pages shared outside the team with no password (plus the assets they load).
+// Still sent noindex so they stay out of search until launch.
+const PUBLIC_PATHS = new Set([
+  "/fairview-film",
+  "/fairview-film.html",
+  "/assets/jcd-logo-white.svg",
+]);
+
 const SECURITY_HEADERS: Record<string, string> = {
   "Cache-Control": "private, no-store",
   "X-Robots-Tag": "noindex, nofollow",
@@ -272,6 +280,12 @@ export default async (request: Request, context: Context) => {
         ...SECURITY_HEADERS,
       },
     });
+  }
+
+  if (PUBLIC_PATHS.has(url.pathname.replace(/\/+$/, ""))) {
+    const response = await context.next();
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return response;
   }
 
   // Check unlock cookie.
