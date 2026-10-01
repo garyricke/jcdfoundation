@@ -1646,6 +1646,7 @@
               <optgroup label="Public">
                 <option>East Aurora</option>
                 <option>West Aurora</option>
+                <option>Oswego</option>
                 <option>Oswego East</option>
                 <option>Waubonsie Valley</option>
                 <option>Metea Valley</option>
@@ -1655,10 +1656,11 @@
               </optgroup>
               <optgroup label="Private Academies">
                 <option>Marmion Academy</option>
-                <option>Rosary</option>
+                <option>Rosary College Prep</option>
                 <option>Aurora Central Catholic</option>
                 <option>Aurora Christian</option>
               </optgroup>
+              <option value="Homeschooled">Homeschooled</option>
               <option value="other">None of these / different school</option>
             </select>
           </div>
@@ -1666,19 +1668,11 @@
             <label for="gradyr">Graduation year</label>
             <select id="gradyr">
               <option value="">Pick a year…</option>
-              <option>2026</option>
               <option>2027</option>
-              <option>2028</option>
+              <option>2028 or later</option>
               <option>Already graduated</option>
             </select>
           </div>
-        </div>
-
-        <label class="label" style="display:block; margin-bottom: 14px;">What are you into?</label>
-        <div class="sector-picker">
-          <button class="sector-btn" data-sector="mfg"><span class="dot"></span>Manufacturing</button>
-          <button class="sector-btn" data-sector="health"><span class="dot"></span>Health Sciences</button>
-          <button class="sector-btn" data-sector="trades"><span class="dot"></span>Building Trades</button>
         </div>
 
         <div class="check-result" id="checkResult" role="status" aria-live="polite">
@@ -1793,7 +1787,7 @@
       </details>
       <details class="q">
         <summary>How long does the application take?</summary>
-        <div class="a">Eight minutes if you move fast. [TK] Five questions, a short answer at the end, done. Save and come back if you need to. We'll confirm we got it within 48 hours.</div>
+        <div class="a">About 30 minutes of typing, plus a few things you'll need to gather: a cost estimate from your school, two letters of recommendation, and a transcript your high school emails to us. It saves on your device as you go, so you can come back to it.</div>
       </details>
     </div>
   </section>
@@ -1803,168 +1797,25 @@
     <div class="container">
       <div class="apply-head">
         <span class="label">THE APPLICATION</span>
-        <h2>Pick your <em>path.</em></h2>
-        <p>Two ways in. The short form gets you on our radar in eight minutes. The long form is the real deal — essays, a selfie video, recommenders — and it's how most of our scholarships are awarded.</p>
+        <h2>One application. <em>About 30 minutes.</em></h2>
+        <p>No essays to polish, no GPA box. Tell us where you're headed and what it costs to get there. It saves as you go, so you can gather the pieces and come back.</p>
       </div>
 
-      <div class="path-picker">
-        <div class="path-card path-short active" data-path="short">
-          <div class="path-stamp">8 MIN</div>
-          <div class="path-kind">Short form</div>
-          <h3>Get on our <em>radar.</em></h3>
+      <div class="path-picker" style="grid-template-columns: 1fr; max-width: 760px;">
+        <div class="path-card path-long">
+          <div class="path-kind">What you'll need</div>
+          <h3>Get these <em>moving.</em></h3>
           <ul class="path-list">
-            <li>Five quick steps, no essays</li>
-            <li>Perfect if you're still deciding</li>
-            <li>We'll follow up personally within 48 hrs</li>
+            <li>Your career goal, in under 300 words</li>
+            <li>A cost estimate from the school or program you'll attend</li>
+            <li>Two letters of recommendation, from a teacher and/or a boss</li>
+            <li>A request to your high school to email us your official transcript</li>
           </ul>
           <div class="path-cta-wrap">
-            <a href="#apply-short" class="path-cta path-cta-ghost">Start short form ↓</a>
-          </div>
-        </div>
-
-        <div class="path-card path-long" data-path="long">
-          <div class="path-stamp path-stamp-gold">40 MIN</div>
-          <div class="path-kind">Full application</div>
-          <h3>The <em>real</em> deal.</h3>
-          <ul class="path-list">
-            <li>Three short essays + a 90-sec selfie video</li>
-            <li>Two recommenders — we email them, not you</li>
-            <li>Save-as-you-go. No password. No account.</li>
-          </ul>
-          <div class="path-cta-wrap">
-            <a href="apply-full.html" class="path-cta path-cta-primary">Open full application →</a>
+            <a href="apply" class="path-cta path-cta-primary">Start your application →</a>
           </div>
         </div>
       </div>
-
-      <div class="short-intro" id="apply-short">
-        <span class="short-intro-label">SHORT FORM · 8 MINUTES</span>
-        <p>Quick path below. Ready to go deeper? <a href="apply-full.html" class="short-link">Open the full application →</a></p>
-      </div>
-
-      <form class="apply-wrap" id="applyForm" novalidate>
-        <div class="apply-progress" aria-hidden="true">
-          <div class="pip on"></div>
-          <div class="pip"></div>
-          <div class="pip"></div>
-          <div class="pip"></div>
-          <div class="pip"></div>
-        </div>
-
-        <!-- STEP 1: Name -->
-        <div class="step active" data-step="1">
-          <div class="step-n">01 / 05</div>
-          <div class="step-q">First, what's your name?</div>
-          <p class="step-help">We'll use it to keep things human — no "Dear Applicant" emails around here.</p>
-          <div class="row2">
-            <input class="f-input" type="text" name="first" placeholder="First name" autocomplete="given-name" required />
-            <input class="f-input" type="text" name="last" placeholder="Last name" autocomplete="family-name" required />
-          </div>
-          <div class="step-nav">
-            <span></span>
-            <button type="button" class="step-next" data-go="2">Next →</button>
-          </div>
-        </div>
-
-        <!-- STEP 2: School -->
-        <div class="step" data-step="2">
-          <div class="step-n">02 / 05</div>
-          <div class="step-q">Where do you go to school?</div>
-          <p class="step-help">JCD funds seniors and recent grads from 12 qualifying Fox Valley schools.</p>
-          <select class="f-select" name="school" required>
-            <option value="">Pick your school…</option>
-            <optgroup label="Public">
-              <option>East Aurora</option>
-              <option>West Aurora</option>
-              <option>Oswego East</option>
-              <option>Waubonsie Valley</option>
-              <option>Metea Valley</option>
-              <option>Kaneland</option>
-              <option>Batavia</option>
-              <option>Geneva</option>
-            </optgroup>
-            <optgroup label="Private Academies">
-              <option>Marmion Academy</option>
-              <option>Rosary</option>
-              <option>Aurora Central Catholic</option>
-              <option>Aurora Christian</option>
-            </optgroup>
-            <option value="other">Different school</option>
-          </select>
-          <div style="margin-top: 16px;">
-            <select class="f-select" name="gradyear" required>
-              <option value="">Graduation year…</option>
-              <option>2026</option>
-              <option>2027</option>
-              <option>2028</option>
-              <option>Already graduated</option>
-            </select>
-          </div>
-          <div class="step-nav">
-            <button type="button" class="step-back" data-go="1">← Back</button>
-            <button type="button" class="step-next" data-go="3">Next →</button>
-          </div>
-        </div>
-
-        <!-- STEP 3: Sector -->
-        <div class="step" data-step="3">
-          <div class="step-n">03 / 05</div>
-          <div class="step-q">What are you into?</div>
-          <p class="step-help">Not sure? Pick the one closest and we'll help you figure it out.</p>
-          <div class="chip-row">
-            <button type="button" class="chip" data-sector="mfg">
-              <strong>Manufacturing</strong>
-              <span>Build, weld, machine, fabricate.</span>
-            </button>
-            <button type="button" class="chip" data-sector="health">
-              <strong>Health</strong>
-              <span>Nursing, imaging, surgical tech, patient care.</span>
-            </button>
-            <button type="button" class="chip" data-sector="trades">
-              <strong>Trades</strong>
-              <span>Carpentry, electrical, plumbing, HVAC.</span>
-            </button>
-          </div>
-          <input type="hidden" name="sector" id="sectorInput" />
-          <div class="step-nav">
-            <button type="button" class="step-back" data-go="2">← Back</button>
-            <button type="button" class="step-next" data-go="4">Next →</button>
-          </div>
-        </div>
-
-        <!-- STEP 4: Contact -->
-        <div class="step" data-step="4">
-          <div class="step-n">04 / 05</div>
-          <div class="step-q">How do we reach you?</div>
-          <p class="step-help">We promise not to spam you. We hate that too.</p>
-          <input class="f-input" type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
-          <input class="f-input" type="tel" name="phone" placeholder="Phone (optional)" autocomplete="tel" />
-          <div class="step-nav">
-            <button type="button" class="step-back" data-go="3">← Back</button>
-            <button type="button" class="step-next" data-go="5">Next →</button>
-          </div>
-        </div>
-
-        <!-- STEP 5: Why -->
-        <div class="step" data-step="5">
-          <div class="step-n">05 / 05</div>
-          <div class="step-q">Last one. Why this?</div>
-          <p class="step-help">A few sentences. Honest ones. No essay voice, no thesaurus — just you.</p>
-          <textarea class="f-textarea" name="why" placeholder="I want to do this because…" required></textarea>
-          <div class="step-nav">
-            <button type="button" class="step-back" data-go="4">← Back</button>
-            <button type="submit" class="step-next">Send It →</button>
-          </div>
-        </div>
-
-        <!-- SUCCESS -->
-        <div class="step success" data-step="6">
-          <div class="check-mark">✓</div>
-          <h3>You're in the running.</h3>
-          <p>We got your application. A real person on the JCD team will read it and get back to you within 48 hours.</p>
-          <p style="font-family: var(--font-hand); color: var(--brass-gold); font-size: 28px; margin-top: 24px;">Go build something. — The JCD team</p>
-        </div>
-      </form>
     </div>
   </section>
 
@@ -1997,7 +1848,7 @@
           <ul>
             <li><a href="#check">Eligibility</a></li>
             <li><a href="#apply">Short Form · 8 min</a></li>
-            <li><a href="apply-full.html">Full Application · 40 min</a></li>
+            <li><a href="apply">Apply</a></li>
           </ul>
         </div>
       </div>
@@ -2217,7 +2068,7 @@
           </span>
         </a>
 
-        <a href="apply-full.html" role="menuitem">
+        <a href="apply" role="menuitem">
           <span class="admin-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="5" y="4" width="14" height="17" rx="2"/>
@@ -2227,8 +2078,23 @@
             </svg>
           </span>
           <span class="admin-text">
-            <span class="admin-title">Full Application</span>
-            <span class="admin-sub">Long-form apply</span>
+            <span class="admin-title">Application</span>
+            <span class="admin-sub">Live form · Bob\'s Sept spec</span>
+          </span>
+        </a>
+
+        <a href="apply-concept" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Application Concept</span>
+            <span class="admin-sub">April concept · archived</span>
           </span>
         </a>
       </div>
@@ -2352,84 +2218,43 @@
 
   <script>
     // ================= ELIGIBILITY QUICK-CHECK =================
+    // Folds in the old short form: a pass hands the school to /apply,
+    // pre-filled through the application's own autosave key.
     (function() {
       const school = document.getElementById('school');
       const yr     = document.getElementById('gradyr');
       const result = document.getElementById('checkResult');
       const rt     = result.querySelector('.rt');
       const rp     = result.querySelector('p');
-      let sector   = null;
 
-      document.querySelectorAll('.sector-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.sector-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          sector = btn.dataset.sector;
-          run();
-        });
-      });
       school.addEventListener('change', run);
       yr.addEventListener('change', run);
 
       function run() {
-        if (!school.value || !yr.value || !sector) return;
+        if (!school.value || !yr.value) return;
         result.classList.remove('ok', 'no');
         result.classList.add('show');
 
-        const schoolOK = school.value !== 'other';
-        const yrOK     = yr.value !== 'Already graduated' || true;
-
-        if (schoolOK) {
+        if (school.value !== 'other') {
+          try {
+            const k = 'jcd-apply-2027';
+            const st = JSON.parse(localStorage.getItem(k) || '{}');
+            st.school = school.value;
+            localStorage.setItem(k, JSON.stringify(st));
+          } catch (e) {}
           result.classList.add('ok');
-          const labels = { mfg: 'Advanced Manufacturing', health: 'Health Sciences', trades: 'Building Trades' };
           rt.textContent = "You're in the pool.";
-          rp.innerHTML = `Based on your school and the ${labels[sector]} track, you meet the baseline for a JCD scholarship. <a href="#apply">Start your application →</a>`;
+          rp.innerHTML = school.value === 'Homeschooled'
+            ? 'Homeschooled students qualify if they live in the area of one of the public high schools listed. <a href="apply">Start your application →</a>'
+            : 'Your school qualifies for a JCD scholarship. <a href="apply">Start your application →</a>';
         } else {
           result.classList.add('no');
           rt.textContent = "Not a fit — yet.";
-          rp.innerHTML = 'JCD is scoped to the 12 qualifying Fox Valley schools listed. Take a look at <a href="#story">the story</a> — if you know someone at one of these schools, send it their way.';
+          rp.innerHTML = 'JCD is scoped to the 13 qualifying Fox Valley high schools listed, plus homeschooled students in those areas. Take a look at <a href="#story">the story</a> — if you know someone at one of these schools, send it their way.';
         }
       }
     })();
 
-    // ================= APPLICATION MULTI-STEP =================
-    (function() {
-      const form  = document.getElementById('applyForm');
-      const steps = form.querySelectorAll('.step');
-      const pips  = form.querySelectorAll('.pip');
-      let current = 1;
-
-      function show(n) {
-        steps.forEach(s => s.classList.toggle('active', +s.dataset.step === n));
-        pips.forEach((p, i) => p.classList.toggle('on', i < Math.min(n, 5)));
-        current = n;
-        // scroll form into view
-        const wrap = form;
-        const top = wrap.getBoundingClientRect().top + window.scrollY - 90;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-
-      form.addEventListener('click', e => {
-        const next = e.target.closest('.step-next');
-        const back = e.target.closest('.step-back');
-        if (next && next.dataset.go) { e.preventDefault(); show(+next.dataset.go); }
-        if (back)                    { e.preventDefault(); show(+back.dataset.go); }
-      });
-
-      // sector chip picker
-      form.querySelectorAll('.chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-          form.querySelectorAll('.chip').forEach(c => c.classList.remove('picked'));
-          chip.classList.add('picked');
-          document.getElementById('sectorInput').value = chip.dataset.sector;
-        });
-      });
-
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        show(6);
-      });
-    })();
   </script>
 </body>
 </html>

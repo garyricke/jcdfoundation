@@ -20,3 +20,16 @@
   from = "/meet.html"
   to = "/"
   status = 301
+
+# The April concept form lived at /apply-full until Oct 2026; the real
+# application (built from Bob's spec) is /apply. The concept is archived
+# at /apply-concept.
+[[redirects]]
+  from = "/apply-full"
+  to = "/apply"
+  status = 301
+
+[[redirects]]
+  from = "/apply-full.html"
+  to = "/apply"
+  status = 301
