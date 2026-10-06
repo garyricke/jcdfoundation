@@ -198,6 +198,15 @@
     .clr-decide { --clr: var(--safety-orange); }
     .clr-launch { --clr: var(--pulse-teal); }
     .clr-biz    { --clr: #8A6A1F; }
+    .clr-video  { --clr: var(--steel-blue); }
+    .item-body .points a, .decisions a, .item-obj a, .item-body .next a { color: #8A6A1F; border-bottom: 1px solid rgba(138,106,31,0.35); }
+    .item-body .points a:hover, .item-obj a:hover, .done a:hover, .next a:hover { border-bottom-color: #8A6A1F; }
+    .item-link { margin-right: 0; }
+    .thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+    .thumb { display: block; }
+    .thumb img { width: 100%; height: auto; aspect-ratio: 16 / 11; object-fit: cover; border-radius: 3px; border: 1px solid var(--border-line); filter: grayscale(0.15); transition: filter 160ms ease; }
+    .thumb:hover img { filter: none; }
+    .thumb span { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: var(--steel-gray); margin-top: 6px; line-height: 1.3; }
     .item-tag.biz { background: rgba(197,150,58,0.16); color: #8A6A1F; }
 
     .done { padding: 64px 0 8px; }
@@ -227,6 +236,8 @@
 
     @media (max-width: 720px) {
       .done-list { grid-template-columns: 1fr; }
+      .thumbs { grid-template-columns: repeat(3, 1fr); }
+      .item-link { margin-left: 0 !important; margin-right: 18px; }
       .pay li { grid-template-columns: 24px 1fr auto; }
       .pay-s { grid-column: 2 / -1; justify-self: start; }
     }
@@ -268,8 +279,8 @@
           <div class="hero-mi-value">Bob Vaughan &middot; Gary Ricke<span>9:00 am &middot; McDonald&rsquo;s, 125 W Wilson St, Batavia</span></div>
         </div>
         <div class="hero-mi">
-          <div class="hero-mi-label">Five items</div>
-          <div class="hero-mi-value">Application &middot; Decisions &middot; Launch &middot; Business<span>About 30 minutes</span></div>
+          <div class="hero-mi-label">Six items</div>
+          <div class="hero-mi-value">Application &middot; Decisions &middot; Launch &middot; John&rsquo;s video &middot; Business<span>About 35 minutes</span></div>
         </div>
         <div class="hero-mi">
           <div class="hero-mi-label">Today&rsquo;s win</div>
@@ -285,12 +296,13 @@
       <div class="section-eyebrow">Since September 16</div>
       <h2 class="section-h">What&rsquo;s done.</h2>
       <ul class="done-list">
-        <li><strong>The application works.</strong> Rebuilt from Bob&rsquo;s Sept&nbsp;28 list and live at <a href="apply">/apply</a>. Students fill it out, attach their documents and send it, and each one comes straight to us.</li>
-        <li><strong>All of Bob&rsquo;s Oct&nbsp;1 answers are in.</strong> 13 schools with Oswego, graduate study included, no parent signature, student email and phone added, financial-aid contact asked once.</li>
-        <li><strong>Both of his suggestions are built.</strong> Students pick from three focus areas, each with example careers. Recommenders get their own link at <a href="recommend">/recommend</a> and send the letter to us directly, matched to the student&rsquo;s application.</li>
-        <li><strong>The home-page quick form</strong> is now just the &ldquo;Am I eligible?&rdquo; check, which leads into the one application.</li>
-        <li><strong>John&rsquo;s video:</strong> the approved narration is on <a href="about">Our Story</a>.</li>
-        <li><strong>The Fairview film</strong> has Dr.&nbsp;Michele in it, as Bob asked (Sept&nbsp;8), and a <a href="fairview-film">shareable page</a> that opens without the password.</li>
+        <li><strong>Both foundation payments so far are in.</strong> See item&nbsp;5.</li>
+        <li><strong>The application works.</strong> Rebuilt from Bob&rsquo;s <a href="https://mail.google.com/mail/?authuser=gary.ricke@orbisdesign.com#all/thread-f:1877588162676447751" target="_blank" rel="noopener">Sept&nbsp;28 list</a> and live at <a href="apply">/apply</a>. Students fill it out, attach their documents and send it, and each one comes straight to us.</li>
+        <li><strong>All of Bob&rsquo;s <a href="https://mail.google.com/mail/?authuser=gary.ricke@orbisdesign.com#all/thread-f:1877588162676447751" target="_blank" rel="noopener">Oct&nbsp;1 answers</a> are in.</strong> 13 schools with Oswego, graduate study included, no parent signature, student email and phone added, financial-aid contact asked once.</li>
+        <li><strong>Both of his suggestions are built</strong> (<a href="plan/application-updates-meeting-email-2026-10-01">our reply</a>). Students pick from three focus areas, each with example careers. Recommenders get their own link at <a href="recommend">/recommend</a> and send the letter to us directly, matched to the student&rsquo;s application.</li>
+        <li><strong>The home-page quick form</strong> is now just the <a href="home#check">&ldquo;Am I eligible?&rdquo; check</a>, which leads into the one application.</li>
+        <li><strong>John&rsquo;s video:</strong> the approved narration is on <a href="about">Our Story</a>. <a href="john-video">Versions &amp; script</a>.</li>
+        <li><strong>The Fairview film</strong> has Dr.&nbsp;Michele in it, as <a href="https://mail.google.com/mail/?authuser=gary.ricke@orbisdesign.com#all/thread-f:1874523892037579608" target="_blank" rel="noopener">Bob asked</a> (Sept&nbsp;8), and a <a href="fairview-film">shareable page</a> that opens without the password.</li>
       </ul>
     </div>
   </section>
@@ -318,11 +330,11 @@
         <div class="item-body">
           <div class="item-sub">The walk-through</div>
           <ul class="points">
-            <li>&ldquo;Am I eligible?&rdquo; check on the home page &rarr; <strong>/apply</strong> &rarr; the three focus-area cards &rarr; the recommender link.</li>
+            <li><a href="home#check">&ldquo;Am I eligible?&rdquo; check</a> &rarr; <a href="apply"><strong>/apply</strong></a> &rarr; the three focus-area cards &rarr; the <a href="recommend">recommender page</a>.</li>
           </ul>
           <div class="item-sub">Two questions</div>
           <ul class="points">
-            <li><strong>&ldquo;Vocational Trades&rdquo; or &ldquo;Building Trades&rdquo;?</strong> Bob&rsquo;s email says Vocational, the site says Building. Pick one and use it everywhere.</li>
+            <li><strong>&ldquo;Vocational Trades&rdquo; or &ldquo;Building Trades&rdquo;?</strong> <a href="https://mail.google.com/mail/?authuser=gary.ricke@orbisdesign.com#all/thread-f:1877588162676447751" target="_blank" rel="noopener">Bob&rsquo;s Oct&nbsp;1 email</a> says Vocational; <a href="about">Our Story</a>, <a href="what-we-fund">What We Fund</a> and the application say Building. Pick one and use it everywhere.</li>
             <li><strong>Is info@thejcdfoundation.org receiving mail, and who watches it?</strong> Transcripts go there, and so do letters from recommenders who can&rsquo;t use the link.</li>
           </ul>
           <div class="next">
@@ -333,6 +345,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             Open the application
           </a>
+          <a class="item-link" href="home#check" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>Eligibility check</a>
           <a class="item-link" href="recommend" style="margin-left:24px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             Recommender page
@@ -346,20 +359,20 @@
           <div class="item-num">2</div>
           <div class="item-titles">
             <div class="item-title">The seven decisions</div>
-            <div class="item-obj">From the Sept&nbsp;16 email. Bob sent the application spec instead of answering these, so they&rsquo;re all still open. Each one holds up copy or how the program runs before January&nbsp;1.</div>
+            <div class="item-obj">From the <a href="plan/launch-readiness-email-2026-09-16">Sept&nbsp;16 email</a>. Bob sent the application spec instead of answering these, so they&rsquo;re all still open. Each one holds up copy or how the program runs before January&nbsp;1.</div>
           </div>
           <span class="item-tag go">Decide &middot; 10 min</span>
         </div>
         <div class="item-body">
           <div class="item-sub">Bob&rsquo;s calls</div>
           <ol class="decisions">
-            <li><strong>What we pay for.</strong> Tuition only, or also boots, tools and getting there? What We Fund still promises the extras, but Bob&rsquo;s script edits took them out.</li>
+            <li><strong>What we pay for.</strong> Tuition only, or also boots, tools and getting there? <a href="what-we-fund#boots">What We Fund</a> still promises the extras, but Bob&rsquo;s <a href="https://mail.google.com/mail/?authuser=gary.ricke@orbisdesign.com#all/thread-f:1874632267710792126" target="_blank" rel="noopener">script edits</a> took them out.</li>
             <li><strong>Who gets the check.</strong> The student, the school or the employer. Plus one call to counsel on whether paying students directly needs IRS-approved grant procedures (&sect;4945(g)).</li>
             <li><strong>Award size.</strong> A published range, or &ldquo;sized case by case&rdquo; said plainly.</li>
             <li><strong>Eligibility edge cases.</strong> Gap-year grads, part-time students, students already enrolled, students reapplying, undocumented students.</li>
             <li><strong>Reviews.</strong> Who reads the applications, and when and how decisions go out.</li>
             <li><strong>The board.</strong> The list and bios (first asked July&nbsp;28).</li>
-            <li><strong>The nurse line on Our Story.</strong> Keep it or replace it.</li>
+            <li><strong>The <a href="about#nurse">nurse line on Our Story</a>.</strong> Keep it or replace it. Bob&rsquo;s own documentary doesn&rsquo;t support it.</li>
           </ol>
           <div class="next">
             <div class="next-h">Leave with</div>
@@ -369,6 +382,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             What We Fund (draft)
           </a>
+          <a class="item-link" href="plan/launch-readiness-email-2026-09-16" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>Sept 16 email</a>
+          <a class="item-link" href="about#nurse" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>Nurse line</a>
         </div>
       </article>
 
@@ -384,10 +399,10 @@
         </div>
         <div class="item-body">
           <ul class="points">
-            <li><strong>The domain.</strong> Bob&rsquo;s IT person gives delegate access in GoDaddy so thejcdfoundation.org points at the site.</li>
-            <li><strong>The Fairview film.</strong> Has Bob seen the cut with Dr.&nbsp;Michele in it? And who asks Fairview to sign off? We can send them the shareable link.</li>
-            <li><strong>&ldquo;Twelve&rdquo; schools.</strong> The recorded narration and John&rsquo;s video say twelve, and it&rsquo;s now thirteen. Re-record the line, or leave it?</li>
-            <li><strong>The next two shoots.</strong> We need employers for advanced manufacturing and for the trades.</li>
+            <li><strong>The domain.</strong> Bob&rsquo;s IT person gives delegate access in GoDaddy so thejcdfoundation.org points at the site. The two records are in the <a href="dns-setup">domain setup guide</a>.</li>
+            <li><strong>The Fairview film.</strong> Has Bob seen the cut with Dr.&nbsp;Michele in it? And who asks Fairview to sign off? We can send them the <a href="fairview-film">shareable link</a>. Full page: <a href="fairview">/fairview</a>.</li>
+            <li><strong>&ldquo;Twelve&rdquo; schools.</strong> The recorded narration on <a href="about">Our Story</a> and <a href="john-video">John&rsquo;s video</a> say twelve, and it&rsquo;s now thirteen. Re-record the line, or leave it?</li>
+            <li><strong>The next two shoots.</strong> We need employers for advanced manufacturing and for the trades. Questions: <a href="interview-questions#partners">employer block</a> and the <a href="interview-fairview">Fairview field brief</a> as the template.</li>
           </ul>
           <div class="next">
             <div class="next-h">Leave with</div>
@@ -404,10 +419,45 @@
         </div>
       </article>
 
-      <!-- ITEM 4 · BUSINESS -->
-      <article class="item clr-biz">
+      <!-- ITEM 4 · JOHN VIDEO -->
+      <article class="item clr-video">
         <div class="item-head">
           <div class="item-num">4</div>
+          <div class="item-titles">
+            <div class="item-title">John&rsquo;s video &mdash; more archival visuals</div>
+            <div class="item-obj">On Sept&nbsp;10 Bob said to <a href="https://mail.google.com/mail/?authuser=gary.ricke@orbisdesign.com#all/thread-f:1874632267710792126" target="_blank" rel="noopener">&ldquo;keep on going&rdquo;</a> with more snippets for the About video. These are cut to what the narration is saying at that moment, instead of a general run through his life.</div>
+          </div>
+          <span class="item-tag disc">Show &middot; 5 min</span>
+        </div>
+        <div class="item-body">
+          <div class="item-sub">Pulled so far &middot; click to enlarge</div>
+          <div class="thumbs">
+            <a class="thumb" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/jcd/john-video-context-sidecar" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320,h_220,c_fill/jcd/john-video-context-sidecar" srcset="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_640,h_440,c_fill/jcd/john-video-context-sidecar 2x" alt="Equipto sidecar" loading="lazy" width="160" height="110" /><span>Equipto sidecar</span></a>
+            <a class="thumb" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/jcd/john-video-context-sidecar-horizontal" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320,h_220,c_fill/jcd/john-video-context-sidecar-horizontal" srcset="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_640,h_440,c_fill/jcd/john-video-context-sidecar-horizontal 2x" alt="Sidecar, side view" loading="lazy" width="160" height="110" /><span>Sidecar, side view</span></a>
+            <a class="thumb" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/jcd/john-video-context-car-body" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320,h_220,c_fill/jcd/john-video-context-car-body" srcset="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_640,h_440,c_fill/jcd/john-video-context-car-body 2x" alt="Ford / Chevy body" loading="lazy" width="160" height="110" /><span>Ford / Chevy body</span></a>
+            <a class="thumb" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/jcd/john-video-context-steel-shelves" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320,h_220,c_fill/jcd/john-video-context-steel-shelves" srcset="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_640,h_440,c_fill/jcd/john-video-context-steel-shelves 2x" alt="Steel shelving" loading="lazy" width="160" height="110" /><span>Steel shelving</span></a>
+            <a class="thumb" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/jcd/john-video-context-equipto-shelves" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320,h_220,c_fill/jcd/john-video-context-equipto-shelves" srcset="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_640,h_440,c_fill/jcd/john-video-context-equipto-shelves 2x" alt="Equipto shelving" loading="lazy" width="160" height="110" /><span>Equipto shelving</span></a>
+            <a class="thumb" href="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto/jcd/john-video-context-west-aurora-1928" target="_blank" rel="noopener"><img src="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_320,h_220,c_fill/jcd/john-video-context-west-aurora-1928" srcset="https://res.cloudinary.com/dsbllwpbh/image/upload/f_auto,q_auto,w_640,h_440,c_fill/jcd/john-video-context-west-aurora-1928 2x" alt="West Aurora HS, 1928" loading="lazy" width="160" height="110" /><span>West Aurora HS, 1928</span></a>
+          </div>
+          <ul class="points" style="margin-top:16px;">
+            <li><strong>The company&rsquo;s arc, in pictures.</strong> Thomas Dunham Company motorcycle lamps and sidecars &rarr; car bodies for Ford and Chevrolet &rarr; heavy-duty steel shelving.</li>
+            <li><strong>West Aurora High School, 1928</strong> is already cut as a clip, to sit under the line about where John started.</li>
+            <li><strong>Ask Bob:</strong> any more of the old sidecars, catalogs, plant photos or ads from the family or the company? Better originals of these?</li>
+          </ul>
+          <div class="next">
+            <div class="next-h">Leave with</div>
+            <p>Bob&rsquo;s reaction to the direction, and anything more he can dig up. <span class="owner">Gary</span> cuts the new version and puts it on the <a href="john-video">John video page</a> for review.</p>
+          </div>
+          <a class="item-link" href="john-video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>John video page</a>
+          <a class="item-link" href="about" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>Our Story (current cut)</a>
+          <a class="item-link" href="https://mail.google.com/mail/?authuser=gary.ricke@orbisdesign.com#all/thread-f:1874632267710792126" target="_blank" rel="noopener" style="margin-left:24px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>Sept 10 email</a>
+        </div>
+      </article>
+
+      <!-- ITEM 5 · BUSINESS -->
+      <article class="item clr-biz">
+        <div class="item-head">
+          <div class="item-num">5</div>
           <div class="item-titles">
             <div class="item-title">Business</div>
             <div class="item-obj">Where the three foundation-phase payments stand, and the launch budget.</div>
@@ -422,20 +472,21 @@
             <li class="due"><span class="pay-n">3</span><span class="pay-t">Working application</span><span class="pay-a">$6,000</span><span class="pay-s">Invoice now</span></li>
           </ul>
           <ul class="points" style="margin-top:16px;">
-            <li><strong>Payment 3</strong> was held until the application actually worked, as the Sept&nbsp;16 email said. It works now, so the invoice comes next through QuickBooks.</li>
-            <li><strong>Launch budget.</strong> The approved range is $2,000&ndash;$5,000 for the launch push. Bob picks the number.</li>
+            <li><strong>Payment 3</strong> was held until the application actually worked, as the <a href="plan/launch-readiness-email-2026-09-16">Sept&nbsp;16 email</a> said. It works now, so the invoice comes next through QuickBooks.</li>
+            <li><strong>Launch budget.</strong> The <a href="marketing-plan#approved">approved range</a> is $2,000&ndash;$5,000 for the launch push. Bob picks the number.</li>
           </ul>
           <div class="next">
             <div class="next-h">Leave with</div>
             <p>Bob knows the third invoice is coming, and we have a launch number or a date to set one.</p>
           </div>
+          <a class="item-link" href="marketing-plan#approved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>Approved plan &amp; payment schedule</a>
         </div>
       </article>
 
-      <!-- ITEM 5 · NEXT -->
+      <!-- ITEM 6 · NEXT -->
       <article class="item clr-app">
         <div class="item-head">
-          <div class="item-num">5</div>
+          <div class="item-num">6</div>
           <div class="item-titles">
             <div class="item-title">Next check-in</div>
             <div class="item-obj">Put the next meeting on the calendar before we leave.</div>
@@ -456,8 +507,9 @@
           <li><span class="recap-q">Item 1</span><span class="recap-t"><strong>Vocational or Building Trades:</strong> ____________________ &nbsp;&middot;&nbsp; <strong>info@ watched by:</strong> ____________________</span></li>
           <li><span class="recap-q">Item 2</span><span class="recap-t"><strong>What we pay for</strong> (1) &middot; <strong>who gets the check</strong> (2) &middot; <strong>award size</strong> (3) &middot; <strong>who reviews and when</strong> (5)</span></li>
           <li><span class="recap-q">Item 3</span><span class="recap-t"><strong>IT contact for GoDaddy</strong> &middot; <strong>Fairview sign-off</strong> &middot; <strong>&ldquo;twelve&rdquo; line</strong> &middot; <strong>two employers</strong></span></li>
-          <li><span class="recap-q">Item 4</span><span class="recap-t"><strong>Launch budget:</strong> $__________</span></li>
-          <li><span class="recap-q">Item 5</span><span class="recap-t"><strong>Next meeting:</strong> ____________________</span></li>
+          <li><span class="recap-q">Item 4</span><span class="recap-t"><strong>John&rsquo;s video:</strong> direction OK? &middot; more photos from Bob: ____________________</span></li>
+          <li><span class="recap-q">Item 5</span><span class="recap-t"><strong>Launch budget:</strong> $__________</span></li>
+          <li><span class="recap-q">Item 6</span><span class="recap-t"><strong>Next meeting:</strong> ____________________</span></li>
         </ul>
       </div>
       <div class="prev">
