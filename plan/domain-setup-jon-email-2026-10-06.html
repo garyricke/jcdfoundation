@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Re: JCD website</title></head>
+<body style="margin:0; padding:24px; background:#ffffff; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; color:#1a2535; line-height:1.6;">
+  <div class="copy-control" style="max-width:600px; margin:0 0 18px; display:flex; align-items:center; gap:12px;">
+    <button id="copy-btn" onclick="copyEmail()" style="display:inline-flex; align-items:center; gap:8px; background:#0E2A58; color:#fff; border:none; border-radius:8px; padding:10px 16px; font-family:inherit; font-size:14px; font-weight:600; cursor:pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy email
+    </button>
+    <span id="copy-status" style="font-size:13px; color:#4a5568;">Click, then paste into your email (formatting included).</span>
+  </div>
+  <div id="email-body" style="max-width:600px; margin:0; background:#ffffff;">
+    <p style="margin:0 0 16px;">Jon,</p>
+    <p style="margin:0 0 16px;">Thanks for helping with this. We need two DNS records added. It takes about ten minutes and doesn't touch email.</p>
+
+    <p style="margin:0 0 6px;"><strong>Where</strong></p>
+    <p style="margin:0 0 16px;">The domain's nameservers point to Microsoft, so its DNS is managed in the Microsoft 365 admin center, not at GoDaddy: <strong>Settings &rarr; Domains &rarr; thejcdfoundation.org &rarr; DNS records &rarr; Add record</strong>.</p>
+
+    <p style="margin:0 0 8px;"><strong>The two records</strong></p>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px; max-width:100%; margin:0 0 16px;"><tr><td bgcolor="#dce3ed" style="background-color:#dce3ed; padding:1px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%; font-size:14px;">
+        <tr>
+          <td bgcolor="#0E2A58" style="background-color:#0E2A58; padding:8px 12px;"><font color="#ffffff"><strong>Type</strong></font></td>
+          <td bgcolor="#0E2A58" style="background-color:#0E2A58; padding:8px 12px;"><font color="#ffffff"><strong>Name / Host</strong></font></td>
+          <td bgcolor="#0E2A58" style="background-color:#0E2A58; padding:8px 12px;"><font color="#ffffff"><strong>Value / Points to</strong></font></td>
+          <td bgcolor="#0E2A58" style="background-color:#0E2A58; padding:8px 12px;"><font color="#ffffff"><strong>TTL</strong></font></td>
+        </tr>
+        <tr>
+          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:8px 12px;"><strong>A</strong></td>
+          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:8px 12px; font-family:Menlo,Consolas,monospace;">@</td>
+          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:8px 12px; font-family:Menlo,Consolas,monospace;">75.2.60.5</td>
+          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:8px 12px;">1 hour</td>
+        </tr>
+        <tr>
+          <td bgcolor="#f4f6f9" style="background-color:#f4f6f9; padding:8px 12px;"><strong>CNAME</strong></td>
+          <td bgcolor="#f4f6f9" style="background-color:#f4f6f9; padding:8px 12px; font-family:Menlo,Consolas,monospace;">www</td>
+          <td bgcolor="#f4f6f9" style="background-color:#f4f6f9; padding:8px 12px; font-family:Menlo,Consolas,monospace;">thejcdfoundation.netlify.app</td>
+          <td bgcolor="#f4f6f9" style="background-color:#f4f6f9; padding:8px 12px;">1 hour</td>
+        </tr>
+      </table>
+    </td></tr></table>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px; max-width:100%; margin:0 0 20px;"><tr>
+      <td bgcolor="#fdf3dc" style="background-color:#fdf3dc; padding:14px 18px;">
+        <strong>Please leave everything else as it is.</strong> The MX, SPF/TXT and autodiscover records run the foundation's Microsoft 365 email. If an A record for @ or a CNAME for www already exists, edit it rather than adding a second one.
+      </td></tr></table>
+
+    <p style="margin:0 0 6px;"><strong>The password</strong></p>
+    <p style="margin:0 0 16px;">Nothing goes public when the domain connects. The whole site is behind a password, and that applies on the new domain too, until Bob gives the go-ahead. We're aiming for November 1. On my end, I'm adding the domain in Netlify (where the site is hosted), and it sets up the HTTPS certificate automatically once your records are live.</p>
+
+    <p style="margin:0 0 6px;"><strong>Two other things while you're in there</strong></p>
+    <ol style="margin:0 0 20px; padding-left:22px;">
+      <li style="margin:0 0 8px;"><strong>Renewal.</strong> The domain registration expires December 9, 2026, which falls in the middle of our application window. Can you confirm it's set to auto-renew?</li>
+      <li style="margin:0 0 8px;"><strong>info@ mailbox.</strong> Is there an info@thejcdfoundation.org mailbox in Microsoft 365, and who receives it? Student transcripts will be sent there.</li>
+    </ol>
+
+    <p style="margin:0 0 16px;">Just reply when the records are in, and I'll check them from my end. If you'd rather do this on a quick call, my number's below.</p>
+    <p style="margin:0;">Gary Ricke<br><font color="#4a5568">Orbis Design &middot; 630-492-0642</font></p>
+  </div>
+<script>
+  function setStatus(m,ok){var s=document.getElementById('copy-status');s.textContent=m;s.style.color=ok?'#1a7f37':'#b42318';}
+  function selectFallback(el){try{var r=document.createRange();r.selectNode(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);var ok=document.execCommand('copy');s.removeAllRanges();setStatus(ok?'✓ Copied — paste into your email':'Press ⌘C to copy the selected email',ok);}catch(e){setStatus('Select the email and press ⌘C',false);}}
+  function copyEmail(){var el=document.getElementById('email-body');if(navigator.clipboard&&window.ClipboardItem){var d=[new ClipboardItem({'text/html':new Blob([el.outerHTML],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})];navigator.clipboard.write(d).then(function(){setStatus('✓ Copied — paste into your email (formatting included)',true);},function(){selectFallback(el);});}else{selectFallback(el);}}
+</script>
+</body></html>
