@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
-  <title>JCD Foundation — Meeting Agenda · October 6, 2026</title>
-  <meta name="description" content="Agenda for the October 6, 2026 check-in with Bob: walk through the live application, settle the seven open decisions, line up launch, and the third payment." />
-  <link rel="canonical" href="https://thejcdfoundation.netlify.app/agenda" />
+  <title>JCD Foundation — Meeting Agenda · June 26, 2026 (archived)</title>
+  <meta name="description" content="Working agenda for the June 26, 2026 JCD Foundation meeting — walk the interview questions, check the outreach program, and get the live domain attached to the Netlify site." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -194,46 +193,9 @@
       .recap-box { background: #fff; color: #000; border: 1px solid #000; }
       .recap-t, .recap-box p.intro { color: #000 !important; }
     }
-    .clr-app    { --clr: var(--equipto-blue); }
-    .clr-decide { --clr: var(--safety-orange); }
-    .clr-launch { --clr: var(--pulse-teal); }
-    .clr-biz    { --clr: #8A6A1F; }
-    .item-tag.biz { background: rgba(197,150,58,0.16); color: #8A6A1F; }
-
-    .done { padding: 64px 0 8px; }
-    .done-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 32px; }
-    .done-list li { font-size: 14.5px; line-height: 1.55; padding-left: 26px; position: relative; }
-    .done-list li::before { content: ''; position: absolute; left: 0; top: 5px; width: 14px; height: 8px; border-left: 2px solid var(--pulse-teal); border-bottom: 2px solid var(--pulse-teal); transform: rotate(-45deg); }
-    .done-list strong, .decisions strong { color: var(--equipto-blue); }
-    .done a, .prev a { color: #8A6A1F; border-bottom: 1px solid rgba(138,106,31,0.35); }
-
-    .decisions { padding-left: 22px; display: flex; flex-direction: column; gap: 9px; }
-    .decisions li { font-size: 14.5px; line-height: 1.55; padding-left: 4px; }
-    .decisions li::marker { font-family: var(--font-mono); font-weight: 700; color: var(--safety-orange); }
-
-    .pay { list-style: none; border: 1px solid var(--border-line); border-radius: 4px; }
-    .pay li { display: grid; grid-template-columns: 36px 1fr auto 110px; align-items: center; gap: 12px; padding: 11px 16px; font-size: 14.5px; }
-    .pay li + li { border-top: 1px solid var(--border-line); }
-    .pay-n { font-family: var(--font-mono); font-weight: 700; color: var(--steel-blue); }
-    .pay-a { font-family: var(--font-mono); font-size: 13.5px; }
-    .pay-s { font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; padding: 4px 8px; border-radius: 2px; }
-    .pay .paid .pay-s { background: rgba(10,155,140,0.12); color: var(--pulse-teal); }
-    .pay .due  { background: rgba(197,150,58,0.08); }
-    .pay .due .pay-s { background: rgba(197,150,58,0.2); color: #8A6A1F; }
-
-    .prev { margin-top: 28px; font-size: 14px; color: var(--steel-gray); }
-    .prev-h { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel-blue); margin-bottom: 8px; }
-    .prev ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-
-    @media (max-width: 720px) {
-      .done-list { grid-template-columns: 1fr; }
-      .pay li { grid-template-columns: 24px 1fr auto; }
-      .pay-s { grid-column: 2 / -1; justify-self: start; }
-    }
-    @media print {
-      .done { padding-top: 20px; }
-      .admin-fab-wrap, .prev { display: none !important; }
-    }
+    .archived-bar { background: var(--brass-gold); color: var(--deep-charcoal); font-size: 13.5px; font-weight: 600; text-align: center; padding: 10px 16px; }
+    .archived-bar a { text-decoration: underline; }
+    @media print { .archived-bar { display: none; } }
   </style>
 </head>
 <body>
@@ -248,50 +210,36 @@
           <span>Meeting Agenda</span>
         </div>
       </a>
-      <div class="nav-right"><span class="draft-dot"></span>October 6, 2026</div>
+      <div class="nav-right"><span class="draft-dot"></span>June 26, 2026 &middot; Archived</div>
     </div>
   </nav>
+
+  <div class="archived-bar">Archived agenda &middot; June 26, 2026. <a href="agenda">See the current agenda &rarr;</a></div>
 
   <!-- HERO -->
   <section id="hero">
     <div class="container">
-      <div class="hero-eyebrow">Working agenda &middot; Tuesday, October 6, 2026</div>
+      <div class="hero-eyebrow">Working agenda &middot; June 26, 2026</div>
       <h1>Today&rsquo;s <span class="alt">agenda.</span></h1>
       <p class="hero-sub">
-        The application is built to Bob&rsquo;s spec and it works. Today we walk through it together,
-        settle the decisions that still stand between us and a student pressing Send on January&nbsp;1,
-        and line up what&rsquo;s left before launch.
+        Three things to get through: walk the interview questions with Bob, check where the
+        outreach program stands and what&rsquo;s next, and &mdash; the priority &mdash; get the live
+        domain pointed at the site today, password protection and all.
       </p>
       <div class="hero-meta">
         <div class="hero-mi">
-          <div class="hero-mi-label">Who &amp; where</div>
-          <div class="hero-mi-value">Bob Vaughan &middot; Gary Ricke<span>9:00 am &middot; McDonald&rsquo;s, 125 W Wilson St, Batavia</span></div>
+          <div class="hero-mi-label">Who</div>
+          <div class="hero-mi-value">Bob Vaughan<span>Gary Ricke · Jack Whetsel</span></div>
         </div>
         <div class="hero-mi">
-          <div class="hero-mi-label">Five items</div>
-          <div class="hero-mi-value">Application &middot; Decisions &middot; Launch &middot; Business<span>About 30 minutes</span></div>
+          <div class="hero-mi-label">Three items</div>
+          <div class="hero-mi-value">Interview · Outreach · Domain<span>~45&ndash;60 minutes</span></div>
         </div>
         <div class="hero-mi">
           <div class="hero-mi-label">Today&rsquo;s win</div>
-          <div class="hero-mi-value">Decisions 1, 2, 3 and 5 settled<span>The rest can follow by email</span></div>
+          <div class="hero-mi-value">Domain live on Netlify<span>Even behind the password gate</span></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- DONE SINCE LAST TIME -->
-  <section class="done">
-    <div class="container">
-      <div class="section-eyebrow">Since September 16</div>
-      <h2 class="section-h">What&rsquo;s done.</h2>
-      <ul class="done-list">
-        <li><strong>The application works.</strong> Rebuilt from Bob&rsquo;s Sept&nbsp;28 list and live at <a href="apply">/apply</a>. Students fill it out, attach their documents and send it, and each one comes straight to us.</li>
-        <li><strong>All of Bob&rsquo;s Oct&nbsp;1 answers are in.</strong> 13 schools with Oswego, graduate study included, no parent signature, student email and phone added, financial-aid contact asked once.</li>
-        <li><strong>Both of his suggestions are built.</strong> Students pick from three focus areas, each with example careers. Recommenders get their own link at <a href="recommend">/recommend</a> and send the letter to us directly, matched to the student&rsquo;s application.</li>
-        <li><strong>The home-page quick form</strong> is now just the &ldquo;Am I eligible?&rdquo; check, which leads into the one application.</li>
-        <li><strong>John&rsquo;s video:</strong> the approved narration is on <a href="about">Our Story</a>.</li>
-        <li><strong>The Fairview film</strong> has Dr.&nbsp;Michele in it, as Bob asked (Sept&nbsp;8), and a <a href="fairview-film">shareable page</a> that opens without the password.</li>
-      </ul>
     </div>
   </section>
 
@@ -301,146 +249,117 @@
       <div class="section-eyebrow">Run of show</div>
       <h2 class="section-h">What we&rsquo;ll cover.</h2>
       <p class="section-lead">
-        Each item has the points to hit and what we want to leave with. Decisions to capture are
-        recapped at the bottom.
+        Each item has an objective, the points to hit, and the decision or next step to walk
+        away with. Decisions to capture are recapped at the bottom.
       </p>
 
-      <!-- ITEM 1 · APPLICATION -->
-      <article class="item clr-app">
+      <!-- ITEM 1 · INTERVIEW -->
+      <article class="item clr-interview">
         <div class="item-head">
           <div class="item-num">1</div>
           <div class="item-titles">
-            <div class="item-title">Walk through the application</div>
-            <div class="item-obj">Go through it on the laptop the way a student would, and settle the two questions still open.</div>
+            <div class="item-title">Walk the interview questions</div>
+            <div class="item-obj">Lock the recorded-interview script and start capturing Bob&rsquo;s answers &mdash; prioritizing the gaps that block the build.</div>
           </div>
-          <span class="item-tag review">Review &middot; 10 min</span>
+          <span class="item-tag review">Review &amp; record</span>
         </div>
         <div class="item-body">
-          <div class="item-sub">The walk-through</div>
+          <div class="item-sub">Points to hit</div>
           <ul class="points">
-            <li>&ldquo;Am I eligible?&rdquo; check on the home page &rarr; <strong>/apply</strong> &rarr; the three focus-area cards &rarr; the recommender link.</li>
-          </ul>
-          <div class="item-sub">Two questions</div>
-          <ul class="points">
-            <li><strong>&ldquo;Vocational Trades&rdquo; or &ldquo;Building Trades&rdquo;?</strong> Bob&rsquo;s email says Vocational, the site says Building. Pick one and use it everywhere.</li>
-            <li><strong>Is info@thejcdfoundation.org receiving mail, and who watches it?</strong> Transcripts go there, and so do letters from recommenders who can&rsquo;t use the link.</li>
+            <li>Open the <strong>Interview Questions</strong> page and run Bob&rsquo;s block live &mdash; record the audio so Jack can transcribe.</li>
+            <li>Hit the <strong>Need</strong> items first: eligibility rules, award size, the funding-model rationale, year-one targets, referral steps, and contact routing.</li>
+            <li>Confirm the two reframed items: the three focus areas <strong>can shift over time</strong> (from May 6), and impact is <strong>pre-launch</strong> &mdash; no results yet, gated on the 501(c)(3).</li>
+            <li>Verify the <strong>7 drafted homepage FAQ answers</strong> &mdash; especially the undocumented-eligibility claim.</li>
+            <li>Decide who runs the partner, student, and counselor interviews, and when.</li>
           </ul>
           <div class="next">
-            <div class="next-h">Leave with</div>
-            <p>One name for the third focus area, and the info@ inbox confirmed with someone watching it. <span class="owner">Gary</span> updates the site the same day.</p>
+            <div class="next-h">Decision / next step</div>
+            <p>Record Bob&rsquo;s block today if he&rsquo;s up for it. <span class="owner">Owner: Jack</span> &mdash; transcribe and drop answers into the content outline; <span class="owner">Gary</span> sequences the other interviews.</p>
           </div>
-          <a class="item-link" href="apply">
+          <a class="item-link" href="interview-questions.html#bob">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-            Open the application
+            Interview Questions &mdash; Bob&rsquo;s block
           </a>
-          <a class="item-link" href="recommend" style="margin-left:24px;">
+          <a class="item-link" href="interview-questions.html#faq-check" style="margin-left:24px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-            Recommender page
+            FAQ check (7 answers to verify)
           </a>
         </div>
       </article>
 
-      <!-- ITEM 2 · DECISIONS -->
-      <article class="item clr-decide">
+      <!-- ITEM 2 · OUTREACH -->
+      <article class="item clr-outreach">
         <div class="item-head">
           <div class="item-num">2</div>
           <div class="item-titles">
-            <div class="item-title">The seven decisions</div>
-            <div class="item-obj">From the Sept&nbsp;16 email. Bob sent the application spec instead of answering these, so they&rsquo;re all still open. Each one holds up copy or how the program runs before January&nbsp;1.</div>
+            <div class="item-title">Outreach program &mdash; status &amp; next steps</div>
+            <div class="item-obj">Confirm where the round-1 outreach kit stands, go over the outreach interview questions, and agree the next push: who we contact, with what, and when.</div>
           </div>
-          <span class="item-tag go">Decide &middot; 10 min</span>
+          <span class="item-tag disc">Discuss</span>
         </div>
         <div class="item-body">
-          <div class="item-sub">Bob&rsquo;s calls</div>
-          <ol class="decisions">
-            <li><strong>What we pay for.</strong> Tuition only, or also boots, tools and getting there? What We Fund still promises the extras, but Bob&rsquo;s script edits took them out.</li>
-            <li><strong>Who gets the check.</strong> The student, the school or the employer. Plus one call to counsel on whether paying students directly needs IRS-approved grant procedures (&sect;4945(g)).</li>
-            <li><strong>Award size.</strong> A published range, or &ldquo;sized case by case&rdquo; said plainly.</li>
-            <li><strong>Eligibility edge cases.</strong> Gap-year grads, part-time students, students already enrolled, students reapplying, undocumented students.</li>
-            <li><strong>Reviews.</strong> Who reads the applications, and when and how decisions go out.</li>
-            <li><strong>The board.</strong> The list and bios (first asked July&nbsp;28).</li>
-            <li><strong>The nurse line on Our Story.</strong> Keep it or replace it.</li>
-          </ol>
+          <div class="item-sub">Status check</div>
+          <ul class="points">
+            <li><strong>Print kit</strong> (UPS Store Geneva runs) &mdash; what&rsquo;s printed, what&rsquo;s still pending a proof.</li>
+            <li><strong>Email templates</strong> (counselors + employers, EmailOctopus) &mdash; ready to send? Who&rsquo;s on the list and who hits go?</li>
+            <li><strong>Letterhead Geneva address</strong> &mdash; is the open [TK] now resolved across the kit?</li>
+            <li>Agree a <strong>first-send date</strong> and the initial target schools and employers.</li>
+          </ul>
+
+          <div class="item-sub">Go over the outreach interview questions</div>
+          <ul class="points">
+            <li>Walk the <strong>partner, student, and counselor blocks</strong> on the Interview Questions page &mdash; these are the field interviews that feed the outreach stories and the audience hubs.</li>
+            <li>Reconcile them with the printed <strong>interview guide</strong> (Section 05) &mdash; has Bob&rsquo;s markup come back? Merge any changes so there&rsquo;s one source of truth.</li>
+            <li><strong>Lock the question set</strong> so Jack can start booking and recording partner interviews (Nimco, Tagli, VIA).</li>
+            <li>Pre-launch caveat: student interviews can&rsquo;t be JCD-funded students yet &mdash; decide whether to interview current trades students aspirationally or hold the block until the first cohort.</li>
+          </ul>
+
           <div class="next">
-            <div class="next-h">Leave with</div>
-            <p>Answers to <strong>1, 2, 3 and 5</strong> today. Those change what the site says and how the window runs. <span class="owner">Bob</span> can send 4, 6 and 7 by email.</p>
+            <div class="next-h">Decision / next step</div>
+            <p>Lock the outreach interview questions and set a first-send date + target list. <span class="owner">Owner: Gary &amp; Jack</span> &mdash; finalize the kit, schedule the EmailOctopus send, and start booking partner interviews.</p>
           </div>
-          <a class="item-link" href="what-we-fund">
+          <a class="item-link" href="interview-questions.html#partners">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-            What We Fund (draft)
+            Field interview blocks
+          </a>
+          <a class="item-link" href="brand-kit.html#interview" style="margin-left:24px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Interview guide (Sec 05)
+          </a>
+          <a class="item-link" href="brand-kit.html#email-outreach" style="margin-left:24px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            Email outreach (Sec 06)
           </a>
         </div>
       </article>
 
-      <!-- ITEM 3 · LAUNCH -->
-      <article class="item clr-launch">
+      <!-- ITEM 3 · DOMAIN -->
+      <article class="item clr-domain">
         <div class="item-head">
           <div class="item-num">3</div>
           <div class="item-titles">
-            <div class="item-title">Path to launch</div>
-            <div class="item-obj">The practical things that have to happen before the password comes off.</div>
+            <div class="item-title">Attach the live domain &mdash; today</div>
+            <div class="item-obj">Point thejcdfoundation.org at the Netlify site now. The site is already password-gated, so going live exposes nothing public.</div>
           </div>
-          <span class="item-tag disc">Discuss &middot; 5 min</span>
+          <span class="item-tag go">Priority · do today</span>
         </div>
         <div class="item-body">
+          <div class="item-sub">Points to hit</div>
           <ul class="points">
-            <li><strong>The domain.</strong> Bob&rsquo;s IT person gives delegate access in GoDaddy so thejcdfoundation.org points at the site.</li>
-            <li><strong>The Fairview film.</strong> Has Bob seen the cut with Dr.&nbsp;Michele in it? And who asks Fairview to sign off? We can send them the shareable link.</li>
-            <li><strong>&ldquo;Twelve&rdquo; schools.</strong> The recorded narration and John&rsquo;s video say twelve, and it&rsquo;s now thirteen. Re-record the line, or leave it?</li>
-            <li><strong>The next two shoots.</strong> We need employers for advanced manufacturing and for the trades.</li>
+            <li>The site already lives on Netlify (<code>thejcdfoundation.netlify.app</code>) and is already behind the password gate &mdash; <strong>pointing the domain doesn&rsquo;t make anything public</strong>.</li>
+            <li>The <strong>only blocker is access</strong>: who has the login for the registrar where <code>thejcdfoundation.org</code> was purchased?</li>
+            <li>Two DNS records are ready to add: <strong>A</strong> &nbsp;<code>@</code> &rarr; <code>75.2.60.5</code> and <strong>CNAME</strong> &nbsp;<code>www</code> &rarr; <code>thejcdfoundation.netlify.app</code>.</li>
+            <li><strong>Only ADD, never delete</strong> &mdash; leave MX/TXT records alone so the <code>info@thejcdfoundation.org</code> email keeps working.</li>
+            <li>Then in Netlify: add the custom domain and let it provision the HTTPS certificate.</li>
           </ul>
           <div class="next">
-            <div class="next-h">Leave with</div>
-            <p>A name and number for Bob&rsquo;s IT contact, a yes or no on asking Fairview, and two employers to approach. <span class="owner">Gary</span> follows up on each.</p>
+            <div class="next-h">Decision / next step</div>
+            <p>Decide now: does <span class="owner">Gary</span> get temporary registrar access to add the records today, or does <span class="owner">Bob</span> add them himself using the DNS guide? Either way &mdash; records in today, HTTPS live by end of day.</p>
           </div>
-          <a class="item-link" href="dns-setup">
+          <a class="item-link" href="dns-setup.html">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-            Domain setup guide
+            Open DNS Setup guide
           </a>
-          <a class="item-link" href="fairview-film" style="margin-left:24px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-            Fairview film
-          </a>
-        </div>
-      </article>
-
-      <!-- ITEM 4 · BUSINESS -->
-      <article class="item clr-biz">
-        <div class="item-head">
-          <div class="item-num">4</div>
-          <div class="item-titles">
-            <div class="item-title">Business</div>
-            <div class="item-obj">Where the three foundation-phase payments stand, and the launch budget.</div>
-          </div>
-          <span class="item-tag biz">Business &middot; 2 min</span>
-        </div>
-        <div class="item-body">
-          <div class="item-sub">Foundation phase &middot; $18,000 in three payments</div>
-          <ul class="pay">
-            <li class="paid"><span class="pay-n">1</span><span class="pay-t">Contract &amp; kickoff</span><span class="pay-a">$6,000</span><span class="pay-s">Paid</span></li>
-            <li class="paid"><span class="pay-n">2</span><span class="pay-t">Interviews &amp; brand</span><span class="pay-a">$6,000</span><span class="pay-s">Paid</span></li>
-            <li class="due"><span class="pay-n">3</span><span class="pay-t">Working application</span><span class="pay-a">$6,000</span><span class="pay-s">Invoice now</span></li>
-          </ul>
-          <ul class="points" style="margin-top:16px;">
-            <li><strong>Payment 3</strong> was held until the application actually worked, as the Sept&nbsp;16 email said. It works now, so the invoice comes next through QuickBooks.</li>
-            <li><strong>Launch budget.</strong> The approved range is $2,000&ndash;$5,000 for the launch push. Bob picks the number.</li>
-          </ul>
-          <div class="next">
-            <div class="next-h">Leave with</div>
-            <p>Bob knows the third invoice is coming, and we have a launch number or a date to set one.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- ITEM 5 · NEXT -->
-      <article class="item clr-app">
-        <div class="item-head">
-          <div class="item-num">5</div>
-          <div class="item-titles">
-            <div class="item-title">Next check-in</div>
-            <div class="item-obj">Put the next meeting on the calendar before we leave.</div>
-          </div>
-          <span class="item-tag review">1 min</span>
         </div>
       </article>
     </div>
@@ -451,19 +370,20 @@
     <div class="container">
       <div class="recap-box">
         <h2>Decisions to capture today.</h2>
-        <p class="intro">Write the answers in the margin. Everything here gets onto the site this week.</p>
+        <p class="intro">The three things we don&rsquo;t want to leave the table without.</p>
         <ul class="recap-list">
-          <li><span class="recap-q">Item 1</span><span class="recap-t"><strong>Vocational or Building Trades:</strong> ____________________ &nbsp;&middot;&nbsp; <strong>info@ watched by:</strong> ____________________</span></li>
-          <li><span class="recap-q">Item 2</span><span class="recap-t"><strong>What we pay for</strong> (1) &middot; <strong>who gets the check</strong> (2) &middot; <strong>award size</strong> (3) &middot; <strong>who reviews and when</strong> (5)</span></li>
-          <li><span class="recap-q">Item 3</span><span class="recap-t"><strong>IT contact for GoDaddy</strong> &middot; <strong>Fairview sign-off</strong> &middot; <strong>&ldquo;twelve&rdquo; line</strong> &middot; <strong>two employers</strong></span></li>
-          <li><span class="recap-q">Item 4</span><span class="recap-t"><strong>Launch budget:</strong> $__________</span></li>
-          <li><span class="recap-q">Item 5</span><span class="recap-t"><strong>Next meeting:</strong> ____________________</span></li>
-        </ul>
-      </div>
-      <div class="prev">
-        <div class="prev-h">Past agendas &middot; archived</div>
-        <ul>
-          <li><a href="agenda-jun26">June 26, 2026</a> &mdash; interview questions, outreach kit, domain</li>
+          <li>
+            <span class="recap-q">Item 1</span>
+            <span class="recap-t"><strong>Did we record Bob&rsquo;s answers</strong> to the Need-priority questions, and who owns the partner / student / counselor interviews next?</span>
+          </li>
+          <li>
+            <span class="recap-q">Item 2</span>
+            <span class="recap-t"><strong>The outreach interview questions locked</strong>, plus a first-send date and target list for the outreach email.</span>
+          </li>
+          <li>
+            <span class="recap-q">Item 3</span>
+            <span class="recap-t"><strong>Who adds the two DNS records today</strong> &mdash; Gary with registrar access, or Bob via the guide &mdash; so the domain goes live (still password-gated) by end of day.</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -471,7 +391,7 @@
 
   <footer>
     <div class="container">
-      <div class="footer-meta">© 2026 JCD Foundation · Meeting Agenda · October 6, 2026</div>
+      <div class="footer-meta">© 2026 JCD Foundation · Meeting Agenda · June 26, 2026</div>
     </div>
 
     <!-- ========== ADMIN FAB ========== -->
@@ -837,7 +757,7 @@
   <script src="assets/annotations.js" defer></script>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
-      JCDAnnotations.init({ page: 'agenda-oct6', backend: 'api' });
+      JCDAnnotations.init({ page: 'agenda', backend: 'api' });
     });
   </script>
 
