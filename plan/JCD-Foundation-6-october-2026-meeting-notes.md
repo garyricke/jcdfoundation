@@ -60,7 +60,7 @@ Early in the meeting Bob said "I'd like to go live with the website, probably No
 
 ## 3. Housekeeping items from the agenda
 
-- **Domain:** Bob's IT contact is **John Michael** — "it's John Michael … let me send it to you." **Bob owns** sending the introduction. Later: "We got the domain."
+- **Domain:** Bob's IT contact is **Jon, Rockwell Solutions Group** (jon@rockwellsolutionsgroup.net; the transcript heard "John Michael"). **Done:** Bob emailed the intro at 9:05am Oct 6. Transcript: "it's John Michael … let me send it to you." Later: "We got the domain."
 - **Fairview:** send them **only the single film**, not every clip. "I'll send you the Fairview, the single video … just that one." → `/fairview-film` (Gary's draft "Fairview Videos" already has the link).
 - **Career spotlight (garbled):** "The career spotlight … the first career, we'll feature dental hygienists. And the next career will feature something else." *Interpretation:* a rotating career spotlight on the site, starting with Fairview / dental hygiene, instead of fixed content for each of the three areas.
 - **Imagery note:** "it might be better if you could find a Black man in health sciences … [so we] don't connotate minorities with … low-wage work." → Review hero and sector imagery for this.
@@ -110,7 +110,7 @@ Bob wants Gary "intimately involved in the administration … because I'm not te
 
 | Owner | Item |
 |---|---|
-| **Bob** | Intro to John Michael (GoDaddy / domain) |
+| ~~**Bob**~~ | ~~Intro to IT for GoDaddy~~ — done Oct 6; **Gary** follows up with Jon (Rockwell Solutions Group) |
 | **Bob** | Accountant: 1099 / direct-to-student and tools; FAFSA legally required? |
 | **Bob** | Confirm the outreach call start date (Nov 1 vs Feb 1) |
 | **Gary** | Send Fairview the single film (`/fairview-film`) |
