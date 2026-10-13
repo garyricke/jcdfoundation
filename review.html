@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
+  <title>JCD · Application review</title>
+  <link rel="canonical" href="https://thejcdfoundation.org/review" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --equipto-blue:#0E2A58; --navy-ink:#0B1322; --white:#FFF; --deep-charcoal:#111827;
+      --steel-gray:#4A5568; --mid-gray:#9AA3AF; --ice-gray:#F0F3F7; --border-line:#D1D8E0;
+      --paper:#F7F8FA;
+      --brass-gold:#C5963A; --deep-brass:#8A6A1F; --pulse-teal:#0A9B8C; --teal-ink:#08786D;
+      --safety-orange:#E8600A; --orange-ink:#B84A05; --decline:#B42318;
+      --font-primary:'Montserrat',system-ui,sans-serif; --font-mono:'Roboto Mono',ui-monospace,monospace;
+      --font-display:'Archivo Black','Montserrat',sans-serif;
+      --radius: 10px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { font-family: var(--font-primary); color: var(--deep-charcoal); background: var(--paper);
+      font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: var(--deep-brass); }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    :focus-visible { outline: 3px solid var(--brass-gold); outline-offset: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    [hidden] { display: none !important; }
+
+    /* ---------- top bar ---------- */
+    .topbar { position: sticky; top: 0; z-index: 30; background: var(--equipto-blue); color: #fff;
+      display: flex; align-items: center; gap: 16px; padding: 10px 20px; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+    .brand img { height: 26px; width: auto; display: block; }
+    .brand span { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.01em; }
+    .sample-pill { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      background: var(--brass-gold); color: var(--navy-ink); padding: 4px 9px; border-radius: 999px; font-weight: 500; }
+    .topbar .spacer { flex: 1; }
+    .top-nav { display: flex; gap: 4px; }
+    .top-nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; font-weight: 600;
+      padding: 7px 10px; border-radius: 8px; }
+    .top-nav a[aria-current="page"], .top-nav a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .who-btn { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25); color: #fff; border-radius: 999px; padding: 6px 12px 6px 6px;
+      cursor: pointer; font-size: 13px; font-weight: 600; }
+    .who-btn:hover { background: rgba(255,255,255,0.18); }
+    .avatar { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--brass-gold); color: var(--navy-ink); font-weight: 800; font-size: 11px; flex-shrink: 0; }
+    .toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; cursor: pointer; user-select: none; }
+    .toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .toggle .track { width: 34px; height: 20px; border-radius: 999px; background: rgba(255,255,255,0.25); position: relative; transition: background .15s; }
+    .toggle .track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; border-radius: 50%; background: #fff; transition: transform .15s; }
+    .toggle input:checked + .track { background: var(--pulse-teal); }
+    .toggle input:checked + .track::after { transform: translateX(14px); }
+    .toggle input:focus-visible + .track { outline: 3px solid var(--brass-gold); outline-offset: 2px; }
+
+    .sample-banner { background: #FDF3DC; color: #5C4510; border-bottom: 1px solid #EAD9AC; padding: 9px 20px;
+      font-size: 13px; display: flex; gap: 10px; align-items: flex-start; }
+    .sample-banner svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    main { max-width: 1320px; margin: 0 auto; padding: 24px 20px 120px; }
+
+    /* ---------- gate screens ---------- */
+    .gate { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: var(--equipto-blue); }
+    .gate-card { width: 100%; max-width: 440px; background: #fff; border-radius: 14px; padding: 32px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .gate-card img { height: 34px; display: block; margin-bottom: 22px; }
+    .gate-card h1 { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.05; margin: 0 0 8px; color: var(--equipto-blue); }
+    .gate-card p { color: var(--steel-gray); margin: 0 0 20px; font-size: 14px; }
+    .who-list { display: grid; gap: 8px; max-height: 60vh; overflow-y: auto; }
+    .who-option { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; background: #fff;
+      border: 1px solid var(--border-line); border-radius: var(--radius); padding: 10px 12px; cursor: pointer; }
+    .who-option:hover { border-color: var(--equipto-blue); background: var(--ice-gray); }
+    .who-option .avatar { width: 34px; height: 34px; font-size: 13px; }
+    .who-option b { display: block; font-size: 14px; }
+    .who-option small { color: var(--steel-gray); font-size: 12px; }
+
+    /* ---------- form controls ---------- */
+    .field label, .flabel { display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--steel-gray); margin-bottom: 6px; }
+    .input, select.input, textarea.input { width: 100%; border: 1px solid var(--border-line); background: #fff; border-radius: 8px;
+      padding: 9px 11px; font-size: 14px; }
+    textarea.input { min-height: 84px; resize: vertical; line-height: 1.45; }
+    .input:focus { border-color: var(--equipto-blue); outline: none; box-shadow: 0 0 0 3px rgba(14,42,88,0.15); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; border: 1px solid transparent;
+      padding: 9px 14px; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; line-height: 1.2; }
+    .btn svg { width: 16px; height: 16px; }
+    .btn-primary { background: var(--equipto-blue); color: #fff; }
+    .btn-primary:hover { background: #163A74; }
+    .btn-ghost { background: #fff; border-color: var(--border-line); color: var(--deep-charcoal); }
+    .btn-ghost:hover { border-color: var(--equipto-blue); }
+    .btn[disabled] { opacity: .55; cursor: not-allowed; }
+    .error { color: var(--decline); font-size: 13px; margin-top: 10px; }
+
+    /* ---------- list view ---------- */
+    .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    .page-head h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px, 4vw, 38px); line-height: 1; margin: 0; color: var(--equipto-blue); }
+    .page-head p { margin: 6px 0 0; color: var(--steel-gray); font-size: 14px; }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+    .tab { border: 1px solid var(--border-line); background: #fff; border-radius: 999px; padding: 7px 13px; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; gap: 7px; align-items: center; }
+    .tab .n { font-family: var(--font-mono); font-size: 11px; background: var(--ice-gray); border-radius: 999px; padding: 1px 7px; color: var(--steel-gray); }
+    .tab[aria-pressed="true"] { background: var(--equipto-blue); border-color: var(--equipto-blue); color: #fff; }
+    .tab[aria-pressed="true"] .n { background: rgba(255,255,255,0.18); color: #fff; }
+
+    .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 22px; align-items: start; }
+    .filters { background: #fff; border: 1px solid var(--border-line); border-radius: 12px; padding: 16px; display: grid; gap: 14px; position: sticky; top: 72px; }
+    .filters h2 { font-size: 13px; margin: 0; font-weight: 800; display: flex; justify-content: space-between; align-items: center; }
+    .filters h2 button { background: none; border: 0; color: var(--deep-brass); font-size: 12px; font-weight: 700; cursor: pointer; padding: 0; }
+    .check { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+    .filters-toggle { display: none; }
+
+    .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    .toolbar .search { flex: 1 1 260px; position: relative; }
+    .toolbar .search svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--mid-gray); }
+    .toolbar .search .input { padding-left: 34px; }
+    .toolbar select.input { width: auto; }
+    .count { font-size: 13px; color: var(--steel-gray); margin-bottom: 8px; }
+
+    .table-wrap { background: #fff; border: 1px solid var(--border-line); border-radius: 12px; overflow: hidden; }
+    table.apps { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .apps th { text-align: left; font-family: var(--font-mono); font-weight: 500; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--steel-gray); padding: 10px 12px; border-bottom: 1px solid var(--border-line); background: var(--ice-gray); white-space: nowrap; }
+    .apps td { padding: 11px 12px; border-bottom: 1px solid #E8ECF1; vertical-align: top; }
+    .apps tr:last-child td { border-bottom: 0; }
+    .apps tbody tr { cursor: pointer; }
+    .apps tbody tr:hover { background: #F8FAFC; }
+    .apps a.row-link { color: var(--deep-charcoal); text-decoration: none; font-weight: 700; }
+    .apps a.row-link:hover { text-decoration: underline; }
+    .sub { display: block; color: var(--steel-gray); font-size: 12px; font-weight: 400; margin-top: 2px; }
+    .mono { font-family: var(--font-mono); font-size: 12px; }
+    .urgent-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--safety-orange); margin-right: 6px; vertical-align: middle; }
+
+    .chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 3px 9px; white-space: nowrap; line-height: 1.3; border: 1px solid transparent; }
+    .chip svg { width: 12px; height: 12px; }
+    .chip-gray { background: var(--ice-gray); color: var(--steel-gray); }
+    .chip-teal { background: #E2F4F2; color: var(--teal-ink); }
+    .chip-brass { background: #F7EEDB; color: var(--deep-brass); }
+    .chip-orange { background: #FDEBDD; color: var(--orange-ink); }
+    .chip-red { background: #FDECEE; color: var(--decline); }
+    .chip-blue { background: #E4EBF5; color: var(--equipto-blue); }
+    .chip-outline { background: #fff; border-color: var(--border-line); color: var(--steel-gray); }
+    .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+    .focus-m { color: var(--deep-brass); } .focus-h { color: var(--teal-ink); } .focus-t { color: var(--orange-ink); }
+    .empty { padding: 40px 20px; text-align: center; color: var(--steel-gray); }
+
+    /* ---------- detail view ---------- */
+    .back { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; text-decoration: none; margin-bottom: 14px; color: var(--equipto-blue); }
+    .back svg { width: 16px; height: 16px; }
+    .detail-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 18px; }
+    .detail-head h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px, 4vw, 40px); line-height: 1; margin: 0 0 8px; color: var(--equipto-blue); }
+    .detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
+    .card { background: #fff; border: 1px solid var(--border-line); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+    .card h2 { font-size: 12px; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel-gray); margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
+    .card h2 svg { width: 16px; height: 16px; color: var(--equipto-blue); }
+    .goal { font-size: 16.5px; line-height: 1.65; white-space: pre-wrap; margin: 0; }
+    .kv { display: grid; grid-template-columns: 170px minmax(0,1fr); gap: 8px 16px; margin: 0; font-size: 14px; }
+    .kv dt { color: var(--steel-gray); font-size: 13px; }
+    .kv dd { margin: 0; }
+    .letter { border-left: 3px solid var(--border-line); padding: 4px 0 4px 14px; margin-bottom: 14px; }
+    .letter:last-child { margin-bottom: 0; }
+    .letter b { display: block; font-size: 14px; }
+    .letter .meta { font-size: 12px; color: var(--steel-gray); margin-bottom: 6px; }
+    .letter p { margin: 0; font-size: 14px; line-height: 1.6; }
+    .side { position: sticky; top: 72px; }
+    .seg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .seg button { border: 1px solid var(--border-line); background: #fff; border-radius: 8px; padding: 10px 8px; font-weight: 700; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .seg button svg { width: 15px; height: 15px; }
+    .seg button:hover { border-color: var(--equipto-blue); }
+    .seg button[aria-pressed="true"][data-rec="tier1"] { background: var(--pulse-teal); border-color: var(--pulse-teal); color: #fff; }
+    .seg button[aria-pressed="true"][data-rec="tier2"] { background: var(--brass-gold); border-color: var(--brass-gold); color: var(--navy-ink); }
+    .seg button[aria-pressed="true"][data-rec="decline"] { background: var(--decline); border-color: var(--decline); color: #fff; }
+    .seg button[aria-pressed="true"][data-rec="reviewed"] { background: var(--equipto-blue); border-color: var(--equipto-blue); color: #fff; }
+    .hint { font-size: 12px; color: var(--steel-gray); margin: 8px 0 0; }
+    .flag-card { border-left: 4px solid var(--mid-gray); }
+    .flag-card.read_first { border-left-color: var(--pulse-teal); }
+    .flag-card.human_look { border-left-color: var(--brass-gold); }
+    .flag-card ul { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 10px; }
+    .flag-card li { font-size: 13.5px; }
+    .flag-card q { display: block; color: var(--steel-gray); font-style: italic; margin-top: 2px; font-size: 13px; }
+    .flag-card .model { font-family: var(--font-mono); font-size: 10.5px; color: var(--mid-gray); margin-top: 12px; }
+    .notes { display: grid; gap: 12px; margin-bottom: 12px; }
+    .note { font-size: 14px; }
+    .note .who { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--steel-gray); margin-bottom: 3px; }
+    .note .who .avatar { width: 22px; height: 22px; font-size: 10px; }
+    .note .who b { color: var(--deep-charcoal); font-size: 13px; }
+    .note p { margin: 0 0 0 30px; white-space: pre-wrap; }
+    .review-row { display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px; padding: 6px 0; border-bottom: 1px solid #EEF1F5; }
+    .review-row:last-child { border-bottom: 0; }
+    .decision-saved { background: #E2F4F2; color: var(--teal-ink); border-radius: 8px; padding: 10px 12px; font-size: 13.5px; font-weight: 600; margin-bottom: 12px; }
+    .stack { display: grid; gap: 10px; }
+    details.audit summary { cursor: pointer; font-weight: 700; font-size: 13px; }
+    .audit-list { list-style: none; padding: 0; margin: 10px 0 0; font-size: 12.5px; display: grid; gap: 6px; color: var(--steel-gray); }
+    .audit-list b { color: var(--deep-charcoal); }
+
+    .callout { background: #FDF3DC; border: 1px solid #EAD9AC; color: #5C4510; border-radius: 10px; padding: 12px 14px; font-size: 13.5px; }
+    .callout.blue { background: #E4EBF5; border-color: #C7D4E8; color: var(--equipto-blue); }
+    pre.sql { background: var(--navy-ink); color: #E6EDF7; border-radius: 8px; padding: 12px 14px; font-size: 12.5px; overflow-x: auto; }
+
+    .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--navy-ink); color: #fff;
+      padding: 10px 16px; border-radius: 10px; font-size: 13.5px; font-weight: 600; z-index: 60; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .toast.err { background: var(--decline); }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 1060px) {
+      .detail-grid { grid-template-columns: 1fr; }
+      .side { position: static; }
+    }
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .filters { position: static; }
+      .filters-toggle { display: inline-flex; }
+      .filters.collapsed { display: none; }
+      .apps thead { display: none; }
+      .apps, .apps tbody, .apps tr, .apps td { display: block; width: 100%; }
+      .apps tr { padding: 12px 14px; border-bottom: 1px solid #E8ECF1; }
+      .apps td { border: 0; padding: 3px 0; }
+      .apps td[data-label]::before { content: attr(data-label); display: inline-block; min-width: 92px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); }
+      .kv { grid-template-columns: 1fr; gap: 2px; }
+      .kv dd { margin-bottom: 8px; }
+      .topbar { padding: 10px 16px; }
+      main { padding: 18px 16px 120px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+<!-- Password, then "who's reviewing" — rendered by JS into #gate -->
+<div id="gate" class="gate" hidden></div>
+
+<div id="shell" hidden>
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="Application review home">
+      <img src="assets/jcd-logo-white.svg" alt="" />
+      <span>Application review</span>
+    </a>
+    <span class="sample-pill" id="samplePill" hidden>Sample data</span>
+    <nav class="top-nav" aria-label="Review sections">
+      <a href="#/" data-nav="list">Applications</a>
+      <a href="#/settings" data-nav="settings">Settings</a>
+    </nav>
+    <span class="spacer"></span>
+    <label class="toggle" title="Hide names, email, phone and street address">
+      <input type="checkbox" id="blindToggle" />
+      <span class="track" aria-hidden="true"></span>
+      Name-blind
+    </label>
+    <button type="button" class="who-btn" id="whoBtn" aria-label="Switch reviewer"></button>
+  </header>
+  <div class="sample-banner" id="sampleBanner" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <div><b>Practice version with made-up applicants.</b> Every name, school answer, note and letter here is fictional, and it all gets deleted before real applications arrive on December 1. Click around, leave notes and try the buttons. Nothing here reaches a student.</div>
+  </div>
+  <main id="view" tabindex="-1"></main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- ========== ADMIN FAB ========== -->
+    <div class="admin-fab-wrap" data-admin-fab>
+      <button type="button" class="admin-fab" aria-haspopup="true" aria-expanded="false" aria-label="Admin pages">A</button>
+      <div class="admin-menu" role="menu" hidden>
+        <div class="admin-menu-label">Admin Pages</div>
+
+        <a href="index.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+              <circle cx="10.5" cy="7" r=".5" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Public Site</span>
+            <span class="admin-sub">Live homepage</span>
+          </span>
+        </a>
+
+        <a href="status.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="12" y1="20" x2="12" y2="9"/>
+              <line x1="18" y1="20" x2="18" y2="5"/>
+              <line x1="3" y1="20" x2="21" y2="20"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Project Status</span>
+            <span class="admin-sub">Change log &amp; timeline</span>
+          </span>
+        </a>
+
+        <a href="agenda.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 4h6"/>
+              <path d="M8.5 10l1.5 1.5 2.5-2.5"/>
+              <path d="M8.5 16l1.5 1.5 2.5-2.5"/>
+              <line x1="15" y1="9.5" x2="16.5" y2="9.5"/>
+              <line x1="15" y1="15.5" x2="16.5" y2="15.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Meeting Agenda</span>
+            <span class="admin-sub">Today&rsquo;s run of show</span>
+          </span>
+        </a>
+
+        <a href="dns-setup.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Domain Setup</span>
+            <span class="admin-sub">DNS handoff guide</span>
+          </span>
+        </a>
+
+        <a href="about.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15.5H6.5A2.5 2.5 0 0 0 4 21z"/>
+              <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H19"/>
+              <line x1="8" y1="7.5" x2="15" y2="7.5"/>
+              <line x1="8" y1="11" x2="13" y2="11"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Our Story</span>
+            <span class="admin-sub">About page &middot; draft</span>
+          </span>
+        </a>
+        <a href="john-video.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <line x1="3" y1="9.5" x2="21" y2="9.5"/>
+              <path d="M10.5 12.75v3.5l3-1.75z"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">John Video</span>
+            <span class="admin-sub">Versions &amp; script changes</span>
+          </span>
+        </a>
+
+        <a href="what-we-fund.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7.5h18v11H3z"/>
+              <circle cx="12" cy="13" r="2.6"/>
+              <path d="M3 7.5 6.5 4h11L21 7.5"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">What We Fund</span>
+            <span class="admin-sub">Funding scope &middot; draft</span>
+          </span>
+        </a>
+
+        <a href="content-outline.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3.5" y1="6" x2="3.5" y2="6"/>
+              <line x1="3.5" y1="12" x2="3.5" y2="12"/>
+              <line x1="3.5" y1="18" x2="3.5" y2="18"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Content Outline</span>
+            <span class="admin-sub">Site IA &amp; sourcing plan</span>
+          </span>
+        </a>
+
+        <a href="interview-questions.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-9 8.3 9 9 0 0 1-3.8-.8L3 20l1-4.2A8.38 8.38 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5z"/>
+              <path d="M9.5 9.5a2.5 2.5 0 0 1 4.8.9c0 1.7-2.5 2.1-2.5 2.1"/>
+              <circle cx="11.8" cy="15.6" r=".6" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Interview Questions</span>
+            <span class="admin-sub">Recording script for sourcing</span>
+          </span>
+        </a>
+
+        <a href="brand-guide.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22a10 10 0 1 1 9-14c.5 1.5-.5 3-2 3h-2.5a2 2 0 0 0-1.7 3.1l.5.8c.4.6.4 1.4 0 2-.5.7-1.3 1.1-2.3 1.1Z"/>
+              <circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="17.5" cy="10.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="6.5" cy="12.5" r=".7" fill="currentColor" stroke="none"/>
+              <circle cx="8.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Brand Guide</span>
+            <span class="admin-sub">Identity system</span>
+          </span>
+        </a>
+
+        <a href="marketing-plan.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M7 14l4-4 3 3 5-7"/>
+              <path d="M16 6h3v3"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Marketing Plan</span>
+            <span class="admin-sub">Proposal &amp; roadmap</span>
+          </span>
+        </a>
+
+        <a href="brand-kit.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M3 7v10l9 4 9-4V7"/>
+              <path d="M12 11v10"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Outreach Kit</span>
+            <span class="admin-sub">Print + digital</span>
+          </span>
+        </a>
+
+        <a href="logo-v2.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="12" r="6"/>
+              <circle cx="15" cy="12" r="6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Logo Concepts</span>
+            <span class="admin-sub">Round 2 explorations</span>
+          </span>
+        </a>
+
+        <a href="home.html" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12L12 4l9 8"/>
+              <path d="M5 10v10h14V10"/>
+              <path d="M10 20v-6h4v6"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Original Homepage</span>
+            <span class="admin-sub">Pre-launch reference</span>
+          </span>
+        </a>
+
+        <a href="apply" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Application</span>
+            <span class="admin-sub">Live form · Bob\'s Sept spec</span>
+          </span>
+        </a>
+
+        <a href="review" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 11l3 3 8-8"/>
+              <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Application Review</span>
+            <span class="admin-sub">Reviewer tool · sample data</span>
+          </span>
+        </a>
+
+        <a href="apply-concept" role="menuitem">
+          <span class="admin-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 16h4"/>
+            </svg>
+          </span>
+          <span class="admin-text">
+            <span class="admin-title">Application Concept</span>
+            <span class="admin-sub">April concept · archived</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <style>
+      .admin-fab-wrap { position: fixed; right: 20px; bottom: 20px; z-index: 50; }
+      .admin-fab { background: var(--navy-ink) !important; }
+      .admin-fab {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: transparent;
+        border: 1.5px solid rgba(122, 163, 204, 0.4);
+        color: rgba(122, 163, 204, 0.7);
+        font-family: "Archivo Black", "Inter", system-ui, sans-serif;
+        font-size: 15px; line-height: 1; padding: 0;
+        cursor: pointer;
+        display: grid; place-items: center;
+        opacity: 0.4;
+        transition: opacity 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, transform 200ms ease;
+      }
+      .admin-fab:hover,
+      .admin-fab[aria-expanded="true"] {
+        opacity: 1;
+        background: rgba(122, 163, 204, 0.15);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+      .admin-menu {
+        position: absolute; right: 0; bottom: 52px;
+        width: 300px;
+        background: #0B1322;
+        border: 1px solid rgba(122, 163, 204, 0.18);
+        border-radius: 14px;
+        padding: 22px 18px 18px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+        font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+        max-height: 70vh; overflow-y: auto;
+      }
+      .admin-menu-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 0 6px 14px;
+        border-bottom: none;
+        margin-bottom: 4px;
+      }
+      .admin-menu a {
+        display: flex; align-items: center; gap: 14px;
+        padding: 9px 6px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        font-size: 14px; letter-spacing: 0;
+        transition: background 160ms ease, color 160ms ease;
+      }
+      .admin-menu a + a { margin-top: 2px; }
+      .admin-icon {
+        width: 38px; height: 38px;
+        flex-shrink: 0;
+        display: grid; place-items: center;
+        background: rgba(122, 163, 204, 0.10);
+        border: 1px solid rgba(122, 163, 204, 0.20);
+        border-radius: 8px;
+        color: #7AA3CC;
+        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+      }
+      .admin-icon svg { width: 18px; height: 18px; }
+      .admin-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+      .admin-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+        letter-spacing: 0.005em;
+      }
+      .admin-sub {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 3px;
+        letter-spacing: 0.01em;
+      }
+      .admin-menu a:hover { background: rgba(122, 163, 204, 0.06); color: rgba(255,255,255,0.95); }
+      .admin-menu a:hover .admin-icon {
+        background: rgba(122, 163, 204, 0.18);
+        border-color: rgba(122, 163, 204, 0.45);
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-icon {
+        background: rgba(122, 163, 204, 0.22);
+        border-color: #7AA3CC;
+        color: #FFFFFF;
+      }
+      .admin-menu a[aria-current="page"] .admin-title { color: #7AA3CC; }
+    </style>
+    <script>
+      (function () {
+        var wrap = document.querySelector('[data-admin-fab]');
+        if (!wrap) return;
+        
+        var btn  = wrap.querySelector('.admin-fab');
+        var menu = wrap.querySelector('.admin-menu');
+        function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+        function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true');  }
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.hidden ? open() : close();
+        });
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !wrap.contains(e.target)) close();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') close();
+        });
+        var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        menu.querySelectorAll('a').forEach(function (a) {
+          if ((a.getAttribute('href') || '').toLowerCase() === here) a.setAttribute('aria-current','page');
+        });
+      })();
+    </script>
+
+<script>
+(function () {
+  'use strict';
+
+  // ------------------------------------------------------------------ setup
+  var API = '/api/review';
+  var KEY_STORE = 'jcd-review-key';
+  var ME_STORE = 'jcd-review-me';
+  var BLIND_STORE = 'jcd-review-blind';
+  var FILTER_STORE = 'jcd-review-filters';
+
+  var state = {
+    key: store('get', KEY_STORE, sessionStorage),
+    me: null,
+    reviewers: [],
+    zipTiers: { core: [], edge: [], placeholder: true },
+    apps: [],
+    blind: false,
+    filters: defaultFilters(),
+    detail: null
+  };
+
+  var FOCUS = ['Health Sciences', 'Advanced Manufacturing', 'Building Trades'];
+  var SCHOOLS = ['East Aurora', 'West Aurora', 'Oswego', 'Oswego East', 'Waubonsie Valley', 'Metea Valley', 'Kaneland',
+    'Batavia', 'Geneva', 'Marmion Academy', 'Rosary College Prep', 'Aurora Central Catholic', 'Aurora Christian',
+    'Homeschooled', "My school isn't listed"];
+  var REC_LABEL = { reviewed: 'Reviewed', tier1: 'Tier 1', tier2: 'Tier 2', decline: 'Decline' };
+  var REC_CHIP = { reviewed: 'chip-blue', tier1: 'chip-teal', tier2: 'chip-brass', decline: 'chip-red' };
+  var DEC_LABEL = { fund: 'Fund', fund_tier2: 'Fund · tier 2', decline: 'Decline', hold: 'Hold' };
+  var DEC_CHIP = { fund: 'chip-teal', fund_tier2: 'chip-brass', decline: 'chip-red', hold: 'chip-gray' };
+  var FLAG_LABEL = { read_first: 'Read first', standard: 'Standard', human_look: 'Needs a human look' };
+  var FLAG_CHIP = { read_first: 'chip-teal', standard: 'chip-gray', human_look: 'chip-brass' };
+  var FLAG_ORDER = { read_first: 0, human_look: 1, standard: 2 };
+  var TIER_LABEL = { core: 'Core area', edge: 'Edge · tier 2', outside: 'Outside area' };
+  var TIER_CHIP = { core: 'chip-outline', edge: 'chip-brass', outside: 'chip-red' };
+
+  var ICON = {
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
+    back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>',
+    download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>',
+    filter: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg>',
+    goal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',
+    plan: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6-9 6z"/><path d="M7 12.5V17c3 2 7 2 10 0v-4.5"/></svg>',
+    activity: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+    person: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
+    letter: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+    money: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>',
+    spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg>',
+    note: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
+    gavel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 13-7.5 7.5a2.1 2.1 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/></svg>',
+    list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h12M9 12h12M9 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg>',
+    alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>'
+  };
+
+  // ---------------------------------------------------------------- helpers
+  function store(op, k, where, v) {
+    try {
+      where = where || localStorage;
+      if (op === 'get') return where.getItem(k);
+      if (op === 'set') where.setItem(k, v);
+      if (op === 'del') where.removeItem(k);
+    } catch (e) { /* private mode etc. — the tool still works, it just forgets */ }
+    return null;
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function initials(name) { return String(name || '?').split(/\s+/).map(function (p) { return p[0]; }).join('').slice(0, 2).toUpperCase(); }
+  function money(n) { return n == null || n === '' ? '—' : '$' + Number(n).toLocaleString('en-US', { maximumFractionDigits: 0 }); }
+  function date(s, withTime) {
+    if (!s) return '—';
+    var d = new Date(s);
+    var opts = { month: 'short', day: 'numeric', year: 'numeric' };
+    if (withTime) { opts.hour = 'numeric'; opts.minute = '2-digit'; }
+    return d.toLocaleString('en-US', opts);
+  }
+  function reviewerById(id) { return state.reviewers.filter(function (r) { return r.id === id; })[0] || { id: id, name: id, label: '' }; }
+  function canFinal() { return state.me && state.me.role === 'final'; }
+  function canAdmin() { return state.me && (state.me.role === 'final' || state.me.role === 'admin'); }
+  function focusClass(f) { return f === 'Health Sciences' ? 'focus-h' : f === 'Building Trades' ? 'focus-t' : 'focus-m'; }
+  function chip(cls, text, icon) { return '<span class="chip ' + cls + '">' + (icon || '') + esc(text) + '</span>'; }
+  function defaultFilters() {
+    return { quick: 'all', q: '', focus: '', school: '', zip: '', tier: '', flag: '', status: '', missing: false, sort: 'suggested' };
+  }
+
+  var toastTimer;
+  function toast(msg, isErr) {
+    var t = $('#toast');
+    t.textContent = msg;
+    t.className = 'toast' + (isErr ? ' err' : '');
+    t.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.hidden = true; }, 2600);
+  }
+
+  function api(method, params, body) {
+    var url = API + (params ? '?' + new URLSearchParams(params).toString() : '');
+    return fetch(url, {
+      method: method,
+      headers: { 'x-review-key': state.key || '', 'content-type': 'application/json' },
+      body: body ? JSON.stringify(Object.assign({ actor: state.me && state.me.id }, body)) : undefined,
+      credentials: 'same-origin'
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        if (r.status === 401) { store('del', KEY_STORE, sessionStorage); state.key = null; showPassword('That password didn’t work.'); throw new Error('locked'); }
+        if (!r.ok) throw new Error(data.error || ('Request failed (' + r.status + ')'));
+        return data;
+      });
+    });
+  }
+
+  function post(body) {
+    return api('POST', null, body).catch(function (e) {
+      if (e.message !== 'locked') toast(e.message, true);
+      throw e;
+    });
+  }
+
+  // ------------------------------------------------------- derived fields
+  function zipTier(zip) {
+    if (!zip) return 'outside';
+    if (state.zipTiers.core.indexOf(zip) !== -1) return 'core';
+    if (state.zipTiers.edge.indexOf(zip) !== -1) return 'edge';
+    return 'outside';
+  }
+  function letterCount(a) { return a.review_letters && a.review_letters[0] ? a.review_letters[0].count : 0; }
+  function noteCount(a) { return a.review_notes && a.review_notes[0] ? a.review_notes[0].count : 0; }
+  function recs(a) { return a.review_recommendations || []; }
+  function missing(a) {
+    var m = [];
+    if (letterCount(a) < 2) m.push(letterCount(a) + '/2 letters');
+    if (!a.transcript_received) m.push('Transcript');
+    if (!a.cost_estimate_received) m.push('Cost estimate');
+    return m;
+  }
+  function displayName(a) {
+    return state.blind ? a.id : (a.first_name + ' ' + a.last_name);
+  }
+  function dupKey(a) { return (a.first_name + '|' + a.last_name + '|' + a.school).toLowerCase(); }
+  function dupSet() {
+    var seen = {}, dups = {};
+    state.apps.forEach(function (a) { var k = dupKey(a); if (seen[k]) { dups[k] = true; } seen[k] = true; });
+    return dups;
+  }
+
+  // ------------------------------------------------------------- gate UI
+  function showGate(html) {
+    $('#shell').hidden = true;
+    var g = $('#gate');
+    g.innerHTML = html;
+    g.hidden = false;
+  }
+
+  function showPassword(err) {
+    showGate(
+      '<form class="gate-card" id="pwForm">' +
+        '<img src="assets/jcd-logo-dark.svg" alt="JCD Foundation" />' +
+        '<h1>Application review</h1>' +
+        '<p>For JCD reviewers only. Enter the review password.</p>' +
+        '<div class="field"><label for="pw">Review password</label>' +
+        '<input class="input" id="pw" type="password" autocomplete="current-password" required /></div>' +
+        (err ? '<div class="error" role="alert">' + esc(err) + '</div>' : '') +
+        '<div style="margin-top:16px;"><button class="btn btn-primary" type="submit">Continue</button></div>' +
+      '</form>');
+    $('#pw').focus();
+    $('#pwForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      state.key = $('#pw').value;
+      store('set', KEY_STORE, sessionStorage, state.key);
+      boot();
+    });
+  }
+
+  function showWho() {
+    var opts = state.reviewers.map(function (r) {
+      return '<button type="button" class="who-option" data-id="' + esc(r.id) + '">' +
+        '<span class="avatar" aria-hidden="true">' + esc(initials(r.name)) + '</span>' +
+        '<span><b>' + esc(r.name) + '</b><small>' + esc(r.label || r.role) + '</small></span></button>';
+    }).join('');
+    showGate(
+      '<div class="gate-card">' +
+        '<img src="assets/jcd-logo-dark.svg" alt="JCD Foundation" />' +
+        '<h1>Who’s reviewing?</h1>' +
+        '<p>Your notes and recommendations are signed with this name.</p>' +
+        '<div class="who-list">' + opts + '</div>' +
+      '</div>');
+    $all('.who-option').forEach(function (b) {
+      b.addEventListener('click', function () {
+        state.me = reviewerById(b.getAttribute('data-id'));
+        store('set', ME_STORE, localStorage, state.me.id);
+        var savedBlind = store('get', BLIND_STORE + ':' + state.me.id);
+        state.blind = savedBlind === null ? state.me.role === 'reviewer' : savedBlind === '1';
+        enterShell();
+      });
+    });
+    var first = $('.who-option'); if (first) first.focus();
+  }
+
+  function enterShell() {
+    $('#gate').hidden = true;
+    $('#shell').hidden = false;
+    var hasSample = state.apps.some(function (a) { return a.is_sample; }) || state.reviewers.some(function (r) { return r.is_sample; });
+    $('#samplePill').hidden = !hasSample;
+    $('#sampleBanner').hidden = !hasSample;
+    $('#whoBtn').innerHTML = '<span class="avatar" aria-hidden="true">' + esc(initials(state.me.name)) + '</span>' + esc(state.me.name);
+    $('#blindToggle').checked = state.blind;
+    route();
+  }
+
+  // ------------------------------------------------------------ list view
+  function filtered() {
+    var f = state.filters, me = state.me.id;
+    var q = f.q.trim().toLowerCase();
+    var zips = f.zip.split(/[\s,]+/).filter(Boolean);
+    var list = state.apps.filter(function (a) {
+      var r = recs(a);
+      var mine = r.some(function (x) { return x.reviewer_id === me; });
+      if (f.quick === 'mine' && (mine || a.final_decision)) return false;
+      if (f.quick === 'new' && r.length) return false;
+      if (f.quick === 'urgent' && !a.urgent) return false;
+      if (f.quick === 'tier1' && !r.some(function (x) { return x.recommendation === 'tier1'; })) return false;
+      if (f.quick === 'decided' && !a.final_decision) return false;
+      if (f.focus && a.focus_area !== f.focus) return false;
+      if (f.school && a.school !== f.school) return false;
+      if (zips.length && zips.indexOf(a.zip) === -1) return false;
+      if (f.tier && zipTier(a.zip) !== f.tier) return false;
+      if (f.flag && a.ai_flag !== f.flag) return false;
+      if (f.missing && !missing(a).length) return false;
+      if (f.status) {
+        var s = f.status;
+        if (s === 'undecided' && a.final_decision) return false;
+        if (s.indexOf('rec:') === 0 && !r.some(function (x) { return x.recommendation === s.slice(4); })) return false;
+        if (s.indexOf('dec:') === 0 && a.final_decision !== s.slice(4)) return false;
+      }
+      if (q) {
+        var hay = [a.id, a.school, a.city, a.zip, a.profession, a.institution, a.focus_area, a.career_goal,
+          state.blind ? '' : a.first_name + ' ' + a.last_name].join(' ').toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+    var by = {
+      suggested: function (a, b) {
+        return (b.urgent - a.urgent) || ((FLAG_ORDER[a.ai_flag] || 9) - (FLAG_ORDER[b.ai_flag] || 9)) ||
+          (new Date(a.submitted_at) - new Date(b.submitted_at));
+      },
+      newest: function (a, b) { return new Date(b.submitted_at) - new Date(a.submitted_at); },
+      oldest: function (a, b) { return new Date(a.submitted_at) - new Date(b.submitted_at); },
+      name: function (a, b) { return displayName(a).localeCompare(displayName(b)); },
+      zip: function (a, b) { return String(a.zip).localeCompare(String(b.zip)); },
+      school: function (a, b) { return String(a.school).localeCompare(String(b.school)); }
+    };
+    return list.sort(by[f.sort] || by.suggested);
+  }
+
+  function quickCounts() {
+    var me = state.me.id;
+    var c = { all: state.apps.length, mine: 0, new: 0, urgent: 0, tier1: 0, decided: 0 };
+    state.apps.forEach(function (a) {
+      var r = recs(a);
+      if (!r.some(function (x) { return x.reviewer_id === me; }) && !a.final_decision) c.mine++;
+      if (!r.length) c.new++;
+      if (a.urgent) c.urgent++;
+      if (r.some(function (x) { return x.recommendation === 'tier1'; })) c.tier1++;
+      if (a.final_decision) c.decided++;
+    });
+    return c;
+  }
+
+  function opt(v, label, cur) { return '<option value="' + esc(v) + '"' + (v === cur ? ' selected' : '') + '>' + esc(label) + '</option>'; }
+
+  function renderList() {
+    var f = state.filters;
+    var c = quickCounts();
+    var tabs = [['all', 'All'], ['mine', 'Waiting for me'], ['new', 'Not yet reviewed'], ['urgent', 'Urgent'], ['tier1', 'Tier 1 recommended'], ['decided', 'Decided']]
+      .map(function (t) {
+        return '<button type="button" class="tab" data-quick="' + t[0] + '" aria-pressed="' + (f.quick === t[0]) + '">' + esc(t[1]) + ' <span class="n">' + c[t[0]] + '</span></button>';
+      }).join('');
+
+    var filtersHtml =
+      '<aside class="filters" id="filters" aria-label="Filters">' +
+        '<h2>Filters <button type="button" id="clearFilters">Clear all</button></h2>' +
+        '<div class="field"><label for="fFocus">Focus area</label><select class="input" id="fFocus" data-f="focus">' +
+          opt('', 'All areas', f.focus) + FOCUS.map(function (x) { return opt(x, x, f.focus); }).join('') + '</select></div>' +
+        '<div class="field"><label for="fSchool">High school</label><select class="input" id="fSchool" data-f="school">' +
+          opt('', 'All schools', f.school) + SCHOOLS.map(function (x) { return opt(x, x, f.school); }).join('') + '</select></div>' +
+        '<div class="field"><label for="fZip">ZIP code(s)</label><input class="input" id="fZip" data-f="zip" inputmode="numeric" placeholder="e.g. 60510, 60134" value="' + esc(f.zip) + '" /></div>' +
+        '<div class="field"><label for="fTier">Distance</label><select class="input" id="fTier" data-f="tier">' +
+          opt('', 'Any distance', f.tier) + opt('core', 'Core area', f.tier) + opt('edge', 'Edge of area (tier 2)', f.tier) + opt('outside', 'Outside the area', f.tier) + '</select></div>' +
+        '<div class="field"><label for="fStatus">Status</label><select class="input" id="fStatus" data-f="status">' +
+          opt('', 'Any status', f.status) + opt('undecided', 'No final decision yet', f.status) +
+          opt('rec:tier1', 'Has a Tier 1 recommendation', f.status) + opt('rec:tier2', 'Has a Tier 2 recommendation', f.status) +
+          opt('rec:decline', 'Has a Decline recommendation', f.status) +
+          opt('dec:fund', 'Final: Fund', f.status) + opt('dec:fund_tier2', 'Final: Fund · tier 2', f.status) +
+          opt('dec:hold', 'Final: Hold', f.status) + opt('dec:decline', 'Final: Decline', f.status) + '</select></div>' +
+        '<div class="field"><label for="fFlag">Suggested reading order</label><select class="input" id="fFlag" data-f="flag">' +
+          opt('', 'Any', f.flag) + opt('read_first', 'Read first', f.flag) + opt('human_look', 'Needs a human look', f.flag) + opt('standard', 'Standard', f.flag) + '</select></div>' +
+        '<label class="check"><input type="checkbox" id="fMissing"' + (f.missing ? ' checked' : '') + ' /> Missing letters, transcript or cost estimate</label>' +
+      '</aside>';
+
+    var list = filtered();
+    var dups = dupSet();
+    var rows = list.map(function (a) {
+      var r = recs(a);
+      var recChips = r.length ? r.map(function (x) {
+        var who = reviewerById(x.reviewer_id);
+        return '<span class="chip ' + REC_CHIP[x.recommendation] + '" title="' + esc(who.name) + '">' + esc(REC_LABEL[x.recommendation]) + '</span>';
+      }).join('') : '<span class="chip chip-outline">None yet</span>';
+      var m = missing(a);
+      var tier = zipTier(a.zip);
+      var isDup = dups[dupKey(a)];
+      return '<tr data-id="' + esc(a.id) + '">' +
+        '<td data-label="Applicant">' + (a.urgent ? '<span class="urgent-dot" title="Urgent"></span>' : '') +
+          '<a class="row-link" href="#/app/' + encodeURIComponent(a.id) + '">' + esc(displayName(a)) + '</a>' +
+          '<span class="sub mono">' + esc(state.blind ? (a.city || '') : a.id) + '</span>' +
+          (isDup ? '<span class="chip chip-brass" style="margin-top:4px;">Possible duplicate</span>' : '') + '</td>' +
+        '<td data-label="Focus"><b class="' + focusClass(a.focus_area) + '">' + esc(a.focus_area) + '</b><span class="sub">' + esc(a.profession) + '</span></td>' +
+        '<td data-label="School">' + esc(a.school) + (a.homeschool_area ? '<span class="sub">Area: ' + esc(a.homeschool_area) + '</span>' : '') + '</td>' +
+        '<td data-label="ZIP"><span class="mono">' + esc(a.zip) + '</span><span class="sub">' + chip(TIER_CHIP[tier], TIER_LABEL[tier]) + '</span></td>' +
+        '<td data-label="Submitted"><span class="mono">' + esc(date(a.submitted_at)) + '</span></td>' +
+        '<td data-label="Read order">' + (a.ai_flag ? chip(FLAG_CHIP[a.ai_flag], FLAG_LABEL[a.ai_flag]) : '') + '</td>' +
+        '<td data-label="Reviews"><div class="chips">' + recChips + '</div>' + (noteCount(a) ? '<span class="sub">' + noteCount(a) + ' note' + (noteCount(a) > 1 ? 's' : '') + '</span>' : '') + '</td>' +
+        '<td data-label="Missing">' + (m.length ? '<span class="sub" style="margin:0;">' + esc(m.join(' · ')) + '</span>' : chip('chip-teal', 'Complete', ICON.check)) + '</td>' +
+        '<td data-label="Decision">' + (a.final_decision ? chip(DEC_CHIP[a.final_decision], DEC_LABEL[a.final_decision]) + (a.award_amount ? '<span class="sub mono">' + money(a.award_amount) + '</span>' : '') : '<span class="sub" style="margin:0;">—</span>') + '</td>' +
+      '</tr>';
+    }).join('');
+
+    $('#view').innerHTML =
+      '<div class="page-head"><div><h1>Applications</h1><p>' +
+        (state.me.role === 'reviewer' ? 'Read, leave a note, give your recommendation. Bob makes every final decision.' :
+         canFinal() ? 'Reviewers recommend. You make the final decision on each one.' : 'Admin view. Bob makes every final decision.') +
+      '</p></div>' +
+      '<div style="display:flex; gap:8px;"><button type="button" class="btn btn-ghost filters-toggle" id="filtersToggle" aria-controls="filters" aria-expanded="false">' + ICON.filter + 'Filters</button>' +
+      '<button type="button" class="btn btn-ghost" id="exportCsv">' + ICON.download + 'Export CSV</button></div></div>' +
+      '<div class="tabs" role="group" aria-label="Quick views">' + tabs + '</div>' +
+      '<div class="layout">' + filtersHtml +
+        '<section aria-label="Application list">' +
+          '<div class="toolbar"><div class="search">' + ICON.search +
+            '<label for="q" class="sr-only">Search</label><input class="input" id="q" type="search" placeholder="Search name, ID, school, career goal…" value="' + esc(f.q) + '" /></div>' +
+            '<label for="sort" class="sr-only">Sort</label><select class="input" id="sort">' +
+              opt('suggested', 'Suggested order', f.sort) + opt('oldest', 'Oldest first', f.sort) + opt('newest', 'Newest first', f.sort) +
+              opt('name', state.blind ? 'ID' : 'Name', f.sort) + opt('zip', 'ZIP', f.sort) + opt('school', 'School', f.sort) + '</select></div>' +
+          '<div class="count" aria-live="polite">' + list.length + ' of ' + state.apps.length + ' applications' +
+            (f.sort === 'suggested' ? ' · urgent first, then the suggested reading order, then oldest' : '') + '</div>' +
+          '<div class="table-wrap">' + (list.length ?
+            '<table class="apps"><thead><tr><th>Applicant</th><th>Focus</th><th>School</th><th>ZIP</th><th>Submitted</th><th>Read order</th><th>Reviews</th><th>Missing</th><th>Decision</th></tr></thead><tbody>' + rows + '</tbody></table>' :
+            '<div class="empty">No applications match these filters.</div>') + '</div>' +
+        '</section>' +
+      '</div>';
+
+    // Wire up
+    $all('.tab').forEach(function (b) { b.addEventListener('click', function () { setFilter('quick', b.getAttribute('data-quick')); }); });
+    $all('[data-f]').forEach(function (el) {
+      el.addEventListener(el.tagName === 'INPUT' ? 'input' : 'change', debounce(function () { setFilter(el.getAttribute('data-f'), el.value, el.id); }, el.tagName === 'INPUT' ? 250 : 0));
+    });
+    $('#fMissing').addEventListener('change', function (e) { setFilter('missing', e.target.checked); });
+    $('#q').addEventListener('input', debounce(function (e) { setFilter('q', e.target.value, 'q'); }, 200));
+    $('#sort').addEventListener('change', function (e) { setFilter('sort', e.target.value); });
+    $('#clearFilters').addEventListener('click', function () { state.filters = defaultFilters(); saveFilters(); renderList(); });
+    $('#exportCsv').addEventListener('click', function () { exportCsv(list); });
+    $('#filtersToggle').addEventListener('click', function () {
+      var fl = $('#filters'); var open = fl.classList.toggle('collapsed') === false;
+      this.setAttribute('aria-expanded', String(open));
+    });
+    if (window.matchMedia('(max-width: 880px)').matches) $('#filters').classList.add('collapsed');
+    $all('.apps tbody tr').forEach(function (tr) {
+      tr.addEventListener('click', function (e) { if (e.target.closest('a')) return; location.hash = '#/app/' + encodeURIComponent(tr.getAttribute('data-id')); });
+    });
+  }
+
+  function debounce(fn, ms) {
+    if (!ms) return fn;
+    var t; return function () { var a = arguments, s = this; clearTimeout(t); t = setTimeout(function () { fn.apply(s, a); }, ms); };
+  }
+
+  function setFilter(k, v, refocusId) {
+    state.filters[k] = v;
+    saveFilters();
+    var pos = refocusId && document.getElementById(refocusId) ? document.getElementById(refocusId).selectionStart : null;
+    renderList();
+    if (refocusId) { var el = document.getElementById(refocusId); if (el) { el.focus(); if (pos != null && el.setSelectionRange) el.setSelectionRange(pos, pos); } }
+  }
+  function saveFilters() { store('set', FILTER_STORE, sessionStorage, JSON.stringify(state.filters)); }
+
+  function exportCsv(list) {
+    var cols = ['ID', 'Submitted', 'Name', 'ZIP', 'Distance', 'School', 'Focus area', 'Profession', 'Study level', 'Institution',
+      'Annual cost', 'Suggested read order', 'Recommendations', 'Final decision', 'Award', 'Letters', 'Transcript', 'Cost estimate', 'Urgent'];
+    function cell(v) {
+      v = v == null ? '' : String(v);
+      if (/^[=+\-@\t\r]/.test(v)) v = "'" + v;   // keep spreadsheets from running it as a formula
+      return '"' + v.replace(/"/g, '""') + '"';
+    }
+    var lines = [cols.map(cell).join(',')].concat(list.map(function (a) {
+      return [a.id, date(a.submitted_at), state.blind ? '' : a.first_name + ' ' + a.last_name, a.zip, TIER_LABEL[zipTier(a.zip)], a.school,
+        a.focus_area, a.profession, a.study_level, a.institution, a.annual_cost, FLAG_LABEL[a.ai_flag] || '',
+        recs(a).map(function (x) { return reviewerById(x.reviewer_id).name + ': ' + REC_LABEL[x.recommendation]; }).join('; '),
+        DEC_LABEL[a.final_decision] || '', a.award_amount, letterCount(a), a.transcript_received ? 'Yes' : 'No',
+        a.cost_estimate_received ? 'Yes' : 'No', a.urgent ? 'Yes' : ''].map(cell).join(',');
+    }));
+    var blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'jcd-applications-' + new Date().toISOString().slice(0, 10) + '.csv';
+    document.body.appendChild(link); link.click(); link.remove();
+    setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+  }
+
+  // ---------------------------------------------------------- detail view
+  function loadDetail(id) {
+    $('#view').innerHTML = '<p class="count">Loading…</p>';
+    return api('GET', { action: 'app', id: id }).then(function (d) {
+      state.detail = d;
+      renderDetail();
+    }).catch(function (e) {
+      if (e.message === 'locked') return;
+      $('#view').innerHTML = '<a class="back" href="#/">' + ICON.back + 'All applications</a><div class="card"><p>' + esc(e.message) + '</p></div>';
+    });
+  }
+
+  function kv(pairs) {
+    return '<dl class="kv">' + pairs.filter(function (p) { return p[1] !== undefined; }).map(function (p) {
+      return '<dt>' + esc(p[0]) + '</dt><dd>' + (p[2] ? p[1] : esc(p[1] === '' || p[1] == null ? '—' : p[1])) + '</dd>';
+    }).join('') + '</dl>';
+  }
+
+  function renderDetail() {
+    var d = state.detail, a = d.application, x = a.data || {};
+    var me = state.me.id;
+    var myRec = (d.recommendations.filter(function (r) { return r.reviewer_id === me; })[0] || {}).recommendation;
+    var tier = zipTier(a.zip);
+    var name = state.blind ? a.id : a.first_name + ' ' + a.last_name;
+
+    var goal = x.career_goal
+      ? '<p class="goal">' + esc(x.career_goal) + '</p>'
+      : (x.career_goal_file ? '<div class="callout">Uploaded as a file: ' + esc(x.career_goal_file) + '</div>' : '<p class="goal">—</p>');
+
+    var letters = d.letters.length ? d.letters.map(function (l) {
+      return '<div class="letter"><b>' + esc(l.rec_name) + '</b><div class="meta">' + esc([l.rec_role, l.rec_org].filter(Boolean).join(' · ')) +
+        ' · received ' + esc(date(l.received_at)) + '</div><p>' + esc(l.body) + '</p></div>';
+    }).join('') : '<p class="hint" style="margin:0;">No letters received yet.' +
+      (x.letter1_name ? ' Requested from: ' + esc([x.letter1_name, x.letter2_name].filter(Boolean).join(', ')) + '.' : '') + '</p>';
+
+    var recsHtml = d.recommendations.length ? d.recommendations.map(function (r) {
+      var who = reviewerById(r.reviewer_id);
+      return '<div class="review-row"><span>' + esc(who.name) + '<span class="sub">' + esc(who.label || '') + '</span></span>' + chip(REC_CHIP[r.recommendation], REC_LABEL[r.recommendation]) + '</div>';
+    }).join('') : '<p class="hint" style="margin:0;">No one has reviewed this yet.</p>';
+
+    var notesHtml = d.notes.map(function (n) {
+      var who = reviewerById(n.reviewer_id);
+      return '<div class="note"><div class="who"><span class="avatar" aria-hidden="true">' + esc(initials(who.name)) + '</span><b>' + esc(who.name) + '</b> ' + esc(date(n.created_at, true)) + '</div><p>' + esc(n.body) + '</p></div>';
+    }).join('');
+
+    var flag = a.ai_flag ? (
+      '<div class="card flag-card ' + esc(a.ai_flag) + '">' +
+        '<h2>' + ICON.spark + 'Suggested reading order</h2>' +
+        chip(FLAG_CHIP[a.ai_flag], FLAG_LABEL[a.ai_flag]) +
+        '<p class="hint">A suggestion for which applications to read first. It never decides, and it ignores grades, writing style, names, addresses and schools.</p>' +
+        '<ul>' + (a.ai_reasons || []).map(function (r) {
+          return '<li>' + esc(r.reason) + (r.quote ? '<q>' + esc(r.quote) + '</q>' : '') + '</li>';
+        }).join('') + '</ul>' +
+        (d.overrides.length ? '<div style="margin-top:12px;">' + d.overrides.map(function (o) {
+          return '<div class="callout blue" style="margin-top:6px;"><b>' + esc(reviewerById(o.reviewer_id).name) + ' disagrees:</b> ' + esc(o.reason || '(no reason given)') + '</div>';
+        }).join('') + '</div>' : '') +
+        '<details style="margin-top:12px;"><summary class="hint" style="cursor:pointer; margin:0;">I disagree with this suggestion</summary>' +
+          '<form id="overrideForm" class="stack" style="margin-top:8px;"><label for="overrideReason" class="sr-only">Why</label>' +
+          '<textarea class="input" id="overrideReason" placeholder="What did it miss?" style="min-height:64px;"></textarea>' +
+          '<div><button class="btn btn-ghost" type="submit">Log disagreement</button></div></form></details>' +
+        '<div class="model">' + esc(a.ai_model || '') + '</div>' +
+      '</div>') : '';
+
+    var decision = '';
+    if (canFinal()) {
+      decision =
+        '<div class="card"><h2>' + ICON.gavel + 'Your final decision</h2>' +
+          (a.final_decision ? '<div class="decision-saved">' + esc(DEC_LABEL[a.final_decision]) + (a.award_amount ? ' · ' + money(a.award_amount) : '') + (a.payee ? ' · paid to ' + esc(a.payee) : '') + '<span class="sub">' + esc(date(a.decided_at, true)) + '</span></div>' : '') +
+          '<form id="decisionForm" class="stack">' +
+            '<div class="field"><label for="decSel">Decision</label><select class="input" id="decSel">' +
+              opt('', 'Choose…', a.final_decision || '') + opt('fund', 'Fund', a.final_decision) + opt('fund_tier2', 'Fund · tier 2', a.final_decision) +
+              opt('hold', 'Hold', a.final_decision) + opt('decline', 'Decline', a.final_decision) + '</select></div>' +
+            '<div class="field"><label for="decAmt">Award amount</label><input class="input" id="decAmt" inputmode="decimal" placeholder="$" value="' + esc(a.award_amount == null ? '' : a.award_amount) + '" /></div>' +
+            '<div class="field"><label for="decPayee">Paid to (school or employer)</label><input class="input" id="decPayee" value="' + esc(a.payee || x.institution || '') + '" /></div>' +
+            '<div style="display:flex; gap:8px;"><button class="btn btn-primary" type="submit">Save decision</button>' +
+            (a.final_decision ? '<button class="btn btn-ghost" type="button" id="clearDecision">Clear</button>' : '') + '</div>' +
+            '<p class="hint" style="margin:0;">Saving here doesn’t contact the student. Decision letters go out by hand.</p>' +
+          '</form></div>';
+    } else if (a.final_decision) {
+      decision = '<div class="card"><h2>' + ICON.gavel + 'Final decision</h2><div class="decision-saved" style="margin:0;">' + esc(DEC_LABEL[a.final_decision]) + (a.award_amount ? ' · ' + money(a.award_amount) : '') + '<span class="sub">by ' + esc(reviewerById(a.decided_by).name) + ', ' + esc(date(a.decided_at)) + '</span></div></div>';
+    }
+
+    var urgent = canAdmin()
+      ? '<form id="urgentForm" class="stack" style="margin-top:12px; padding-top:12px; border-top:1px solid #EEF1F5;">' +
+          '<label class="check"><input type="checkbox" id="urgentBox"' + (a.urgent ? ' checked' : '') + ' /> Urgent: decide early</label>' +
+          '<label for="urgentNote" class="sr-only">Why it\u2019s urgent</label>' +
+          '<input class="input" id="urgentNote" placeholder="Why it\u2019s urgent (reviewers see this)" value="' + esc(a.urgent_note || '') + '" />' +
+          '<div><button class="btn btn-ghost" type="submit">Save urgent status</button></div></form>'
+      : '';
+
+    var auditHtml = d.audit.length ? d.audit.map(function (e) {
+      return '<li><b>' + esc(reviewerById(e.actor).name) + '</b> · ' + esc(auditText(e)) + ' · ' + esc(date(e.at, true)) + '</li>';
+    }).join('') : '<li>No changes yet.</li>';
+
+    $('#view').innerHTML =
+      '<a class="back" href="#/">' + ICON.back + 'All applications</a>' +
+      '<div class="detail-head"><div>' +
+        '<h1>' + esc(name) + '</h1>' +
+        '<div class="chips">' +
+          (a.urgent ? chip('chip-orange', 'Urgent', ICON.alert) : '') +
+          '<span class="chip chip-outline ' + focusClass(a.focus_area) + '">' + esc(a.focus_area) + '</span>' +
+          chip('chip-outline', a.school + (a.homeschool_area ? ' (' + a.homeschool_area + ' area)' : '')) +
+          chip(TIER_CHIP[tier], 'ZIP ' + a.zip + ' · ' + TIER_LABEL[tier]) +
+          (state.blind ? '' : chip('chip-outline', a.id)) +
+          (a.is_sample ? chip('chip-brass', 'Sample') : '') +
+        '</div>' +
+        (a.urgent && a.urgent_note ? '<div class="callout" style="margin-top:10px;">' + esc(a.urgent_note) + '</div>' : '') +
+      '</div><div class="mono" style="color:var(--steel-gray);">Submitted ' + esc(date(a.submitted_at, true)) + '</div></div>' +
+
+      '<div class="detail-grid"><div>' +
+        '<div class="card"><h2>' + ICON.goal + 'What they want to do</h2>' +
+          '<p style="margin:0 0 10px; font-weight:700;">' + esc(a.profession) + '</p>' + goal + '</div>' +
+        '<div class="card"><h2>' + ICON.activity + 'Activities and work</h2>' + kv([
+          ['In school', x.activities_school], ['Community, family and work', x.activities_community]]) + '</div>' +
+        '<div class="card"><h2>' + ICON.plan + 'Program and cost</h2>' + kv([
+          ['Program', a.institution], ['Level', x.study_level], ['Year', x.study_year], ['Starts', x.start_date],
+          ['Annual cost', money(a.annual_cost)], ['Other aid', x.other_aid],
+          ['Financial aid office', [x.aid_contact, x.aid_email].filter(Boolean).join(' · ')]]) + '</div>' +
+        '<div class="card"><h2>' + ICON.letter + 'Recommendation letters (' + d.letters.length + ' of 2)</h2>' + letters + '</div>' +
+        '<div class="card"><h2>' + ICON.person + 'Student and school</h2>' + kv([
+          ['Name', state.blind ? 'Hidden (name-blind)' : a.first_name + ' ' + a.last_name],
+          ['Email', state.blind ? 'Hidden' : a.email], ['Phone', state.blind ? 'Hidden' : a.phone],
+          ['Address', state.blind ? 'Hidden' : [a.addr1, a.city, 'IL', a.zip].filter(Boolean).join(', ')],
+          ['City / ZIP', a.city + ' ' + a.zip], ['High school', a.school], ['Graduation', a.grad_date],
+          ['Transcript requested', x.transcript_requested]]) + '</div>' +
+      '</div>' +
+
+      '<div class="side">' +
+        '<div class="card"><h2>' + ICON.check + 'Your recommendation</h2>' +
+          '<div class="seg" role="group" aria-label="Your recommendation">' +
+            ['tier1', 'tier2', 'decline', 'reviewed'].map(function (k) {
+              return '<button type="button" data-rec="' + k + '" aria-pressed="' + (myRec === k) + '">' + esc(k === 'reviewed' ? 'Reviewed, no pick' : REC_LABEL[k]) + '</button>';
+            }).join('') + '</div>' +
+          '<p class="hint">Click again to clear. ' + (canFinal() ? 'This is your reviewer pick; the final decision is below.' : 'Bob makes the final call.') + '</p></div>' +
+        decision +
+        flag +
+        '<div class="card"><h2>' + ICON.list + 'Checklist</h2>' +
+          '<label class="check"><input type="checkbox" data-check="transcript_received"' + (a.transcript_received ? ' checked' : '') + ' /> Transcript received (arrives at info@)</label>' +
+          '<label class="check" style="margin-top:8px;"><input type="checkbox" data-check="cost_estimate_received"' + (a.cost_estimate_received ? ' checked' : '') + ' /> Cost estimate received</label>' +
+          '<p class="hint" style="margin-top:8px;">Letters: ' + d.letters.length + ' of 2</p>' + urgent + '</div>' +
+        '<div class="card"><h2>' + ICON.note + 'Reviews and notes</h2>' + recsHtml +
+          '<div class="notes" style="margin-top:14px;">' + notesHtml + '</div>' +
+          '<form id="noteForm" class="stack"><label for="noteBody" class="sr-only">Add a note</label>' +
+          '<textarea class="input" id="noteBody" maxlength="4000" placeholder="Add a note for the committee…"></textarea>' +
+          '<div><button class="btn btn-primary" type="submit">Add note</button></div></form></div>' +
+        '<div class="card"><details class="audit"><summary>Change history (' + d.audit.length + ')</summary><ul class="audit-list">' + auditHtml + '</ul></details></div>' +
+      '</div></div>';
+
+    // Wire up
+    $all('.seg button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-rec');
+        var next = myRec === k ? null : k;
+        post({ action: 'recommend', app_id: a.id, recommendation: next }).then(function () {
+          toast(next ? 'Saved: ' + REC_LABEL[next] : 'Recommendation cleared');
+          refreshAfterChange(a.id);
+        });
+      });
+    });
+    $('#noteForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var body = $('#noteBody').value.trim();
+      if (!body) return;
+      post({ action: 'note', app_id: a.id, body: body }).then(function () { toast('Note added'); refreshAfterChange(a.id); });
+    });
+    $all('[data-check]').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        post({ action: 'checklist', app_id: a.id, field: cb.getAttribute('data-check'), value: cb.checked })
+          .then(function () { toast('Checklist updated'); refreshAfterChange(a.id); })
+          .catch(function () { cb.checked = !cb.checked; });
+      });
+    });
+    var uf = $('#urgentForm');
+    if (uf) uf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var on = $('#urgentBox').checked;
+      post({ action: 'urgent', app_id: a.id, value: on, note: on ? $('#urgentNote').value : '' })
+        .then(function () { toast(on ? 'Marked urgent' : 'Urgent cleared'); refreshAfterChange(a.id); });
+    });
+    var of = $('#overrideForm');
+    if (of) of.addEventListener('submit', function (e) {
+      e.preventDefault();
+      post({ action: 'flag_override', app_id: a.id, reason: $('#overrideReason').value }).then(function () { toast('Disagreement logged'); refreshAfterChange(a.id); });
+    });
+    var df = $('#decisionForm');
+    if (df) {
+      df.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var dec = $('#decSel').value;
+        if (!dec) { toast('Choose a decision first', true); return; }
+        post({ action: 'decision', app_id: a.id, final_decision: dec, award_amount: $('#decAmt').value.replace(/[$,\s]/g, ''), payee: $('#decPayee').value })
+          .then(function () { toast('Decision saved'); refreshAfterChange(a.id); });
+      });
+      var cd = $('#clearDecision');
+      if (cd) cd.addEventListener('click', function () {
+        post({ action: 'decision', app_id: a.id, final_decision: null }).then(function () { toast('Decision cleared'); refreshAfterChange(a.id); });
+      });
+    }
+  }
+
+  function auditText(e) {
+    var dt = e.detail || {};
+    switch (e.action) {
+      case 'recommendation': return dt.recommendation ? 'recommended ' + REC_LABEL[dt.recommendation] : 'cleared their recommendation';
+      case 'note': return 'added a note';
+      case 'checklist': return (dt.value ? 'checked ' : 'unchecked ') + String(dt.field || '').replace(/_/g, ' ');
+      case 'urgent': return dt.value ? 'marked urgent' : 'cleared urgent';
+      case 'final_decision': return dt.final_decision ? 'final decision: ' + DEC_LABEL[dt.final_decision] + (dt.award_amount ? ' (' + money(dt.award_amount) + ')' : '') : 'cleared the final decision';
+      case 'flag_override': return 'disagreed with the suggested reading order';
+      default: return e.action;
+    }
+  }
+
+  // Re-fetch the detail and the list so counts, chips and the audit log stay true to the database.
+  function refreshAfterChange(id) {
+    return Promise.all([
+      api('GET', { action: 'app', id: id }).then(function (d) { state.detail = d; }),
+      api('GET', { action: 'bootstrap' }).then(applyBootstrap)
+    ]).then(renderDetail).catch(function () {});
+  }
+
+  // --------------------------------------------------------- settings view
+  function renderSettings() {
+    var t = state.zipTiers;
+    var editable = canAdmin();
+    $('#view').innerHTML =
+      '<div class="page-head"><div><h1>Settings</h1><p>How the tool sorts applications by distance, and how to get it ready for real applicants.</p></div></div>' +
+      '<div class="detail-grid"><div>' +
+        '<div class="card"><h2>' + ICON.list + 'Distance tiers by ZIP</h2>' +
+          (t.placeholder ? '<div class="callout" style="margin-bottom:14px;"><b>Placeholder lists.</b> Bob decides which ZIP codes are the core area and which are the edge (tier 2). Anything on neither list shows as “outside the area.”</div>' : '') +
+          '<form id="zipForm" class="stack">' +
+            '<div class="field"><label for="zipCore">Core area ZIPs</label><textarea class="input" id="zipCore"' + (editable ? '' : ' readonly') + '>' + esc(t.core.join(', ')) + '</textarea></div>' +
+            '<div class="field"><label for="zipEdge">Edge of area ZIPs (tier 2)</label><textarea class="input" id="zipEdge"' + (editable ? '' : ' readonly') + '>' + esc(t.edge.join(', ')) + '</textarea></div>' +
+            (editable ? '<div><button class="btn btn-primary" type="submit">Save ZIP lists</button></div>' : '<p class="hint">Only Bob or Gary can change these.</p>') +
+          '</form></div>' +
+      '</div><div>' +
+        '<div class="card"><h2>' + ICON.alert + 'Before real applications (Dec 1)</h2>' +
+          '<ul style="margin:0; padding-left:18px; font-size:14px; display:grid; gap:6px;">' +
+            '<li>Delete the sample data (SQL below).</li>' +
+            '<li>Replace pick-your-name with individual logins.</li>' +
+            '<li>Connect /apply and /recommend so submissions land here.</li>' +
+            '<li>Bob’s real core and edge ZIP lists.</li>' +
+            '<li>Decide on a live AI reading-order flag (de-identified text only).</li>' +
+          '</ul>' +
+          (canAdmin() ? '<p class="hint" style="margin-top:14px;">Sample cleanup, in the Supabase SQL editor:</p><pre class="sql">delete from public.review_applications where is_sample;\ndelete from public.review_reviewers    where is_sample;\ndelete from public.review_audit        where is_sample;</pre>' : '') +
+        '</div>' +
+      '</div></div>';
+    var zf = $('#zipForm');
+    if (editable) zf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      function parse(s) { return s.split(/[\s,]+/).filter(Boolean); }
+      post({ action: 'settings', key: 'zip_tiers', value: { core: parse($('#zipCore').value), edge: parse($('#zipEdge').value) } })
+        .then(function (r) { state.zipTiers = r.value; toast('ZIP lists saved'); renderSettings(); });
+    });
+  }
+
+  // ---------------------------------------------------------------- router
+  function route() {
+    if (!state.me) return;
+    var h = location.hash || '#/';
+    var m = h.match(/^#\/app\/(.+)$/);
+    $all('[data-nav]').forEach(function (a) { a.removeAttribute('aria-current'); });
+    if (m) {
+      loadDetail(decodeURIComponent(m[1]));
+    } else if (h === '#/settings') {
+      $('[data-nav="settings"]').setAttribute('aria-current', 'page');
+      renderSettings();
+    } else {
+      $('[data-nav="list"]').setAttribute('aria-current', 'page');
+      renderList();
+    }
+    window.scrollTo(0, 0);
+    $('#view').focus({ preventScroll: true });
+  }
+
+  function applyBootstrap(d) {
+    state.reviewers = d.reviewers || [];
+    state.apps = d.applications || [];
+    var zt = (d.settings || []).filter(function (s) { return s.key === 'zip_tiers'; })[0];
+    if (zt) state.zipTiers = { core: zt.value.core || [], edge: zt.value.edge || [], placeholder: !!zt.value.placeholder };
+    if (state.me) state.me = reviewerById(state.me.id);
+  }
+
+  function boot() {
+    if (!state.key) { showPassword(); return; }
+    showGate('<div class="gate-card"><p style="margin:0;">Loading…</p></div>');
+    api('GET', { action: 'bootstrap' }).then(function (d) {
+      applyBootstrap(d);
+      try { var sf = JSON.parse(store('get', FILTER_STORE, sessionStorage) || 'null'); if (sf) state.filters = Object.assign(defaultFilters(), sf); } catch (e) {}
+      var saved = store('get', ME_STORE);
+      var found = saved && state.reviewers.filter(function (r) { return r.id === saved; })[0];
+      if (found) {
+        state.me = found;
+        var savedBlind = store('get', BLIND_STORE + ':' + found.id);
+        state.blind = savedBlind === null ? found.role === 'reviewer' : savedBlind === '1';
+        enterShell();
+      } else {
+        showWho();
+      }
+    }).catch(function (e) {
+      if (e.message === 'locked') return;
+      showGate('<div class="gate-card"><h1>Can’t load</h1><p>' + esc(e.message) + '</p><button class="btn btn-primary" id="retry">Try again</button></div>');
+      $('#retry').addEventListener('click', boot);
+    });
+  }
+
+  $('#whoBtn').addEventListener('click', function () { store('del', ME_STORE); state.me = null; showWho(); });
+  $('#blindToggle').addEventListener('change', function (e) {
+    state.blind = e.target.checked;
+    store('set', BLIND_STORE + ':' + state.me.id, localStorage, state.blind ? '1' : '0');
+    if (/^#\/app\//.test(location.hash) && state.detail) renderDetail(); else route();
+  });
+  window.addEventListener('hashchange', route);
+  boot();
+})();
+</script>
+</body>
+</html>
