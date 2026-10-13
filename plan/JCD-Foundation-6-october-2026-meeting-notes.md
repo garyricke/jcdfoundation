@@ -63,7 +63,7 @@ Early in the meeting Bob said "I'd like to go live with the website, probably No
 - **Domain:** Bob's IT contact is **Jon Michael, Rockwell Solutions Group** (jon@rockwellsolutionsgroup.net). **Done:** Bob emailed the intro at 9:05am Oct 6. Transcript: "it's John Michael … let me send it to you." Later: "We got the domain."
 - **Fairview:** send them **only the single film**, not every clip. "I'll send you the Fairview, the single video … just that one." → `/fairview-film` (Gary's draft "Fairview Videos" already has the link).
 - **Career spotlight (garbled):** "The career spotlight … the first career, we'll feature dental hygienists. And the next career will feature something else." *Interpretation:* a rotating career spotlight on the site, starting with Fairview / dental hygiene, instead of fixed content for each of the three areas.
-- **Imagery note:** "it might be better if you could find a Black man in health sciences … [so we] don't connotate minorities with … low-wage work." → Review hero and sector imagery for this.
+- **Application cover photo:** reacting to the /apply cover (a Black woman at a shop workbench), Bob said "Working at a work [bench] or whatever… it might be better if you could find a Black man in health sciences… [so we] don't connotate minorities with … low-wage work." → **Done Oct 13:** /apply cover swapped to a Black man in a clinical skills room (`jcd/flyer-health`).
 - **Third payment:** "we got this understanding for the website, which will wrap up, and I'll pay that final $6,000." → Bob expects the M3 invoice when the site wraps.
 - **Not discussed** (per the transcript): Vocational vs. Building Trades, whether info@ receives mail, the "twelve" schools line in the narration, John video visuals, launch budget ($2K–$5K). Carry these forward.
 
@@ -121,7 +121,7 @@ Bob wants Gary "intimately involved in the administration … because I'm not te
 | **Gary** | Admin/review tool spec: filters, notes, tiers, AI flagging |
 | **Gary** | Welcome-video test pilot |
 | **Gary** | Ongoing admin/support proposal (retainer) |
-| **Gary** | Imagery: a Black man in health sciences |
+| ~~**Gary**~~ | ~~Application cover: a Black man in health sciences~~ — done Oct 13 |
 | **Gary** | Invoice M3 ($6,000) when the site wraps |
 | **Bob + Jack** | Site videos at a manufacturer and a nursing site; school calls and visits |
 | **Carry forward** | Vocational vs Building Trades · info@ inbox · "twelve" in the narration · John video visuals · launch budget |
