@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>What We Fund — JCD Foundation</title>
-  <meta name="description" content="JCD funds tuition and the costs that actually stop people from starting — transportation, tools, work boots, supplies and required clothing — across advanced manufacturing, health sciences and the building trades." />
+  <meta name="description" content="JCD funds tuition and selected expenses, case by case, for Fox Valley students headed into advanced manufacturing, health sciences and the building trades." />
   <link rel="icon" type="image/svg+xml" href="assets/logo-v2/jcd-foundation-favicon-26may2026.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -202,7 +202,7 @@
        Both layers disappear; quote provenance stays in the source. */
     .internal-only { display: none; }
     body.draft .internal-only { display: block; }
-    .pull cite, .leg .src { display: none; }
+    .pull cite, .leg .src, .boots cite { display: none; }
     body.draft.show-sourcing .pull cite,
     body.draft.show-sourcing .leg .src { display: block; }
     .srctoggle {
@@ -256,10 +256,10 @@
     <div class="container">
       <span class="label">What We Fund</span>
       <h1>Tuition is the easy part.</h1>
-      <p>Most scholarships write a check to a school and call it done. That check doesn't get you to
-        the job site at 6 a.m., and it doesn't put steel-toed boots on your feet on day one. JCD
-        funds the whole distance &mdash; because the gap between &ldquo;accepted&rdquo; and
-        &ldquo;actually showed up&rdquo; is where people fall out.</p>
+      <p>Most scholarships write a check to a school and call it done. But tuition alone doesn't get
+        you to the job site at 6 a.m. on day one. JCD funds tuition and selected expenses, decided
+        case by case &mdash; because the gap between &ldquo;accepted&rdquo; and &ldquo;actually showed
+        up&rdquo; is where people fall out.</p>
       <span class="hand">We&rsquo;ll help you get there.</span>
     </div>
   </header>
@@ -268,10 +268,10 @@
   <section class="band">
     <div class="container">
       <span class="label">01 &middot; The scope</span>
-      <h2 class="sec">Two kinds of cost.<br>We cover <span class="scribble">both.</span></h2>
+      <h2 class="sec">Two kinds of cost.<br>We look at <span class="scribble">both.</span></h2>
       <p class="sec-lede">Here's the reason this foundation looks different on paper: the barrier
-        that stops a kid from starting a career usually isn't the tuition bill. It's the four hundred
-        dollars of stuff nobody budgets for.</p>
+        that stops someone from starting a career isn't always the tuition bill. Sometimes it's the
+        stuff nobody budgets for.</p>
 
       <div class="buckets">
         <div class="bucket one">
@@ -283,8 +283,9 @@
             Every scholarship in the region does this.</p>
         </div>
         <div class="bucket two">
-          <div class="cap">Bucket 02 &mdash; what almost nobody funds</div>
+          <div class="cap">Bucket 02 &mdash; selected expenses</div>
           <h3>The costs that actually stop people</h3>
+          <p style="font-size:15px; margin-bottom:6px;">The kinds of things we look at, case by case:</p>
           <ul class="costlist">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 17H3v-6l2-5h9l4 5h2v6h-2"/><path d="M9 17h6"/></svg>
@@ -303,6 +304,7 @@
               <div><b>Supplies &amp; safety gear.</b><span>Books, a welding helmet, PPE. Manufacturing floors have safety requirements a new hire has to meet before they're allowed to work.</span></div>
             </li>
           </ul>
+          <p style="font-size:14px; color:var(--steel-gray); margin:14px 0 0;">What's covered, and how much, depends on the program and your situation. Tell us what's in your way.</p>
         </div>
       </div>
 
@@ -324,11 +326,11 @@
       <span class="label">02 &middot; The three sectors</span>
       <h2 class="sec">Where the money goes.</h2>
       <p class="sec-lede">Three paths, chosen because they're the three worlds John C. Dunham
-        actually worked in &mdash; not because a report said so. <a class="inline" href="about.html">That
+        actually worked in &mdash; not because a report said so. <a class="inline" href="about">That
         story is here.</a></p>
 
       <div class="sectors">
-        <div class="sector m">
+        <div class="sector m" id="manufacturing">
           <div class="tag">01 &middot; Advanced Manufacturing</div>
           <h3>Build the things the region runs on.</h3>
           <p>Machining, welding, industrial tech, automation and the machines behind them. It's the
@@ -336,7 +338,7 @@
             yet reaching young people at all.</p>
           <div class="roles">Machinist · CNC operator<br>Welder · industrial maintenance<br>Injection molding · automation tech<br><em style="color:var(--mid-gray);">Final list [TK] — building from College of DuPage's program catalog</em></div>
         </div>
-        <div class="sector h">
+        <div class="sector h" id="health">
           <div class="tag">02 &middot; Health Sciences</div>
           <h3>The clinicians your community needs.</h3>
           <p>Short credentials into real clinical careers, plus the nursing route. Our view of who
@@ -344,7 +346,7 @@
             the techs who assist them.</p>
           <div class="roles">Registered nurse<br>Radiology tech · dental hygiene<br>Phlebotomy · lab tech<br><em style="color:var(--mid-gray);">Expanding from COD's certification list [TK]</em></div>
         </div>
-        <div class="sector t">
+        <div class="sector t" id="trades">
           <div class="tag">03 &middot; Building Trades</div>
           <h3>Learn a trade. Get paid to do it.</h3>
           <p>A fragmented field where nearly everyone trains their own. We expect the strongest
@@ -365,30 +367,15 @@
         sized to what the program costs and what the student's situation actually requires &mdash;
         we don't want to be backed into a box.</p>
 
-      <div class="awards">
-        <div class="award">
-          <div class="cap">Example &mdash; four-year nursing route</div>
-          <div class="big">About half<br>the tuition.</div>
-          <p>A student headed into a nursing program at a private university running roughly $30K a
-            year. JCD would expect to cover something on the order of half.</p>
-        </div>
-        <div class="award">
-          <div class="cap">Example &mdash; community-college certificate</div>
-          <div class="big">Up to<br>all of it.</div>
-          <p>A health-sciences technician certificate at around $3K. For a student with real need,
-            that's a case where JCD covers the whole thing.</p>
-        </div>
-      </div>
-
       <div class="pull" style="margin-top: 44px; border-left-color: var(--brass-gold);">
         <span class="q">Unless the circumstances dictate 100% funding, it's not going to be a couple
           thousand bucks a year. It's gonna be some real money.</span>
         <cite>Source: Bob Vaughan, June 26 2026. Verbatim.</cite>
       </div>
 
-      <p style="max-width:66ch;">Those two figures are illustrations, not a published schedule. A
-        formal award table gets set before the January window opens.
-        <span class="mono" style="font-size:13.5px;">[TK &mdash; award schedule to be finalized]</span></p>
+      <p style="max-width:66ch;">There's no published maximum and no published percentage. Every
+        award is decided case by case by a review committee with experience in all three fields,
+        and every applicant hears back by March 31.</p>
     </div>
   </section>
 
@@ -396,27 +383,24 @@
   <section class="band">
     <div class="container">
       <span class="label">04 &middot; How the money moves</span>
-      <h2 class="sec">Reimbursement, not<br>a check to a bursar.</h2>
-      <p class="sec-lede">JCD is a <strong>501(c)(3) private operating foundation</strong>. That
-        structure is the reason we can reimburse real costs directly, rather than only routing tuition
-        through an institution.</p>
+      <h2 class="sec">Paid straight to<br>where it's needed.</h2>
+      <p class="sec-lede">JCD is a <strong>501(c)(3) private operating foundation</strong>. Tuition is
+        paid directly to the school. Other approved costs are paid to the school or the employer
+        you're training with, electronically, so nothing gets lost on the way.</p>
 
       <div class="body-copy">
-        <div class="pull">
-          <span class="q">Because we're an operating foundation, we can reimburse the people for
-            those costs.</span>
-          <cite>Source: Bob Vaughan, June 26 2026. Verbatim.</cite>
-        </div>
-
-        <p>The practical logic is simple. Colleges don't want to administer a boots-and-bus-fare
-          line item, and neither does a small electrical contractor &mdash; ask one to cut a separate
-          check and you'll get a straight answer about how much they don't want to mess with it. So
-          the most likely design is reimbursing the student directly for documented costs.</p>
+        <p>The practical logic is simple. You shouldn't have to front money you don't have and wait
+          to be paid back, and a small contractor shouldn't have to run a new line item for you. So
+          we work it out with the school or employer directly, case by case.</p>
       </div>
 
       <div class="openitem internal-only">
-        <div class="cap">Open item &mdash; do not publish this section as settled</div>
-        <p><strong>Bob has not finalized who the payee is.</strong> His exact position on June 26 was
+        <div class="cap">Updated Oct 6 &mdash; Bob answered; one check still open</div>
+        <p><strong>Oct 6:</strong> tuition goes to the institution; tools possibly through the
+          employer; payments by ACH, never to the student if avoidable. Copy above now says that.
+          <strong>Still open (Bob):</strong> accountant check on 1099s / any direct-to-student
+          payment, and whether FAFSA is legally required.</p>
+        <p style="color:var(--steel-gray);"><em>History:</em> <strong>Bob had not finalized who the payee was.</strong> His exact position on June 26 was
           that he's leaning toward reimbursing the individual, followed immediately by &ldquo;I said
           that, but I've got to research it.&rdquo; This reverses the earlier, widely-repeated JCD
           line &mdash; &ldquo;disbursed to schools and employers, never to individuals&rdquo; &mdash;
@@ -450,8 +434,8 @@
         </div>
         <div class="emp-card">
           <h4>We cover what's outside your norm</h4>
-          <p>Transportation, tools, boots, required clothing &mdash; whatever sits beyond what you'd
-            normally supply an apprentice. Your wage stays your wage.</p>
+          <p>Selected costs that sit beyond what you'd normally supply an apprentice, decided case
+            by case. Your wage stays your wage.</p>
         </div>
         <div class="emp-card">
           <h4>It widens your candidate pool</h4>
@@ -490,8 +474,8 @@
         </div>
         <div class="emp-card" style="background: transparent; border-color: rgba(255,255,255,0.2); border-left-color: var(--brass-gold);">
           <h4 style="color:#fff;">Show up prepared</h4>
-          <p style="color:rgba(255,255,255,0.72);">With your tools, your boots, your gear. That's
-            precisely what JCD is funding, so there's no excuse left.</p>
+          <p style="color:rgba(255,255,255,0.72);">With your tools, your gear and your homework
+            done. If something is standing in the way, tell us.</p>
         </div>
         <div class="emp-card" style="background: transparent; border-color: rgba(255,255,255,0.2); border-left-color: var(--brass-gold);">
           <h4 style="color:#fff;">Do the work of learning</h4>
@@ -510,12 +494,12 @@
   <!-- ================= CTA ================= -->
   <section class="cta">
     <div class="container">
-      <span class="sticker gold">Window opens Jan 1, 2027</span>
+      <span class="sticker gold">Applications open Dec 1, 2026</span>
       <h2 style="margin-top:26px;">Tell us what you<br>want to do.</h2>
       <p>Three hundred words, no fee, no transcript minimum, no questions about your family's money.
-        Applications run January 1 through March 31.</p>
+        Applications run December 1 through February 28. Everyone hears back by March 31.</p>
       <a class="btn" href="apply">Start an application</a>
-      <a class="btn ghost" href="about.html">Read our story</a>
+      <a class="btn ghost" href="about">Read our story</a>
     </div>
   </section>
 

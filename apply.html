@@ -1198,6 +1198,23 @@
     .submitted img { width: 100%; max-width: 720px; margin: 0 auto 40px; }
     .submitted .ref { font-family: var(--font-mono); letter-spacing: 0.12em; color: var(--deep-charcoal); }
     .bot-field { position: absolute; left: -9999px; }
+
+    /* ---------- window gate: before Dec 1 / after Feb 28 the form is replaced by a notice ---------- */
+    .window-notice { display: none; }
+    body.window-shut .app-shell { display: none; }
+    body.window-shut .window-notice { display: block; }
+    body.window-shut .topbar-meta, body.window-shut .save-indicator { display: none; }
+    .window-notice { max-width: 760px; margin: 0 auto; padding: 96px 24px 120px; }
+    .window-notice .wn-tag { font-family: var(--font-mono, monospace); font-size: 12px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--brass-gold); margin-bottom: 18px; }
+    .window-notice h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 7vw, 68px);
+      line-height: 0.98; letter-spacing: -0.015em; color: var(--equipto-blue); margin-bottom: 24px; }
+    .window-notice p { font-size: 18px; line-height: 1.6; margin-bottom: 16px; max-width: 60ch; }
+    .window-notice .wn-dates { display: flex; flex-wrap: wrap; gap: 12px 32px; margin: 28px 0 34px;
+      font-family: var(--font-mono, monospace); font-size: 14px; }
+    .window-notice .wn-dates b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 22px;
+      color: var(--equipto-blue); letter-spacing: 0; }
+    .window-notice .wn-links { display: flex; flex-wrap: wrap; gap: 14px; }
   </style>
 </head>
 <body>
@@ -1217,6 +1234,22 @@
       </div>
     </div>
   </header>
+
+  <section class="window-notice" id="windowNotice" aria-live="polite">
+    <div class="wn-tag" id="wnTag">Cycle 2027</div>
+    <h1 id="wnTitle">Applications open<br>December 1.</h1>
+    <p id="wnBody">The 2027 application opens on December 1, 2026 and closes February 28, 2027. Everyone who applies hears back by March 31.</p>
+    <p>Want a head start? Line up a cost estimate from your program, two people who can recommend you, and a request to your high school to email us your transcript.</p>
+    <div class="wn-dates">
+      <div>Opens<b>Dec 1, 2026</b></div>
+      <div>Closes<b>Feb 28, 2027</b></div>
+      <div>Decisions<b>By Mar 31</b></div>
+    </div>
+    <div class="wn-links">
+      <a class="btn-primary" href="what-we-fund">See what we fund</a>
+      <a class="btn-primary" href="home" style="background:transparent; color:var(--equipto-blue); border:2px solid var(--equipto-blue);">Back to the home page</a>
+    </div>
+  </section>
 
   <div class="app-shell">
 
@@ -1625,6 +1658,23 @@
     </main>
   </div>
 
+  <script>
+    /* Application window: Dec 1 2026 00:00 to Feb 28 2027 23:59, Chicago time.
+       Outside it the form is hidden behind a notice. ?preview=1 bypasses this for review. */
+    (function () {
+      var OPENS  = new Date('2026-12-01T00:00:00-06:00');
+      var CLOSES = new Date('2027-03-01T00:00:00-06:00');
+      var now = new Date();
+      if (/[?&]preview=1/.test(location.search)) return;
+      if (now >= OPENS && now < CLOSES) return;
+      document.body.classList.add('window-shut');
+      if (now >= CLOSES) {
+        document.getElementById('wnTag').textContent = 'Cycle 2027 · closed';
+        document.getElementById('wnTitle').innerHTML = 'Applications are<br>closed for 2027.';
+        document.getElementById('wnBody').textContent = 'The 2027 window ran December 1 through February 28. Everyone who applied hears back by March 31.';
+      }
+    })();
+  </script>
   <script>
   (function () {
     // Text fields autosave to localStorage; attached files go to IndexedDB so

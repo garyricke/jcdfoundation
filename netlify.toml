@@ -33,3 +33,22 @@
   from = "/apply-full.html"
   to = "/apply"
   status = 301
+
+# Short sector URLs printed as QR codes on the Oct 2026 sector flyers.
+# 302 (temporary) on purpose: until applications open Dec 1 they land on the
+# matching What We Fund section; on Dec 1 retarget them (e.g. to /apply)
+# without reprinting a single flyer.
+[[redirects]]
+  from = "/manufacturing"
+  to = "/what-we-fund#manufacturing"
+  status = 302
+
+[[redirects]]
+  from = "/health"
+  to = "/what-we-fund#health"
+  status = 302
+
+[[redirects]]
+  from = "/trades"
+  to = "/what-we-fund#trades"
+  status = 302
