@@ -565,8 +565,9 @@ def main():
         req("POST", "review_settings?on_conflict=key", [{"key": "zip_tiers", "value": ZIP_TIERS}],
             prefer="resolution=merge-duplicates,return=minimal")
 
-    # Simulated cycle: "today" is Feb 20, 2027, mid-review.
-    now = datetime(2027, 2, 20, 17, 0, tzinfo=timezone.utc)
+    # Sample dates run up to the moment the script is run, so anything a
+    # tester does afterwards sorts after the sample history, not before it.
+    now = datetime.now(timezone.utc).replace(microsecond=0) - timedelta(hours=1)
     apps, letters, recs, notes, overrides, audit = [], [], [], [], [], []
     first_tran = None
 
@@ -613,14 +614,14 @@ def main():
             is_sample=True,
         ))
         for k, l in enumerate(a["letters"]):
-            letters.append(dict(app_id=aid, received_at=(submitted + timedelta(days=3 + k * 2)).isoformat(), **l))
+            letters.append(dict(app_id=aid, received_at=min(now, submitted + timedelta(days=3 + k * 2)).isoformat(), **l))
         for who, rec in a["recs"].items():
-            at = submitted + timedelta(days=rng.randint(1, max(1, a["days"] - 1)))
+            at = min(now, submitted + timedelta(days=rng.randint(1, max(1, a["days"] - 1))))
             recs.append(dict(app_id=aid, reviewer_id=who, recommendation=rec, updated_at=at.isoformat()))
             audit.append(dict(at=at.isoformat(), actor=who, app_id=aid, action="recommendation",
                               detail={"recommendation": rec}, is_sample=True))
         for k, (who, body) in enumerate(a["notes"]):
-            at = submitted + timedelta(days=1 + k, hours=rng.randint(1, 9))
+            at = min(now, submitted + timedelta(days=1 + k, hours=rng.randint(1, 9)))
             notes.append(dict(app_id=aid, reviewer_id=who, body=body, created_at=at.isoformat()))
             audit.append(dict(at=at.isoformat(), actor=who, app_id=aid, action="note",
                               detail={"length": len(body)}, is_sample=True))

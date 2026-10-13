@@ -62,7 +62,8 @@
       font-size: 13px; display: flex; gap: 10px; align-items: flex-start; }
     .sample-banner svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
 
-    main { max-width: 1320px; margin: 0 auto; padding: 24px 20px 120px; }
+    main { max-width: 1400px; margin: 0 auto; padding: 24px 20px 120px; }
+    main:focus { outline: none; }
 
     /* ---------- gate screens ---------- */
     .gate { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: var(--equipto-blue); }
@@ -105,7 +106,7 @@
     .tab[aria-pressed="true"] { background: var(--equipto-blue); border-color: var(--equipto-blue); color: #fff; }
     .tab[aria-pressed="true"] .n { background: rgba(255,255,255,0.18); color: #fff; }
 
-    .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 22px; align-items: start; }
+    .layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 20px; align-items: start; }
     .filters { background: #fff; border: 1px solid var(--border-line); border-radius: 12px; padding: 16px; display: grid; gap: 14px; position: sticky; top: 72px; }
     .filters h2 { font-size: 13px; margin: 0; font-weight: 800; display: flex; justify-content: space-between; align-items: center; }
     .filters h2 button { background: none; border: 0; color: var(--deep-brass); font-size: 12px; font-weight: 700; cursor: pointer; padding: 0; }
@@ -119,11 +120,12 @@
     .toolbar select.input { width: auto; }
     .count { font-size: 13px; color: var(--steel-gray); margin-bottom: 8px; }
 
-    .table-wrap { background: #fff; border: 1px solid var(--border-line); border-radius: 12px; overflow: hidden; }
+    .table-wrap { background: #fff; border: 1px solid var(--border-line); border-radius: 12px; overflow-x: auto; }
     table.apps { width: 100%; border-collapse: collapse; font-size: 13.5px; }
     .apps th { text-align: left; font-family: var(--font-mono); font-weight: 500; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--steel-gray); padding: 10px 12px; border-bottom: 1px solid var(--border-line); background: var(--ice-gray); white-space: nowrap; }
-    .apps td { padding: 11px 12px; border-bottom: 1px solid #E8ECF1; vertical-align: top; }
+    .apps td { padding: 11px 10px; border-bottom: 1px solid #E8ECF1; vertical-align: top; }
+    .apps td.nowrap { white-space: nowrap; }
     .apps tr:last-child td { border-bottom: 0; }
     .apps tbody tr { cursor: pointer; }
     .apps tbody tr:hover { background: #F8FAFC; }
@@ -712,6 +714,7 @@
     if (withTime) { opts.hour = 'numeric'; opts.minute = '2-digit'; }
     return d.toLocaleString('en-US', opts);
   }
+  function shortDate(s) { return s ? new Date(s).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—'; }
   function reviewerById(id) { return state.reviewers.filter(function (r) { return r.id === id; })[0] || { id: id, name: id, label: '' }; }
   function canFinal() { return state.me && state.me.role === 'final'; }
   function canAdmin() { return state.me && (state.me.role === 'final' || state.me.role === 'admin'); }
@@ -761,6 +764,7 @@
     if (state.zipTiers.edge.indexOf(zip) !== -1) return 'edge';
     return 'outside';
   }
+  function flagRank(a) { return a.ai_flag in FLAG_ORDER ? FLAG_ORDER[a.ai_flag] : 9; }
   function letterCount(a) { return a.review_letters && a.review_letters[0] ? a.review_letters[0].count : 0; }
   function noteCount(a) { return a.review_notes && a.review_notes[0] ? a.review_notes[0].count : 0; }
   function recs(a) { return a.review_recommendations || []; }
@@ -879,7 +883,7 @@
     });
     var by = {
       suggested: function (a, b) {
-        return (b.urgent - a.urgent) || ((FLAG_ORDER[a.ai_flag] || 9) - (FLAG_ORDER[b.ai_flag] || 9)) ||
+        return (b.urgent - a.urgent) || (flagRank(a) - flagRank(b)) ||
           (new Date(a.submitted_at) - new Date(b.submitted_at));
       },
       newest: function (a, b) { return new Date(b.submitted_at) - new Date(a.submitted_at); },
@@ -955,7 +959,7 @@
         '<td data-label="Focus"><b class="' + focusClass(a.focus_area) + '">' + esc(a.focus_area) + '</b><span class="sub">' + esc(a.profession) + '</span></td>' +
         '<td data-label="School">' + esc(a.school) + (a.homeschool_area ? '<span class="sub">Area: ' + esc(a.homeschool_area) + '</span>' : '') + '</td>' +
         '<td data-label="ZIP"><span class="mono">' + esc(a.zip) + '</span><span class="sub">' + chip(TIER_CHIP[tier], TIER_LABEL[tier]) + '</span></td>' +
-        '<td data-label="Submitted"><span class="mono">' + esc(date(a.submitted_at)) + '</span></td>' +
+        '<td data-label="Submitted" class="nowrap"><span class="mono">' + esc(shortDate(a.submitted_at)) + '</span></td>' +
         '<td data-label="Read order">' + (a.ai_flag ? chip(FLAG_CHIP[a.ai_flag], FLAG_LABEL[a.ai_flag]) : '') + '</td>' +
         '<td data-label="Reviews"><div class="chips">' + recChips + '</div>' + (noteCount(a) ? '<span class="sub">' + noteCount(a) + ' note' + (noteCount(a) > 1 ? 's' : '') + '</span>' : '') + '</td>' +
         '<td data-label="Missing">' + (m.length ? '<span class="sub" style="margin:0;">' + esc(m.join(' · ')) + '</span>' : chip('chip-teal', 'Complete', ICON.check)) + '</td>' +
@@ -1116,7 +1120,7 @@
               opt('', 'Choose…', a.final_decision || '') + opt('fund', 'Fund', a.final_decision) + opt('fund_tier2', 'Fund · tier 2', a.final_decision) +
               opt('hold', 'Hold', a.final_decision) + opt('decline', 'Decline', a.final_decision) + '</select></div>' +
             '<div class="field"><label for="decAmt">Award amount</label><input class="input" id="decAmt" inputmode="decimal" placeholder="$" value="' + esc(a.award_amount == null ? '' : a.award_amount) + '" /></div>' +
-            '<div class="field"><label for="decPayee">Paid to (school or employer)</label><input class="input" id="decPayee" value="' + esc(a.payee || x.institution || '') + '" /></div>' +
+            '<div class="field"><label for="decPayee">Paid to (school or employer)</label><input class="input" id="decPayee" value="' + esc(a.payee || String(x.institution || '').split(',')[0]) + '" /></div>' +
             '<div style="display:flex; gap:8px;"><button class="btn btn-primary" type="submit">Save decision</button>' +
             (a.final_decision ? '<button class="btn btn-ghost" type="button" id="clearDecision">Clear</button>' : '') + '</div>' +
             '<p class="hint" style="margin:0;">Saving here doesn’t contact the student. Decision letters go out by hand.</p>' +
@@ -1319,7 +1323,8 @@
   }
 
   function applyBootstrap(d) {
-    state.reviewers = d.reviewers || [];
+    var ROLE_ORDER = { final: 0, admin: 1, reviewer: 2 };
+    state.reviewers = (d.reviewers || []).slice().sort(function (a, b) { return (ROLE_ORDER[a.role] - ROLE_ORDER[b.role]) || a.name.localeCompare(b.name); });
     state.apps = d.applications || [];
     var zt = (d.settings || []).filter(function (s) { return s.key === 'zip_tiers'; })[0];
     if (zt) state.zipTiers = { core: zt.value.core || [], edge: zt.value.edge || [], placeholder: !!zt.value.placeholder };
