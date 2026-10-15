@@ -1120,7 +1120,7 @@
               opt('', 'Choose…', a.final_decision || '') + opt('fund', 'Fund', a.final_decision) + opt('fund_tier2', 'Fund · tier 2', a.final_decision) +
               opt('hold', 'Hold', a.final_decision) + opt('decline', 'Decline', a.final_decision) + '</select></div>' +
             '<div class="field"><label for="decAmt">Award amount</label><input class="input" id="decAmt" inputmode="decimal" placeholder="$" value="' + esc(a.award_amount == null ? '' : a.award_amount) + '" /></div>' +
-            '<div class="field"><label for="decPayee">Paid to (school or employer)</label><input class="input" id="decPayee" value="' + esc(a.payee || String(x.institution || '').split(',')[0]) + '" /></div>' +
+            '<div class="field"><label for="decPayee">Paid to (school)</label><input class="input" id="decPayee" value="' + esc(a.payee || String(x.institution || '').split(',')[0]) + '" /></div>' +
             '<div style="display:flex; gap:8px;"><button class="btn btn-primary" type="submit">Save decision</button>' +
             (a.final_decision ? '<button class="btn btn-ghost" type="button" id="clearDecision">Clear</button>' : '') + '</div>' +
             '<p class="hint" style="margin:0;">Saving here doesn’t contact the student. Decision letters go out by hand.</p>' +
@@ -1163,7 +1163,7 @@
           ['In school', x.activities_school], ['Community, family and work', x.activities_community]]) + '</div>' +
         '<div class="card"><h2>' + ICON.plan + 'Program and cost</h2>' + kv([
           ['Program', a.institution], ['Level', x.study_level], ['Year', x.study_year], ['Starts', x.start_date],
-          ['Annual cost', money(a.annual_cost)], ['Other aid', x.other_aid],
+          ['Annual cost', money(a.annual_cost)], ['Other aid', x.other_aid], ['Student Aid Index', x.sai],
           ['Financial aid office', [x.aid_contact, x.aid_email].filter(Boolean).join(' · ')]]) + '</div>' +
         '<div class="card"><h2>' + ICON.letter + 'Recommendation letters (' + d.letters.length + ' of 2)</h2>' + letters + '</div>' +
         '<div class="card"><h2>' + ICON.person + 'Student and school</h2>' + kv([

@@ -1498,7 +1498,7 @@
           <input class="f-input" id="f-inst" type="text" name="institution" placeholder="e.g. Waubonsee Community College — Welding Technology" data-save /></div>
 
         <div class="row2">
-          <div class="field" data-field="annual_cost"><label class="field-label" for="f-cost">Annual cost: tuition &amp; related expenses<span class="req">*</span></label>
+          <div class="field" data-field="annual_cost"><label class="field-label" for="f-cost">Annual cost: tuition, room &amp; board, books &amp; supplies<span class="req">*</span></label>
             <div class="money"><input class="f-input" id="f-cost" type="text" name="annual_cost" inputmode="decimal" placeholder="e.g. 8,500" data-save /></div>
             <span class="field-help">from the school's own estimate.</span></div>
         </div>
@@ -1536,6 +1536,9 @@
         <p class="chapter-lede">What other financial aid have you applied for? FAFSA, grants, other scholarships, an employer program. If none yet, just say so.</p>
         <div class="field" data-field="other_aid"><label class="field-label" for="f-aid">Other financial aid<span class="req">*</span></label>
           <textarea class="f-textarea" id="f-aid" name="other_aid" placeholder="e.g. Filed FAFSA in October. Applied for the Illinois MAP grant." data-save></textarea></div>
+        <div class="field" data-field="sai" style="max-width: 320px;"><label class="field-label" for="f-sai">Student Aid Index (SAI)</label>
+          <input class="f-input" id="f-sai" type="text" name="sai" inputmode="numeric" placeholder="e.g. 4,200" data-save />
+          <span class="field-help">From your FAFSA Submission Summary, if you've filed. Leave it blank if you haven't.</span></div>
       </section>
 
       <!-- ============ CH 07 — RECOMMENDATIONS ============ -->
@@ -1962,6 +1965,7 @@
         ['Cost estimate', fileName('cost_estimate_file'), 'ch-program'],
         ['Aid office', s.aid_contact, 'ch-program'],
         ['Other aid', s.other_aid ? s.other_aid.slice(0, 80) + (s.other_aid.length > 80 ? '…' : '') : '', 'ch-aid'],
+        ['Student Aid Index', s.sai || '', 'ch-aid'],
         ['Recommender #1', s.letter1_name, 'ch-letters'],
         ['Recommender #2', s.letter2_name, 'ch-letters'],
         ['Transcript requested', s.transcript_requested, 'ch-transcript']
