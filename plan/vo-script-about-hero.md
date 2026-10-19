@@ -37,7 +37,7 @@
 >
 > This is what it's for.
 >
-> We provide financial assistance for young people graduating from twelve Fox Valley area high schools, pursuing careers in advanced manufacturing, health sciences and the building trades.
+> We provide financial assistance for young people graduating from thirteen Fox Valley area high schools, pursuing careers in advanced manufacturing, health sciences and the building trades.
 >
 > We won't ask for your class rank or what you've overcome.
 >
@@ -82,7 +82,7 @@ When he died, all of it went back to the place that raised him.
 
 This is what it's for.
 
-We provide financial assistance for young people graduating from twelve Fox Valley area high schools, pursuing careers in advanced manufacturing, health sciences and the building trades.
+We provide financial assistance for young people graduating from thirteen Fox Valley area high schools, pursuing careers in advanced manufacturing, health sciences and the building trades.
 
 We won't ask for your class rank or what you've overcome.
 
@@ -172,7 +172,7 @@ Both are Bob's own, near-verbatim from 6/26, and neither sets a funding expectat
 |---|---|---|
 | Four-year college framed as the only route to a career | Bob's edit, 8/26 | Bob's own framing |
 | West Aurora High School, 1928; band, track, drama; "Ham" | Documentary 03:17 | Documented |
-| West Aurora is one of the 12 qualifying schools | JCD site + 6/26 meeting | Confirmed |
+| West Aurora is one of the 13 qualifying schools | JCD site + 6/26 meeting | Confirmed |
 | Running errands, sweeping floors at his father's factory | Documentary 03:47 | Verbatim narration |
 | The 1931 commission line from his father | Documentary ~04:10 | Verbatim quote |
 | Motorcycle lamps → sidecars → car bodies → steel shelving | Documentary 07:13 | Documented |
