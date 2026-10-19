@@ -449,6 +449,32 @@
     }
 
     /* =====================================================
+       FEATURED CAREER (rotates quarterly; full page at /featured)
+       ===================================================== */
+    .featured { padding: var(--section-pad) 0; background: var(--ice-gray); }
+    .featured-grid { display: grid; grid-template-columns: minmax(260px, 360px) 1fr; gap: 72px; align-items: center; }
+    .featured-frame { aspect-ratio: 9 / 16; width: 100%; background: #000; border: 3px solid var(--pulse-teal); box-shadow: 10px 10px 0 var(--equipto-blue); }
+    .featured-frame video { width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
+    .featured .label { color: var(--pulse-teal); }
+    .featured h2 { font-family: var(--font-display); font-size: clamp(44px, 6.5vw, 88px); line-height: 0.92; letter-spacing: -0.02em; text-transform: uppercase; color: var(--equipto-blue); margin: 16px 0 22px; }
+    .featured-lede { font-size: 19px; line-height: 1.65; max-width: 54ch; margin-bottom: 30px; }
+    .featured-stats { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line); margin-bottom: 34px; }
+    .featured-stats li { padding: 20px 18px 20px 0; }
+    .featured-stats li + li { padding-left: 18px; border-left: 1px solid var(--border-line); }
+    .featured-stats b { display: block; font-family: var(--font-display); font-size: 30px; line-height: 1; color: var(--equipto-blue); margin-bottom: 8px; }
+    .featured-stats span { font-size: 14px; line-height: 1.45; color: var(--steel-gray); display: block; }
+    .featured-link { display: inline-block; background: var(--equipto-blue); color: var(--white); font-weight: 800; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; padding: 18px 34px; box-shadow: 6px 6px 0 var(--pulse-teal); transition: transform .12s, box-shadow .12s; }
+    .featured-link:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--pulse-teal); }
+    .featured-thanks { font-size: 14px; color: var(--steel-gray); margin-top: 24px; }
+    @media (max-width: 900px) {
+      .featured-grid { grid-template-columns: 1fr; gap: 40px; }
+      .featured-frame { max-width: 320px; margin: 0 auto; }
+      .featured-stats { grid-template-columns: 1fr; }
+      .featured-stats li, .featured-stats li + li { padding: 16px 0; border-left: 0; }
+      .featured-stats li + li { border-top: 1px solid var(--border-line); }
+    }
+
+    /* =====================================================
        TRACKS (SECTORS)
        ===================================================== */
     .tracks {
@@ -1457,6 +1483,7 @@
       <div class="nav-links">
         <a href="what-we-fund">What We Fund</a>
         <a href="about">Our Story</a>
+        <a href="featured">Featured Career</a>
         <a href="#faq">FAQ</a>
         <a href="#apply" class="nav-cta">Apply</a>
       </div>
@@ -1580,6 +1607,32 @@
             <p>The trades aren't the fallback. They're the move. Real skills, good wages, and the satisfaction of building something that's still standing in 80 years.</p>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= FEATURED CAREER ========================= -->
+  <!-- Rotates quarterly (Bob, Oct 19 2026). Full page lives at /featured. -->
+  <section class="featured" id="featured">
+    <div class="container featured-grid">
+      <div class="featured-frame">
+        <video controls playsinline preload="none"
+               poster="https://res.cloudinary.com/dsbllwpbh/video/upload/so_78,q_auto,f_jpg,w_720/jcd/fairview-highlights-v2-scored.jpg">
+          <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto,vc_auto/jcd/fairview-highlights-v2-scored.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div>
+        <span class="label">Featured Career &middot; Health Sciences</span>
+        <h2>Dental<br>Hygienist.</h2>
+        <p class="featured-lede">We asked the dentists and hygienists at Fairview Dental in Aurora
+          what the job really takes. Seven questions, four minutes, their own words.</p>
+        <ul class="featured-stats">
+          <li><b>$45/hr</b><span>Starting pay for a new graduate at Fairview</span></li>
+          <li><b>3&ndash;4 yrs</b><span>High school to working, prerequisites included</span></li>
+          <li><b>Hiring</b><span>&ldquo;There&rsquo;s a shortage of hygienists out there&rdquo;</span></li>
+        </ul>
+        <a href="featured" class="featured-link">See the featured career &rarr;</a>
+        <p class="featured-thanks">With thanks to the team at Fairview Dental.</p>
       </div>
     </div>
   </section>
@@ -1785,6 +1838,7 @@
           <ul>
             <li><a href="about">Our Story</a></li>
             <li><a href="what-we-fund">What We Fund</a></li>
+            <li><a href="featured">Featured Career</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
