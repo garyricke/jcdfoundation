@@ -89,18 +89,8 @@
     .nav-cta { background: var(--brass-gold); color: var(--equipto-blue) !important; font-weight: 800; padding: 10px 20px; letter-spacing: 0.04em; }
     .nav-cta:hover { background: var(--white); }
 
-    /* ---------- internal draft banner ---------- */
-    /* One-line draft marker. The full rationale lives in status.html, not on the page.
-       At launch: delete this bar and the "draft" class on <body>. */
-    .draftbar {
-      margin-top: var(--nav-h); background: var(--deep-charcoal); color: rgba(229,233,240,0.70);
-      font-family: var(--font-mono); font-size: 11px; line-height: 1; padding: 9px 0;
-      border-bottom: 2px solid var(--safety-orange);
-    }
-    .draftbar .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .draftbar .tag { color: var(--safety-orange); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
-    .draftbar .spacer { margin-left: auto; }
-    .draftbar a { color: var(--brass-gold); text-decoration: underline; }
+    /* The fixed nav overlaps the page top; the hero starts below it. */
+    header.hero { margin-top: var(--nav-h); }
 
     /* ---------- hero: full-bleed archival video, text overlaid left ---------- */
     .hero {
@@ -367,21 +357,12 @@
     /* ---------- internal review layers ----------
        .internal-only  → visible only while <body class="draft">
        .pull cite      → visible only while <body class="draft show-sourcing">
-       At launch: delete the .draftbar block and the "draft" class on <body class="draft">.
        Both layers disappear; quote provenance stays in the source. */
     .internal-only { display: none; }
     body.draft .internal-only { display: block; }
     .pull cite, .leg .src { display: none; }
     body.draft.show-sourcing .pull cite,
     body.draft.show-sourcing .leg .src { display: block; }
-    .srctoggle {
-      display: inline-block; margin-left: 10px; padding: 4px 12px;
-      border: 1px solid var(--brass-gold); color: var(--brass-gold);
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
-      text-transform: uppercase; cursor: pointer; background: none;
-    }
-    .srctoggle:hover { background: var(--brass-gold); color: var(--deep-charcoal); }
-    body.draft.show-sourcing .srctoggle { background: var(--brass-gold); color: var(--deep-charcoal); }
 
     @media (max-width: 900px) {
       .legs, .mt, .footer-grid { grid-template-columns: 1fr; }
@@ -443,17 +424,6 @@
     </div>
   </nav>
 
-  <!-- One-line draft marker — remove at launch (with the "draft" class on <body>) -->
-  <div class="draftbar">
-    <div class="container">
-      <div class="row">
-        <span class="tag">Draft</span>
-        <span>Unverified copy &mdash; see <a href="status.html">build notes</a></span>
-        <span class="spacer"></span>
-        <button type="button" class="srctoggle" data-srctoggle aria-pressed="false">Show sourcing</button>
-      </div>
-    </div>
-  </div>
 
   <header class="hero">
     <!-- Archival montage: eleven archival images of John C. Dunham, animated with
@@ -982,7 +952,7 @@
           </span>
           <span class="admin-text">
             <span class="admin-title">Project Status</span>
-            <span class="admin-sub">Change log &amp; timeline</span>
+            <span class="admin-sub">Build notes &amp; change log</span>
           </span>
         </a>
 
@@ -1322,17 +1292,6 @@
   </footer>
 
 
-  <script>
-    (function () {
-      var btn = document.querySelector('[data-srctoggle]');
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        var on = document.body.classList.toggle('show-sourcing');
-        btn.textContent = on ? 'Hide sourcing' : 'Show sourcing';
-        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      });
-    })();
-  </script>
 
   <script>
     // ---------------------------------------------------------------------
